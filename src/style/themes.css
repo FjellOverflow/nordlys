@@ -1,0 +1,51 @@
+@layer base {
+  .theme-mono {
+    --theme-accent: 0, 0, 0;
+    --theme-bg: 255, 255, 255;
+
+    &[data-theme='dark'] {
+      --theme-accent: 255, 255, 255;
+      --theme-bg: 0, 0, 0;
+    }
+  }
+
+  .theme-nord {
+    --theme-accent: 94, 129, 172;
+    --theme-bg: 242, 244, 248;
+
+    &[data-theme='dark'] {
+      --theme-accent: 136, 192, 208;
+      --theme-bg: 36, 41, 51;
+    }
+  }
+
+  .theme-aurora {
+    --theme-accent: 0, 183, 86;
+    --theme-bg: 242, 244, 248;
+
+    &[data-theme='dark'] {
+      --theme-accent: 0, 253, 119;
+      --theme-bg: 35, 39, 48;
+    }
+  }
+
+  .theme-js {
+    --theme-accent: 0, 0, 0;
+    --theme-bg: 253, 219, 41;
+
+    &[data-theme='dark'] {
+      --theme-accent: 253, 219, 41;
+      --theme-bg: 0, 0, 0;
+    }
+  }
+
+  .theme-ubuntu {
+    --theme-accent: 231, 83, 31;
+    --theme-bg: 242, 244, 248;
+
+    &[data-theme='dark'] {
+      --theme-accent: 255, 255, 255;
+      --theme-bg: 48, 10, 36;
+    }
+  }
+}

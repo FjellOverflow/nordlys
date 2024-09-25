@@ -1,0 +1,32 @@
+---
+import Pagination from '@/components/Pagination.astro'
+import PostsList from '@/components/PostsList.astro'
+import { getPosts } from '@/helpers/util'
+import PageLayout from '@/layouts/PageLayout.astro'
+import config from '@/theme.config'
+import type { GetStaticPaths, InferGetStaticPropsType } from 'astro'
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const posts = await getPosts()
+
+  return paginate(posts, { pageSize: config.postsPerPage })
+}) satisfies GetStaticPaths
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>
+
+const { page } = Astro.props
+
+const frontmatter = {
+  title: 'Posts',
+  activeHeaderLink: 'Blog'
+}
+---
+
+<PageLayout {frontmatter}>
+  <h1>
+    {frontmatter.title}
+  </h1>
+  <PostsList posts={page.data} />
+
+  <Pagination slot="bottom" page={page} />
+</PageLayout>

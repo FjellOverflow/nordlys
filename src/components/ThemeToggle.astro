@@ -1,0 +1,21 @@
+<theme-selector></theme-selector>
+
+<script is:inline>
+  if (!customElements.get('theme-selector')) {
+    customElements.define(
+      'theme-selector',
+      class extends HTMLElement {
+        connectedCallback() {
+          this.innerHTML = `
+            <button id="theme-toggle" class="flex items-center" title="Theme toggle">
+              <span class="icon-btn tabler--moon dark:tabler--sun"></span>
+            </button>
+          `
+          this.querySelector('#theme-toggle').addEventListener('click', () => {
+            theme.setTheme(theme.getTheme() === 'light' ? 'dark' : 'light')
+          })
+        }
+      }
+    )
+  }
+</script>

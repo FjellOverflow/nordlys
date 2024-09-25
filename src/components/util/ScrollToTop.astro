@@ -1,0 +1,41 @@
+<button
+  id="scroll-to-top-btn"
+  title="Scroll to top"
+  class="!fixed bottom-8 right-8 z-10 hidden"
+>
+  <div
+    class="flex items-center gap-2 pr-2 text-theme-accent/75 hover:text-theme-accent/100"
+  >
+    <span class="iconify text-4xl tabler--arrow-up"></span>
+  </div>
+</button>
+<script>
+  document.addEventListener('astro:page-load', () => {
+    document.addEventListener('scroll', onScroll)
+
+    document
+      .querySelector('#scroll-to-top-btn')
+      ?.addEventListener('click', onClick)
+  })
+
+  function onClick() {
+    document.body.scrollTop = 0
+    document.documentElement.scrollTop = 0
+  }
+
+  function onScroll() {
+    const scrollToTopBtn = document.querySelector('#scroll-to-top-btn')
+
+    if (!scrollToTopBtn) return
+
+    const minHeight = document.documentElement.clientHeight
+    const scrollTop =
+      document.body.scrollTop || document.documentElement.scrollTop
+
+    if (scrollTop > minHeight) {
+      scrollToTopBtn.classList.remove('hidden')
+    } else {
+      scrollToTopBtn.classList.add('hidden')
+    }
+  }
+</script>

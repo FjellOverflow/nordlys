@@ -1,0 +1,37 @@
+---
+title: Astro components in MDX
+description: Showcasing usage of Nordlys built-in components in Markdown
+publishedTime: 2024-09-28T21:58:00.000Z
+draft: true
+tags:
+  - documentation
+---
+
+import MagicLink from '@/components/MagicLink.astro'
+
+With MDX, you can use JSX expressions and components within Markdown content. Simply create an `example-page.mdx` file, and you can start using the Nordlys Astro components inline!
+
+## MagicLink
+
+The `<MagicLink>` component can be used to embed and highlight specific links within the text.
+By default, a link [looks like this](#magiclink). With the `<MagicLink>` component, it <MagicLink href="#magiclink">looks like this</MagicLink>.
+
+### Display favicon
+
+By default, the favicon of the link will be displayed: <MagicLink href="https://github.com" target='_blank'>Github</MagicLink>.
+
+```md pages/example-page.mdx
+import MagicLink from '@/components/MagicLink.astro'
+
+By default, the favicon of the link will be displayed:
+<MagicLink href="https://github.com">Github</MagicLink>
+```
+
+### Display icon
+
+We can use the `icon` prop to set an icon from <MagicLink href="https://tabler.io/icons" target="_blank" icon="tabler--brand-tabler">Tabler icons</MagicLink>.
+
+```md pages/example-page.mdx
+We can use the `icon` prop to set an icon from
+<MagicLink href="https://tabler.io/icons" icon="tabler--brand-tabler">Tabler icons</MagicLink>
+```

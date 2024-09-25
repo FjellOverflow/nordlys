@@ -1,0 +1,23 @@
+---
+import type { ResolvedTag } from '@/types'
+
+export interface Props {
+  tags: ResolvedTag[]
+}
+
+const { tags } = Astro.props
+---
+
+<div class="flex gap-6 text-base">
+  {
+    tags.map(({ tag, icon }) => (
+      <a
+        class="no-underline opacity-50 hover:text-theme-accent hover:opacity-100"
+        href={`/tags/${tag}`}
+      >
+        <span class={`iconify align-middle text-xl ${icon}`} />
+        <span>{tag}</span>
+      </a>
+    ))
+  }
+</div>

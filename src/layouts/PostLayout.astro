@@ -1,0 +1,42 @@
+---
+import TagsBar from '@/components/TagsBar.astro'
+import { resolveTags, toDateString } from '@/helpers/util'
+import type { Frontmatter } from '@/types'
+import type { CollectionEntry } from 'astro:content'
+import PageLayout from './PageLayout.astro'
+
+export interface Props {
+  post: CollectionEntry<'posts'>
+}
+
+const { post } = Astro.props
+
+const {
+  Content,
+  remarkPluginFrontmatter: { readingTime }
+} = await post.render()
+
+const frontmatter = {
+  ...post.data,
+  activeHeaderLink: 'Blog',
+  scrollProgress: true
+}
+
+const publishedStr = toDateString(post.data.publishedTime as Date)
+---
+
+<PageLayout frontmatter={frontmatter as Frontmatter}>
+  <script src="@/helpers/headingAnchors.ts"></script>
+
+  <h1 class="my-4">{frontmatter.title}</h1>
+  <TagsBar tags={resolveTags(frontmatter.tags)} />
+
+  <div class="mt-4 opacity-65">
+    <span
+      >Published on <time>{publishedStr}</time> by {frontmatter.author} · {
+        readingTime
+      }
+    </span>
+  </div>
+  <Content />
+</PageLayout>

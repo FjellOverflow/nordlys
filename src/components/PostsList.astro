@@ -1,0 +1,36 @@
+---
+import TagsBar from '@/components/TagsBar.astro'
+import { resolveTags, sortPosts, toDateString } from '@/helpers/util'
+import type { CollectionEntry } from 'astro:content'
+
+export interface Props {
+  posts: CollectionEntry<'posts'>[]
+}
+
+const { posts } = Astro.props
+
+posts.sort(sortPosts)
+---
+
+<ul class="p-0">
+  {
+    posts.map(({ data, slug }) => (
+      <li class="flex flex-col gap-2">
+        <div class="flex items-center justify-between">
+          <a
+            class="text-xl underline-offset-4"
+            href={`/posts/${slug}`}
+            data-astro-prefetch
+          >
+            <span>{data.title}</span>
+          </a>
+          <time class="text-sm opacity-75">
+            {toDateString(data.publishedTime)}
+          </time>
+        </div>
+        <TagsBar tags={resolveTags(data.tags)} />
+        <div class="opacity-75">{data.description}</div>
+      </li>
+    ))
+  }
+</ul>

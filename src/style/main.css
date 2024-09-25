@@ -1,0 +1,7 @@
+@import 'custom.css';
+@import 'themes.css';
+@import 'astro-code.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

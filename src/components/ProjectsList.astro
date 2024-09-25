@@ -1,0 +1,59 @@
+---
+import { resolveTags, sortProjects, toMonthString } from '@/helpers/util'
+import type { CollectionEntry } from 'astro:content'
+import TagsBar from './TagsBar.astro'
+
+export interface Props {
+  projects: CollectionEntry<'projects'>[]
+}
+
+const { projects } = Astro.props
+
+projects.sort(sortProjects)
+
+const renderedProjects = await Promise.all(
+  projects.map(async (project) => {
+    const { Content } = await project.render()
+
+    return {
+      ...project,
+      Content
+    }
+  })
+)
+---
+
+<ul class="p-0">
+  {
+    renderedProjects.map(({ data, Content }, index) => (
+      <li class="flex flex-col">
+        <div class="flex items-center justify-between">
+          <a
+            class="mb-2 text-xl no-underline"
+            href={data.url}
+            target={data.url && !data.url.startsWith('/') ? '_blank' : '_self'}
+          >
+            <span class={data.url && `underline underline-offset-4`}>
+              {data.title}
+            </span>
+            {data.url && !data.url.startsWith('/') && (
+              <span class="iconify align-middle no-underline tabler--external-link" />
+            )}
+          </a>
+          <div class="text-sm opacity-75">
+            <time>{toMonthString(data.startTime)}</time> -
+            {data.endTime && <time>{toMonthString(data.endTime)}</time>}
+            {!data.endTime && 'Now'}
+          </div>
+        </div>
+        <TagsBar tags={resolveTags(data.tags)} />
+        <div class="opacity-75">
+          <Content />
+        </div>
+        {index !== projects.length - 1 && (
+          <hr class="my-1 border-separate border-theme-accent opacity-25" />
+        )}
+      </li>
+    ))
+  }
+</ul>

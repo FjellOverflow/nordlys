@@ -1,0 +1,71 @@
+---
+import LandingHero, {
+  type Props as LandingHeroProps
+} from '@/components/LandingHero.astro'
+import ThemeToggle from '@/components/ThemeToggle.astro'
+import BaseLayout from '@/layouts/Base.astro'
+import config from '@/theme.config'
+import type { Frontmatter } from '@/types'
+export interface Props {
+  frontmatter: Frontmatter & LandingHeroProps
+}
+
+const { frontmatter } = Astro.props
+---
+
+<BaseLayout frontmatter={frontmatter}>
+  <div class="mx-auto mt-36 w-full max-w-2xl">
+    <main class="mb-8">
+      <section>
+        {
+          frontmatter.title && (
+            <LandingHero heroVariant={frontmatter.heroVariant}>
+              {frontmatter.title}
+            </LandingHero>
+          )
+        }
+        <div id="highlight-links" class="text-4xl font-semibold leading-[46px]">
+          <slot />
+        </div>
+      </section>
+    </main>
+    <hr class="border-separate border-black/75 dark:border-white/50" />
+    <footer class="mt-8 flex justify-between gap-2 text-5xl">
+      {
+        config.footerIcons.map(({ icon, href, label }) => (
+          <a href={href} target="_blank" rel="noopener noreferrer">
+            <span title={label} class={`icon-btn ${icon}`} />
+          </a>
+        ))
+      }
+      <div class="grow"></div>
+      {config.darkLightToggle && <ThemeToggle />}
+    </footer>
+  </div>
+</BaseLayout>
+<style is:global>
+  #highlight-links {
+    @apply text-black/40 dark:text-white/40;
+
+    a {
+      @apply text-theme-accent/100;
+
+      background-image: linear-gradient(
+        transparent calc(85% - 5px),
+        rgba(var(--theme-accent), 0.35) 5px
+      );
+      background-size: 0;
+      background-repeat: no-repeat;
+      display: inline;
+      transition: 0.5s cubic-bezier(0.65, -0.05, 0.25, 1);
+
+      &:hover {
+        background-size: 100%;
+      }
+    }
+  }
+
+  html {
+    overflow-y: auto !important;
+  }
+</style>

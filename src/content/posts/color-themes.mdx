@@ -1,0 +1,70 @@
+---
+title: Adding and Switching Color Themes
+description: Easily switch and add custom color themes in Nordlys
+publishedTime: 2024-10-01T21:43:00.000Z
+tags:
+  - documentation
+---
+
+import ColorThemeSwitch from '@/components/ColorThemeSwitch.astro'
+import LandingHero from '@/components/LandingHero.astro'
+import ThemeToggle from '@/components/ThemeToggle.astro'
+import { ColorThemes } from '@/types.ts'
+
+Nordlys not only has a dark and light mode, but also predefined themes that are ready to use, as well as the option of adding custom themes.
+
+## Predefined themes
+
+Click the buttons below to (temporarily) switch the color theme for a preview! To permanently change the color theme, simply set it in the theme configuration (`theme.config.ts`).
+
+
+<div class="w-full flex justify-between flex-wrap">
+  {
+    ColorThemes.map((theme) => (<ColorThemeSwitch theme={theme}/>))
+  }
+  <div class="flex flex-col items-center justify-around">
+    <span class="text-5xl"><ThemeToggle/></span>
+    <span class="text">light / dark</span>
+  </div>
+</div>
+
+<div class="w-full flex justify-center gap-8 my-24">
+  <LandingHero heroVariant='gradient background'>preview</LandingHero>
+  <span class="iconify text-theme-accent mt-2 tabler--brush text-8xl"></span>
+</div>
+
+## Adding a new theme
+
+I addition to the predefined themes, it's very simple to add a custom theme. Simply choose a primary (accent) color and a background color, and add them to `themes.css`. Make sure to use the RGB values of the colors in the same format as shown.
+
+```css src/style/themes.css
+@layer base {
+  .theme-custom {
+    --theme-accent: 0, 0, 0;
+    --theme-bg: 255, 255, 255;
+
+    &[data-theme='dark'] {
+      --theme-accent: 255, 255, 255;
+      --theme-bg: 0, 0, 0;
+    }
+  }
+```
+If you want use the newly defined theme, set it in the `theme.config.ts`.
+
+```ts src/theme.config.ts
+  export default defineThemeConfig({
+    colorTheme: 'theme-custom'
+
+    // ...
+```
+
+Most likely, your IDE or editor will complain with a TypeError that the theme is not a valid choice. While this is not a critical error, to fix it, you can simply add `theme-custom` as a valid option to the `ColorThemes` array in the type definition.
+
+```ts src/types.ts
+export const ColorThemes = [
+  // other themes
+  'theme-custom'
+] as const
+```
+
+And that's it!

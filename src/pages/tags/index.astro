@@ -1,0 +1,32 @@
+---
+import { generateTags, getTagUsage } from '@/helpers/util'
+import PageLayout from '@/layouts/PageLayout.astro'
+
+const tags = await generateTags()
+
+const frontmatter = {
+  title: 'Tags',
+  activeHeaderLink: 'Tags'
+}
+---
+
+<PageLayout {frontmatter}>
+  <slot />
+  <div class="flex gap-8">
+    {
+      tags.map(({ tag, icon }) => (
+        <a
+          class="flex flex-col items-center gap-1 no-underline opacity-75 hover:text-theme-accent hover:opacity-100"
+          href={`/tags/${tag}`}
+          data-astro-prefetch
+        >
+          <span class={`iconify text-5xl ${icon}`} />
+
+          <span>
+            {tag} ({getTagUsage(tag)})
+          </span>
+        </a>
+      ))
+    }
+  </div>
+</PageLayout>

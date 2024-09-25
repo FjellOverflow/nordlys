@@ -1,0 +1,37 @@
+@layer base {
+  :root {
+    @apply bg-theme-bg;
+  }
+
+  .prose {
+    @apply prose-code:before:!content-none prose-code:after:!content-none;
+  }
+
+  body {
+    @apply selection:bg-theme-accent/75 selection:text-white selection:dark:text-black;
+  }
+}
+
+.icon-btn {
+  @apply iconify cursor-pointer text-black/75 hover:text-theme-accent/100 dark:text-white/75;
+}
+
+.header-link {
+  @apply text-black/75 hover:text-theme-accent/100 dark:text-white/75;
+}
+
+::-webkit-scrollbar {
+  @apply h-2 w-2;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-theme-accent/75;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-theme-accent/25;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-theme-accent/100;
+}

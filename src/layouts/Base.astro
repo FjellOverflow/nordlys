@@ -1,0 +1,86 @@
+---
+import '@/style/main.css'
+import '@fontsource/ibm-plex-sans/latin-400.css'
+
+import ThemeManager from '@/components/util/ThemeManager.astro'
+import config from '@/theme.config'
+import type { Frontmatter } from '@/types'
+import { ViewTransitions } from 'astro:transitions'
+
+interface Props {
+  frontmatter: Frontmatter
+}
+
+const {
+  frontmatter: {
+    title = config.title,
+    author = config.author,
+    description = config.description,
+    canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
+    opengraphImage,
+    publishedTime
+  }
+} = Astro.props
+
+let titleSuffix = ''
+
+if (String(title).toLowerCase() !== String(config.title).toLowerCase())
+  titleSuffix = ` | ${config.title}`
+---
+
+<!doctype html>
+<html
+  lang={config.locale}
+  class=`scroll-smooth ${config.colorTheme || 'theme-mono'}`
+  style="overflow-y: scroll;"
+>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title + titleSuffix}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="author" content={author} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title={title}
+      href={new URL('feed.xml', Astro.site)}
+    />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    {opengraphImage && <meta property="og:image" content={opengraphImage} />}
+
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    {
+      opengraphImage && (
+        <meta property="twitter:image" content={opengraphImage} />
+      )
+    }
+
+    {
+      publishedTime && (
+        <meta
+          property="article:published_time"
+          content={publishedTime.toISOString()}
+        />
+      )
+    }
+    <ThemeManager />
+    <ViewTransitions />
+  </head>
+  <body class="flex min-h-[100svh] flex-col justify-between">
+    <script src="@/helpers/copyCode.ts"></script>
+    <slot />
+  </body>
+</html>

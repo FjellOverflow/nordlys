@@ -1,0 +1,40 @@
+---
+import Footer from '@/components/layout/Footer.astro'
+import Header from '@/components/layout/Header.astro'
+import Prose from '@/components/layout/Prose.astro'
+import ScrollProgress from '@/components/util/ScrollProgress.astro'
+import ScrollToTop from '@/components/util/ScrollToTop.astro'
+import BaseLayout from '@/layouts/Base.astro'
+import config from '@/theme.config'
+import type { Frontmatter } from '@/types'
+
+interface Props {
+  frontmatter: Frontmatter &
+    Partial<{
+      scrollProgress: boolean
+      activeHeaderLink: string
+      scrollToTop: boolean
+    }>
+}
+
+const { frontmatter } = Astro.props
+
+const {
+  scrollProgress = config.scrollProgress,
+  scrollToTop = config.scrollToTop,
+  activeHeaderLink
+} = frontmatter
+---
+
+<BaseLayout frontmatter={frontmatter}>
+  {scrollProgress && <ScrollProgress />}
+  {scrollToTop && <ScrollToTop />}
+  <Header activeHeaderLink={activeHeaderLink} />
+  <main class="mx-auto mt-12 w-full max-w-3xl">
+    <Prose>
+      <slot />
+    </Prose>
+  </main>
+  <slot name="bottom" />
+  <Footer />
+</BaseLayout>

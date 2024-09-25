@@ -1,0 +1,27 @@
+---
+import Separator from '@/components/layout/Separator.astro'
+import config from '@/theme.config'
+
+const currentYear = new Date().getFullYear()
+---
+
+<footer class="mx-auto mt-auto w-full max-w-3xl">
+  <Separator />
+  <div class="flex items-center justify-between gap-2 py-8">
+    <span>&#169; {currentYear} {config.author}</span>
+
+    <div class="grow"></div>
+    {
+      config.footerIcons.map(({ icon, href, label }) => (
+        <a
+          class="flex flex-col justify-center"
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span title={label} class={`icon-btn ${icon} text-2xl`} />
+        </a>
+      ))
+    }
+  </div>
+</footer>

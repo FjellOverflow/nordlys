@@ -1,0 +1,39 @@
+---
+import type { Page } from 'astro'
+
+export interface Props {
+  page: Page
+}
+
+const { page } = Astro.props
+---
+
+{
+  page.lastPage > 1 && (
+    <nav class="mb-8 flex w-full grow items-end justify-center">
+      <div class="flex gap-4">
+        <a
+          class={
+            !page.url.prev
+              ? 'no-underline opacity-50'
+              : 'text-black/75 hover:text-theme-accent/100 dark:text-white/75'
+          }
+          href={page.url.prev}
+        >
+          Previous
+        </a>
+        {page.currentPage} / {page.lastPage}
+        <a
+          class={
+            !page.url.next
+              ? 'no-underline opacity-50'
+              : 'text-black/75 hover:text-theme-accent/100 dark:text-white/75'
+          }
+          href={page.url.next}
+        >
+          Next
+        </a>
+      </div>
+    </nav>
+  )
+}

@@ -1,0 +1,33 @@
+@layer components {
+  .astro-code-header {
+    @apply flex h-12 items-center justify-between rounded-tl-md rounded-tr-md border-[1px] border-theme-accent px-4;
+
+    & .label {
+      @apply flex flex-col justify-center text-sm;
+    }
+
+    & .copy-btn {
+      @apply iconify cursor-pointer text-2xl opacity-75 tabler--copy hover:opacity-100;
+    }
+
+    & .copy-success {
+      @apply iconify text-2xl text-theme-accent tabler--check;
+    }
+  }
+
+  body .astro-code {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin-top: 0;
+    @apply border-[1px] border-t-0 border-theme-accent;
+  }
+
+  html[data-theme='dark'] .astro-code,
+  html[data-theme='dark'] .astro-code span {
+    color: var(--shiki-dark) !important;
+    background-color: var(--shiki-dark-bg) !important;
+    font-style: var(--shiki-dark-font-style) !important;
+    font-weight: var(--shiki-dark-font-weight) !important;
+    text-decoration: var(--shiki-dark-text-decoration) !important;
+  }
+}

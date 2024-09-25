@@ -1,0 +1,54 @@
+---
+import ThemeToggle from '@/components/ThemeToggle.astro'
+import config from '@/theme.config'
+import Separator from './Separator.astro'
+
+export interface Props {
+  activeHeaderLink?: string
+}
+
+const { activeHeaderLink } = Astro.props
+---
+
+<header class="mx-auto w-full max-w-3xl">
+  <div class="flex justify-between py-8">
+    <a href="/" class="text-2xl font-semibold text-theme-accent">
+      {config.title}
+    </a>
+    <nav class="flex flex-col justify-end">
+      <ul class="flex gap-6">
+        {
+          config.navBarItems.map(({ label, href, icon }) => (
+            <li class="flex flex-col justify-center">
+              <a
+                href={href}
+                class={`header-link ${
+                  activeHeaderLink === label || activeHeaderLink === href
+                    ? 'text-theme-accent/100'
+                    : ''
+                }`}
+              >
+                {icon && (
+                  <span class={`iconify align-middle text-xl ${icon}`} />
+                )}
+                <span
+                  class={
+                    activeHeaderLink === label
+                      ? `underline underline-offset-4`
+                      : ''
+                  }
+                >
+                  {label}
+                </span>
+              </a>
+            </li>
+          ))
+        }
+        <li class="text-2xl">
+          {config.darkLightToggle && <ThemeToggle />}
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <Separator />
+</header>

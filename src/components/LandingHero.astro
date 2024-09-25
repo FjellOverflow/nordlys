@@ -1,0 +1,31 @@
+---
+export interface Props {
+  heroVariant?: 'gradient' | 'background' | 'gradient background'
+}
+
+const { heroVariant = '' } = Astro.props
+---
+
+<div class="w-fit">
+  <h1 id="hero" class=`mb-2 relative w-fit text-8xl font-bold ${heroVariant}`>
+    <slot />
+    <span id="hero-bg"></span>
+  </h1>
+</div>
+
+<style is:global>
+  #hero {
+    @apply text-theme-accent;
+
+    &.gradient {
+      @apply bg-gradient-to-r from-theme-accent/25 via-theme-accent/75 to-theme-accent/100 bg-clip-text pb-2 text-transparent;
+    }
+
+    &.background {
+      @apply mb-8;
+      #hero-bg {
+        @apply absolute inset-0 h-full w-full bg-theme-accent/65 blur-3xl;
+      }
+    }
+  }
+</style>
