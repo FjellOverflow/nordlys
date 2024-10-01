@@ -23,6 +23,7 @@ jobs:
           node-version: 22
 
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
