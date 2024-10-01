@@ -23,8 +23,8 @@
     "dev": "astro dev",
     "lint": "eslint . && stylelint src",
     "check": "pnpm lint && astro check",
-    "build": "pnpm check && astro build",
-    "preview": "pnpm build && astro preview"
+    "build": "astro build",
+    "preview": "pnpm check && pnpm build && astro preview"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.3",
