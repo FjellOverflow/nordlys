@@ -15,9 +15,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout your repository using git
+      - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Install, build, and upload your site
+      - name: Install, build, and upload site
         uses: withastro/action@v3
         with:
           node-version: 22
@@ -28,17 +28,5 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-
-      - name: Install dependencies
-        run: pnpm i --frozen-lockfile
-
-      - name: build
-        run: pnpm build
-
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4

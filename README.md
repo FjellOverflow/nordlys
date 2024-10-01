@@ -37,7 +37,8 @@
 
 0. Make sure you have [pnpm](https://pnpm.io/installation) installed on your system.
 
-1. Clone or [fork](https://github.com/new?template_name=nordlys&template_owner=FjellOverflow) this repository.
+1. - Clone or [fork](https://github.com/new?template_name=nordlys&template_owner=FjellOverflow) this repository or
+   - Create a new project with `pnpm dlx create-astro --template FjellOverflow/nordlys`.
 
 2. Run `pnpm install`.
 
