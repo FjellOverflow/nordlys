@@ -7,15 +7,6 @@ export interface ResolvedTag {
   icon: Icon
 }
 
-export type Frontmatter = Partial<{
-  title: string
-  author: string
-  description: string
-  canonicalURL: string
-  opengraphImage: string
-  publishedTime: Date
-}>
-
 interface NavItem {
   label: string
   href: string

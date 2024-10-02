@@ -4,11 +4,17 @@ import '@fontsource/ibm-plex-sans/latin-400.css'
 
 import ThemeManager from '@/components/util/ThemeManager.astro'
 import config from '@/theme.config'
-import type { Frontmatter } from '@/types'
 import { ViewTransitions } from 'astro:transitions'
 
-interface Props {
-  frontmatter: Frontmatter
+export interface Props {
+  frontmatter: Partial<{
+    title: string
+    author: string
+    description: string
+    canonicalURL: string
+    opengraphImage: string
+    publishedTime: Date
+  }>
 }
 
 const {

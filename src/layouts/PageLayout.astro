@@ -4,17 +4,15 @@ import Header from '@/components/layout/Header.astro'
 import Prose from '@/components/layout/Prose.astro'
 import ScrollProgress from '@/components/util/ScrollProgress.astro'
 import ScrollToTop from '@/components/util/ScrollToTop.astro'
-import BaseLayout from '@/layouts/Base.astro'
+import BaseLayout, { type Props as BaseLayoutProps } from '@/layouts/Base.astro'
 import config from '@/theme.config'
-import type { Frontmatter } from '@/types'
 
-interface Props {
-  frontmatter: Frontmatter &
-    Partial<{
-      scrollProgress: boolean
-      activeHeaderLink: string
-      scrollToTop: boolean
-    }>
+export type Props = BaseLayoutProps & {
+  frontmatter: Partial<{
+    scrollProgress: boolean
+    activeHeaderLink: string
+    scrollToTop: boolean
+  }>
 }
 
 const { frontmatter } = Astro.props

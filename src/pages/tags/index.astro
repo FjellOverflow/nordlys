@@ -1,10 +1,12 @@
 ---
 import { generateTags, getTagUsage } from '@/helpers/util'
-import PageLayout from '@/layouts/PageLayout.astro'
+import PageLayout, {
+  type Props as PageLayoutProps
+} from '@/layouts/PageLayout.astro'
 
 const tags = await generateTags()
 
-const frontmatter = {
+const frontmatter: PageLayoutProps['frontmatter'] = {
   title: 'Tags',
   activeHeaderLink: 'Tags'
 }

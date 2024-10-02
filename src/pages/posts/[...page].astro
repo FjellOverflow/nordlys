@@ -2,7 +2,9 @@
 import Pagination from '@/components/Pagination.astro'
 import PostsList from '@/components/PostsList.astro'
 import { getPosts } from '@/helpers/util'
-import PageLayout from '@/layouts/PageLayout.astro'
+import PageLayout, {
+  type Props as PageLayoutProps
+} from '@/layouts/PageLayout.astro'
 import config from '@/theme.config'
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro'
 
@@ -16,7 +18,7 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths>
 
 const { page } = Astro.props
 
-const frontmatter = {
+const frontmatter: PageLayoutProps['frontmatter'] = {
   title: 'Posts',
   activeHeaderLink: 'Blog',
   canonicalURL: new URL('/posts/1', Astro.site).toString()

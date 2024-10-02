@@ -3,11 +3,11 @@ import LandingHero, {
   type Props as LandingHeroProps
 } from '@/components/LandingHero.astro'
 import ThemeToggle from '@/components/ThemeToggle.astro'
-import BaseLayout from '@/layouts/Base.astro'
+import BaseLayout, { type Props as BaseLayoutProps } from '@/layouts/Base.astro'
 import config from '@/theme.config'
-import type { Frontmatter } from '@/types'
-export interface Props {
-  frontmatter: Frontmatter & LandingHeroProps
+
+export type Props = BaseLayoutProps & {
+  frontmatter: LandingHeroProps
 }
 
 const { frontmatter } = Astro.props

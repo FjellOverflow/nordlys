@@ -2,17 +2,17 @@
 import PostsList from '@/components/PostsList.astro'
 import ProjectsList from '@/components/ProjectsList.astro'
 import { generateTags, getPosts, sortProjects } from '@/helpers/util'
-import PageLayout from '@/layouts/PageLayout.astro'
-import type { ResolvedTag } from '@/types'
+import PageLayout, {
+  type Props as PageLayoutProps
+} from '@/layouts/PageLayout.astro'
+import type { InferGetStaticPropsType } from 'astro'
 import { getCollection } from 'astro:content'
-
-export interface Props {
-  tag: ResolvedTag
-}
 
 const {
   tag: { tag, icon }
 } = Astro.props
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>
 
 export async function getStaticPaths() {
   const tags = await generateTags()
@@ -31,7 +31,7 @@ const projects = (
   )
 ).sort(sortProjects)
 
-const frontmatter = {
+const frontmatter: PageLayoutProps['frontmatter'] = {
   title: `Tag: ${tag}`,
   activeHeaderLink: 'Tags'
 }

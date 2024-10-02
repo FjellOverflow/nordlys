@@ -1,13 +1,11 @@
 ---
 import { getPosts } from '@/helpers/util'
 import PostLayout from '@/layouts/PostLayout.astro'
-import { type CollectionEntry } from 'astro:content'
-
-export interface Props {
-  post: CollectionEntry<'posts'>
-}
+import type { InferGetStaticPropsType } from 'astro'
 
 const { post } = Astro.props
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>
 
 export async function getStaticPaths() {
   const posts = await getPosts()
