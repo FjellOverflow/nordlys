@@ -4,7 +4,7 @@ import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
 import generateCodeHeaders from './src/helpers/generateCodeHeaders'
-import readingTime from './src/helpers/readingTime.js'
+import readingTime from './src/helpers/readingTime'
 
 export default defineConfig({
   site: 'https://nordlys.fjelloverflow.dev',
