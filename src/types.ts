@@ -38,6 +38,7 @@ export interface ThemeConfig {
   defaultTheme: Theme
   darkLightToggle: boolean
   colorTheme: ColorTheme
+  opengraphImage: string | undefined
   postsPerPage: number
   projectsPerPage: number
   scrollProgress: boolean
@@ -50,6 +51,7 @@ const defaults = {
   defaultTheme: Themes[0],
   darkLightToggle: true,
   colorTheme: ColorThemes[0],
+  opengraphImage: undefined,
   postsPerPage: 4,
   projectsPerPage: 3,
   scrollProgress: false,

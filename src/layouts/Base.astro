@@ -23,7 +23,10 @@ const {
     author = config.author,
     description = config.description,
     canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
-    opengraphImage,
+    opengraphImage = new URL(
+      config.opengraphImage || '/ogImage.png',
+      Astro.site
+    ).href,
     publishedTime
   }
 } = Astro.props
