@@ -19,7 +19,8 @@ const { page } = Astro.props
 
 const frontmatter = {
   title: 'Projects',
-  activeHeaderLink: 'Projects'
+  activeHeaderLink: 'Projects',
+  canonicalURL: new URL('/projects/1', Astro.site).toString()
 }
 ---
 
