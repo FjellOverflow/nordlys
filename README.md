@@ -1,5 +1,5 @@
 <h1 align="center">
-  <a href="nordlys.fjelloverflow.dev/posts">Nordlys</a>
+  <a href="https://nordlys.fjelloverflow.dev">Nordlys</a>
 </h1>
 
 <p align="center">
