@@ -6,7 +6,7 @@ tags:
   - documentation
 ---
 
-Nordlys, out of the box, offers well-styled code blocks with customization features, in addition to the basic syntax highlighting in Markdown. This post showcases and explains the various customization options available.
+Nordlys, out of the box, offers well-styled code blocks with customization features, in addition to the basic syntax highlighting [by Astro](https://docs.astro.build/en/guides/markdown-content/#syntax-highlighting). This post showcases and explains the various customization options available.
 
 ## Basic Example
 
@@ -60,6 +60,18 @@ The code above renders to:
 sortedList = sorted([3, 1, 2])
 ```
 
-## Resources
+## Changing Color Scheme
 
-To read more about syntax highlighting in Astro, check out the [Astro docs](https://docs.astro.build/en/guides/markdown-content/#syntax-highlighting). Under the hood, Astro uses Shiki, so you can also consult the [Shiki docs](https://shiki.style/) for a deeper dive into configuration options.
+It is also possible to change the colors of the code blocks, by changing the Shiki themes in `astro.config.ts`. For a list of avaible themes, refer to the [Shiki documentation](https://shiki.style/themes).
+
+```typescript astro.config.ts
+export default defineConfig({
+  // ...
+  markdown: {
+    shikiConfig: {
+      themes: {
+        light: 'vitesse-light',
+        dark: 'vitesse-dark'
+      },
+  //...
+```
