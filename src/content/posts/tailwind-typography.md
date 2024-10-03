@@ -1,7 +1,7 @@
 ---
 title: Tailwind Typography
 description: Example of how text content is styled in Nordlys
-publishedTime: 2024-08-28T12:00:00.000Z
+publishedDate: 2024-08-28
 author: Adam Wathan
 tags:
   - tailwindcss

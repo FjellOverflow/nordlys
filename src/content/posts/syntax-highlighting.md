@@ -1,7 +1,7 @@
 ---
 title: Syntax highlighting
 description: Code blocks and syntax highlighting in Nordlys
-publishedTime: 2024-09-28T20:01:00.000Z
+publishedDate: 2024-09-28
 tags:
   - documentation
 ---

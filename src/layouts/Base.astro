@@ -13,7 +13,7 @@ export interface Props {
     description: string
     canonicalURL: string
     opengraphImage: string
-    publishedTime: Date
+    publishedDate: Date
   }>
 }
 
@@ -27,7 +27,7 @@ const {
       config.opengraphImage || '/ogImage.png',
       Astro.site
     ).href,
-    publishedTime
+    publishedDate
   }
 } = Astro.props
 
@@ -78,10 +78,10 @@ if (String(title).toLowerCase() !== String(config.title).toLowerCase())
     }
 
     {
-      publishedTime && (
+      publishedDate && (
         <meta
           property="article:published_time"
-          content={publishedTime.toISOString()}
+          content={publishedDate.toISOString()}
         />
       )
     }

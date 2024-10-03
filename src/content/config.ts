@@ -8,7 +8,7 @@ const posts = defineCollection({
       title: z.string(),
       author: z.string().default(config.author),
       description: z.string(),
-      publishedTime: z.date(),
+      publishedDate: z.date(),
       draft: z.boolean().optional().default(false),
       canonicalURL: z.string().optional(),
       opengraphImage: z.string().optional(),
@@ -22,8 +22,8 @@ const projects = defineCollection({
     z.object({
       title: z.string(),
       url: z.string().optional(),
-      startTime: z.date(),
-      endTime: z.date().optional().nullable(),
+      startDate: z.date(),
+      endDate: z.date().optional().nullable(),
       tags: z.array(z.string()).default([])
     })
 })

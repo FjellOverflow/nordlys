@@ -41,9 +41,9 @@ const renderedProjects = await Promise.all(
             )}
           </a>
           <div class="text-sm opacity-75">
-            <time>{toMonthString(data.startTime)}</time> -
-            {data.endTime && <time>{toMonthString(data.endTime)}</time>}
-            {!data.endTime && 'Now'}
+            <time>{toMonthString(data.startDate)}</time> -
+            {data.endDate && <time>{toMonthString(data.endDate)}</time>}
+            {!data.endDate && 'Now'}
           </div>
         </div>
         <TagsBar tags={resolveTags(data.tags)} />

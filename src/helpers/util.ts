@@ -54,20 +54,20 @@ export const getTagUsage = async (tag: string): Promise<number> =>
 export const sortPosts = (
   p1: CollectionEntry<'posts'>,
   p2: CollectionEntry<'posts'>
-) => p2.data.publishedTime.getTime() - p1.data.publishedTime.getTime()
+) => p2.data.publishedDate.getTime() - p1.data.publishedDate.getTime()
 
 export const sortProjects = (
   p1: CollectionEntry<'projects'>,
   p2: CollectionEntry<'projects'>
 ) => {
-  const endTimeDiff =
-    (p2.data.endTime?.getTime() || Number.MAX_SAFE_INTEGER) -
-    (p1.data.endTime?.getTime() || Number.MAX_SAFE_INTEGER)
-  const startTimeDiff =
-    p2.data.startTime.getTime() - p1.data.startTime.getTime()
+  const endDateDiff =
+    (p2.data.endDate?.getTime() || Number.MAX_SAFE_INTEGER) -
+    (p1.data.endDate?.getTime() || Number.MAX_SAFE_INTEGER)
+  const startDateDiff =
+    p2.data.startDate.getTime() - p1.data.startDate.getTime()
 
   return (
-    endTimeDiff || startTimeDiff || p1.data.title.localeCompare(p2.data.title)
+    endDateDiff || startDateDiff || p1.data.title.localeCompare(p2.data.title)
   )
 }
 

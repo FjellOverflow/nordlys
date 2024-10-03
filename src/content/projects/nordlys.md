@@ -1,7 +1,7 @@
 ---
 title: Nordlys Astro blog template
 url: https://github.com/FjellOverflow/nordlys
-startTime: 2024-09-30T10:41:00.000Z
+startDate: 2024-09-30
 tags:
   - astro
   - tailwindcss

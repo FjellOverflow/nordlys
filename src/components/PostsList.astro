@@ -25,7 +25,7 @@ posts.sort(sortPosts)
             <span>{data.title}</span>
           </a>
           <time class="text-sm opacity-75">
-            {toDateString(data.publishedTime)}
+            {toDateString(data.publishedDate)}
           </time>
         </div>
         <TagsBar tags={resolveTags(data.tags)} />
