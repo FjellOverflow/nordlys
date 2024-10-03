@@ -6,8 +6,7 @@ activeHeaderLink: About
 
 # About
 
-Nordlys is a sleek, minimal Astro blog template, ideal for a personal blog and showcasing a projects portfolio.
-It is fully customizable with baked-in theming and ready-to-use components. Developed by [FjellOverflow](https://github.com/FjellOverflow) using [Astro](https://astro.build/) and [Tailwindcss](https://tailwindcss.com/).
+Nordlys is a sleek, minimal Astro blog template, ideal for a personal blog and showcasing a projects portfolio. It is fully customizable with baked-in theming and ready-to-use components. Developed by [FjellOverflow](https://github.com/FjellOverflow) using [Astro](https://astro.build/) and [Tailwindcss](https://tailwindcss.com/). The name _Nordlys_ comes from Norwegian and means [_Northern Lights_ or _Aurora_](https://en.wikipedia.org/wiki/Aurora).
 
 ## Built-in Pages
 
