@@ -3,7 +3,9 @@ import '@/style/main.css'
 import '@fontsource/ibm-plex-sans/latin-400.css'
 
 import ThemeManager from '@/components/util/ThemeManager.astro'
+import { resolveOgImageUrl } from '@/helpers/util'
 import config from '@/theme.config'
+import type { HTMLAttributes } from 'astro/types'
 import { ViewTransitions } from 'astro:transitions'
 
 export interface Props {
@@ -12,7 +14,7 @@ export interface Props {
     author: string
     description: string
     canonicalURL: string
-    opengraphImage: string
+    opengraphImage: string | HTMLAttributes<'img'>
     publishedDate: Date
   }>
 }
@@ -23,18 +25,20 @@ const {
     author = config.author,
     description = config.description,
     canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
-    opengraphImage = new URL(
-      config.opengraphImage || '/ogImage.png',
-      Astro.site
-    ).href,
+    opengraphImage = config.opengraphImage || '/ogImage.png',
     publishedDate
   }
 } = Astro.props
 
-let titleSuffix = ''
+let titleWithSuffix = title
 
 if (String(title).toLowerCase() !== String(config.title).toLowerCase())
-  titleSuffix = ` | ${config.title}`
+  titleWithSuffix += ` | ${config.title}`
+
+const opengraphImageUrl = new URL(
+  resolveOgImageUrl(opengraphImage) || '/ogImage.png',
+  Astro.site
+).href
 ---
 
 <!doctype html>
@@ -50,8 +54,8 @@ if (String(title).toLowerCase() !== String(config.title).toLowerCase())
     <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
 
-    <title>{title + titleSuffix}</title>
-    <meta name="title" content={title} />
+    <title>{titleWithSuffix}</title>
+    <meta name="title" content={titleWithSuffix} />
     <meta name="description" content={description} />
     <meta name="author" content={author} />
     <link rel="sitemap" href="/sitemap-index.xml" />
@@ -62,20 +66,16 @@ if (String(title).toLowerCase() !== String(config.title).toLowerCase())
       href={new URL('feed.xml', Astro.site)}
     />
 
-    <meta property="og:title" content={title + titleSuffix} />
+    <meta property="og:title" content={titleWithSuffix} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
-    {opengraphImage && <meta property="og:image" content={opengraphImage} />}
+    <meta property="og:image" content={opengraphImageUrl} />
 
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={canonicalURL} />
-    <meta property="twitter:title" content={title + titleSuffix} />
+    <meta property="twitter:title" content={titleWithSuffix} />
     <meta property="twitter:description" content={description} />
-    {
-      opengraphImage && (
-        <meta property="twitter:image" content={opengraphImage} />
-      )
-    }
+    <meta property="twitter:image" content={opengraphImageUrl} />
 
     {
       publishedDate && (

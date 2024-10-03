@@ -1,3 +1,4 @@
+import type { HTMLAttributes } from 'astro/types'
 import type { SetOptional } from 'type-fest'
 
 type Icon = `tabler--${string}`
@@ -38,7 +39,7 @@ export interface ThemeConfig {
   defaultTheme: Theme
   darkLightToggle: boolean
   colorTheme: ColorTheme
-  opengraphImage: string | undefined
+  opengraphImage: HTMLAttributes<'img'> | string | undefined
   postsPerPage: number
   projectsPerPage: number
   scrollProgress: boolean

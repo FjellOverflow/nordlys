@@ -1,5 +1,6 @@
 import config from '@/theme.config'
 import type { ResolvedTag } from '@/types'
+import type { HTMLAttributes } from 'astro/types'
 import { getCollection, type CollectionEntry } from 'astro:content'
 
 export const toDateString = (date: Date): string =>
@@ -95,4 +96,12 @@ export const getPosts = async (
       (p) => !author || p.data.author.toLowerCase() === author.toLowerCase()
     )
     .filter((p) => includeDrafts || !p.data.draft)
+}
+
+const isLocalAsset = (
+  image: string | HTMLAttributes<'img'>
+): image is HTMLAttributes<'img'> => typeof image !== 'string'
+
+export const resolveOgImageUrl = (image: string | HTMLAttributes<'img'>) => {
+  return isLocalAsset(image) ? image.src : image
 }

@@ -17,10 +17,7 @@ const {
 
 const frontmatter: PageLayoutProps['frontmatter'] = {
   ...post.data,
-  opengraphImage: new URL(
-    post.data.opengraphImage || `/posts/${post.slug}.png`,
-    Astro.site
-  ).toString(),
+  opengraphImage: post.data.opengraphImage || `/posts/${post.slug}.png`,
   activeHeaderLink: 'Blog',
   scrollProgress: true
 }

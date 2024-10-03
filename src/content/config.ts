@@ -3,7 +3,7 @@ import { defineCollection, z } from 'astro:content'
 
 const posts = defineCollection({
   type: 'content',
-  schema: () =>
+  schema: ({ image }) =>
     z.object({
       title: z.string(),
       author: z.string().default(config.author),
@@ -11,7 +11,7 @@ const posts = defineCollection({
       publishedDate: z.date(),
       draft: z.boolean().optional().default(false),
       canonicalURL: z.string().optional(),
-      opengraphImage: z.string().optional(),
+      opengraphImage: image().or(z.string()).optional(),
       tags: z.array(z.string()).default([])
     })
 })
