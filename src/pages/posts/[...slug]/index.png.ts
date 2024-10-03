@@ -19,8 +19,6 @@ export const GET: APIRoute = async ({ props, params }: APIContext) => {
   const svg = await renderPostOG(title, description, author)
   const png = new Resvg(svg).render().asPng()
 
-  console.log(`\nGenerated OG image ${params.slug}.png`)
-
   return new Response(png, {
     headers: { 'Content-Type': 'image/png' }
   })

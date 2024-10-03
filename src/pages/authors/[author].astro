@@ -9,8 +9,6 @@ import type { InferGetStaticPropsType } from 'astro'
 export async function getStaticPaths() {
   const authors = await generateAuthors()
 
-  console.log(authors)
-
   return authors.map((author) => ({
     params: { author },
     props: { author }
