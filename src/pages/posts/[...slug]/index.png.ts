@@ -12,7 +12,7 @@ export async function getStaticPaths() {
   }))
 }
 
-export const GET: APIRoute = async ({ props, params }: APIContext) => {
+export const GET: APIRoute = async ({ props }: APIContext) => {
   const { post } = props as InferGetStaticPropsType<typeof getStaticPaths>
   const { title, description, author } = post.data
 
