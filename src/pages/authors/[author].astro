@@ -1,0 +1,38 @@
+---
+import PostsList from '@/components/PostsList.astro'
+import { generateAuthors, getPosts } from '@/helpers/util'
+import PageLayout, {
+  type Props as PageLayoutProps
+} from '@/layouts/PageLayout.astro'
+import type { InferGetStaticPropsType } from 'astro'
+
+export async function getStaticPaths() {
+  const authors = await generateAuthors()
+
+  console.log(authors)
+
+  return authors.map((author) => ({
+    params: { author },
+    props: { author }
+  }))
+}
+
+const { author } = Astro.props
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>
+
+const posts = await getPosts(undefined, author)
+
+const frontmatter: PageLayoutProps['frontmatter'] = {
+  title: `Author: ${author}`,
+  activeHeaderLink: 'Blog'
+}
+---
+
+<PageLayout {frontmatter}>
+  <h1>
+    <span class={`iconify align-middle text-6xl tabler--user`}></span>
+    <span>{author}</span>
+  </h1>
+  <PostsList {posts} />
+</PageLayout>

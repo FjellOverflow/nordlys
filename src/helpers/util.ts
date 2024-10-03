@@ -51,6 +51,12 @@ export const getTagUsage = async (tag: string): Promise<number> =>
     )
   ).length
 
+export const generateAuthors = async () => {
+  const posts = await getPosts()
+
+  return [...new Set(posts.map((p) => p.data.author))]
+}
+
 export const sortPosts = (
   p1: CollectionEntry<'posts'>,
   p2: CollectionEntry<'posts'>
@@ -73,6 +79,7 @@ export const sortProjects = (
 
 export const getPosts = async (
   tag?: string,
+  author?: string,
   includeDrafts = import.meta.env.DEV
 ) => {
   const posts = await getCollection('posts')
@@ -83,6 +90,9 @@ export const getPosts = async (
     .filter(
       (p) =>
         !tag || p.data.tags.some((t) => t.toLowerCase() === tag.toLowerCase())
+    )
+    .filter(
+      (p) => !author || p.data.author.toLowerCase() === author.toLowerCase()
     )
     .filter((p) => includeDrafts || !p.data.draft)
 }

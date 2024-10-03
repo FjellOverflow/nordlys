@@ -28,7 +28,7 @@ const frontmatter: PageLayoutProps['frontmatter'] = {
 const publishedStr = toDateString(post.data.publishedDate)
 ---
 
-<PageLayout frontmatter={frontmatter}>
+<PageLayout {frontmatter}>
   <script src="@/helpers/headingAnchors.ts"></script>
 
   <h1 class="my-4">{frontmatter.title}</h1>
@@ -36,9 +36,10 @@ const publishedStr = toDateString(post.data.publishedDate)
 
   <div class="mt-4 opacity-65">
     <span
-      >Published on <time>{publishedStr}</time> by {frontmatter.author} · {
-        readingTime
-      }
+      >Published on <time>{publishedStr}</time> by <a
+        class="hover:opacity-100"
+        href={`/authors/${post.data.author}`}>{post.data.author}</a
+      > · {readingTime}
     </span>
   </div>
   <Content />
