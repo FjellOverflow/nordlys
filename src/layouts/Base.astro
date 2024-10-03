@@ -62,14 +62,14 @@ if (String(title).toLowerCase() !== String(config.title).toLowerCase())
       href={new URL('feed.xml', Astro.site)}
     />
 
-    <meta property="og:title" content={title} />
+    <meta property="og:title" content={title + titleSuffix} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
     {opengraphImage && <meta property="og:image" content={opengraphImage} />}
 
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={canonicalURL} />
-    <meta property="twitter:title" content={title} />
+    <meta property="twitter:title" content={title + titleSuffix} />
     <meta property="twitter:description" content={description} />
     {
       opengraphImage && (
