@@ -6,9 +6,7 @@ import ThemeToggle from '@/components/ThemeToggle.astro'
 import BaseLayout, { type Props as BaseLayoutProps } from '@/layouts/Base.astro'
 import config from '@/theme.config'
 
-export type Props = BaseLayoutProps & {
-  frontmatter: LandingHeroProps
-}
+export type Props = BaseLayoutProps & LandingHeroProps
 
 const { frontmatter } = Astro.props
 ---
@@ -19,9 +17,7 @@ const { frontmatter } = Astro.props
       <section>
         {
           frontmatter.title && (
-            <LandingHero heroVariant={frontmatter.heroVariant}>
-              {frontmatter.title}
-            </LandingHero>
+            <LandingHero {frontmatter}>{frontmatter.title}</LandingHero>
           )
         }
         <div id="highlight-links" class="text-4xl font-semibold leading-[46px]">

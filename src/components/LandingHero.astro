@@ -1,15 +1,29 @@
 ---
+import logo from '@/assets/logo.svg'
+import { Image } from 'astro:assets'
+
 export interface Props {
-  heroVariant?: 'gradient' | 'background' | 'gradient background'
+  frontmatter: Partial<{
+    gradient: boolean
+    background: boolean
+    logo: boolean
+  }>
 }
 
-const { heroVariant = '' } = Astro.props
+const { gradient, background, logo: showLogo } = Astro.props.frontmatter
+
+const heroVariant = `${gradient ? 'gradient' : ''} ${background ? 'background' : ''}`
 ---
 
 <div class="w-fit">
   <h1 id="hero" class=`mb-2 relative w-fit text-8xl font-bold ${heroVariant}`>
-    <slot />
-    <span id="hero-bg"></span>
+    <div class="flex items-center gap-8">
+      {showLogo && <Image alt="Nordlys logo" src={logo} height={96} />}
+      <div>
+        <slot />
+      </div>
+    </div>
+    <span id="hero-bg" class={showLogo ? 'ml-20' : ''}></span>
   </h1>
 </div>
 

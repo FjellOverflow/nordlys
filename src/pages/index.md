@@ -1,7 +1,8 @@
 ---
 layout: '@/layouts/LandingLayout.astro'
 title: Nordlys
-heroVariant: 'background'
+background: true
+logo: true
 ---
 
 A sleek, minimal Astro blog template.\

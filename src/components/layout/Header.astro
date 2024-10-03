@@ -1,6 +1,8 @@
 ---
+import logo from '@/assets/logo.svg'
 import ThemeToggle from '@/components/ThemeToggle.astro'
 import config from '@/theme.config'
+import { Image } from 'astro:assets'
 import Separator from './Separator.astro'
 
 export interface Props {
@@ -12,7 +14,8 @@ const { activeHeaderLink } = Astro.props
 
 <header class="mx-auto w-full max-w-3xl">
   <div class="flex justify-between py-8">
-    <a href="/" class="text-2xl font-semibold text-theme-accent">
+    <a href="/" class="flex gap-2 text-2xl font-semibold text-theme-accent">
+      <Image alt="Nordlys logo" src={logo} height={24} />
       {config.title}
     </a>
     <nav class="flex flex-col justify-end">
