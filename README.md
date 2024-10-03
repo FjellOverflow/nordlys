@@ -1,3 +1,9 @@
+<p align="center">
+  <a href="https://nordlys.fjelloverflow.dev">
+    <img alt="logo" src="./public/favicon.svg" height="120">
+  </a>
+</p>
+
 <h1 align="center">
   <a href="https://nordlys.fjelloverflow.dev">Nordlys</a>
 </h1>
@@ -27,11 +33,15 @@
 </p>
 
 <p align="center">
+  <a href="https://nordlys.fjelloverflow.dev">Preview</a> |
   <a href="#installation">Installation</a> |
   <a href="#getting-started">Getting started</a> |
   <a href="#documentation">Documentation</a> |
   <a href="#stack">Stack</a>
 </p>
+
+> [!IMPORTANT]  
+> This theme is in early development. If you come across bugs, mistakes or have suggestions on the direction of the project, feel free to [open an issue](https://github.com/FjellOverflow/nordlys/issues/new/choose)!
 
 ## Installation
 
