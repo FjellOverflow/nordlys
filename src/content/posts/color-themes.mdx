@@ -7,7 +7,7 @@ tags:
 ---
 
 import ColorThemeSwitch from '@/components/ColorThemeSwitch.astro'
-import LandingHero from '@/components/LandingHero.astro'
+import Hero from '@/components/Hero.astro'
 import ModeToggle from '@/components/mode/ModeToggle.astro'
 import { ColorThemes } from '@/types.ts'
 
@@ -29,7 +29,7 @@ Click the buttons below to (temporarily) switch the color theme for a preview! T
 </div>
 
 <div class="w-full flex justify-center gap-8 my-24">
-  <LandingHero frontmatter={{gradient: true, background: true}}>preview</LandingHero>
+  <Hero frontmatter={{gradient: true, background: true}}>preview</Hero>
   <span class="iconify text-accent mt-2 tabler--brush text-8xl"></span>
 </div>
 

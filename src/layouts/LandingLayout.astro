@@ -1,12 +1,10 @@
 ---
-import LandingHero, {
-  type Props as LandingHeroProps
-} from '@/components/LandingHero.astro'
+import Hero, { type Props as HeroProps } from '@/components/Hero.astro'
 import ModeToggle from '@/components/mode/ModeToggle.astro'
 import BaseLayout, { type Props as BaseLayoutProps } from '@/layouts/Base.astro'
 import config from '@/theme.config'
 
-export type Props = BaseLayoutProps & LandingHeroProps
+export type Props = BaseLayoutProps & HeroProps
 
 const { frontmatter } = Astro.props
 ---
@@ -15,11 +13,7 @@ const { frontmatter } = Astro.props
   <div class="mx-auto mt-36 w-full max-w-2xl">
     <main class="mb-8">
       <section>
-        {
-          frontmatter.title && (
-            <LandingHero {frontmatter}>{frontmatter.title}</LandingHero>
-          )
-        }
+        {frontmatter.title && <Hero {frontmatter}>{frontmatter.title}</Hero>}
         <div id="highlight-links" class="text-4xl font-semibold leading-[46px]">
           <slot />
         </div>
