@@ -57,10 +57,25 @@ export const renderPostOG = (
       tw: `flex flex-col w-full h-full p-8 bg-${bg} text-${accent} border-8 border-${accent}/50`,
       children: [
         {
-          type: 'span',
+          type: 'div',
           props: {
-            tw: 'text-5xl font-bold',
-            children: [siteTitle]
+            tw: 'flex',
+            children: [
+              {
+                type: 'img',
+                props: {
+                  src: 'https://nordlys.fjelloverflow.dev/favicon.svg',
+                  height: 48
+                }
+              },
+              {
+                type: 'span',
+                props: {
+                  tw: 'ml-4 text-5xl font-bold',
+                  children: [siteTitle]
+                }
+              }
+            ]
           }
         },
         {
@@ -121,10 +136,25 @@ export const renderOG = () =>
                   tw: `flex flex-col`,
                   children: [
                     {
-                      type: 'span',
+                      type: 'div',
                       props: {
-                        tw: 'text-9xl font-bold',
-                        children: [siteTitle]
+                        tw: 'flex',
+                        children: [
+                          {
+                            type: 'img',
+                            props: {
+                              src: 'https://nordlys.fjelloverflow.dev/favicon.svg',
+                              height: 128
+                            }
+                          },
+                          {
+                            type: 'span',
+                            props: {
+                              tw: 'ml-8 text-9xl font-bold',
+                              children: [siteTitle]
+                            }
+                          }
+                        ]
                       }
                     },
                     {
