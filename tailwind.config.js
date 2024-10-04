@@ -25,5 +25,5 @@ export default {
     }
   },
   plugins: [require('@tailwindcss/typography'), addIconSelectors(['tabler'])],
-  darkMode: ['selector', '[data-theme="dark"]']
+  darkMode: ['selector', '[data-mode="dark"]']
 }

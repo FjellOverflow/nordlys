@@ -9,7 +9,7 @@ const lightRegex = (theme: string) =>
 
 const darkRegex = (theme: string) =>
   new RegExp(
-    `\\.${theme}\\s*{(?:[^{}]*{[^{}]*})*[^{}]*\\[data-theme=['"]dark['"]\\]\\s*{[^{}]*--accent:\\s*([\\d\\s,]+);[^{}]*--accent-bg:\\s*([\\d\\s,]+);`
+    `\\.${theme}\\s*{(?:[^{}]*{[^{}]*})*[^{}]*\\[data-mode=['"]dark['"]\\]\\s*{[^{}]*--accent:\\s*([\\d\\s,]+);[^{}]*--accent-bg:\\s*([\\d\\s,]+);`
   )
 
 const toRGB = (vals: string) => `rgb(${vals.replaceAll(' ', '')})`

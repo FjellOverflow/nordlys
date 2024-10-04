@@ -11,16 +11,16 @@ const themeName = theme.replace('theme-', '')
 ---
 
 <div title={`Preview ${theme}`} class="color-theme-select">
-  <div class={theme} data-theme="light">
+  <div class={theme} data-mode="light">
     <div>{themeName}</div>
   </div>
-  <div class={theme} data-theme="dark">
+  <div class={theme} data-mode="dark">
     <div>{themeName}</div>
   </div>
 </div>
 <style is:global>
   .color-theme-select {
-    @apply border-accent/25 w-28 cursor-pointer overflow-clip rounded-md border;
+    @apply w-28 cursor-pointer overflow-clip rounded-md border border-accent/25;
 
     & > * {
       @apply h-14 cursor-pointer px-4 py-1;
