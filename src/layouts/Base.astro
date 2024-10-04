@@ -2,7 +2,7 @@
 import '@/style/main.css'
 import '@fontsource/ibm-plex-sans/latin-400.css'
 
-import DarkLightManager from '@/components/util/DarkLightManager.astro'
+import ModeManager from '@/components/mode/ModeManager.astro'
 import { resolveOgImageUrl } from '@/helpers/util'
 import config from '@/theme.config'
 import type { HTMLAttributes } from 'astro/types'
@@ -85,7 +85,7 @@ const opengraphImageUrl = new URL(
         />
       )
     }
-    <DarkLightManager />
+    <ModeManager />
     <ViewTransitions />
   </head>
   <body class="flex min-h-[100svh] flex-col justify-between">

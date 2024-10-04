@@ -1,6 +1,6 @@
 ---
 import logo from '@/assets/logo.svg'
-import DarkLightToggle from '@/components/DarkLightToggle.astro'
+import ModeToggle from '@/components/mode/ModeToggle.astro'
 import config from '@/theme.config'
 import { Image } from 'astro:assets'
 import Separator from './Separator.astro'
@@ -48,7 +48,7 @@ const { activeHeaderLink } = Astro.props
           ))
         }
         <li class="text-2xl">
-          {config.modeToggle && <DarkLightToggle />}
+          {config.modeToggle && <ModeToggle />}
         </li>
       </ul>
     </nav>

@@ -1,8 +1,8 @@
 ---
-import DarkLightToggle from '@/components/DarkLightToggle.astro'
 import LandingHero, {
   type Props as LandingHeroProps
 } from '@/components/LandingHero.astro'
+import ModeToggle from '@/components/mode/ModeToggle.astro'
 import BaseLayout, { type Props as BaseLayoutProps } from '@/layouts/Base.astro'
 import config from '@/theme.config'
 
@@ -35,7 +35,7 @@ const { frontmatter } = Astro.props
         ))
       }
       <div class="grow"></div>
-      {config.modeToggle && <DarkLightToggle />}
+      {config.modeToggle && <ModeToggle />}
     </footer>
   </div>
 </BaseLayout>
