@@ -14,7 +14,7 @@ const { activeHeaderLink } = Astro.props
 
 <header class="mx-auto w-full max-w-3xl">
   <div class="flex justify-between py-8">
-    <a href="/" class="flex gap-2 text-2xl font-semibold text-theme-accent">
+    <a href="/" class="text-accent flex gap-2 text-2xl font-semibold">
       <Image alt="Nordlys logo" src={logo} height={24} />
       {config.title}
     </a>
@@ -27,7 +27,7 @@ const { activeHeaderLink } = Astro.props
                 href={href}
                 class={`header-link ${
                   activeHeaderLink === label || activeHeaderLink === href
-                    ? 'text-theme-accent/100'
+                    ? 'text-accent/100'
                     : ''
                 }`}
               >

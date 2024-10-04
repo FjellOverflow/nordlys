@@ -4,12 +4,12 @@ const THEMES_FILE = './src/style/themes.css'
 
 const lightRegex = (theme: string) =>
   new RegExp(
-    `\\.${theme}\\s*\\{\\s*--theme-accent:\\s*([\\d\\s,]+);\\s*--theme-bg:\\s*([\\d\\s,]+);`
+    `\\.${theme}\\s*\\{\\s*--accent:\\s*([\\d\\s,]+);\\s*--accent-bg:\\s*([\\d\\s,]+);`
   )
 
 const darkRegex = (theme: string) =>
   new RegExp(
-    `\\.${theme}\\s*{(?:[^{}]*{[^{}]*})*[^{}]*\\[data-theme=['"]dark['"]\\]\\s*{[^{}]*--theme-accent:\\s*([\\d\\s,]+);[^{}]*--theme-bg:\\s*([\\d\\s,]+);`
+    `\\.${theme}\\s*{(?:[^{}]*{[^{}]*})*[^{}]*\\[data-theme=['"]dark['"]\\]\\s*{[^{}]*--accent:\\s*([\\d\\s,]+);[^{}]*--accent-bg:\\s*([\\d\\s,]+);`
   )
 
 const toRGB = (vals: string) => `rgb(${vals.replaceAll(' ', '')})`

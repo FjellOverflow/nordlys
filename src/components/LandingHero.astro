@@ -29,16 +29,16 @@ const heroVariant = `${gradient ? 'gradient' : ''} ${background ? 'background' :
 
 <style is:global>
   #hero {
-    @apply text-theme-accent;
+    @apply text-accent;
 
     &.gradient {
-      @apply bg-gradient-to-r from-theme-accent/25 via-theme-accent/75 to-theme-accent/100 bg-clip-text pb-2 text-transparent;
+      @apply from-accent/25 via-accent/75 to-accent/100 bg-gradient-to-r bg-clip-text pb-2 text-transparent;
     }
 
     &.background {
       @apply mb-8;
       #hero-bg {
-        @apply absolute inset-0 h-full w-full bg-theme-accent/65 blur-3xl;
+        @apply bg-accent/65 absolute inset-0 h-full w-full blur-3xl;
       }
     }
   }

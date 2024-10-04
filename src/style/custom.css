@@ -1,6 +1,6 @@
 @layer base {
   :root {
-    @apply bg-theme-bg;
+    @apply bg-accent-bg;
   }
 
   .prose {
@@ -8,16 +8,16 @@
   }
 
   body {
-    @apply selection:bg-theme-accent/75 selection:text-white selection:dark:text-black;
+    @apply selection:bg-accent/75 selection:text-white selection:dark:text-black;
   }
 }
 
 .icon-btn {
-  @apply iconify cursor-pointer text-black/75 hover:text-theme-accent/100 dark:text-white/75;
+  @apply iconify cursor-pointer text-black/75 hover:text-accent/100 dark:text-white/75;
 }
 
 .header-link {
-  @apply text-black/75 hover:text-theme-accent/100 dark:text-white/75;
+  @apply text-black/75 hover:text-accent/100 dark:text-white/75;
 }
 
 ::-webkit-scrollbar {
@@ -25,13 +25,13 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-theme-accent/75;
+  @apply bg-accent/75;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-theme-accent/25;
+  @apply bg-accent/25;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-theme-accent/100;
+  @apply bg-accent/100;
 }

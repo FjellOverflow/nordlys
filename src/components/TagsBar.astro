@@ -12,7 +12,7 @@ const { tags } = Astro.props
   {
     tags.map(({ tag, icon }) => (
       <a
-        class="no-underline opacity-50 hover:text-theme-accent hover:opacity-100"
+        class="hover:text-accent no-underline opacity-50 hover:opacity-100"
         href={`/tags/${tag}`}
       >
         <span class={`iconify align-middle text-xl ${icon}`} />

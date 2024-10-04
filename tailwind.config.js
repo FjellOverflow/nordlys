@@ -16,8 +16,8 @@ export default {
   theme: {
     extend: {
       colors: {
-        'theme-accent': withOpacity('--theme-accent'),
-        'theme-bg': withOpacity('--theme-bg')
+        accent: withOpacity('--accent'),
+        'accent-bg': withOpacity('--accent-bg')
       },
       fontFamily: {
         sans: ['IBM Plex Sans', ...defaultTheme.fontFamily.sans]

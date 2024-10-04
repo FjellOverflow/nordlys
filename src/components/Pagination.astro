@@ -16,7 +16,7 @@ const { page } = Astro.props
           class={
             !page.url.prev
               ? 'no-underline opacity-50'
-              : 'text-black/75 hover:text-theme-accent/100 dark:text-white/75'
+              : 'hover:text-accent/100 text-black/75 dark:text-white/75'
           }
           href={page.url.prev}
         >
@@ -27,7 +27,7 @@ const { page } = Astro.props
           class={
             !page.url.next
               ? 'no-underline opacity-50'
-              : 'text-black/75 hover:text-theme-accent/100 dark:text-white/75'
+              : 'hover:text-accent/100 text-black/75 dark:text-white/75'
           }
           href={page.url.next}
         >

@@ -1,6 +1,6 @@
 @layer components {
   .astro-code-header {
-    @apply flex h-12 items-center justify-between rounded-tl-md rounded-tr-md border-[1px] border-theme-accent px-4;
+    @apply flex h-12 items-center justify-between rounded-tl-md rounded-tr-md border-[1px] border-accent px-4;
 
     & .label {
       @apply flex flex-col justify-center text-sm;
@@ -11,7 +11,7 @@
     }
 
     & .copy-success {
-      @apply iconify text-2xl text-theme-accent tabler--check;
+      @apply iconify text-2xl text-accent tabler--check;
     }
   }
 
@@ -19,7 +19,7 @@
     border-top-left-radius: 0;
     border-top-right-radius: 0;
     margin-top: 0;
-    @apply border-[1px] border-t-0 border-theme-accent;
+    @apply border-[1px] border-t-0 border-accent;
   }
 
   html[data-theme='dark'] .astro-code,

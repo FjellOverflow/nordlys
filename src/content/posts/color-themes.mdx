@@ -30,7 +30,7 @@ Click the buttons below to (temporarily) switch the color theme for a preview! T
 
 <div class="w-full flex justify-center gap-8 my-24">
   <LandingHero frontmatter={{gradient: true, background: true}}>preview</LandingHero>
-  <span class="iconify text-theme-accent mt-2 tabler--brush text-8xl"></span>
+  <span class="iconify text-accent mt-2 tabler--brush text-8xl"></span>
 </div>
 
 ## Adding a New Theme
@@ -40,12 +40,12 @@ I addition to the predefined themes, it's very simple to add a custom theme. Sim
 ```css src/style/themes.css
 @layer base {
   .theme-custom {
-    --theme-accent: 0, 0, 0;
-    --theme-bg: 255, 255, 255;
+    --accent: 0, 0, 0;
+    --accent-bg: 255, 255, 255;
 
     &[data-theme='dark'] {
-      --theme-accent: 255, 255, 255;
-      --theme-bg: 0, 0, 0;
+      --accent: 255, 255, 255;
+      --accent-bg: 0, 0, 0;
     }
   }
 ```
