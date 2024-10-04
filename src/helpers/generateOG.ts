@@ -5,11 +5,11 @@ import extractThemeColors from './extractColorTheme'
 const {
   title: siteTitle,
   description: siteDescription,
-  defaultTheme,
+  mode,
   colorTheme
 } = config
 
-const { accent, bg } = extractThemeColors(colorTheme)[defaultTheme]
+const { accent, bg } = extractThemeColors(colorTheme)[mode]
 
 const fetchFont = async (weight: string) =>
   (

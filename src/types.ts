@@ -14,7 +14,7 @@ interface NavItem {
   icon?: Icon
 }
 
-const Themes = ['dark', 'light'] as const
+const Modes = ['dark', 'light'] as const
 
 export const ColorThemes = [
   'theme-mono',
@@ -24,7 +24,7 @@ export const ColorThemes = [
   'theme-ubuntu'
 ] as const
 
-export type Theme = (typeof Themes)[number]
+export type Mode = (typeof Modes)[number]
 export type ColorTheme = (typeof ColorThemes)[number]
 
 export interface ThemeConfig {
@@ -36,7 +36,7 @@ export interface ThemeConfig {
   footerIcons: NavItem[]
 
   locale: string
-  defaultTheme: Theme
+  mode: Mode
   darkLightToggle: boolean
   colorTheme: ColorTheme
   opengraphImage: HTMLAttributes<'img'> | string | undefined
@@ -49,7 +49,7 @@ export interface ThemeConfig {
 
 const defaults = {
   locale: 'en',
-  defaultTheme: Themes[0],
+  mode: Modes[0],
   darkLightToggle: true,
   colorTheme: ColorThemes[0],
   opengraphImage: undefined,

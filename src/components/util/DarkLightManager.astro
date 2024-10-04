@@ -1,0 +1,45 @@
+---
+import config from '@/theme.config'
+
+const defaultMode = config.mode
+---
+
+<script is:inline data-default-mode={defaultMode}>
+  window.mode ??= (() => {
+    const defaultMode = document.currentScript.getAttribute('data-default-mode')
+    const storageKey = 'mode'
+    const store =
+      typeof localStorage !== 'undefined'
+        ? localStorage
+        : { getItem: () => null, setItem: () => {} }
+
+    const mediaMatcher = window.matchMedia('(prefers-color-scheme: light)')
+
+    mediaMatcher.addEventListener('change', () => {
+      applyMode(mode.getMode())
+    })
+
+    function applyMode(mode) {
+      document.documentElement.dataset.theme = mode
+      document.documentElement.style.colorScheme = mode
+    }
+
+    function setMode(mode = defaultMode) {
+      store.setItem(storageKey, mode)
+      applyMode(mode)
+    }
+
+    function getMode() {
+      return store.getItem(storageKey) || defaultMode
+    }
+
+    return { setMode, getMode }
+  })()
+
+  mode.setMode(mode.getMode())
+</script>
+<script>
+  document.addEventListener('astro:after-swap', () =>
+    window.mode.setMode(window.mode.getMode())
+  )
+</script>

@@ -26,7 +26,7 @@ export default defineThemeConfig({
 
   // optional settings
   locale: 'en',
-  defaultTheme: 'dark',
+  mode: 'dark',
   darkLightToggle: true,
   colorTheme: 'theme-mono',
   opengraphImage: undefined,
