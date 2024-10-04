@@ -1,0 +1,24 @@
+<dark-light-toggle></dark-light-toggle>
+
+<script is:inline>
+  if (!customElements.get('dark-light-toggle')) {
+    customElements.define(
+      'dark-light-toggle',
+      class extends HTMLElement {
+        connectedCallback() {
+          this.innerHTML = `
+            <button id="dark-light-toggle" class="flex items-center" title="Dark Light toggle">
+              <span class="icon-btn tabler--moon dark:tabler--sun"></span>
+            </button>
+          `
+          this.querySelector('#dark-light-toggle').addEventListener(
+            'click',
+            () => {
+              theme.setTheme(theme.getTheme() === 'light' ? 'dark' : 'light')
+            }
+          )
+        }
+      }
+    )
+  }
+</script>
