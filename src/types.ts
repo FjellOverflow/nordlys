@@ -37,7 +37,7 @@ export interface ThemeConfig {
 
   locale: string
   mode: Mode
-  darkLightToggle: boolean
+  modeToggle: boolean
   colorTheme: ColorTheme
   opengraphImage: HTMLAttributes<'img'> | string | undefined
   postsPerPage: number
@@ -50,7 +50,7 @@ export interface ThemeConfig {
 const defaults = {
   locale: 'en',
   mode: Modes[0],
-  darkLightToggle: true,
+  modeToggle: true,
   colorTheme: ColorThemes[0],
   opengraphImage: undefined,
   postsPerPage: 4,

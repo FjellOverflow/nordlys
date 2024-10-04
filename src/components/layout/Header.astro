@@ -14,7 +14,7 @@ const { activeHeaderLink } = Astro.props
 
 <header class="mx-auto w-full max-w-3xl">
   <div class="flex justify-between py-8">
-    <a href="/" class="text-accent flex gap-2 text-2xl font-semibold">
+    <a href="/" class="flex gap-2 text-2xl font-semibold text-accent">
       <Image alt="Nordlys logo" src={logo} height={24} />
       {config.title}
     </a>
@@ -48,7 +48,7 @@ const { activeHeaderLink } = Astro.props
           ))
         }
         <li class="text-2xl">
-          {config.darkLightToggle && <DarkLightToggle />}
+          {config.modeToggle && <DarkLightToggle />}
         </li>
       </ul>
     </nav>

@@ -2,7 +2,7 @@
 
 interface Window {
   mode: {
-    setMode: (theme: 'dark' | 'light') => void
+    setMode: (mode: 'dark' | 'light') => void
     getMode: () => 'dark' | 'light'
   }
 }
