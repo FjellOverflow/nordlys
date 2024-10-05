@@ -28,24 +28,4 @@
       --accent-bg: 35, 39, 48;
     }
   }
-
-  .scheme-js {
-    --accent: 0, 0, 0;
-    --accent-bg: 253, 219, 41;
-
-    &[data-mode='dark'] {
-      --accent: 253, 219, 41;
-      --accent-bg: 0, 0, 0;
-    }
-  }
-
-  .scheme-ubuntu {
-    --accent: 231, 83, 31;
-    --accent-bg: 242, 244, 248;
-
-    &[data-mode='dark'] {
-      --accent: 255, 255, 255;
-      --accent-bg: 48, 10, 36;
-    }
-  }
 }

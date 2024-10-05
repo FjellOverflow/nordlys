@@ -19,9 +19,7 @@ const Modes = ['dark', 'light'] as const
 export const ColorSchemes = [
   'scheme-mono',
   'scheme-nord',
-  'scheme-aurora',
-  'scheme-js',
-  'scheme-ubuntu'
+  'scheme-aurora'
 ] as const
 
 export type Mode = (typeof Modes)[number]
