@@ -1,0 +1,39 @@
+---
+
+---
+
+<button
+  id="mobile-nav-toggle"
+  class="flex items-center"
+  title="Mobile nav toggle"
+>
+  <span class="icon-btn tabler--menu-2"></span>
+</button>
+
+<script>
+  const iconOpen = 'tabler--x'
+  const iconClosed = 'tabler--menu-2'
+
+  function setupMobileNavClickHandler(container: Document) {
+    const button = container.querySelector('#mobile-nav-toggle')
+    const nav = container.querySelector('#mobile-nav')
+    const icon = button?.children[0]
+    if (!icon || !nav) return
+
+    button?.addEventListener('click', () => {
+      if (icon.className.includes(iconOpen)) {
+        icon.classList.remove(iconOpen)
+        icon.classList.add(iconClosed)
+        nav.classList.add('hidden')
+      } else {
+        icon.classList.remove(iconClosed)
+        icon.classList.add(iconOpen)
+        nav.classList.remove('hidden')
+      }
+    })
+  }
+
+  document.addEventListener('astro:page-load', () => {
+    setupMobileNavClickHandler(document)
+  })
+</script>

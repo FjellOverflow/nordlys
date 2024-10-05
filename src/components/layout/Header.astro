@@ -4,6 +4,7 @@ import Separator from '@/components/layout/Separator.astro'
 import ModeToggle from '@/components/mode/ModeToggle.astro'
 import config from '@/theme.config'
 import { Image } from 'astro:assets'
+import MobileNav from './MobileNav.astro'
 
 export interface Props {
   activeHeaderLink?: string
@@ -52,6 +53,44 @@ const { activeHeaderLink } = Astro.props
         </li>
       </ul>
     </nav>
+    <div class="flex items-center justify-center gap-4 text-2xl sm:hidden">
+      {config.modeToggle && <ModeToggle />}
+      <MobileNav />
+    </div>
   </div>
   <Separator />
+  <div id="mobile-nav" class="hidden">
+    <nav class="flex-col justify-end py-6">
+      <ul class="flex flex-col items-center gap-2">
+        {
+          config.navBarItems.map(({ label, href, icon }) => (
+            <li class="flex flex-col justify-center">
+              <a
+                href={href}
+                class={`header-link ${
+                  activeHeaderLink === label || activeHeaderLink === href
+                    ? 'text-accent/100'
+                    : ''
+                }`}
+              >
+                {icon && (
+                  <span class={`iconify align-middle text-xl ${icon}`} />
+                )}
+                <span
+                  class={
+                    activeHeaderLink === label
+                      ? `underline underline-offset-4`
+                      : ''
+                  }
+                >
+                  {label}
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+    <Separator />
+  </div>
 </header>
