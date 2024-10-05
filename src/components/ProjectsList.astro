@@ -1,9 +1,9 @@
 ---
+import TagsBar from '@/components/TagsBar.astro'
 import { toMonthString } from '@/util'
 import { sortProjects } from '@/util/projects'
 import { resolveTags } from '@/util/tags'
 import type { CollectionEntry } from 'astro:content'
-import TagsBar from './TagsBar.astro'
 
 export interface Props {
   projects: CollectionEntry<'projects'>[]

@@ -1,7 +1,7 @@
 import config from '@/theme.config'
 import type { ResolvedTag } from '@/types'
-import { getPosts } from './posts'
-import { getProjects } from './projects'
+import { getPosts } from '@/util/posts'
+import { getProjects } from '@/util/projects'
 
 export const sortTags = (t1: ResolvedTag, t2: ResolvedTag) =>
   t1.tag.localeCompare(t2.tag)

@@ -1,8 +1,8 @@
+import extractColorScheme from '@/ogImages/extractColorScheme'
+import post from '@/ogImages/post'
+import site from '@/ogImages/site'
 import config from '@/theme.config'
 import satori, { type SatoriOptions } from 'satori'
-import extractColorScheme from './extractColorScheme'
-import post from './post'
-import site from './site'
 
 const fetchFont = async (weight: string) =>
   (
