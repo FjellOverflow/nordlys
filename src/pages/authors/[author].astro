@@ -1,9 +1,9 @@
 ---
 import PostsList from '@/components/PostsList.astro'
-import { generateAuthors, getPosts } from '@/helpers/util'
 import PageLayout, {
   type Props as PageLayoutProps
 } from '@/layouts/PageLayout.astro'
+import { generateAuthors, getPosts } from '@/util/posts'
 import type { InferGetStaticPropsType } from 'astro'
 
 export async function getStaticPaths() {

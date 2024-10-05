@@ -1,6 +1,7 @@
 ---
 import TagsBar from '@/components/TagsBar.astro'
-import { resolveTags, toDateString } from '@/helpers/util'
+import { toDateString } from '@/util'
+import { resolveTags } from '@/util/tags'
 import type { CollectionEntry } from 'astro:content'
 import PageLayout, { type Props as PageLayoutProps } from './PageLayout.astro'
 

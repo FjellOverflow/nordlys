@@ -1,5 +1,5 @@
 import { renderPostOG } from '@/helpers/generateOG'
-import { getPosts } from '@/helpers/util'
+import { getPosts } from '@/util/posts'
 import { Resvg } from '@resvg/resvg-js'
 import type { APIContext, APIRoute, InferGetStaticPropsType } from 'astro'
 

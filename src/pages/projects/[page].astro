@@ -1,16 +1,15 @@
 ---
 import Pagination from '@/components/Pagination.astro'
 import ProjectsList from '@/components/ProjectsList.astro'
-import { sortProjects } from '@/helpers/util'
 import PageLayout, {
   type Props as PageLayoutProps
 } from '@/layouts/PageLayout.astro'
 import config from '@/theme.config'
+import { getProjects } from '@/util/projects'
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro'
-import { getCollection } from 'astro:content'
 
 export const getStaticPaths = (async ({ paginate }) => {
-  const projects = (await getCollection('projects')).sort(sortProjects)
+  const projects = await getProjects()
 
   return paginate(projects, { pageSize: config.projectsPerPage })
 }) satisfies GetStaticPaths

@@ -1,6 +1,8 @@
 ---
 import TagsBar from '@/components/TagsBar.astro'
-import { resolveTags, sortPosts, toDateString } from '@/helpers/util'
+import { toDateString } from '@/util'
+import { sortPosts } from '@/util/posts'
+import { resolveTags } from '@/util/tags'
 import type { CollectionEntry } from 'astro:content'
 
 export interface Props {

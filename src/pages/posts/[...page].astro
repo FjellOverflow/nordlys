@@ -1,11 +1,11 @@
 ---
 import Pagination from '@/components/Pagination.astro'
 import PostsList from '@/components/PostsList.astro'
-import { getPosts } from '@/helpers/util'
 import PageLayout, {
   type Props as PageLayoutProps
 } from '@/layouts/PageLayout.astro'
 import config from '@/theme.config'
+import { getPosts } from '@/util/posts'
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro'
 
 export const getStaticPaths = (async ({ paginate }) => {

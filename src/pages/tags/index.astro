@@ -1,8 +1,8 @@
 ---
-import { generateTags, getTagUsage } from '@/helpers/util'
 import PageLayout, {
   type Props as PageLayoutProps
 } from '@/layouts/PageLayout.astro'
+import { generateTags, getTagUsage } from '@/util/tags'
 
 const tags = await generateTags()
 
