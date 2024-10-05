@@ -1,0 +1,110 @@
+---
+title: Adding and Switching Color Schemes
+description: Easily switch and add custom color schemes in Nordlys
+publishedDate: 2024-10-01
+tags:
+  - documentation
+---
+
+Nordlys not only features a dark and light mode, but also predefined color schemes that are ready to use, as well as the option to add custom schemes.
+
+## Using a Predefined Scheme
+
+Simply set `colorScheme` in the theme configuration (`theme.config.ts`) to one of the predefined schemes.
+
+## Mono
+
+The `scheme-mono` color scheme features a simple yet elegant white accent on black background.
+
+import { Image } from 'astro:assets';
+import monoDarkLanding from 'src/assets/screenshots/mono-dark-landing.png';
+import monoDarkProjects from 'src/assets/screenshots/mono-dark-projects.png';
+import monoLightLanding from 'src/assets/screenshots/mono-light-landing.png';
+import monoLightProjects from 'src/assets/screenshots/mono-light-projects.png';
+
+<div class="flex flex-col gap-4">
+  <div class="flex justify-center gap-4 max-w-full">
+    <Image class="my-0 border-2 rounded w-[48%]" src={monoDarkLanding} alt="Nordlys landing page in dark mode with mono color scheme" />
+    <Image class="my-0 border-2 rounded w-[48%]" src={monoLightLanding} alt="Nordlys landing page in light mode with mono color scheme" />
+  </div>
+  <div class="flex justify-center gap-4 max-w-full">
+    <Image class="my-0 border-2 rounded w-[48%]" src={monoDarkProjects} alt="Nordlys projects page in dark mode with mono color scheme" />
+    <Image class="my-0 border-2 rounded w-[48%]" src={monoLightProjects} alt="Nordlys projects page in light mode with mono color scheme" />
+  </div>
+</div>
+
+## Nord
+
+The `scheme-nord` color scheme is inspired by [Nord](https://www.nordtheme.com/), an arctic, north-bluish color palette.
+
+import nordDarkLanding from 'src/assets/screenshots/nord-dark-landing.png';
+import nordDarkProjects from 'src/assets/screenshots/nord-dark-projects.png';
+import nordLightLanding from 'src/assets/screenshots/nord-light-landing.png';
+import nordLightProjects from 'src/assets/screenshots/nord-light-projects.png';
+
+<div class="flex flex-col gap-4">
+  <div class="flex justify-center gap-4 max-w-full">
+    <Image class="my-0 border-2 rounded w-[48%]" src={nordDarkLanding} alt="Nordlys landing page in dark mode with nord color scheme" />
+    <Image class="my-0 border-2 rounded w-[48%]" src={nordLightLanding} alt="Nordlys landing page in light mode with nord color scheme" />
+  </div>
+  <div class="flex justify-center gap-4 max-w-full">
+    <Image class="my-0 border-2 rounded w-[48%]" src={nordDarkProjects} alt="Nordlys projects page in dark mode with nord color scheme" />
+    <Image class="my-0 border-2 rounded w-[48%]" src={nordLightProjects} alt="Nordlys projects page in light mode with nord color scheme" />
+  </div>
+</div>
+
+## Aurora
+
+The `scheme-aurora` color scheme resembles glowingly green northern lights against a dark grey night sky.
+
+import auroraDarkLanding from 'src/assets/screenshots/aurora-dark-landing.png';
+import auroraDarkProjects from 'src/assets/screenshots/aurora-dark-projects.png';
+import auroraLightLanding from 'src/assets/screenshots/aurora-light-landing.png';
+import auroraLightProjects from 'src/assets/screenshots/aurora-light-projects.png';
+
+<div class="flex flex-col gap-4">
+  <div class="flex justify-center gap-4 max-w-full">
+    <Image class="my-0 border-2 rounded w-[48%]" src={auroraDarkLanding} alt="Nordlys landing page in dark mode with aurora color scheme" />
+    <Image class="my-0 border-2 rounded w-[48%]" src={auroraLightLanding} alt="Nordlys landing page in light mode with aurora color scheme" />
+  </div>
+  <div class="flex justify-center gap-4 max-w-full">
+    <Image class="my-0 border-2 rounded w-[48%]" src={auroraDarkProjects} alt="Nordlys projects page in dark mode with aurora color scheme" />
+    <Image class="my-0 border-2 rounded w-[48%]" src={auroraLightProjects} alt="Nordlys projects page in light mode with aurora color scheme" />
+  </div>
+</div>
+
+## Adding a New Scheme
+
+I addition to the predefined color schemes, it's very simple to add a custom scheme. Just choose a primary (accent) color and a background color, and add them to `color-schemes.css`. Make sure to use the RGB values of the colors in the same format as shown.
+
+```css src/style/color-schemes.css
+@layer base {
+  .scheme-custom {
+    --accent: 0, 0, 0;
+    --accent-bg: 255, 255, 255;
+
+    &[data-mode='dark'] {
+      --accent: 255, 255, 255;
+      --accent-bg: 0, 0, 0;
+    }
+  }
+```
+If you want use the newly defined scheme, set it in the `theme.config.ts`.
+
+```ts src/theme.config.ts
+  export default defineThemeConfig({
+    colorScheme: 'scheme-custom'
+
+    // ...
+```
+
+Most likely, your IDE or editor will display a TypeError indicating that the scheme is not a valid choice. While this is not a critical error, you can fix it by adding `scheme-custom` as a valid option to the `ColorSchemes` array in the type definition.
+
+```ts src/types.ts
+export const ColorSchemes = [
+  // other schemes
+  'scheme-custom'
+] as const
+```
+
+And that's it!
