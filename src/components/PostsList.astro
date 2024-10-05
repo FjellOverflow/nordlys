@@ -17,8 +17,8 @@ posts.sort(sortPosts)
 <ul class="p-0">
   {
     posts.map(({ data, slug }) => (
-      <li class="flex flex-col gap-2">
-        <div class="flex items-center justify-between">
+      <li class="mt-4 flex flex-col gap-2 sm:mt-0">
+        <div class="flex flex-col justify-between sm:flex-row sm:items-center">
           <a
             class="text-xl underline-offset-4"
             href={`/posts/${slug}`}
@@ -26,7 +26,7 @@ posts.sort(sortPosts)
           >
             <span>{data.title}</span>
           </a>
-          <time class="text-sm opacity-75">
+          <time class="mt-4 text-sm opacity-75 sm:mt-0">
             {toDateString(data.publishedDate)}
           </time>
         </div>

@@ -14,7 +14,7 @@ const frontmatter: PageLayoutProps['frontmatter'] = {
 
 <PageLayout {frontmatter}>
   <slot />
-  <div class="flex gap-8">
+  <div class="flex flex-wrap gap-8">
     {
       tags.map(({ tag, icon }) => (
         <a

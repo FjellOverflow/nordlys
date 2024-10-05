@@ -12,13 +12,13 @@ export interface Props {
 const { activeHeaderLink } = Astro.props
 ---
 
-<header class="mx-auto w-full max-w-3xl">
-  <div class="flex justify-between py-8">
+<header class="mx-auto w-full max-w-[90%] md:max-w-3xl">
+  <div class="flex justify-between py-4 sm:py-8">
     <a href="/" class="flex gap-2 text-2xl font-semibold text-accent">
       <Image alt="Nordlys logo" src={logo} height={24} />
       {config.title}
     </a>
-    <nav class="flex flex-col justify-end">
+    <nav class="hidden flex-col justify-end sm:flex">
       <ul class="flex gap-6">
         {
           config.navBarItems.map(({ label, href, icon }) => (

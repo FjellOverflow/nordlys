@@ -10,17 +10,22 @@ const { frontmatter } = Astro.props
 ---
 
 <BaseLayout frontmatter={frontmatter}>
-  <div class="mx-auto mt-36 w-full max-w-2xl">
-    <main class="mb-8">
+  <div class="mx-auto mt-24 w-full max-w-[80%] sm:mt-36 md:max-w-2xl">
+    <main class="mb-4 sm:mb-8">
       <section>
         {frontmatter.title && <Hero {frontmatter}>{frontmatter.title}</Hero>}
-        <div id="highlight-links" class="text-4xl font-semibold leading-[46px]">
+        <div
+          id="highlight-links"
+          class="text-xl font-semibold sm:text-4xl sm:leading-[46px]"
+        >
           <slot />
         </div>
       </section>
     </main>
     <hr class="border-separate border-black/75 dark:border-white/50" />
-    <footer class="mt-8 flex justify-between gap-2 text-5xl">
+    <footer
+      class="mt-4 flex justify-between gap-2 text-3xl sm:mt-8 sm:text-5xl"
+    >
       {
         config.footerIcons.map(({ icon, href, label }) => (
           <a href={href} target="_blank" rel="noopener noreferrer">
