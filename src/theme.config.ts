@@ -3,7 +3,7 @@ import { defineThemeConfig } from '@/types'
 export default defineThemeConfig({
   site: 'https://nordlys.fjelloverflow.dev',
   title: 'Nordlys',
-  description: 'A sleek, minimal Astro blog template',
+  description: 'A sleek, minimal Astro blog theme',
   author: 'FjellOverflow',
   navBarItems: [
     { label: 'Blog', href: '/posts' },

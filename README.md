@@ -9,7 +9,7 @@
 </h1>
 
 <p align="center">
-  A sleek, minimal Astro blog template.
+  A sleek, minimal Astro blog theme.
 </p>
 
 <p align="center">
@@ -64,7 +64,7 @@ All content is written in Markdown or MDX. Adding new pages, blog posts, or proj
 
 ## Documentation
 
-The template is self-documenting. Just head over to [nordlys.fjelloverflow.dev](https://nordlys.fjelloverflow.dev/posts/) for examples and tutorials on how to use and customize the template.
+The theme is self-documenting. Just head over to [nordlys.fjelloverflow.dev](https://nordlys.fjelloverflow.dev/posts/) for examples and tutorials on how to use and customize the theme.
 
 ## Stack
 

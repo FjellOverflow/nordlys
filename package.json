@@ -2,7 +2,7 @@
   "name": "nordlys",
   "type": "module",
   "version": "0.0.1",
-  "description": "A sleek, minimal Astro blog template.",
+  "description": "A sleek, minimal Astro blog teme.",
   "author": "FjellOverflow",
   "license": "GPL-3.0-only",
   "homepage": "https://github.com/FjellOverflow/nordlys",
@@ -17,6 +17,7 @@
     "astro",
     "blog",
     "template",
+    "theme",
     "tailwindcss"
   ],
   "scripts": {
