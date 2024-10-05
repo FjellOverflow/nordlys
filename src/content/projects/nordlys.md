@@ -7,7 +7,7 @@ tags:
   - tailwindcss
 ---
 
-A sleek, minimal Astro blog theme.
+A minimal Astro blog theme.
 Ideal for a personal blog and showcasing a projects portfolio.
-Fully customizable with built-in color schemes and ready-to-use components.
+Fully customizable, dark mode & built-in color scheme.
 Read more in the [about](/about) section.

@@ -9,7 +9,7 @@
 </h1>
 
 <p align="center">
-  A sleek, minimal Astro blog theme.
+  A minimal Astro blog theme
 </p>
 
 <p align="center">

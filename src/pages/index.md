@@ -5,7 +5,7 @@ background: true
 logo: true
 ---
 
-A sleek, minimal Astro blog theme.\
+A minimal Astro blog theme.\
 Ideal for a personal [blog](/posts) and showcasing a [projects](/projects) portfolio.\
-Fully customizable with built-in color schemes and ready-to-use components.\
+Fully customizable, dark mode & built-in color schemes.\
 Read more in the [about](/about) section.
