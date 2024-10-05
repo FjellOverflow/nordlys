@@ -3,8 +3,8 @@ import { defineConfig } from 'astro/config'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
-import generateCodeHeaders from './src/helpers/generateCodeHeaders'
-import readingTime from './src/helpers/readingTime'
+import codeHeadersPlugin from './src/plugins/codeHeadersPlugin'
+import readingTimePlugin from './src/plugins/readingTimePlugin'
 
 export default defineConfig({
   site: 'https://nordlys.fjelloverflow.dev',
@@ -16,8 +16,8 @@ export default defineConfig({
         dark: 'vitesse-black'
       },
       wrap: true,
-      transformers: [generateCodeHeaders]
+      transformers: [codeHeadersPlugin]
     },
-    remarkPlugins: [readingTime]
+    remarkPlugins: [readingTimePlugin]
   }
 })

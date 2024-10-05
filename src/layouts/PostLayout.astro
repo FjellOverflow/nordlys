@@ -26,7 +26,7 @@ const publishedStr = toDateString(post.data.publishedDate)
 ---
 
 <PageLayout {frontmatter}>
-  <script src="@/helpers/headingAnchors.ts"></script>
+  <script src="@/plugins/headingAnchorsPlugin.ts"></script>
 
   <h1 class="my-4">{frontmatter.title}</h1>
   <TagsBar tags={resolveTags(post.data.tags)} />
