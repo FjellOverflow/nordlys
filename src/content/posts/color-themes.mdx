@@ -9,7 +9,7 @@ tags:
 import ColorThemeSwitch from '@/components/ColorThemeSwitch.astro'
 import Hero from '@/components/Hero.astro'
 import ModeToggle from '@/components/mode/ModeToggle.astro'
-import { ColorThemes } from '@/types.ts'
+import { ColorSchemes } from '@/types.ts'
 
 Nordlys not only has a dark and light mode, but also predefined themes that are ready to use, as well as the option of adding custom themes.
 
@@ -20,7 +20,7 @@ Click the buttons below to (temporarily) switch the color theme for a preview! T
 
 <div class="w-full flex justify-between flex-wrap">
   {
-    ColorThemes.map((theme) => (<ColorThemeSwitch theme={theme}/>))
+    ColorSchemes.map((scheme) => (<ColorThemeSwitch scheme={scheme}/>))
   }
   <div class="flex flex-col items-center justify-around">
     <span class="text-5xl"><ModeToggle/></span>

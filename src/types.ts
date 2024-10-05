@@ -16,16 +16,16 @@ interface NavItem {
 
 const Modes = ['dark', 'light'] as const
 
-export const ColorThemes = [
-  'theme-mono',
-  'theme-nord',
-  'theme-aurora',
-  'theme-js',
-  'theme-ubuntu'
+export const ColorSchemes = [
+  'scheme-mono',
+  'scheme-nord',
+  'scheme-aurora',
+  'scheme-js',
+  'scheme-ubuntu'
 ] as const
 
 export type Mode = (typeof Modes)[number]
-export type ColorTheme = (typeof ColorThemes)[number]
+export type ColorScheme = (typeof ColorSchemes)[number]
 
 export interface ThemeConfig {
   site: string
@@ -38,7 +38,7 @@ export interface ThemeConfig {
   locale: string
   mode: Mode
   modeToggle: boolean
-  colorTheme: ColorTheme
+  colorScheme: ColorScheme
   opengraphImage: HTMLAttributes<'img'> | string | undefined
   postsPerPage: number
   projectsPerPage: number
@@ -51,7 +51,7 @@ const defaults = {
   locale: 'en',
   mode: Modes[0],
   modeToggle: true,
-  colorTheme: ColorThemes[0],
+  colorScheme: ColorSchemes[0],
   opengraphImage: undefined,
   postsPerPage: 4,
   projectsPerPage: 3,

@@ -1,15 +1,15 @@
 import config from '@/theme.config'
 import satori from 'satori'
-import extractThemeColors from './extractColorTheme'
+import extractColorScheme from './extractColorScheme'
 
 const {
   title: siteTitle,
   description: siteDescription,
   mode,
-  colorTheme
+  colorScheme
 } = config
 
-const { accent, bg } = extractThemeColors(colorTheme)[mode]
+const { accent, bg } = extractColorScheme(colorScheme)[mode]
 
 const fetchFont = async (weight: string) =>
   (

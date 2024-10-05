@@ -1,25 +1,25 @@
 ---
-import type { ColorTheme } from '@/types'
+import type { ColorScheme } from '@/types'
 
 interface Props {
-  theme: ColorTheme
+  scheme: ColorScheme
 }
 
-const { theme } = Astro.props
+const { scheme } = Astro.props
 
-const themeName = theme.replace('theme-', '')
+const schemeName = scheme.replace('scheme-', '')
 ---
 
-<div title={`Preview ${theme}`} class="color-theme-select">
-  <div class={theme} data-mode="light">
-    <div>{themeName}</div>
+<div title={`Preview ${scheme}`} class="color-scheme-select">
+  <div class={scheme} data-mode="light">
+    <div>{schemeName}</div>
   </div>
-  <div class={theme} data-mode="dark">
-    <div>{themeName}</div>
+  <div class={scheme} data-mode="dark">
+    <div>{schemeName}</div>
   </div>
 </div>
 <style is:global>
-  .color-theme-select {
+  .color-scheme-select {
     @apply w-28 cursor-pointer overflow-clip rounded-md border border-accent/25;
 
     & > * {
@@ -33,23 +33,23 @@ const themeName = theme.replace('theme-', '')
   }
 </style>
 <script>
-  function setUpColorThemeSwitches(container: Document) {
-    container.querySelectorAll('.color-theme-select').forEach((span) => {
+  function setUpColorSchemeSwitches(container: Document) {
+    container.querySelectorAll('.color-scheme-select').forEach((span) => {
       span.addEventListener('click', async () => {
         const rootNode = container.children[0]
 
-        const classesWithoutThemes = rootNode.className
+        const classesWithoutSchemes = rootNode.className
           .split(' ')
-          .filter((c) => c && !c.startsWith('theme-'))
+          .filter((c) => c && !c.startsWith('scheme-'))
 
-        const newTheme = (span as HTMLElement).title || ''
+        const newScheme = (span as HTMLElement).title || ''
 
-        rootNode.className = [newTheme, ...classesWithoutThemes].join(' ')
+        rootNode.className = [newScheme, ...classesWithoutSchemes].join(' ')
       })
     })
   }
 
   document.addEventListener('astro:page-load', () => {
-    setUpColorThemeSwitches(document)
+    setUpColorSchemeSwitches(document)
   })
 </script>

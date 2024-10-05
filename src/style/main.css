@@ -1,5 +1,5 @@
 @import 'custom.css';
-@import 'themes.css';
+@import 'color-schemes.css';
 @import 'astro-code.css';
 
 @tailwind base;

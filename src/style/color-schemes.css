@@ -1,5 +1,5 @@
 @layer base {
-  .theme-mono {
+  .scheme-mono {
     --accent: 0, 0, 0;
     --accent-bg: 255, 255, 255;
 
@@ -9,7 +9,7 @@
     }
   }
 
-  .theme-nord {
+  .scheme-nord {
     --accent: 94, 129, 172;
     --accent-bg: 242, 244, 248;
 
@@ -19,7 +19,7 @@
     }
   }
 
-  .theme-aurora {
+  .scheme-aurora {
     --accent: 0, 183, 86;
     --accent-bg: 242, 244, 248;
 
@@ -29,7 +29,7 @@
     }
   }
 
-  .theme-js {
+  .scheme-js {
     --accent: 0, 0, 0;
     --accent-bg: 253, 219, 41;
 
@@ -39,7 +39,7 @@
     }
   }
 
-  .theme-ubuntu {
+  .scheme-ubuntu {
     --accent: 231, 83, 31;
     --accent-bg: 242, 244, 248;
 
