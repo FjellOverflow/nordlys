@@ -5,16 +5,14 @@ import sitemap from '@astrojs/sitemap'
 import tailwind from '@astrojs/tailwind'
 import codeHeadersPlugin from './src/plugins/codeHeadersPlugin'
 import readingTimePlugin from './src/plugins/readingTimePlugin'
+import config from './src/theme.config'
 
 export default defineConfig({
-  site: 'https://nordlys.fjelloverflow.dev',
+  site: config.site,
   integrations: [tailwind(), mdx(), sitemap()],
   markdown: {
     shikiConfig: {
-      themes: {
-        light: 'vitesse-light',
-        dark: 'vitesse-black'
-      },
+      themes: config.shikiThemes,
       wrap: true,
       transformers: [codeHeadersPlugin]
     },

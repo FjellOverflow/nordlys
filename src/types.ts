@@ -1,3 +1,4 @@
+import type { ShikiConfig } from 'astro'
 import type { HTMLAttributes } from 'astro/types'
 import type { SetOptional } from 'type-fest'
 
@@ -43,6 +44,7 @@ export interface ThemeConfig {
   scrollProgress: boolean
   scrollToTop: boolean
   tagIcons: Record<string, Icon>
+  shikiThemes: ShikiConfig['themes']
 }
 
 const defaults = {
@@ -55,7 +57,11 @@ const defaults = {
   projectsPerPage: 3,
   scrollProgress: false,
   scrollToTop: true,
-  tagIcons: {}
+  tagIcons: {},
+  shikiThemes: {
+    light: 'vitesse-light',
+    dark: 'vitesse-black'
+  } as ShikiConfig['themes']
 }
 
 type PartialThemeConfig = SetOptional<ThemeConfig, keyof typeof defaults>

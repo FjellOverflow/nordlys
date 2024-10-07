@@ -1,4 +1,4 @@
-import { defineThemeConfig } from '@/types'
+import { defineThemeConfig } from './types'
 
 export default defineThemeConfig({
   site: 'https://nordlys.fjelloverflow.dev',
@@ -38,5 +38,9 @@ export default defineThemeConfig({
     tailwindcss: 'tabler--brand-tailwind',
     astro: 'tabler--brand-astro',
     documentation: 'tabler--book'
+  },
+  shikiThemes: {
+    light: 'vitesse-light',
+    dark: 'vitesse-black'
   }
 })

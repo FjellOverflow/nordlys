@@ -62,16 +62,14 @@ sortedList = sorted([3, 1, 2])
 
 ## Changing Color Scheme
 
-It is also possible to change the colors of the code blocks, by changing the Shiki themes in `astro.config.ts`. For a list of avaible themes, refer to the [Shiki documentation](https://shiki.style/themes).
+It is also possible to change the colors of the code blocks, by changing the `shikiThemes` in `theme.config.ts`. For a list of avaible themes, refer to the [Shiki documentation](https://shiki.style/themes).
 
-```typescript astro.config.ts
-export default defineConfig({
-  // ...
-  markdown: {
-    shikiConfig: {
-      themes: {
-        light: 'vitesse-light',
-        dark: 'vitesse-dark'
-      },
-  //...
+```typescript theme.config.ts
+export default defineThemeConfig({
+  shikiThemes: {
+    light: 'vitesse-light',
+    dark: 'vitesse-black'
+  }
+  // ... other settings
+})
 ```
