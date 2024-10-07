@@ -28,21 +28,21 @@ Go to `localhost:4321/faq` in your browser, and you will now see your newly crea
 ```ts
 // non-set properties default to the properties set in the theme config
 type PageFrontmatter = {
-  title?: string // displayed as tab title
-  author?: string
-  description?: string
-  canonicalURL?: string
-  opengraphImage?: string | HTMLAttributes<'img'> // either URL to image in public folder or local asset
-  publishedDate?: Date
-  scrollProgress?: boolean // show bar indicating scroll location on top of page
+  title?: string // tab title
+  author?: string // meta
+  description?: string // meta
+  canonicalURL?: string // meta
+  opengraphImage?: string | HTMLAttributes<'img'> // relative URL to image in public folder or local asset
+  publishedDate?: Date // meta
+  scrollProgress?: boolean // bar indicating scroll location on top of page
   activeHeaderLink?: string // title or href of the active header link
-  scrollToTop?: boolean // show "Back to top" button when having scrolled far down
+  scrollToTop?: boolean // "Back to top" button when having scrolled far down
 }
 ```
 
 ## Writing a Blog Post
 
-Writing a blog post is essentially the same as adding a new page. You can follow the same procedure, except you'll create the file in the `src/content/posts` directory.
+Writing a blog post is essentially the same as adding a new page, with slightly different frontmatter. You can follow the same procedure, except you'll create the file in the `src/content/posts` directory.
 
 ```markdown src/content/posts/i-learned-today.md
 ---
@@ -57,14 +57,17 @@ tags:
 So today, I started learning a new programming language. It is really cool because ...
 ```
 
-Navigate to `localhost:4321/posts`, and your new post will have appear there. Clicking on it will show the content you wrote, nicely rendered as text! The frontmatter of a project is defined as follows.
+Navigate to `localhost:4321/posts`, and your new post will have appear there. Clicking on it will show the content you wrote, nicely rendered as text! The frontmatter of a post is defined as follows.
 
 ```ts
-type ProjectFrontmatter = {
+type PostFrontmatter = {
   title: string
-  url?: string
-  startDate: Date
-  endDate?: Date // shows "Now" if not set
+  author?: string // defaults author set in theme config
+  description: string
+  publishedDate: Date
+  draft?: boolean // defaults to false
+  canonicalURL?: string // meta
+  opengraphImage?: string | HTMLAttributes<'img'> // either URL to image in public folder or local asset
   tags?: string[] // defaults to []
 }
 ```
@@ -87,17 +90,16 @@ tags:
 I developed an awesome app, using `HTML`, `CSS` and `TypeScript`! The app can ...
 ```
 
-Take a look at `localhost:4321/projects`, and your new project should be listed there! The frontmatter of a blog post is defined as follows.
+Take a look at `localhost:4321/projects`, and your new project should be listed there! The frontmatter of a project is defined as follows.
 
 ```ts
 type ProjectFrontmatter = {
   title: string
-  author?: string // defaults author set in theme config
-  description: string
-  publishedDate: Date
-  draft?: boolean // defaults to false
-  canonicalURL?: string
-  opengraphImage?: string | HTMLAttributes<'img'> // either URL to image in public folder or local asset
+  url?: string // can be relative or absolute
+  startDate: Date
+  endDate?: Date // shows "Now" if not set
   tags?: string[] // defaults to []
 }
 ```
+
+Note that projects don't generate a dedicated page, but are just listed on the `/projects` page.
