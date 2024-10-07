@@ -1,6 +1,6 @@
 ---
 title: Configuring Nordlys
-description: Make the theme entirely yours with these customizations
+description: How to configure theme with the theme.config.ts
 publishedDate: 2024-10-07
 tags:
   - documentation
