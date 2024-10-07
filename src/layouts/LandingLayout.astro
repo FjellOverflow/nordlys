@@ -27,7 +27,7 @@ const { frontmatter } = Astro.props
       class="mt-4 flex justify-between gap-2 text-3xl sm:mt-8 sm:text-5xl"
     >
       {
-        config.footerIcons.map(({ icon, href, label }) => (
+        config.footerItems.map(({ icon, href, label }) => (
           <a href={href} target="_blank" rel="noopener noreferrer">
             <span title={label} class={`icon-btn ${icon}`} />
           </a>

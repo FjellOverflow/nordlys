@@ -22,7 +22,7 @@ const { activeHeaderLink } = Astro.props
     <nav class="hidden flex-col justify-end sm:flex">
       <ul class="flex gap-6">
         {
-          config.navBarItems.map(({ label, href, icon }) => (
+          config.navbarItems.map(({ label, href, icon }) => (
             <li class="flex flex-col justify-center">
               <a
                 href={href}
@@ -63,7 +63,7 @@ const { activeHeaderLink } = Astro.props
     <nav class="flex-col justify-end py-6">
       <ul class="flex flex-col items-center gap-2">
         {
-          config.navBarItems.map(({ label, href, icon }) => (
+          config.navbarItems.map(({ label, href, icon }) => (
             <li class="flex flex-col justify-center">
               <a
                 href={href}

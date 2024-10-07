@@ -30,8 +30,8 @@ export interface ThemeConfig {
   title: string
   description: string
   author: string
-  navBarItems: NavItem[]
-  footerIcons: NavItem[]
+  navbarItems: NavItem[]
+  footerItems: NavItem[]
 
   locale: string
   mode: Mode

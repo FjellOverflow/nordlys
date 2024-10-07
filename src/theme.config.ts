@@ -5,13 +5,13 @@ export default defineThemeConfig({
   title: 'Nordlys',
   description: 'A minimal Astro blog theme',
   author: 'FjellOverflow',
-  navBarItems: [
+  navbarItems: [
     { label: 'Blog', href: '/posts' },
     { label: 'Projects', href: '/projects' },
     { label: 'Tags', href: '/tags' },
     { label: 'About', href: '/about' }
   ],
-  footerIcons: [
+  footerItems: [
     {
       icon: 'tabler--brand-github',
       href: 'https://github.com/FjellOverflow/nordlys',
