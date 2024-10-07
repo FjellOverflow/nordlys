@@ -60,7 +60,7 @@ The `description` is a meta tag that provides a brief summary of your website's 
 
 ## Optional Settings
 
-The following settings are optional and will default to preset values if not configured:
+The following settings are optional and will default to preset values (as shown here) if not configured:
 
 ```ts src/theme.config.ts
 export default defineThemeConfig({
@@ -77,7 +77,7 @@ export default defineThemeConfig({
     tailwindcss: 'tabler--brand-tailwind',
     astro: 'tabler--brand-astro',
     documentation: 'tabler--book'
-  },
+  }, // default is {}
   shikiThemes: {
     light: 'vitesse-light',
     dark: 'vitesse-black'
