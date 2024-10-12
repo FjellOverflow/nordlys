@@ -2,11 +2,11 @@
 import Footer from '@/components/layout/Footer.astro'
 import Header from '@/components/layout/Header.astro'
 import Prose from '@/components/layout/Prose.astro'
-import ScrollProgress from '@/components/scroll/ScrollProgress.astro'
-import ScrollToTop from '@/components/scroll/ScrollToTop.astro'
 import BaseLayout, {
   type Props as BaseLayoutProps
 } from '@/layouts/BaseLayout.astro'
+import ScrollProgressPlugin from '@/plugins/ScrollProgressPlugin.astro'
+import ScrollToTopPlugin from '@/plugins/ScrollToTopPlugin.astro'
 import config from '@/theme.config'
 
 export type Props = BaseLayoutProps & {
@@ -27,8 +27,6 @@ const {
 ---
 
 <BaseLayout frontmatter={frontmatter}>
-  {scrollProgress && <ScrollProgress />}
-  {scrollToTop && <ScrollToTop />}
   <Header activeHeaderLink={activeHeaderLink} />
   <main class="mx-auto mt-6 w-full max-w-[90%] sm:mt-12 md:max-w-3xl">
     <Prose>
@@ -37,4 +35,6 @@ const {
   </main>
   <slot name="bottom" />
   <Footer />
+  {scrollProgress && <ScrollProgressPlugin />}
+  {scrollToTop && <ScrollToTopPlugin />}
 </BaseLayout>
