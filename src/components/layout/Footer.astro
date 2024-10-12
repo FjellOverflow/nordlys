@@ -20,7 +20,10 @@ const currentYear = new Date().getFullYear()
           aria-label={label}
           rel="noopener noreferrer"
         >
-          <span title={label} class={`icon-btn ${icon} text-2xl`} />
+          <span
+            title={label}
+            class={`iconify cursor-pointer text-black/75 hover:text-accent/100 dark:text-white/75 ${icon} text-2xl`}
+          />
         </a>
       ))
     }

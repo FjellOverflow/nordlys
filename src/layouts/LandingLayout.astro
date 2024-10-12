@@ -36,7 +36,10 @@ const { frontmatter } = Astro.props
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span title={label} class={`icon-btn ${icon}`} />
+            <span
+              title={label}
+              class={`iconify cursor-pointer text-black/75 hover:text-accent/100 dark:text-white/75 ${icon}`}
+            />
           </a>
         ))
       }

@@ -26,7 +26,7 @@ const { activeHeaderLink } = Astro.props
             <li class="flex flex-col justify-center">
               <a
                 href={href}
-                class={`header-link ${
+                class={`text-black/75 hover:text-accent/100 dark:text-white/75 ${
                   activeHeaderLink === label || activeHeaderLink === href
                     ? 'text-accent/100'
                     : ''
@@ -61,7 +61,7 @@ const { activeHeaderLink } = Astro.props
             <li class="flex flex-col justify-center">
               <a
                 href={href}
-                class={`header-link ${
+                class={`text-black/75 hover:text-accent/100 dark:text-white/75 ${
                   activeHeaderLink === label || activeHeaderLink === href
                     ? 'text-accent/100'
                     : ''

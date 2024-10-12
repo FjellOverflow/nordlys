@@ -1,7 +1,32 @@
-@import 'custom.css';
 @import 'color-schemes.css';
 @import 'astro-code.css';
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    @apply bg-accent-bg underline-offset-4 selection:bg-accent/75 selection:text-white selection:dark:text-black;
+  }
+
+  ::-webkit-scrollbar {
+    @apply h-2 w-2;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-accent/75;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-accent/25;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-accent/100;
+  }
+
+  .prose {
+    @apply prose-code:before:!content-none prose-code:after:!content-none;
+  }
+}
