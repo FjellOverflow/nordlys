@@ -3,6 +3,7 @@ import TagsBar from '@/components/TagsBar.astro'
 import PageLayout, {
   type Props as PageLayoutProps
 } from '@/layouts/PageLayout.astro'
+import HeadingAnchorsPlugin from '@/plugins/HeadingAnchorsPlugin.astro'
 import { toDateString } from '@/util'
 import { resolveTags } from '@/util/tags'
 import type { CollectionEntry } from 'astro:content'
@@ -29,8 +30,6 @@ const publishedStr = toDateString(post.data.publishedDate)
 ---
 
 <PageLayout {frontmatter}>
-  <script src="@/plugins/headingAnchorsPlugin.ts"></script>
-
   <h1 class="my-2 sm:my-4">{frontmatter.title}</h1>
   <TagsBar tags={resolveTags(post.data.tags)} />
 
@@ -43,4 +42,5 @@ const publishedStr = toDateString(post.data.publishedDate)
     </span>
   </div>
   <Content />
+  <HeadingAnchorsPlugin />
 </PageLayout>
