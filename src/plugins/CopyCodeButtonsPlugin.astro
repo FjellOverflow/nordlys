@@ -1,0 +1,24 @@
+---
+
+---
+
+<script is:inline>
+  function setupCopyOnClick() {
+    document.querySelectorAll('.astro-code-header .copy-btn').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const code =
+          btn.parentNode?.parentNode?.querySelector('.astro-code code')
+
+        await navigator.clipboard.writeText(code.innerText)
+
+        btn.className = 'copy-success'
+
+        setTimeout(() => {
+          btn.className = 'copy-btn'
+        }, 1000)
+      })
+    })
+  }
+
+  document.addEventListener('astro:page-load', setupCopyOnClick)
+</script>
