@@ -30,18 +30,23 @@ const renderedProjects = await Promise.all(
     renderedProjects.map(({ data, Content }, index) => (
       <li class="flex flex-col">
         <div class="flex flex-col justify-between sm:flex-row sm:items-center">
-          <a
-            class="mb-2 text-xl no-underline"
-            href={data.url}
-            target={data.url && !data.url.startsWith('/') ? '_blank' : '_self'}
-          >
-            <span class={data.url && `underline underline-offset-4`}>
+          {data.url && (
+            <a
+              class="mb-2 text-xl no-underline"
+              href={data.url}
+              target={!data.url.startsWith('/') ? '_blank' : '_self'}
+            >
+              <span class="underline underline-offset-4">{data.title}</span>
+              {data.url && !data.url.startsWith('/') && (
+                <span class="iconify align-middle no-underline tabler--external-link" />
+              )}
+            </a>
+          )}
+          {!data.url && (
+            <span class="mb-2 text-xl text-black no-underline dark:text-white">
               {data.title}
             </span>
-            {data.url && !data.url.startsWith('/') && (
-              <span class="iconify align-middle no-underline tabler--external-link" />
-            )}
-          </a>
+          )}
           <div class="my-2 text-sm opacity-75 sm:my-0">
             <time>{toMonthString(data.startDate)}</time> -
             {data.endDate && <time>{toMonthString(data.endDate)}</time>}
