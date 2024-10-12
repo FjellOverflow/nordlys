@@ -30,7 +30,12 @@ const { frontmatter } = Astro.props
     >
       {
         config.footerItems.map(({ icon, href, label }) => (
-          <a href={href} target="_blank" rel="noopener noreferrer">
+          <a
+            href={href}
+            aria-label={label}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <span title={label} class={`icon-btn ${icon}`} />
           </a>
         ))
