@@ -1,6 +1,6 @@
 @layer base {
   :root {
-    @apply bg-accent-bg;
+    @apply bg-accent-bg underline-offset-4;
   }
 
   .prose {

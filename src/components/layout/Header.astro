@@ -35,13 +35,7 @@ const { activeHeaderLink } = Astro.props
                 {icon && (
                   <span class={`iconify align-middle text-xl ${icon}`} />
                 )}
-                <span
-                  class={
-                    activeHeaderLink === label
-                      ? `underline underline-offset-4`
-                      : ''
-                  }
-                >
+                <span class={activeHeaderLink === label ? `underline` : ''}>
                   {label}
                 </span>
               </a>
@@ -76,13 +70,7 @@ const { activeHeaderLink } = Astro.props
                 {icon && (
                   <span class={`iconify align-middle text-xl ${icon}`} />
                 )}
-                <span
-                  class={
-                    activeHeaderLink === label
-                      ? `underline underline-offset-4`
-                      : ''
-                  }
-                >
+                <span class={activeHeaderLink === label ? `underline` : ''}>
                   {label}
                 </span>
               </a>

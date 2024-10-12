@@ -36,7 +36,7 @@ const renderedProjects = await Promise.all(
               href={data.url}
               target={!data.url.startsWith('/') ? '_blank' : '_self'}
             >
-              <span class="underline underline-offset-4">{data.title}</span>
+              <span class="underline">{data.title}</span>
               {data.url && !data.url.startsWith('/') && (
                 <span class="iconify align-middle no-underline tabler--external-link" />
               )}
