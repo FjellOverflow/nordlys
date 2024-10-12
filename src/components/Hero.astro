@@ -24,6 +24,7 @@ const heroVariant = `${gradient ? 'gradient' : ''} ${background ? 'background' :
       {
         showLogo && (
           <Image
+            loading="eager"
             alt="Nordlys logo"
             src={logo}
             class="h-[48px] max-w-fit object-scale-down sm:h-24"
