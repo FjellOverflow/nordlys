@@ -2,24 +2,21 @@
   .astro-code-header {
     @apply flex h-12 items-center justify-between rounded-tl-md rounded-tr-md border-[1px] border-accent px-4;
 
-    & .label {
+    .label {
       @apply flex flex-col justify-center text-sm;
     }
 
-    & .copy-btn {
+    .copy-btn {
       @apply iconify cursor-pointer text-2xl opacity-75 tabler--copy hover:opacity-100;
     }
 
-    & .copy-success {
+    .copy-success {
       @apply iconify text-2xl text-accent tabler--check;
     }
   }
 
-  body .astro-code {
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    margin-top: 0;
-    @apply border-[1px] border-t-0 border-accent;
+  .astro-code {
+    @apply mt-0 rounded-t-none border-[1px] border-t-0 border-accent;
   }
 
   html[data-mode='dark'] .astro-code,
