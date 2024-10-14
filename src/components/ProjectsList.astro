@@ -32,7 +32,7 @@ const renderedProjects = await Promise.all(
         <div class="flex flex-col justify-between sm:flex-row sm:items-center">
           {data.url && (
             <a
-              class="mb-2 text-xl no-underline"
+              class="mb-2 text-xl font-normal no-underline"
               href={data.url}
               target={!data.url.startsWith('/') ? '_blank' : '_self'}
             >
