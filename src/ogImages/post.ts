@@ -6,7 +6,7 @@ export default (accent: string, bg: string) =>
   (title: string, description: string, author: string) => ({
     type: 'div',
     props: {
-      tw: `flex flex-col w-full h-full p-8 bg-${bg} text-${accent} border-8 border-${accent}/50`,
+      tw: `flex flex-col w-full h-full p-8 bg-${bg} text-${accent}`,
       children: [
         {
           type: 'div',
