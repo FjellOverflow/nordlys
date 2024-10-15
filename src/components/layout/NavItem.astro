@@ -14,11 +14,12 @@ const {
 
 <a
   href={href}
-  class={`text-black/75 hover:text-accent/100 dark:text-white/75 ${
+  class={`text-black/75 flex items-center gap-1 hover:text-accent/100 dark:text-white/75 ${
     isActive ? 'text-accent/100' : ''
   }`}
+  target={!href.startsWith('/') ? '_blank' : '_self'}
 >
-  {icon && <span class={`iconify align-middle text-xl ${icon}`} />}
+  {icon && <span class={`iconify text-xl ${icon}`} />}
   <span class={isActive ? `underline` : ''}>
     {label}
   </span>

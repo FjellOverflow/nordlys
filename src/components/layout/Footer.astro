@@ -16,7 +16,7 @@ const currentYear = new Date().getFullYear()
         <a
           class="flex flex-col justify-center"
           href={href}
-          target="_blank"
+          target={!href.startsWith('/') ? '_blank' : '_self'}
           aria-label={label}
           rel="noopener noreferrer"
         >

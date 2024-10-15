@@ -33,7 +33,7 @@ const { frontmatter } = Astro.props
           <a
             href={href}
             aria-label={label}
-            target="_blank"
+            target={!href.startsWith('/') ? '_blank' : '_self'}
             rel="noopener noreferrer"
           >
             <span
