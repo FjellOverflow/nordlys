@@ -1,0 +1,25 @@
+---
+import type { NavItem } from '@/types'
+
+export interface Props {
+  item: NavItem
+  isActive: boolean
+}
+
+const {
+  isActive,
+  item: { href, icon, label }
+} = Astro.props
+---
+
+<a
+  href={href}
+  class={`text-black/75 hover:text-accent/100 dark:text-white/75 ${
+    isActive ? 'text-accent/100' : ''
+  }`}
+>
+  {icon && <span class={`iconify align-middle text-xl ${icon}`} />}
+  <span class={isActive ? `underline` : ''}>
+    {label}
+  </span>
+</a>

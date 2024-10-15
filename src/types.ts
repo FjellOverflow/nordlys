@@ -9,7 +9,7 @@ export interface ResolvedTag {
   icon: Icon
 }
 
-interface NavItem {
+export interface NavItem {
   label: string
   href: string
   icon?: Icon

@@ -1,10 +1,11 @@
 ---
 import logo from '@/assets/logo.svg'
+import MobileNavToggle from '@/components/layout/MobileNavToggle.astro'
+import NavItem from '@/components/layout/NavItem.astro'
 import Separator from '@/components/layout/Separator.astro'
 import ModeToggle from '@/components/mode/ModeToggle.astro'
 import config from '@/theme.config'
 import { Image } from 'astro:assets'
-import MobileNav from './MobileNav.astro'
 
 export interface Props {
   activeHeaderLink?: string
@@ -22,23 +23,15 @@ const { activeHeaderLink } = Astro.props
     <nav class="hidden flex-col justify-end sm:flex">
       <ul class="flex gap-6">
         {
-          config.navbarItems.map(({ label, href, icon }) => (
+          config.navbarItems.map((item) => (
             <li class="flex flex-col justify-center">
-              <a
-                href={href}
-                class={`text-black/75 hover:text-accent/100 dark:text-white/75 ${
-                  activeHeaderLink === label || activeHeaderLink === href
-                    ? 'text-accent/100'
-                    : ''
-                }`}
-              >
-                {icon && (
-                  <span class={`iconify align-middle text-xl ${icon}`} />
-                )}
-                <span class={activeHeaderLink === label ? `underline` : ''}>
-                  {label}
-                </span>
-              </a>
+              <NavItem
+                {item}
+                isActive={
+                  activeHeaderLink === item.label ||
+                  activeHeaderLink === item.href
+                }
+              />
             </li>
           ))
         }
@@ -49,7 +42,7 @@ const { activeHeaderLink } = Astro.props
     </nav>
     <div class="flex items-center justify-center gap-4 text-2xl sm:hidden">
       {config.modeToggle && <ModeToggle />}
-      <MobileNav />
+      <MobileNavToggle />
     </div>
   </div>
   <Separator />
@@ -57,23 +50,15 @@ const { activeHeaderLink } = Astro.props
     <nav class="flex-col justify-end py-6">
       <ul class="flex flex-col items-center gap-2">
         {
-          config.navbarItems.map(({ label, href, icon }) => (
+          config.navbarItems.map((item) => (
             <li class="flex flex-col justify-center">
-              <a
-                href={href}
-                class={`text-black/75 hover:text-accent/100 dark:text-white/75 ${
-                  activeHeaderLink === label || activeHeaderLink === href
-                    ? 'text-accent/100'
-                    : ''
-                }`}
-              >
-                {icon && (
-                  <span class={`iconify align-middle text-xl ${icon}`} />
-                )}
-                <span class={activeHeaderLink === label ? `underline` : ''}>
-                  {label}
-                </span>
-              </a>
+              <NavItem
+                {item}
+                isActive={
+                  activeHeaderLink === item.label ||
+                  activeHeaderLink === item.href
+                }
+              />
             </li>
           ))
         }
