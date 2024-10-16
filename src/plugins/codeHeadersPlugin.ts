@@ -1,15 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 const PLACEHOLDER = '$CODE_HEADER_PLACEHOLDER$'
-
-interface _Pre {
-  properties: { class: string; style: string }
-}
-
-interface _PostProcessOptions {
-  meta?: {
-    __raw?: string
-  }
-  lang: string
-}
 
 const iconMap: Record<string, string> = {
   plaintext: 'tabler--dots',
@@ -55,11 +45,11 @@ function generateHeader(label?: string, lang?: string) {
 }
 
 export default {
-  postprocess: (html: string, options: _PostProcessOptions) => {
+  postprocess: (html: string, options: any) => {
     const codeHeader = generateHeader(options.meta?.__raw, options.lang)
     return html.replace(PLACEHOLDER, codeHeader)
   },
-  pre: (pre: _Pre) => {
+  pre: (pre: any): any => {
     const styles = parseStyleProps(pre.properties.style)
 
     const color = styles['color']
