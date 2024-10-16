@@ -1,4 +1,10 @@
-interface PostProcessOptions {
+const PLACEHOLDER = '$CODE_HEADER_PLACEHOLDER$'
+
+interface _Pre {
+  properties: { class: string; style: string }
+}
+
+interface _PostProcessOptions {
   meta?: {
     __raw?: string
   }
@@ -41,20 +47,56 @@ function getIcon(lang?: string) {
 }
 
 function generateHeader(label?: string, lang?: string) {
-  return `<div class="astro-code-header">
-            <div class="flex gap-2">
-              ${getIcon(lang)}
-              ${getLabel(label)}
-            </div>
-            <span class="copy-btn"></span>
-          </div>`
+  return `<div class="flex gap-2">
+            ${getIcon(lang)}
+            ${getLabel(label)}
+          </div>
+          <span class="copy-btn"></span>`
 }
 
 export default {
-  postprocess: (html: string, options: PostProcessOptions) => {
-    return `<div>
-              ${generateHeader(options.meta?.__raw, options.lang)}
-              ${html}
-            </div>`
+  postprocess: (html: string, options: _PostProcessOptions) => {
+    const codeHeader = generateHeader(options.meta?.__raw, options.lang)
+    return html.replace(PLACEHOLDER, codeHeader)
+  },
+  pre: (pre: _Pre) => {
+    const styles = parseStyleProps(pre.properties.style)
+
+    const color = styles['color']
+    const colorDark = styles['--shiki-dark']
+    const bg = styles['background-color']
+    const bgDark = styles['--shiki-dark-bg']
+
+    return {
+      type: 'element',
+      tagName: 'div',
+      properties: {
+        style: `--code-header-color:${color};--code-header-color-dark:${colorDark};--code-header-bg:${bg};--code-header-bg-dark:${bgDark}`
+      },
+      children: [
+        {
+          type: 'element',
+          tagName: 'div',
+          properties: {
+            class: `astro-code-header`
+          },
+          children: [{ type: 'text', value: PLACEHOLDER }]
+        },
+        pre
+      ]
+    }
   }
+}
+
+function parseStyleProps(style: string): Record<string, string> {
+  const propArr = style.split(';')
+
+  const propMap: Record<string, string> = {}
+
+  propArr.forEach((prop) => {
+    const [key, val] = prop.split(':')
+    propMap[key] = val
+  })
+
+  return propMap
 }
