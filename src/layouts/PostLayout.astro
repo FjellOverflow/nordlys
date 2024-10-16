@@ -33,13 +33,11 @@ const publishedStr = toDateString(post.data.publishedDate)
   <h1 class="my-2 sm:my-4">{frontmatter.title}</h1>
   <TagsBar tags={resolveTags(post.data.tags)} />
 
-  <div class="mt-4 opacity-75">
-    <span
-      >Published on <time>{publishedStr}</time> by <a
-        class="hover:opacity-100"
-        href={`/authors/${post.data.author}`}>{post.data.author}</a
-      > · {readingTime}
-    </span>
+  <div class="mt-4">
+    <span class="opacity-75">Published on <time>{publishedStr}</time> by</span>
+    <a class="clickable" href={`/authors/${post.data.author}`}
+      >{post.data.author}</a
+    ><span class="opacity-75"> · {readingTime} </span>
   </div>
   <article>
     <Content />

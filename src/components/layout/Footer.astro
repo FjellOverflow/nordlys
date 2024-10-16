@@ -1,31 +1,17 @@
 ---
+import FooterItem from '@/components/layout/FooterItem.astro'
 import Separator from '@/components/layout/Separator.astro'
 import config from '@/theme.config'
 
 const currentYear = new Date().getFullYear()
 ---
 
-<footer class="mx-auto mt-auto w-full max-w-[90%] md:max-w-3xl">
+<footer class="mt-auto">
   <Separator />
-  <div class="flex items-center justify-between gap-2 py-4 sm:py-8">
-    <span>&#169; {currentYear} {config.author}</span>
+  <div class="flex items-center justify-between gap-2 py-4 text-2xl sm:py-8">
+    <span class="text-base">&#169; {currentYear} {config.author}</span>
 
     <div class="grow"></div>
-    {
-      config.footerItems.map(({ icon, href, label }) => (
-        <a
-          class="flex flex-col justify-center"
-          href={href}
-          target={!href.startsWith('/') ? '_blank' : '_self'}
-          aria-label={label}
-          rel="noopener noreferrer"
-        >
-          <span
-            title={label}
-            class={`iconify cursor-pointer text-black/75 hover:text-accent/100 dark:text-white/75 ${icon} text-2xl`}
-          />
-        </a>
-      ))
-    }
+    {config.footerItems.map((item) => <FooterItem {item} />)}
   </div>
 </footer>

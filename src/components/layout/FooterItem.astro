@@ -1,0 +1,21 @@
+---
+import type { NavItem } from '@/types'
+
+export interface Props {
+  item: NavItem
+}
+
+const {
+  item: { href, icon, label }
+} = Astro.props
+---
+
+<a
+  class="flex flex-col justify-center"
+  href={href}
+  target={!href.startsWith('/') ? '_blank' : '_self'}
+  aria-label={label}
+  rel="noopener noreferrer"
+>
+  <span title={label} class={`iconify clickable ${icon}`}></span>
+</a>

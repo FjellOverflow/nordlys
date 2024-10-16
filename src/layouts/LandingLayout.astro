@@ -1,5 +1,7 @@
 ---
 import Hero, { type Props as HeroProps } from '@/components/Hero.astro'
+import FooterItem from '@/components/layout/FooterItem.astro'
+import Separator from '@/components/layout/Separator.astro'
 import ModeToggle from '@/components/mode/ModeToggle.astro'
 import BaseLayout, {
   type Props as BaseLayoutProps
@@ -12,65 +14,39 @@ const { frontmatter } = Astro.props
 ---
 
 <BaseLayout frontmatter={frontmatter}>
-  <div class="mx-auto mt-24 w-full max-w-[80%] sm:mt-36 md:max-w-2xl">
-    <main class="mb-4 sm:mb-8">
-      <section>
+  <div id="page-wrapper">
+    <div class="mt-16 px-4 sm:mt-36 sm:px-12">
+      <main>
         {frontmatter.title && <Hero {frontmatter}>{frontmatter.title}</Hero>}
-        <div
-          id="highlight-links"
-          class="text-3xl font-semibold tracking-tight sm:text-4xl sm:leading-[46px]"
-        >
+        <section class="animate-links">
           <slot />
+        </section>
+      </main>
+      <footer class="mt-8">
+        <Separator />
+        <div
+          class="flex justify-between gap-2 py-4 text-3xl sm:py-8 sm:text-5xl"
+        >
+          {config.footerItems.map((item) => <FooterItem {item} />)}
+
+          <div class="grow"></div>
+
+          {config.modeToggle && <ModeToggle />}
         </div>
-      </section>
-    </main>
-    <hr class="border-separate border-black/75 dark:border-white/50" />
-    <footer
-      class="mt-4 flex justify-between gap-2 text-3xl sm:mt-8 sm:text-5xl"
-    >
-      {
-        config.footerItems.map(({ icon, href, label }) => (
-          <a
-            href={href}
-            aria-label={label}
-            target={!href.startsWith('/') ? '_blank' : '_self'}
-            rel="noopener noreferrer"
-          >
-            <span
-              title={label}
-              class={`iconify cursor-pointer text-black/75 hover:text-accent/100 dark:text-white/75 ${icon}`}
-            />
-          </a>
-        ))
-      }
-      <div class="grow"></div>
-      {config.modeToggle && <ModeToggle />}
-    </footer>
+      </footer>
+    </div>
   </div>
 </BaseLayout>
 <style is:global>
-  #highlight-links {
-    @apply text-black/50 dark:text-white/40;
-
-    a {
-      @apply text-accent/100;
-
-      background-image: linear-gradient(
-        transparent calc(85% - 5px),
-        rgba(var(--accent), 0.35) 5px
-      );
-      background-size: 0;
-      background-repeat: no-repeat;
-      display: inline;
-      transition: 0.5s cubic-bezier(0.65, -0.05, 0.25, 1);
-
-      &:hover {
-        background-size: 100%;
-      }
-    }
+  :root {
+    overflow-y: auto !important;
   }
 
-  html {
-    overflow-y: auto !important;
+  .animate-links {
+    @apply text-3xl font-semibold tracking-tight text-black/50 sm:text-4xl sm:leading-[46px] dark:text-white/40;
+
+    a {
+      @apply text-accent;
+    }
   }
 </style>

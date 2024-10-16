@@ -43,11 +43,7 @@ const opengraphImageUrl = new URL(
 ---
 
 <!doctype html>
-<html
-  lang={config.locale}
-  class=`scroll-smooth ${config.colorScheme || 'scheme-mono'}`
-  style="overflow-y: scroll;"
->
+<html lang={config.locale} class={config.colorScheme || 'scheme-mono'}>
   <head>
     <meta charset="utf-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -89,7 +85,7 @@ const opengraphImageUrl = new URL(
     <ModeManager />
     <ViewTransitions />
   </head>
-  <body class="flex min-h-[100svh] flex-col justify-between">
+  <body>
     <slot />
     <CopyCodeButtonsPlugin />
   </body>

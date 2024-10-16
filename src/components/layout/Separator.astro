@@ -1,1 +1,5 @@
-<hr class="border-separate border-accent" />
+---
+const { class: className, ...rest } = Astro.props
+---
+
+<hr class={`border-separate border-accent/75 ${className}`} {...rest} />

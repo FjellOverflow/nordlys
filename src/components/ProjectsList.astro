@@ -4,6 +4,7 @@ import { toMonthString } from '@/util'
 import { sortProjects } from '@/util/projects'
 import { resolveTags } from '@/util/tags'
 import type { CollectionEntry } from 'astro:content'
+import Separator from './layout/Separator.astro'
 
 export interface Props {
   projects: CollectionEntry<'projects'>[]
@@ -38,12 +39,12 @@ const renderedProjects = await Promise.all(
             >
               <span class="underline">{data.title}</span>
               {data.url && !data.url.startsWith('/') && (
-                <span class="iconify align-middle no-underline tabler--external-link" />
+                <span class="iconify align-middle tabler--external-link" />
               )}
             </a>
           )}
           {!data.url && (
-            <span class="mb-2 text-xl text-black no-underline dark:text-white">
+            <span class="mb-2 text-xl text-black dark:text-white">
               {data.title}
             </span>
           )}
@@ -57,9 +58,7 @@ const renderedProjects = await Promise.all(
         <div class="opacity-75">
           <Content />
         </div>
-        {index !== projects.length - 1 && (
-          <hr class="my-1 border-separate border-accent opacity-25" />
-        )}
+        {index !== projects.length - 1 && <Separator class="my-2" />}
       </li>
     ))
   }

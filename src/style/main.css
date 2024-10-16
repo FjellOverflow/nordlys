@@ -7,7 +7,11 @@
 
 @layer base {
   :root {
-    @apply bg-accent-bg underline-offset-4 selection:bg-accent/75 selection:text-white selection:dark:text-black;
+    @apply overflow-y-scroll scroll-smooth bg-accent-bg underline-offset-4 selection:bg-accent/75 selection:text-white selection:dark:text-black;
+
+    #page-wrapper {
+      @apply mx-auto flex min-h-[100svh] w-full max-w-[90%] flex-col justify-between md:max-w-3xl;
+    }
   }
 
   ::-webkit-scrollbar {
@@ -24,5 +28,28 @@
 
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-accent/100;
+  }
+}
+
+@layer utilities {
+  .clickable {
+    @apply cursor-pointer opacity-75 hover:text-accent hover:opacity-100;
+  }
+
+  .animate-links {
+    a {
+      background-image: linear-gradient(
+        transparent calc(85% - 5px),
+        rgba(var(--accent), 0.35) 5px
+      );
+      background-size: 0;
+      background-repeat: no-repeat;
+      display: inline;
+      transition: 0.5s cubic-bezier(0.65, -0.05, 0.25, 1);
+
+      &:hover {
+        background-size: 100%;
+      }
+    }
   }
 }

@@ -7,7 +7,7 @@
     }
 
     .copy-btn {
-      @apply iconify cursor-pointer text-2xl opacity-75 tabler--copy hover:opacity-100;
+      @apply clickable iconify text-2xl tabler--copy;
     }
 
     .copy-success {

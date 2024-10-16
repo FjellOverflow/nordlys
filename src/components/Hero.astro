@@ -11,14 +11,20 @@ export interface Props {
 }
 
 const { gradient, background, logo: showLogo } = Astro.props.frontmatter
-
-const heroVariant = `${gradient ? 'gradient' : ''} ${background ? 'background' : ''}`
 ---
 
 <div class="w-fit">
   <h1
-    id="hero"
-    class=`mb-1 sm:mb-2 relative w-fit tracking-tight text-5xl sm:text-8xl font-bold ${heroVariant}`
+    class:list={[
+      'relative mb-1 w-fit pb-2 text-5xl font-bold tracking-tight text-accent sm:mb-2 sm:text-8xl',
+      {
+        'bg-gradient-to-r from-accent/100 via-accent/75 to-accent/50 bg-clip-text text-transparent':
+          gradient
+      },
+      {
+        'mb-2 sm:mb-8': background
+      }
+    ]}
   >
     <div class="flex items-center gap-4 sm:gap-8">
       {
@@ -35,23 +41,15 @@ const heroVariant = `${gradient ? 'gradient' : ''} ${background ? 'background' :
         <slot />
       </div>
     </div>
-    <span id="hero-bg" class={showLogo ? 'ml-12 sm:ml-20' : ''}></span>
+    {
+      background && (
+        <span
+          class:list={[
+            'absolute inset-0 h-full w-full bg-accent/75 blur-3xl',
+            { 'ml-12 sm:ml-20': showLogo }
+          ]}
+        />
+      )
+    }
   </h1>
 </div>
-
-<style is:global>
-  #hero {
-    @apply text-accent;
-
-    &.gradient {
-      @apply bg-gradient-to-r from-accent/25 via-accent/75 to-accent/100 bg-clip-text pb-2 text-transparent;
-    }
-
-    &.background {
-      @apply mb-2 sm:mb-8;
-      #hero-bg {
-        @apply absolute inset-0 h-full w-full bg-accent/65 blur-3xl;
-      }
-    }
-  }
-</style>

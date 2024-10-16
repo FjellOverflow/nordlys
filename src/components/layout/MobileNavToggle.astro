@@ -7,18 +7,16 @@
   class="flex items-center"
   title="Mobile nav toggle"
 >
-  <span
-    class="iconify cursor-pointer text-black/75 tabler--menu-2 hover:text-accent/100 dark:text-white/75"
-  ></span>
+  <span class="clickable iconify tabler--menu-2"></span>
 </button>
 
 <script>
   const iconOpen = 'tabler--x'
   const iconClosed = 'tabler--menu-2'
 
-  function setupMobileNavClickHandler(container: Document) {
-    const button = container.querySelector('#mobile-nav-toggle')
-    const nav = container.querySelector('#mobile-nav')
+  function setupMobileNavClickHandler() {
+    const button = document.querySelector('#mobile-nav-toggle')
+    const nav = document.querySelector('#mobile-nav')
     const icon = button?.children[0]
     if (!icon || !nav) return
 
@@ -36,6 +34,6 @@
   }
 
   document.addEventListener('astro:page-load', () => {
-    setupMobileNavClickHandler(document)
+    setupMobileNavClickHandler()
   })
 </script>

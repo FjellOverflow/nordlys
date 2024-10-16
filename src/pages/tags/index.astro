@@ -18,7 +18,7 @@ const frontmatter: PageLayoutProps['frontmatter'] = {
     {
       tags.map(({ tag, icon }) => (
         <a
-          class="flex flex-col items-center gap-1 no-underline opacity-75 hover:text-accent hover:opacity-100"
+          class="clickable flex flex-col items-center gap-1 no-underline"
           href={`/tags/${tag}`}
           data-astro-prefetch
         >

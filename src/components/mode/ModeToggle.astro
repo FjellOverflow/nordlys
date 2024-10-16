@@ -7,8 +7,12 @@
       class extends HTMLElement {
         connectedCallback() {
           this.innerHTML = `
-            <button id="dark-light-toggle" class="flex items-center" title="Dark Light toggle">
-              <span class="iconify cursor-pointer text-black/75 hover:text-accent/100 dark:text-white/75 tabler--moon dark:tabler--sun"></span>
+            <button
+              id="dark-light-toggle"
+              class="flex items-center"
+              title="Dark Light toggle"
+            >
+              <span class="clickable iconify tabler--moon dark:tabler--sun"></span>
             </button>
           `
           this.querySelector('#dark-light-toggle').addEventListener(

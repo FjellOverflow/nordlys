@@ -13,22 +13,14 @@ const { page } = Astro.props
     <nav class="mb-8 flex w-full grow items-end justify-center">
       <div class="flex gap-4">
         <a
-          class={
-            !page.url.prev
-              ? 'no-underline opacity-50'
-              : 'text-black/75 hover:text-accent/100 dark:text-white/75'
-          }
+          class={!page.url.prev ? 'no-underline opacity-25' : 'clickable'}
           href={page.url.prev}
         >
           Previous
         </a>
         {page.currentPage} / {page.lastPage}
         <a
-          class={
-            !page.url.next
-              ? 'no-underline opacity-50'
-              : 'text-black/75 hover:text-accent/100 dark:text-white/75'
-          }
+          class={!page.url.next ? 'no-underline opacity-25' : 'clickable'}
           href={page.url.next}
         >
           Next

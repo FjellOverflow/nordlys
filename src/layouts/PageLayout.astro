@@ -27,14 +27,16 @@ const {
 ---
 
 <BaseLayout frontmatter={frontmatter}>
-  <Header activeHeaderLink={activeHeaderLink} />
-  <main class="mx-auto mt-6 w-full max-w-[90%] sm:mt-12 md:max-w-3xl">
-    <Prose>
-      <slot />
-    </Prose>
-  </main>
-  <slot name="bottom" />
-  <Footer />
+  <div id="page-wrapper">
+    <Header activeHeaderLink={activeHeaderLink} />
+    <main class="mt-6 sm:mt-12">
+      <Prose>
+        <slot />
+      </Prose>
+    </main>
+    <slot name="bottom" />
+    <Footer />
+  </div>
   {scrollProgress && <ScrollProgressPlugin />}
   {scrollToTop && <ScrollToTopPlugin />}
 </BaseLayout>
