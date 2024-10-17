@@ -37,7 +37,7 @@ const publishedStr = toDateString(post.data.publishedDate)
     <span class="opacity-75">Published on <time>{publishedStr}</time> by</span>
     <a class="clickable" href={`/authors/${post.data.author}`}
       >{post.data.author}</a
-    ><span class="opacity-75"> · {readingTime} </span>
+    > · <span class="whitespace-nowrap opacity-75">{readingTime} </span>
   </div>
   <article>
     <Content />
