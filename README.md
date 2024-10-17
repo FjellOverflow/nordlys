@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://nordlys.fjelloverflow.dev">
-    <img alt="logo" src="./public/favicon.svg" height="120">
+    <img alt="logo" src="./public/favicon.svg" height="64">
   </a>
 </p>
 
@@ -11,6 +11,8 @@
 <p align="center">
   A minimal Astro blog theme
 </p>
+
+![Preview](./public/preview.png)
 
 <p align="center">
   <picture>
