@@ -33,7 +33,7 @@
 
 @layer utilities {
   .clickable {
-    @apply cursor-pointer opacity-75 hover:text-accent hover:opacity-100;
+    @apply cursor-pointer opacity-75 transition duration-500 ease-in-out hover:text-accent hover:opacity-100;
   }
 
   .animate-links {
