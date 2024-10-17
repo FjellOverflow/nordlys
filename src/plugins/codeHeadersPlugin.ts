@@ -4,23 +4,55 @@ const PLACEHOLDER = '$CODE_HEADER_PLACEHOLDER$'
 const iconMap: Record<string, string> = {
   plaintext: 'tabler--dots',
 
-  ts: 'tabler--brand-typescript',
-  typescript: 'tabler--brand-typescript',
-
-  js: 'tabler--brand-javascript',
-  javascript: 'tabler--brand-javascript',
-
-  jsx: 'tabler--brand-react',
-  tsx: 'tabler--brand-react',
-
-  css: 'tabler--brand-css3',
-  vue: 'tabler--brand-vue',
+  'angular-html': 'tabler--brand-angular',
+  'angular-ts': 'tabler--brand-angular',
   astro: 'tabler--brand-astro',
+  cpp: 'tabler--brand-cpp',
+  csharp: 'tabler--brand-c-sharp',
+  cs: 'tabler--brand-c-sharp',
+  css: 'tabler--brand-css3',
+  csv: 'tabler--csv',
+  diff: 'tabler--file-diff',
   docker: 'tabler--brand-docker',
-  python: 'tabler--brand-python',
-  json: 'tabler--braces',
+  dockerfile: 'tabler--brand-docker',
+  go: 'tabler--brand-golang',
+  graphql: 'tabler--brand-graphql',
+  gql: 'tabler--brand-graphql',
+  html: 'tabler--brand-html5',
+  javascript: 'tabler--brand-javascript',
+  js: 'tabler--brand-javascript',
+  json: 'tabler--json',
+  jsonc: 'tabler--json',
+  jsx: 'tabler--brand-react',
+  kotlin: 'tabler--brand-kotlin',
+  kt: 'tabler--brand-kotlin',
+  kts: 'tabler--brand-kotlin',
+  markdown: 'tabler--markdown',
   md: 'tabler--markdown',
-  markdown: 'tabler--markdown'
+  mdx: 'tabler--markdown',
+  php: 'tabler--brand-php',
+  powershell: 'tabler--brand-powershell',
+  ps: 'tabler--brand-powershell',
+  ps1: 'tabler--brand-powershell',
+  python: 'tabler--brand-python',
+  py: 'tabler--brand-python',
+  rust: 'tabler--brand-rust',
+  rs: 'tabler--brand-rust',
+  sass: 'tabler--brand-sass',
+  shellscript: 'tabler--terminal',
+  bash: 'tabler--terminal',
+  sh: 'tabler--terminal',
+  shell: 'tabler--terminal',
+  zsh: 'tabler--terminal',
+  sql: 'tabler--sql',
+  svelte: 'tabler--brand-svelte',
+  swift: 'tabler--brand-swift',
+  tsx: 'tabler--brand-typescript',
+  typescript: 'tabler--brand-typescript',
+  ts: 'tabler--brand-typescript',
+  vue: 'tabler--brand-vue',
+  'vue-html': 'tabler--brand-vue',
+  xml: 'tabler--file-type-xml'
 }
 
 function getLabel(label?: string) {
@@ -30,6 +62,7 @@ function getLabel(label?: string) {
 }
 
 function getIcon(lang?: string) {
+  console.log(lang)
   const icon = iconMap[lang || 'plaintext'] || iconMap['plaintext']
   const textSize = icon === iconMap['plaintext'] ? 'text-5xl' : 'text-2xl'
 
