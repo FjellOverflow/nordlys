@@ -21,7 +21,7 @@ const {
 
 const frontmatter: PageLayoutProps['frontmatter'] = {
   ...post.data,
-  opengraphImage: post.data.opengraphImage || `/posts/${post.slug}.png`,
+  openGraphImage: post.data.openGraphImage || `/posts/${post.slug}.png`,
   activeHeaderLink: 'Blog',
   scrollProgress: true
 }

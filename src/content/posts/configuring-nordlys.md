@@ -68,7 +68,7 @@ export default defineThemeConfig({
   mode: 'dark',
   modeToggle: true,
   colorScheme: 'scheme-mono',
-  opengraphImage: undefined,
+  openGraphImage: undefined,
   postsPerPage: 4,
   projectsPerPage: 3,
   scrollProgress: false,
@@ -105,7 +105,7 @@ When `modeToggle` is enabled, a sun/moon toggle button will be displayed, allowi
 
 ### Opengraph Image
 
-Defining [Open Graph](https://ogp.me/) attributes ensures your website has visually appealing and meaningful preview cards when shared on social media platforms. The defined `opengraphImage` will be used as the preview image for every page, except blog posts, unless explicitly defined in the frontmatter. If `undefined`, Open Graph images will be auto-generated using the site's title, description, and logo.
+Defining [Open Graph](https://ogp.me/) attributes ensures your website has visually appealing and meaningful preview cards when shared on social media platforms. The defined `openGraphImage` will be used as the preview image for every page, except blog posts, unless explicitly defined in the frontmatter. If `undefined`, Open Graph images will be auto-generated using the site's title, description, and logo.
 
 ### Posts/Projects per Page
 

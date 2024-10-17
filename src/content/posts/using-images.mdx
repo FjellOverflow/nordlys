@@ -58,31 +58,31 @@ From the web:
 
 ## Open Graph Images
 
-Images and image URLs can be used in frontmatter, for instance as `opengraphImage`. To use a local asset, use:
+Images and image URLs can be used in frontmatter, for instance as `openGraphImage`. To use a local asset, use:
 
 ```md src/content/posts/my-post.md
-opengraphImage: "@/assets/logo.svg"
+openGraphImage: "@/assets/logo.svg"
   or
-opengraphImage: "../../assets/logo.svg"
+openGraphImage: "../../assets/logo.svg"
   or
-opengraphImage: "src/assets/logo.svg"
+openGraphImage: "src/assets/logo.svg"
 ```
 
 To use a public image, use:
 
 ```md src/content/posts/my-post.md
-opengraphImage: "/favicon.svg"
+openGraphImage: "/favicon.svg"
   or
-opengraphImage: "https://nordlys.fjelloverflow.dev/favicon.svg"
+openGraphImage: "https://nordlys.fjelloverflow.dev/favicon.svg"
 ```
 
-Note that supplying `opengraphImage` is entirely optional. If a post (any file in `src/content/posts`) does not have an `opengraphImage` provided, Nordlys will automatically generate and use a basic template, displaying the post `title`, `description`, `author`, and website `title`, which looks like this:
+Note that supplying `openGraphImage` is entirely optional. If a post (any file in `src/content/posts`) does not have an `openGraphImage` provided, Nordlys will automatically generate and use a basic template, displaying the post `title`, `description`, `author`, and website `title`, which looks like this:
 
 <div align="center">
 <Image class="border-[1px] border-accent rounded-md" alt="[Example post OG" src="/posts/using-images.png" loading="lazy" height={252} width={480}/>
 </div>
 
-Similarly, when there is no global `opengraphImage` configured in `theme.config.ts`, Nordlys generates and uses a generic image that displays the site `title` and `description` on every page where none has been defined, looking like this:
+Similarly, when there is no global `openGraphImage` configured in `theme.config.ts`, Nordlys generates and uses a generic image that displays the site `title` and `description` on every page where none has been defined, looking like this:
 
 <div align="center">
 <Image class="border-[1px] border-accent rounded-md" alt="[Example site OG" src="/ogImage.png" loading="lazy" height={252} width={480}/>

@@ -4,7 +4,7 @@ import { Resvg } from '@resvg/resvg-js'
 import type { APIContext, APIRoute, InferGetStaticPropsType } from 'astro'
 
 export async function getStaticPaths() {
-  const posts = (await getPosts()).filter((p) => !p.data.opengraphImage)
+  const posts = (await getPosts()).filter((p) => !p.data.openGraphImage)
 
   return posts.map((post) => ({
     params: { slug: post.slug },

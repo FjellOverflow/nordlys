@@ -11,7 +11,7 @@ const posts = defineCollection({
       publishedDate: z.date(),
       draft: z.boolean().optional().default(false),
       canonicalURL: z.string().optional(),
-      opengraphImage: image().or(z.string()).optional(),
+      openGraphImage: image().or(z.string()).optional(),
       tags: z.array(z.string()).default([])
     })
 })
