@@ -15,7 +15,7 @@ export interface Props {
     author: string
     description: string
     canonicalURL: string
-    opengraphImage: string | HTMLAttributes<'img'>
+    openGraphImage: string | HTMLAttributes<'img'>
     publishedDate: Date
   }>
 }
@@ -26,7 +26,7 @@ const {
     author = config.author,
     description = config.description,
     canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
-    opengraphImage = config.opengraphImage || '/ogImage.png',
+    openGraphImage = config.openGraphImage || '/ogImage.png',
     publishedDate
   }
 } = Astro.props
@@ -36,8 +36,8 @@ let titleWithSuffix = title
 if (String(title).toLowerCase() !== String(config.title).toLowerCase())
   titleWithSuffix += ` | ${config.title}`
 
-const opengraphImageUrl = new URL(
-  resolveOgImageUrl(opengraphImage) || '/ogImage.png',
+const openGraphImageUrl = new URL(
+  resolveOgImageUrl(openGraphImage) || '/ogImage.png',
   Astro.site
 ).href
 ---
@@ -66,13 +66,13 @@ const opengraphImageUrl = new URL(
     <meta property="og:title" content={titleWithSuffix} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
-    <meta property="og:image" content={opengraphImageUrl} />
+    <meta property="og:image" content={openGraphImageUrl} />
 
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={canonicalURL} />
     <meta property="twitter:title" content={titleWithSuffix} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={opengraphImageUrl} />
+    <meta property="twitter:image" content={openGraphImageUrl} />
 
     {
       publishedDate && (

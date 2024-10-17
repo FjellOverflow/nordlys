@@ -38,7 +38,7 @@ export interface ThemeConfig {
   mode: Mode
   modeToggle: boolean
   colorScheme: ColorScheme
-  opengraphImage: HTMLAttributes<'img'> | string | undefined
+  openGraphImage: HTMLAttributes<'img'> | string | undefined
   postsPerPage: number
   projectsPerPage: number
   scrollProgress: boolean
@@ -52,7 +52,7 @@ const defaults = {
   mode: Modes[0],
   modeToggle: true,
   colorScheme: ColorSchemes[0],
-  opengraphImage: undefined,
+  openGraphImage: undefined,
   postsPerPage: 4,
   projectsPerPage: 3,
   scrollProgress: false,

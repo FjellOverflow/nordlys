@@ -29,7 +29,7 @@ export default defineThemeConfig({
   mode: 'dark',
   modeToggle: true,
   colorScheme: 'scheme-mono',
-  opengraphImage: undefined,
+  openGraphImage: undefined,
   postsPerPage: 4,
   projectsPerPage: 3,
   scrollProgress: false,
