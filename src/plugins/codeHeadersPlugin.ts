@@ -62,7 +62,6 @@ function getLabel(label?: string) {
 }
 
 function getIcon(lang?: string) {
-  console.log(lang)
   const icon = iconMap[lang || 'plaintext'] || iconMap['plaintext']
   const textSize = icon === iconMap['plaintext'] ? 'text-5xl' : 'text-2xl'
 
