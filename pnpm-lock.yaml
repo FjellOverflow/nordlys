@@ -44,6 +44,9 @@ importers:
       mdast-util-to-string:
         specifier: ^4.0.0
         version: 4.0.0
+      medium-zoom:
+        specifier: ^1.1.0
+        version: 1.1.0
       reading-time:
         specifier: ^1.5.0
         version: 1.5.0
@@ -2328,6 +2331,9 @@ packages:
 
   mdn-data@2.10.0:
     resolution: {integrity: sha512-qq7C3EtK3yJXMwz1zAab65pjl+UhohqMOctTgcqjLOWABqmwj+me02LSsCuEUxnst9X1lCBpoE0WArGKgdGDzw==}
+
+  medium-zoom@1.1.0:
+    resolution: {integrity: sha512-ewyDsp7k4InCUp3jRmwHBRFGyjBimKps/AJLjRSox+2q/2H4p/PNpQf+pwONWlJiOudkBXtbdmVbFjqyybfTmQ==}
 
   meow@13.2.0:
     resolution: {integrity: sha512-pxQJQzB6djGPXh08dacEloMFopsOqGVRKFPYvPOt9XDZ1HasbgDZA74CJGreSU4G3Ak7EFJGoiH2auq+yXISgA==}
@@ -6208,6 +6214,8 @@ snapshots:
       '@types/mdast': 4.0.4
 
   mdn-data@2.10.0: {}
+
+  medium-zoom@1.1.0: {}
 
   meow@13.2.0: {}
 

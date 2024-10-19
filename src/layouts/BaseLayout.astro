@@ -4,6 +4,7 @@ import '@fontsource/ibm-plex-sans/latin.css'
 
 import ModeManager from '@/components/mode/ModeManager.astro'
 import CopyCodeButtonsPlugin from '@/plugins/CopyCodeButtonsPlugin.astro'
+import MediumZoomPlugin from '@/plugins/MediumZoomPlugin.astro'
 import config from '@/theme.config'
 import { resolveOgImageUrl } from '@/util'
 import type { HTMLAttributes } from 'astro/types'
@@ -88,5 +89,6 @@ const openGraphImageUrl = new URL(
   <body>
     <slot />
     <CopyCodeButtonsPlugin />
+    {config.zoomableImages && <MediumZoomPlugin />}
   </body>
 </html>

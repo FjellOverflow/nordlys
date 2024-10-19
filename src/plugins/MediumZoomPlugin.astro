@@ -1,0 +1,22 @@
+<script>
+  import 'medium-zoom/dist/style.css'
+</script>
+
+<script>
+  import mediumZoom from 'medium-zoom/dist/pure'
+
+  document.addEventListener('astro:page-load', () => {
+    mediumZoom('[data-zoomable]', {
+      background: '',
+      margin: 48
+    })
+  })
+</script>
+
+<script is:inline>
+  document.addEventListener('astro:page-load', () => {
+    document.querySelectorAll('img').forEach((img) => {
+      img.dataset.zoomable = ''
+    })
+  })
+</script>

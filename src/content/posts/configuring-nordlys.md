@@ -82,6 +82,7 @@ export default defineThemeConfig({
   projectsPerPage: 3,
   scrollProgress: false,
   scrollToTop: true,
+  zoomableImages: true,
   tagIcons: {
     tailwindcss: 'tabler--brand-tailwind',
     astro: 'tabler--brand-astro',
@@ -127,6 +128,10 @@ When `scrollProgress` is enabled (it’s automatically on for blog posts), a sti
 ### Scroll to Top
 
 When `scrollToTop` is enabled (automatically on blog posts), an arrow button will appear in the bottom right corner of the screen after scrolling, allowing users to quickly return to the top of the page.
+
+### Zoomable Images
+
+When `zoomableImages` is enabled, images can be zoomed by clicking them, powered by [medium-zoom](https://github.com/francoischalifour/medium-zoom).
 
 ### Tag Icons
 
