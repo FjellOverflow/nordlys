@@ -24,7 +24,16 @@ export default defineThemeConfig({
     { label: 'Blog', href: '/posts' },
     { label: 'Projects', href: '/projects' },
     { label: 'Tags', href: '/tags' },
-    { label: 'About', href: '/about' }
+    { label: 'About', href: '/about' },
+    {
+      label: 'Other pages',
+      children: [
+        { label: 'Landing page', href: '/' },
+        { label: '404 page', href: '/404' },
+        { label: 'Author: FjellOverflow', href: '/authors/FjellOverflow' },
+        { label: 'Tag: documentation', href: '/tags/documentation' }
+      ]
+    }
   ],
   footerItems: [
     {
@@ -56,7 +65,7 @@ The `description` is a meta tag that provides a brief summary of your website's 
 
 ### Navbar- & Footer items
 
-`navbarItems` and `footerItems` are lists of items that include a `label`, a `href` and, optionally, an `icon`. These items are displayed in the header and footer, respectively. `navbarItems` have the additional behavior of being highlighted when active. For example the item labeled `About` will be highlighted when a page with `activeHeaderLink: About` in its frontmatter is viewed.
+`footerItems` are lists of items that include a `label`, a `href` and, optionally, an `icon`. These items are displayed in the footer. Similarly `navbarItems` are displayed in the header and have the additional behavior of being highlighted when active. For example the item labeled `About` will be highlighted when a page with `activeHeaderLink: About` in its frontmatter is viewed. Additionally, `navbarItems` can also be expandable dropdowns, by omitting the `href` and instead specifying a `children` array, containing plain items.
 
 ## Optional Settings
 
