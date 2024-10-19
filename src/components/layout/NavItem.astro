@@ -1,13 +1,14 @@
 ---
 import type { NavItem } from '@/types'
+import { isAbsolute } from '@/util'
 
 export interface Props {
   item: NavItem
-  isActive: boolean
+  isActive?: boolean
 }
 
 const {
-  isActive,
+  isActive = false,
   item: { href, icon, label }
 } = Astro.props
 ---
@@ -17,7 +18,7 @@ const {
   class={`flex items-center gap-1 ${
     isActive ? 'text-accent/100' : 'clickable'
   }`}
-  target={!href.startsWith('/') ? '_blank' : '_self'}
+  target={isAbsolute(href) ? '_blank' : '_self'}
 >
   {icon && <span class={`iconify text-xl ${icon}`} />}
   <span class={isActive ? `underline` : ''}>
