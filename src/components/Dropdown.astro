@@ -1,0 +1,109 @@
+---
+import NavItem from '@/components/layout/NavItem.astro'
+import type { NavItemParent } from '@/types'
+
+export interface Props {
+  item: NavItemParent
+  activeHeaderLink?: string
+}
+
+const {
+  item: { children, icon, label },
+  activeHeaderLink
+} = Astro.props
+
+const isActive = children.some(
+  (item) => activeHeaderLink === item.label || activeHeaderLink === item.href
+)
+---
+
+<dropdown-parent
+  class="relative inline-block"
+  data-is-active={String(isActive)}
+>
+  <dropdown-activator
+    class:list={[
+      'flex cursor-pointer items-center gap-1 whitespace-nowrap',
+      { 'text-accent/100': isActive },
+      { clickable: !isActive }
+    ]}
+  >
+    {icon && <span class={`iconify text-xl ${icon}`} />}
+    <span class:list={[{ underline: isActive }]}>
+      {label}
+    </span>
+    <span
+      class="iconify text-xl transition-transform duration-500 tabler--chevron-down"
+    ></span>
+  </dropdown-activator>
+
+  <dropdown-menu
+    class="absolute right-0 z-10 mt-4 flex hidden origin-top-right flex-col gap-2 rounded-md border-[1px] border-accent/75 bg-accent-bg p-4 shadow shadow-black"
+  >
+    {
+      children.map((item) => (
+        <NavItem
+          {item}
+          isActive={
+            activeHeaderLink === item.label || activeHeaderLink === item.href
+          }
+        />
+      ))
+    }
+  </dropdown-menu>
+</dropdown-parent>
+
+<script>
+  class Dropdown extends HTMLElement {
+    connectedCallback() {
+      const isActive = this.dataset.isActive == 'true'
+
+      const activator = this.querySelector('dropdown-activator')
+      const menu = this.querySelector('dropdown-menu')
+
+      if (!activator || !menu) return
+
+      const showMenu = () => {
+        if (!isActive) {
+          activator.classList.remove('clickable')
+          activator.classList.add('text-accent/100')
+        }
+
+        menu.classList.remove('hidden')
+
+        this.querySelector('.tabler--chevron-down')?.classList.add(
+          '-rotate-180'
+        )
+      }
+      const hideMenu = () => {
+        if (!isActive) {
+          activator.classList.add('clickable')
+          activator.classList.remove('text-accent/100')
+        }
+
+        menu.classList.add('hidden')
+
+        this.querySelector('.tabler--chevron-down')?.classList.remove(
+          '-rotate-180'
+        )
+      }
+
+      activator.addEventListener('click', () => {
+        if (menu.className.includes('hidden')) {
+          showMenu()
+        } else {
+          hideMenu()
+        }
+      })
+
+      document.addEventListener('click', function (event) {
+        const target = event.target as Node | null
+        if (!activator.contains(target) && !menu.contains(target)) {
+          hideMenu()
+        }
+      })
+    }
+  }
+
+  customElements.define('dropdown-parent', Dropdown)
+</script>
