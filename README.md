@@ -15,23 +15,11 @@
 ![Preview](./public/preview.png)
 
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/github/package-json/v/FjellOverflow/Nordlys?label=Version&labelColor=000000&color=success">
-    <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/github/package-json/v/FjellOverflow/Nordlys?label=Version&labelColor=ffffff&color=success">
-    <img alt="Nordlys version">
-  </picture>
+  <img src="https://img.shields.io/github/package-json/v/FjellOverflow/Nordlys?label=Version&color=success"/>
   &ensp;
-  <picture>
-    <source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/github/actions/workflow/status/FjellOverflow/Nordlys/cd.yaml?branch=main&label=Build&labelColor=000000">
-    <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/github/actions/workflow/status/FjellOverflow/Nordlys/cd.yaml?branch=main&label=Build&labelColor=ffffff">
-    <img alt="Nordlys Build status">
-  </picture>
+  <img src="https://img.shields.io/github/license/FjellOverflow/Nordlys?label=License&color=success"/>
   &ensp;
-  <picture>
-    <source media="(prefers-color-scheme: light)" srcset="https://img.shields.io/github/license/FjellOverflow/Nordlys?label=License&labelColor=000000&color=success">
-    <source media="(prefers-color-scheme: dark)" srcset="https://img.shields.io/github/license/FjellOverflow/Nordlys?label=License&labelColor=ffffff&color=success">
-    <img alt="Nordlys license">
-  </picture>
+  <img src="https://img.shields.io/github/actions/workflow/status/FjellOverflow/Nordlys/cd.yaml?branch=main&label=Build"/>
 </p>
 
 <p align="center">
