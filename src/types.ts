@@ -15,6 +15,14 @@ export interface NavItem {
   icon?: Icon
 }
 
+export interface NavItemParent {
+  label: string
+  icon?: Icon
+  children: NavItem[]
+}
+
+export type HeaderItem = NavItem | NavItemParent
+
 const Modes = ['dark', 'light'] as const
 
 export const ColorSchemes = [
@@ -31,7 +39,7 @@ export interface ThemeConfig {
   title: string
   description: string
   author: string
-  navbarItems: NavItem[]
+  navbarItems: HeaderItem[]
   footerItems: NavItem[]
 
   locale: string

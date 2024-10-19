@@ -1,10 +1,12 @@
 ---
 import logo from '@/assets/logo.svg'
+import Dropdown from '@/components/Dropdown.astro'
 import MobileNavToggle from '@/components/layout/MobileNavToggle.astro'
 import NavItem from '@/components/layout/NavItem.astro'
 import Separator from '@/components/layout/Separator.astro'
 import ModeToggle from '@/components/mode/ModeToggle.astro'
 import config from '@/theme.config'
+import type { HeaderItem, NavItem as NavItemType } from '@/types'
 import { Image } from 'astro:assets'
 
 export interface Props {
@@ -12,6 +14,9 @@ export interface Props {
 }
 
 const { activeHeaderLink } = Astro.props
+
+export const isNavItem = (item: HeaderItem): item is NavItemType =>
+  Object.hasOwn(item, 'href')
 ---
 
 <header>
@@ -25,13 +30,17 @@ const { activeHeaderLink } = Astro.props
         {
           config.navbarItems.map((item) => (
             <li class="flex flex-col justify-center">
-              <NavItem
-                {item}
-                isActive={
-                  activeHeaderLink === item.label ||
-                  activeHeaderLink === item.href
-                }
-              />
+              {isNavItem(item) ? (
+                <NavItem
+                  {item}
+                  isActive={
+                    activeHeaderLink === item.label ||
+                    activeHeaderLink === item.href
+                  }
+                />
+              ) : (
+                <Dropdown {item} {activeHeaderLink} />
+              )}
             </li>
           ))
         }
@@ -52,13 +61,17 @@ const { activeHeaderLink } = Astro.props
         {
           config.navbarItems.map((item) => (
             <li class="flex flex-col justify-center">
-              <NavItem
-                {item}
-                isActive={
-                  activeHeaderLink === item.label ||
-                  activeHeaderLink === item.href
-                }
-              />
+              {isNavItem(item) ? (
+                <NavItem
+                  {item}
+                  isActive={
+                    activeHeaderLink === item.label ||
+                    activeHeaderLink === item.href
+                  }
+                />
+              ) : (
+                <Dropdown {item} {activeHeaderLink} />
+              )}
             </li>
           ))
         }
