@@ -1,6 +1,6 @@
 ---
 import TagsBar from '@/components/TagsBar.astro'
-import { toMonthString } from '@/util'
+import { isAbsolute, toMonthString } from '@/util'
 import { sortProjects } from '@/util/projects'
 import { resolveTags } from '@/util/tags'
 import type { CollectionEntry } from 'astro:content'
@@ -35,10 +35,10 @@ const renderedProjects = await Promise.all(
             <a
               class="mb-2 text-xl font-normal no-underline"
               href={data.url}
-              target={!data.url.startsWith('/') ? '_blank' : '_self'}
+              target={isAbsolute(data.url) ? '_blank' : '_self'}
             >
               <span class="underline">{data.title}</span>
-              {data.url && !data.url.startsWith('/') && (
+              {data.url && isAbsolute(data.url) && (
                 <span class="iconify align-middle tabler--external-link" />
               )}
             </a>

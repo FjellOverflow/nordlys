@@ -21,3 +21,6 @@ const isLocalAsset = (
 export const resolveOgImageUrl = (image: string | HTMLAttributes<'img'>) => {
   return isLocalAsset(image) ? image.src : image
 }
+
+export const isAbsolute = (url: string) =>
+  url.indexOf('http://') === 0 || url.indexOf('https://') === 0
