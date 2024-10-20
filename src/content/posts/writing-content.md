@@ -69,6 +69,7 @@ type PostFrontmatter = {
   canonicalURL?: string // meta
   openGraphImage?: string | HTMLAttributes<'img'> // either URL to image in public folder or local asset
   tags?: string[] // defaults to []
+  showToC?: boolean // show a Table of Contents, defaults to true
 }
 ```
 
