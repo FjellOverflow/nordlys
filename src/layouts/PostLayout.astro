@@ -1,5 +1,6 @@
 ---
 import TagsBar from '@/components/TagsBar.astro'
+import ToC from '@/components/ToC.astro'
 import PageLayout, {
   type Props as PageLayoutProps
 } from '@/layouts/PageLayout.astro'
@@ -7,7 +8,6 @@ import HeadingAnchorsPlugin from '@/plugins/HeadingAnchorsPlugin.astro'
 import { toDateString } from '@/util'
 import { resolveTags } from '@/util/tags'
 import type { CollectionEntry } from 'astro:content'
-
 export interface Props {
   post: CollectionEntry<'posts'>
 }
@@ -16,7 +16,8 @@ const { post } = Astro.props
 
 const {
   Content,
-  remarkPluginFrontmatter: { readingTime }
+  remarkPluginFrontmatter: { readingTime },
+  headings
 } = await post.render()
 
 const frontmatter: PageLayoutProps['frontmatter'] = {
@@ -39,6 +40,21 @@ const publishedStr = toDateString(post.data.publishedDate)
       >{post.data.author}</a
     > · <span class="whitespace-nowrap opacity-75">{readingTime} </span>
   </div>
+
+  {
+    !!post.data.showToC && (
+      <div slot="aside" class="mt-8 hidden 2xl:block">
+        <ToC {headings} open />
+      </div>
+    )
+  }{
+    !!post.data.showToC && (
+      <div class="mt-8 w-fit 2xl:hidden">
+        <ToC {headings} />
+      </div>
+    )
+  }
+
   <article>
     <Content />
   </article>
