@@ -29,8 +29,12 @@ const {
 <BaseLayout frontmatter={frontmatter}>
   <div id="page-wrapper">
     <Header activeHeaderLink={activeHeaderLink} />
-    <main class="mt-6 sm:mt-12">
-      <Prose>
+
+    <main class="relative mt-6 sm:mt-12">
+      <aside class="absolute -translate-x-full pr-16">
+        <slot name="aside" />
+      </aside>
+      <Prose class="mb-6 sm:mb-12">
         <slot />
       </Prose>
     </main>
