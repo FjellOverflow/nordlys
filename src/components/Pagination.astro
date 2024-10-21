@@ -12,19 +12,24 @@ const { page } = Astro.props
   page.lastPage > 1 && (
     <nav class="mb-8 flex w-full grow items-end justify-center">
       <div class="flex gap-4">
-        <a
-          class={!page.url.prev ? 'no-underline opacity-25' : 'clickable'}
-          href={page.url.prev}
-        >
-          Previous
-        </a>
+        {page.url.prev ? (
+          <a class="clickable" href={page.url.prev}>
+            Previous
+          </a>
+        ) : (
+          <span class="opacity-25">Previous</span>
+        )}
         {page.currentPage} / {page.lastPage}
-        <a
-          class={!page.url.next ? 'no-underline opacity-25' : 'clickable'}
-          href={page.url.next}
-        >
-          Next
-        </a>
+        {page.url.next ? (
+          <a
+            class={!page.url.next ? 'no-underline opacity-25' : 'clickable'}
+            href={page.url.next}
+          >
+            Next
+          </a>
+        ) : (
+          <span class="opacity-25">Next</span>
+        )}
       </div>
     </nav>
   )
