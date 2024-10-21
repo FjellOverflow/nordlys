@@ -54,13 +54,13 @@ const publishedStr = toDateString(post.data.publishedDate)
 
   {
     !!post.data.showToC && (
-      <div slot="aside" class="mt-8 hidden 2xl:block">
+      <div slot="aside" class="mt-8 hidden border-r pr-4 2xl:block">
         <ToC {headings} open />
       </div>
     )
   }{
     !!post.data.showToC && (
-      <div class="mt-8 w-fit 2xl:hidden">
+      <div class="mt-8 w-fit rounded-md border 2xl:hidden">
         <ToC {headings} />
       </div>
     )
