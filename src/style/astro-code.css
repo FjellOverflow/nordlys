@@ -1,6 +1,6 @@
 @layer components {
   .astro-code-header {
-    @apply flex h-12 items-center justify-between rounded-tl-md rounded-tr-md border-[1px] border-accent bg-[--code-header-bg] px-4 text-[--code-header-color] dark:bg-[--code-header-bg-dark] dark:text-[--code-header-color-dark];
+    @apply flex h-12 items-center justify-between rounded-tl-md rounded-tr-md border border-accent bg-[--code-header-bg] px-4 text-[--code-header-color] dark:bg-[--code-header-bg-dark] dark:text-[--code-header-color-dark];
 
     .label {
       @apply flex flex-col justify-center text-sm text-[--code-header-color] dark:text-[--code-header-color-dark];
@@ -16,7 +16,7 @@
   }
 
   .astro-code {
-    @apply mt-0 rounded-t-none border-[1px] border-t-0 border-accent;
+    @apply mt-0 rounded-t-none border border-t-0 border-accent;
   }
 
   html[data-mode='dark'] .astro-code,
