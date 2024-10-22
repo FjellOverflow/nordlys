@@ -25,6 +25,18 @@ export const getPosts = async (
     .filter((p) => includeDrafts || !p.data.draft)
 }
 
+export const adjacentPosts = async (post: CollectionEntry<'posts'>) => {
+  const reversedPosts = (await getPosts()).reverse()
+  const postIndex = reversedPosts.findIndex((p) => p.slug === post.slug)
+
+  if (postIndex < 0) return {}
+
+  return {
+    previous: reversedPosts[postIndex - 1],
+    next: reversedPosts[postIndex + 1]
+  }
+}
+
 export const generateAuthors = async () => {
   const posts = await getPosts()
 
