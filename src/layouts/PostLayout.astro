@@ -57,7 +57,10 @@ const publishedStr = toDateString(post.data.publishedDate)
 
   {
     !!post.data.showToC && (
-      <div slot="aside" class="mt-8 hidden border-r pr-4 2xl:block">
+      <div
+        slot="aside"
+        class="mt-24 hidden border-r pr-4 opacity-50 transition duration-500 ease-in-out hover:opacity-100 2xl:block"
+      >
         <ToC {headings} open />
       </div>
     )

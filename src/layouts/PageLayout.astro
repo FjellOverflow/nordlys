@@ -30,10 +30,12 @@ const {
   <div id="page-wrapper">
     <Header activeHeaderLink={activeHeaderLink} />
     <slot name="top" />
-    <main class="relative mt-6 sm:mt-12">
-      <aside class="absolute -translate-x-full pr-8">
-        <slot name="aside" />
-      </aside>
+
+    <aside class="fixed w-fit -translate-x-full pr-8">
+      <slot name="aside" />
+    </aside>
+
+    <main class="mt-6 sm:mt-12">
       <Prose class="mb-6 sm:mb-12">
         <slot />
       </Prose>
