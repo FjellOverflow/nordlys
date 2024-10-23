@@ -16,7 +16,9 @@
 <script is:inline>
   document.addEventListener('astro:page-load', () => {
     document.querySelectorAll('main img').forEach((img) => {
-      img.dataset.zoomable = ''
+      if (!Object.hasOwn(img.dataset, 'zoomable')) img.dataset.zoomable = ''
+      else if (img.dataset.zoomable === 'false')
+        img.removeAttribute('data-zoomable')
     })
   })
 </script>

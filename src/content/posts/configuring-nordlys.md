@@ -131,7 +131,7 @@ When `scrollToTop` is enabled (automatically on blog posts), an arrow button wil
 
 ### Zoomable Images
 
-When `zoomableImages` is enabled, images can be zoomed by clicking them, powered by [medium-zoom](https://github.com/francoischalifour/medium-zoom).
+When `zoomableImages` is enabled, images can be zoomed by clicking them, powered by [medium-zoom](https://github.com/francoischalifour/medium-zoom). To opt out of zooming for specific images, use `<img src="..." data-zoomable="false"/>`
 
 ### Tag Icons
 
