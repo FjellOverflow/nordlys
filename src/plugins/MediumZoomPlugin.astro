@@ -7,15 +7,15 @@
 
   document.addEventListener('astro:page-load', () => {
     mediumZoom('[data-zoomable]', {
-      background: '',
-      margin: 48
+      margin: 48,
+      background: '#000000BF'
     })
   })
 </script>
 
 <script is:inline>
   document.addEventListener('astro:page-load', () => {
-    document.querySelectorAll('img').forEach((img) => {
+    document.querySelectorAll('main img').forEach((img) => {
       img.dataset.zoomable = ''
     })
   })
