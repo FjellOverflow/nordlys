@@ -25,7 +25,8 @@
     "lint": "eslint . && stylelint src",
     "check": "pnpm lint && astro check",
     "build": "astro build",
-    "preview": "pnpm check && pnpm build && astro preview"
+    "preview": "pnpm build && astro preview",
+    "release": "pnpm check && commit-and-tag-version --sign"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
