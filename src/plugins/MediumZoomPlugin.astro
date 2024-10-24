@@ -6,19 +6,9 @@
   import mediumZoom from 'medium-zoom/dist/pure'
 
   document.addEventListener('astro:page-load', () => {
-    mediumZoom('[data-zoomable]', {
+    mediumZoom('[data-img-embed]', {
       margin: 48,
       background: '#000000BF'
-    })
-  })
-</script>
-
-<script is:inline>
-  document.addEventListener('astro:page-load', () => {
-    document.querySelectorAll('main img').forEach((img) => {
-      if (!Object.hasOwn(img.dataset, 'zoomable')) img.dataset.zoomable = ''
-      else if (img.dataset.zoomable === 'false')
-        img.removeAttribute('data-zoomable')
     })
   })
 </script>

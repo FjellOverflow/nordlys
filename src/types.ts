@@ -51,7 +51,6 @@ export interface ThemeConfig {
   projectsPerPage: number
   scrollProgress: boolean
   scrollToTop: boolean
-  zoomableImages: boolean
   tagIcons: Record<string, Icon>
   shikiThemes: ShikiConfig['themes']
 }
@@ -66,7 +65,6 @@ const defaults = {
   projectsPerPage: 3,
   scrollProgress: false,
   scrollToTop: true,
-  zoomableImages: true,
   tagIcons: {},
   shikiThemes: {
     light: 'vitesse-light',

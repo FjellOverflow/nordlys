@@ -52,4 +52,9 @@
       }
     }
   }
+
+  img[data-img-embed=''],
+  img[data-img-embed='true'] {
+    @apply rounded border border-accent;
+  }
 }

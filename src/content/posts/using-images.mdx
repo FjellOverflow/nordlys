@@ -56,6 +56,25 @@ From the web:
 
 <Image alt="Nordlys favicon" src="/favicon.svg" loading="lazy" width={136} height={141}/>
 
+## data-img-embed
+
+For a nice embedding of images into the content, you can use the `data-img-embed` attribute. This will give the image a bordered, rounded appearance and users can zoom it on click.
+
+```markdown src/pages/my-page.md
+// embedded image
+<img src="/preview.png" data-img-embed/>
+<img src="/preview.png" data-img-embed="true"/>
+
+// normal apperance
+<img src="/preview.png"/>
+<img src="/preview.png" data-img-embed="false"/>
+
+```
+
+<div align="center">
+<Image alt="Nordlys preview" src="/preview.png" loading="lazy" height={252} width={480} data-img-embed/>
+</div>
+
 ## Open Graph Images
 
 Images and image URLs can be used in frontmatter, for instance as `openGraphImage`. To use a local asset, use:
@@ -79,11 +98,11 @@ openGraphImage: "https://nordlys.fjelloverflow.dev/favicon.svg"
 Note that supplying `openGraphImage` is entirely optional. If a post (any file in `src/content/posts`) does not have an `openGraphImage` provided, Nordlys will automatically generate and use a basic template, displaying the post `title`, `description`, `author`, and website `title`, which looks like this:
 
 <div align="center">
-<Image class="border rounded" alt="Example post OG" src="/posts/using-images.png" loading="lazy" height={252} width={480}/>
+<Image alt="Example post OG" src="/posts/using-images.png" loading="lazy" height={252} width={480} data-img-embed/>
 </div>
 
 Similarly, when there is no global `openGraphImage` configured in `theme.config.ts`, Nordlys generates and uses a generic image that displays the site `title` and `description` on every page where none has been defined, looking like this:
 
 <div align="center">
-<Image class="border rounded" alt="Example site OG" src="/ogImage.png" loading="lazy" height={252} width={480}/>
+<Image alt="Example site OG" src="/ogImage.png" loading="lazy" height={252} width={480} data-img-embed/>
 </div>

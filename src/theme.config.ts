@@ -43,7 +43,6 @@ export default defineThemeConfig({
   projectsPerPage: 3,
   scrollProgress: false,
   scrollToTop: true,
-  zoomableImages: true,
   tagIcons: {
     tailwindcss: 'tabler--brand-tailwind',
     astro: 'tabler--brand-astro',
