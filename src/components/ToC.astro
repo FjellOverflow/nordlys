@@ -36,16 +36,17 @@ while (headings.length) {
 function resolveEl(heading: ProcessedHeading) {
   let li = `<a href="#${heading.slug}">${heading.text}</a>`
 
-  if (heading.children)
-    li += heading.children
-      .map((child) => `<ul>${resolveEl(child)}</ul>`)
-      .join('')
+  if (heading.children.length) {
+    li += `<ul>${heading.children
+      .map((child) => `${resolveEl(child)}`)
+      .join('')}</ul>`
+  }
 
   return `<li>${li}</li>`
 }
 ---
 
-<div class="p-4">
+<div class="p-4" id="toc">
   <Prose>
     <h2 class="no-anchor mb-2">Table of Contents</h2>
 
@@ -61,3 +62,18 @@ function resolveEl(heading: ProcessedHeading) {
     </details>
   </Prose>
 </div>
+<style>
+  #toc {
+    ul {
+      @apply my-1 list-none;
+    }
+
+    li {
+      @apply my-1;
+    }
+
+    a {
+      @apply no-underline hover:underline;
+    }
+  }
+</style>
