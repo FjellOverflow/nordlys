@@ -28,7 +28,8 @@ const frontmatter: PageLayoutProps['frontmatter'] = {
   ...post.data,
   openGraphImage: post.data.openGraphImage || `/posts/${post.slug}.png`,
   activeHeaderLink: 'Blog',
-  scrollProgress: true
+  scrollProgress: true,
+  searchable: true
 }
 
 const publishedStr = toDateString(post.data.publishedDate)

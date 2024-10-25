@@ -1,0 +1,101 @@
+---
+import PageLayout, {
+  type Props as PageLayoutProps
+} from '@/layouts/PageLayout.astro'
+
+const frontmatter: PageLayoutProps['frontmatter'] = {
+  title: 'Search',
+  activeHeaderLink: '/search'
+}
+---
+
+<PageLayout {frontmatter}>
+  <h1>{frontmatter.title}</h1>
+  <search-input class="flex w-full items-center justify-center gap-8">
+    <input
+      id="search-input"
+      type="text"
+      placeholder="Type to search"
+      class="w-full rounded border border-accent p-4 sm:w-[50%]"
+    />
+    <span id="search-clear" class="clickable invisible text-xl">Clear</span>
+  </search-input>
+  <h2 id="results-heading">{''}</h2>
+  <ul id="results-list" class="list-none p-0"></ul>
+</PageLayout>
+
+<script is:inline>
+  if (!customElements.get('search-input')) {
+    customElements.define(
+      'search-input',
+      class extends HTMLElement {
+        async connectedCallback() {
+          const searchInput = this.querySelector('#search-input')
+          const clearBtn = this.querySelector('#search-clear')
+          const resultsHeading = document.querySelector('#results-heading')
+          const resultsContainer = document.querySelector('#results-list')
+
+          if (!searchInput || !clearBtn || !resultsHeading || !resultsContainer)
+            return
+
+          const onInput = async () => {
+            const searchQuery = searchInput.value
+
+            if (searchQuery === '') clearBtn.classList.add('invisible')
+            else clearBtn.classList.remove('invisible')
+
+            const { results } = await window.pagefind.search(searchQuery)
+
+            resultsHeading.innerHTML =
+              results.length > 0 ? `Results (${results.length})` : 'No Results'
+
+            resultsContainer.innerHTML = ''
+
+            await Promise.all(
+              results.slice(0, 5).map(async (r) => {
+                const li = document.createElement('li')
+                li.innerHTML = await renderSearchResult(r)
+                resultsContainer.appendChild(li)
+              })
+            )
+
+            if (results.length > 5) {
+              const remainingLi = document.createElement('li')
+              remainingLi.innerHTML = `... and ${results.length - 5} more`
+              resultsContainer.appendChild(remainingLi)
+            }
+          }
+
+          const renderSearchResult = async (result) => {
+            const data = await result.data()
+
+            return `<a class="text-xl font-normal" href="${data.url}">
+                        ${data.meta.title}
+                    </a>
+                    <div class="opacity-75 mt-4">
+                        ${data.excerpt}
+                    </div>`
+          }
+
+          searchInput.addEventListener('input', onInput)
+
+          clearBtn.addEventListener('click', () => {
+            searchInput.value = ''
+            onInput()
+          })
+
+          if (this.dataset.loaded !== 'true') {
+            try {
+              window.pagefind = await import('/pagefind/pagefind.js')
+              // eslint-disable-next-line @typescript-eslint/no-unused-vars
+            } catch (_) {
+              console.log('Pagefind not available')
+              window.pagefind = { search: () => ({ results: [] }) }
+            }
+            this.dataset.loaded = 'true'
+          }
+        }
+      }
+    )
+  }
+</script>

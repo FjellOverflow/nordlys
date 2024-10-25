@@ -26,7 +26,8 @@
     "check": "pnpm lint && astro check",
     "build": "astro build",
     "preview": "pnpm build && astro preview",
-    "release": "pnpm check && commit-and-tag-version --sign"
+    "release": "pnpm check && commit-and-tag-version --sign",
+    "postbuild": "pagefind --site dist"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
@@ -42,6 +43,7 @@
     "astro": "^4.16.7",
     "mdast-util-to-string": "^4.0.0",
     "medium-zoom": "^1.1.0",
+    "pagefind": "^1.1.1",
     "reading-time": "^1.5.0",
     "satori": "^0.11.2",
     "sharp": "^0.33.5",
