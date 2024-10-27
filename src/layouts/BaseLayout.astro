@@ -10,7 +10,7 @@ import ModeManager from '@/components/mode/ModeManager.astro'
 import CopyCodeButtonsPlugin from '@/plugins/CopyCodeButtonsPlugin.astro'
 import MediumZoomPlugin from '@/plugins/MediumZoomPlugin.astro'
 import config from '@/theme.config'
-import { resolveOgImageUrl } from '@/util'
+import { resolveImageUrl } from '@/util'
 import type { HTMLAttributes } from 'astro/types'
 import { ViewTransitions } from 'astro:transitions'
 
@@ -49,7 +49,7 @@ if (String(title).toLowerCase() !== String(config.title).toLowerCase())
   titleWithSuffix += ` | ${config.title}`
 
 const openGraphImageUrl = new URL(
-  resolveOgImageUrl(openGraphImage) || '/ogImage.png',
+  resolveImageUrl(openGraphImage) || '/ogImage.png',
   Astro.site
 ).href
 ---

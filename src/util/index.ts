@@ -18,7 +18,7 @@ const isLocalAsset = (
   image: string | HTMLAttributes<'img'>
 ): image is HTMLAttributes<'img'> => typeof image !== 'string'
 
-export const resolveOgImageUrl = (image: string | HTMLAttributes<'img'>) => {
+export const resolveImageUrl = (image: string | HTMLAttributes<'img'>) => {
   return isLocalAsset(image) ? image.src : image
 }
 
