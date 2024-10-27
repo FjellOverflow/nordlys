@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.2.1](https://github.com/FjellOverflow/nordlys/compare/v0.2.0...v0.2.1) (2024-10-27)
+
+
+### Features
+
+* global search ([dd2d6be](https://github.com/FjellOverflow/nordlys/commit/dd2d6be5c173715dd96635ef1ab7fee93d84ff81))
+* preview images for projects ([2992124](https://github.com/FjellOverflow/nordlys/commit/29921243ecbcee25ddd81cd8f2ee2b3f0b8c4857))
+
+
+### Bug Fixes
+
+* size search icon in header bar correctly ([b55f4d0](https://github.com/FjellOverflow/nordlys/commit/b55f4d08c5f4c945138706a7e064d2fe4231ac30))
+
 ## [0.2.0](https://github.com/FjellOverflow/nordlys/compare/v0.1.1...v0.2.0) (2024-10-24)
 
 
