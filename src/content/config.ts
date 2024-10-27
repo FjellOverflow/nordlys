@@ -19,13 +19,14 @@ const posts = defineCollection({
 
 const projects = defineCollection({
   type: 'content',
-  schema: () =>
+  schema: ({ image }) =>
     z.object({
       title: z.string(),
       url: z.string().optional(),
       startDate: z.date(),
       endDate: z.date().optional().nullable(),
-      tags: z.array(z.string()).default([])
+      tags: z.array(z.string()).default([]),
+      previewImage: image().or(z.string()).optional()
     })
 })
 

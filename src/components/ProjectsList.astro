@@ -1,7 +1,7 @@
 ---
 import Separator from '@/components/layout/Separator.astro'
 import TagsBar from '@/components/TagsBar.astro'
-import { isAbsolute, toMonthString } from '@/util'
+import { isAbsolute, resolveImageUrl, toMonthString } from '@/util'
 import { sortProjects } from '@/util/projects'
 import { resolveTags } from '@/util/tags'
 import type { CollectionEntry } from 'astro:content'
@@ -17,45 +17,71 @@ projects.sort(sortProjects)
 const renderedProjects = await Promise.all(
   projects.map(async (project) => {
     const { Content } = await project.render()
+    const { previewImage } = project.data
+
+    const previewImageUrl = previewImage
+      ? resolveImageUrl(previewImage)
+      : undefined
 
     return {
       ...project,
-      Content
+      Content,
+      previewImageUrl
     }
   })
 )
 ---
 
-<ul class="p-0">
+<ul class="list-none p-0">
   {
-    renderedProjects.map(({ data, Content }, index) => (
-      <li class="flex flex-col">
-        <div class="flex flex-col justify-between sm:flex-row sm:items-center">
-          {data.url && (
-            <a
-              class="mb-2 text-xl font-normal no-underline"
-              href={data.url}
-              target={isAbsolute(data.url) ? '_blank' : '_self'}
-            >
-              <span class="underline">{data.title}</span>
-              {data.url && isAbsolute(data.url) && (
-                <span class="iconify align-middle tabler--external-link" />
-              )}
-            </a>
+    renderedProjects.map(({ data, Content, previewImageUrl }, index) => (
+      <>
+        <li class="flex gap-8">
+          {previewImageUrl && (
+            <img
+              class="mb-0 mt-8 hidden max-h-32 rounded md:block"
+              src={previewImageUrl}
+              alt={`${data.title} preview`}
+            />
           )}
-          {!data.url && <span class="mb-2 text-xl">{data.title}</span>}
-          <div class="my-2 text-sm opacity-75 sm:my-0">
-            <time>{toMonthString(data.startDate)}</time> -
-            {data.endDate && <time>{toMonthString(data.endDate)}</time>}
-            {!data.endDate && 'Now'}
+          <div class="col-span-2 flex h-fit flex-col">
+            <div class="flex flex-col justify-between sm:flex-row sm:items-center">
+              {data.url && (
+                <a
+                  class="mb-2 text-xl font-normal no-underline"
+                  href={data.url}
+                  target={isAbsolute(data.url) ? '_blank' : '_self'}
+                >
+                  <span class="underline">{data.title}</span>
+                  {data.url && isAbsolute(data.url) && (
+                    <span class="iconify align-middle tabler--external-link" />
+                  )}
+                </a>
+              )}
+              {!data.url && <span class="mb-2 text-xl">{data.title}</span>}
+              <div class="my-2 text-sm opacity-75 sm:my-0">
+                <time>{toMonthString(data.startDate)}</time> -
+                {data.endDate && <time>{toMonthString(data.endDate)}</time>}
+                {!data.endDate && 'Now'}
+              </div>
+            </div>
+            <TagsBar tags={resolveTags(data.tags)} />
+            {previewImageUrl && (
+              <div class="flex w-full justify-center md:hidden">
+                <img
+                  class="max-w-3/4 mb-0 max-h-32 rounded object-contain"
+                  src={previewImageUrl}
+                  alt={`${data.title} preview`}
+                />
+              </div>
+            )}
+            <div class="opacity-75">
+              <Content />
+            </div>
           </div>
-        </div>
-        <TagsBar tags={resolveTags(data.tags)} />
-        <div class="opacity-75">
-          <Content />
-        </div>
-        {index !== projects.length - 1 && <Separator class="my-2" />}
-      </li>
+        </li>
+        {index !== projects.length - 1 && <Separator class="mb-6 ml-2 mt-0" />}
+      </>
     ))
   }
 </ul>
