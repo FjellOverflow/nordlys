@@ -100,6 +100,7 @@ type ProjectFrontmatter = {
   startDate: Date
   endDate?: Date // shows "Now" if not set
   tags?: string[] // defaults to []
+  previewImage: string | HTMLAttributes<'img'> // either URL to image in public folder or local asset
 }
 ```
 
