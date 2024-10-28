@@ -1,7 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import type { Icon } from '@/types'
+
 const PLACEHOLDER = '$CODE_HEADER_PLACEHOLDER$'
 
-const iconMap: Record<string, string> = {
+const iconMap: Record<string, Icon> = {
   plaintext: 'tabler--dots',
 
   'angular-html': 'tabler--brand-angular',

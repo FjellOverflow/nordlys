@@ -2,7 +2,7 @@ import type { ShikiConfig } from 'astro'
 import type { HTMLAttributes } from 'astro/types'
 import type { SetOptional } from 'type-fest'
 
-type Icon = `tabler--${string}`
+export type Icon = `tabler--${string}`
 
 export interface ResolvedTag {
   tag: string
