@@ -1,26 +1,29 @@
-<div class="fixed top-0 w-full">
-  <div id="scroll-progress-bar" class="h-1 w-0 bg-accent"></div>
-</div>
+<scroll-progress-bar class="fixed top-0 w-full">
+  <div class="h-1 w-0 bg-accent"></div>
+</scroll-progress-bar>
+
 <script>
-  document.addEventListener('astro:page-load', () => {
-    document.addEventListener('scroll', onScroll)
-  })
+  class ScrollProgressbar extends HTMLElement {
+    connectedCallback() {
+      const bar = this.children[0] as HTMLElement
 
-  function onScroll() {
-    const scrollProgressBar = document.querySelector(
-      '#scroll-progress-bar'
-    ) as HTMLElement | null
+      function calculateScrollPercentage() {
+        const scrollTop =
+          document.body.scrollTop || document.documentElement.scrollTop
 
-    if (!scrollProgressBar) return
+        const totalHeight =
+          document.documentElement.scrollHeight -
+          document.documentElement.clientHeight
+        return (scrollTop / totalHeight) * 100
+      }
 
-    const scrollTop =
-      document.body.scrollTop || document.documentElement.scrollTop
+      document.addEventListener('scroll', () => {
+        const scrollPercentage = calculateScrollPercentage()
 
-    const totalHeight =
-      document.documentElement.scrollHeight -
-      document.documentElement.clientHeight
-    const scrolled = (scrollTop / totalHeight) * 100
-
-    scrollProgressBar.style.width = `${scrolled}%`
+        bar.style.width = `${scrollPercentage}%`
+      })
+    }
   }
+
+  customElements.define('scroll-progress-bar', ScrollProgressbar)
 </script>
