@@ -1,39 +1,34 @@
-<button
-  id="scroll-to-top-btn"
+<scroll-top-button
   title="Scroll to top"
   class="!fixed bottom-20 right-2 z-10 hidden sm:bottom-28 lg:bottom-8"
 >
   <div class="clickable flex items-center gap-2 pr-2">
     <span class="iconify text-4xl tabler--arrow-up"></span>
   </div>
-</button>
+</scroll-top-button>
+
 <script>
-  document.addEventListener('astro:page-load', () => {
-    document.addEventListener('scroll', onScroll)
+  class ScrollToTopButton extends HTMLElement {
+    connectedCallback() {
+      function isBelowViewport() {
+        const minHeight = document.documentElement.clientHeight
+        const scrollTop =
+          document.body.scrollTop || document.documentElement.scrollTop
 
-    document
-      .querySelector('#scroll-to-top-btn')
-      ?.addEventListener('click', onClick)
-  })
+        return scrollTop > minHeight
+      }
 
-  function onClick() {
-    document.body.scrollTop = 0
-    document.documentElement.scrollTop = 0
-  }
+      this.addEventListener('click', () => {
+        document.body.scrollTop = 0
+        document.documentElement.scrollTop = 0
+      })
 
-  function onScroll() {
-    const scrollToTopBtn = document.querySelector('#scroll-to-top-btn')
-
-    if (!scrollToTopBtn) return
-
-    const minHeight = document.documentElement.clientHeight
-    const scrollTop =
-      document.body.scrollTop || document.documentElement.scrollTop
-
-    if (scrollTop > minHeight) {
-      scrollToTopBtn.classList.remove('hidden')
-    } else {
-      scrollToTopBtn.classList.add('hidden')
+      document.addEventListener('scroll', () => {
+        if (isBelowViewport()) this.classList.remove('hidden')
+        else this.classList.add('hidden')
+      })
     }
   }
+
+  customElements.define('scroll-top-button', ScrollToTopButton)
 </script>
