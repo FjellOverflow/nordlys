@@ -2,8 +2,8 @@
 
 ---
 
-<script is:inline>
-  function setupCopyOnClick() {
+<script is:inline data-astro-rerun>
+  function setupCopyCodeButtons() {
     document.querySelectorAll('.astro-code-header .copy-btn').forEach((btn) => {
       btn.addEventListener('click', async () => {
         const code =
@@ -20,5 +20,5 @@
     })
   }
 
-  document.addEventListener('astro:page-load', setupCopyOnClick)
+  setupCopyCodeButtons()
 </script>
