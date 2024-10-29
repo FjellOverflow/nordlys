@@ -1,6 +1,5 @@
 ---
 import AdjacentPostsBar from '@/components/AdjacentPostsBar.astro'
-import NavItem from '@/components/layout/NavItem.astro'
 import TagsBar from '@/components/TagsBar.astro'
 import ToC from '@/components/ToC.astro'
 import PageLayout, {
@@ -35,13 +34,10 @@ const publishedStr = toDateString(post.data.publishedDate)
 
 <PageLayout {frontmatter}>
   <div slot="top" class="mt-4">
-    <NavItem
-      item={{
-        label: 'Back to all posts',
-        href: '/posts',
-        icon: 'tabler--arrow-left'
-      }}
-    />
+    <a href="/posts" class="clickable flex items-center gap-1">
+      <span class="iconify text-xl tabler--arrow-left"></span>
+      Back to all posts
+    </a>
   </div>
 
   <h1 class="my-2 sm:my-4">{frontmatter.title}</h1>
