@@ -1,39 +1,30 @@
----
-
----
-
-<button
-  id="mobile-nav-toggle"
-  class="flex items-center"
-  title="Mobile nav toggle"
->
+<mobile-nav-toggle class="flex items-center" title="Mobile nav toggle">
   <span class="clickable iconify tabler--menu-2"></span>
-</button>
+</mobile-nav-toggle>
 
 <script>
-  const iconOpen = 'tabler--x'
-  const iconClosed = 'tabler--menu-2'
+  class MobileNavToggle extends HTMLElement {
+    connectedCallback() {
+      const iconOpen = 'tabler--x'
+      const iconClosed = 'tabler--menu-2'
 
-  function setupMobileNavClickHandler() {
-    const button = document.querySelector('#mobile-nav-toggle')
-    const nav = document.querySelector('#mobile-nav')
-    const icon = button?.children[0]
-    if (!icon || !nav) return
+      const nav = document.querySelector('#mobile-nav')
+      const icon = this.querySelector(`.${iconClosed}`)
+      if (!nav || !icon) return
 
-    button?.addEventListener('click', () => {
-      if (icon.className.includes(iconOpen)) {
-        icon.classList.remove(iconOpen)
-        icon.classList.add(iconClosed)
-        nav.classList.add('hidden')
-      } else {
-        icon.classList.remove(iconClosed)
-        icon.classList.add(iconOpen)
-        nav.classList.remove('hidden')
-      }
-    })
+      const navIsOpen = () => !nav.classList.contains('hidden')
+
+      this.addEventListener('click', () => {
+        if (navIsOpen()) {
+          nav.classList.add('hidden')
+          icon.classList.replace(iconOpen, iconClosed)
+        } else {
+          nav.classList.remove('hidden')
+          icon.classList.replace(iconClosed, iconOpen)
+        }
+      })
+    }
   }
 
-  document.addEventListener('astro:page-load', () => {
-    setupMobileNavClickHandler()
-  })
+  customElements.define('mobile-nav-toggle', MobileNavToggle)
 </script>
