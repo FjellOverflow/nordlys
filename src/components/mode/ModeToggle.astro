@@ -1,28 +1,16 @@
-<dark-light-toggle></dark-light-toggle>
+<dark-light-toggle class="flex items-center" title="Dark Light toggle">
+  <span class="clickable iconify tabler--moon dark:tabler--sun"></span>
+</dark-light-toggle>
 
-<script is:inline>
-  if (!customElements.get('dark-light-toggle')) {
-    customElements.define(
-      'dark-light-toggle',
-      class extends HTMLElement {
-        connectedCallback() {
-          this.innerHTML = `
-            <button
-              id="dark-light-toggle"
-              class="flex items-center"
-              title="Dark Light toggle"
-            >
-              <span class="clickable iconify tabler--moon dark:tabler--sun"></span>
-            </button>
-          `
-          this.querySelector('#dark-light-toggle').addEventListener(
-            'click',
-            () => {
-              mode.setMode(mode.getMode() === 'light' ? 'dark' : 'light')
-            }
-          )
-        }
-      }
-    )
+<script>
+  class DarkLightToggle extends HTMLElement {
+    connectedCallback() {
+      this.addEventListener('click', () => {
+        const isLight = window.mode.getMode() === 'light'
+
+        window.mode.setMode(isLight ? 'dark' : 'light')
+      })
+    }
   }
+  customElements.define('dark-light-toggle', DarkLightToggle)
 </script>
