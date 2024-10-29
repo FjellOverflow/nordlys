@@ -1,12 +1,15 @@
 ---
 import logo from '@/assets/logo.svg'
 import Dropdown from '@/components/Dropdown.astro'
+import HeaderItem from '@/components/layout/HeaderItem.astro'
 import MobileNavToggle from '@/components/layout/MobileNavToggle.astro'
-import NavItem from '@/components/layout/NavItem.astro'
 import Separator from '@/components/layout/Separator.astro'
 import ModeToggle from '@/components/mode/ModeToggle.astro'
 import config from '@/theme.config'
-import type { HeaderItem, NavItem as NavItemType } from '@/types'
+import type {
+  HeaderItem as HeaderItemType,
+  NavItem as NavItemType
+} from '@/types'
 import { Image } from 'astro:assets'
 
 export interface Props {
@@ -15,7 +18,7 @@ export interface Props {
 
 const { activeHeaderLink } = Astro.props
 
-export const isNavItem = (item: HeaderItem): item is NavItemType =>
+export const isNavItem = (item: HeaderItemType): item is NavItemType =>
   Object.hasOwn(item, 'href')
 ---
 
@@ -31,7 +34,7 @@ export const isNavItem = (item: HeaderItem): item is NavItemType =>
           config.navbarItems.map((item) => (
             <li class="flex flex-col justify-center">
               {isNavItem(item) ? (
-                <NavItem
+                <HeaderItem
                   {item}
                   isActive={
                     activeHeaderLink === item.label ||
@@ -70,7 +73,7 @@ export const isNavItem = (item: HeaderItem): item is NavItemType =>
           config.navbarItems.map((item) => (
             <li class="flex flex-col justify-center">
               {isNavItem(item) ? (
-                <NavItem
+                <HeaderItem
                   {item}
                   isActive={
                     activeHeaderLink === item.label ||

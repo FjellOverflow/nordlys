@@ -1,5 +1,5 @@
 ---
-import NavItem from '@/components/layout/NavItem.astro'
+import HeaderItem from '@/components/layout/HeaderItem.astro'
 import type { NavItemParent } from '@/types'
 
 export interface Props {
@@ -42,7 +42,7 @@ const isActive = children.some(
   >
     {
       children.map((item) => (
-        <NavItem
+        <HeaderItem
           {item}
           isActive={
             activeHeaderLink === item.label || activeHeaderLink === item.href
