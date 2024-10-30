@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.2.2](https://github.com/FjellOverflow/nordlys/compare/v0.2.1...v0.2.2) (2024-10-30)
+
+
+### Features
+
+* preview images for posts ([556616c](https://github.com/FjellOverflow/nordlys/commit/556616c0fb3423c06e81bef5d3824ae2c29b9ea4))
+
+
+### Bug Fixes
+
+* round images on small layouts ([97909d6](https://github.com/FjellOverflow/nordlys/commit/97909d6c2006e2372a4bb2d1e44f847b60162964))
+
 ## [0.2.1](https://github.com/FjellOverflow/nordlys/compare/v0.2.0...v0.2.1) (2024-10-27)
 
 
