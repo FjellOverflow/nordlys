@@ -1,0 +1,44 @@
+---
+import TagsBar from '@/components/TagsBar.astro'
+import { resolveImageUrl, toDateString } from '@/util'
+import { resolveTags } from '@/util/tags'
+import type { CollectionEntry } from 'astro:content'
+
+export interface Props {
+  post: CollectionEntry<'posts'>
+}
+
+const { slug, data } = Astro.props.post
+
+const previewImageUrl = data.previewImage
+  ? resolveImageUrl(data.previewImage)
+  : undefined
+---
+
+<div class="mb-8 flex flex-col gap-4 md:mb-4 md:flex-row md:gap-8">
+  {
+    previewImageUrl && (
+      <img
+        src={previewImageUrl}
+        alt={`${data.title} preview`}
+        class="my-0 max-h-52 w-auto rounded object-contain md:h-[100px]"
+      />
+    )
+  }
+  <div class="flex w-full flex-col gap-2">
+    <div class="flex flex-col justify-between sm:flex-row sm:items-center">
+      <a
+        class="text-xl font-normal"
+        href={`/posts/${slug}`}
+        data-astro-prefetch
+      >
+        <span>{data.title}</span>
+      </a>
+      <time class="mt-4 text-sm opacity-75 sm:mt-0">
+        {toDateString(data.publishedDate)}
+      </time>
+    </div>
+    <TagsBar tags={resolveTags(data.tags)} />
+    <div class="opacity-75">{data.description}</div>
+  </div>
+</div>
