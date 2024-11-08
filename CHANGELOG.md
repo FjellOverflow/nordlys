@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.2.3](https://github.com/FjellOverflow/nordlys/compare/v0.2.2...v0.2.3) (2024-11-08)
+
+
+### Bug Fixes
+
+* overflowing ToC ([90779a3](https://github.com/FjellOverflow/nordlys/commit/90779a3e597b32039004a7b3c9e2c6e46eb80dc0))
+* previous/next post buttons on bottom of page ([2e69bb4](https://github.com/FjellOverflow/nordlys/commit/2e69bb4f23bc9904a27294ed83d03e94d315491e))
+
 ## [0.2.2](https://github.com/FjellOverflow/nordlys/compare/v0.2.1...v0.2.2) (2024-10-30)
 
 
