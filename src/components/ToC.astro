@@ -14,9 +14,7 @@ export interface Props {
   open?: boolean
 }
 
-const { headings: _headings, open = false } = Astro.props
-
-const headings = [..._headings]
+const { headings, open = false } = Astro.props
 
 function appendHeading(headings: ProcessedHeading[], newHeading: Heading) {
   const previousHeading = headings[headings.length - 1]
@@ -28,21 +26,25 @@ function appendHeading(headings: ProcessedHeading[], newHeading: Heading) {
 
 const processedHeadings: ProcessedHeading[] = []
 
-while (headings.length) {
-  const nextItem = headings.shift()
-  if (nextItem) appendHeading(processedHeadings, nextItem)
-}
+headings.forEach((heading) => {
+  appendHeading(processedHeadings, heading)
+})
 
-function resolveEl(heading: ProcessedHeading) {
-  let li = `<a href="#${heading.slug}">${heading.text}</a>`
+function renderList(headings: ProcessedHeading[]): string {
+  if (!headings.length) return ''
 
-  if (heading.children.length) {
-    li += `<ul>${heading.children
-      .map((child) => `${resolveEl(child)}`)
-      .join('')}</ul>`
-  }
-
-  return `<li>${li}</li>`
+  return `<ul class="my-1 list-none">
+          ${headings
+            .map(
+              (heading) => `<li class="my-1">
+                              <a href="#${heading.slug}" class="no-underline hover:underline">
+                                ${heading.text}
+                              </a>
+                              ${renderList(heading.children)}
+                            </li>`
+            )
+            .join('')}
+          </ul>`
 }
 ---
 
@@ -52,28 +54,7 @@ function resolveEl(heading: ProcessedHeading) {
 
     <details {open}>
       <summary>Show more</summary>
-      <ul>
-        {
-          processedHeadings.map((heading) => (
-            <Fragment set:html={resolveEl(heading)} />
-          ))
-        }
-      </ul>
+      <Fragment set:html={renderList(processedHeadings)} />
     </details>
   </Prose>
 </div>
-<style>
-  #toc {
-    ul {
-      @apply my-1 list-none;
-    }
-
-    li {
-      @apply my-1;
-    }
-
-    a {
-      @apply no-underline hover:underline;
-    }
-  }
-</style>
