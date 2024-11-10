@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [0.2.4](https://github.com/FjellOverflow/nordlys/compare/v0.2.3...v0.2.4) (2024-11-10)
+
+
+### Features
+
+* a11y improvements ([f4e60c4](https://github.com/FjellOverflow/nordlys/commit/f4e60c447a57f1df4914696d6dc281d501fe0f01))
+
 ## [0.2.3](https://github.com/FjellOverflow/nordlys/compare/v0.2.2...v0.2.3) (2024-11-08)
 
 
