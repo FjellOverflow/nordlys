@@ -37,7 +37,7 @@ function renderList(headings: ProcessedHeading[]): string {
           ${headings
             .map(
               (heading) => `<li class="my-1">
-                              <a href="#${heading.slug}" class="no-underline hover:underline">
+                              <a href="#${heading.slug}" class="no-underline hover:underline" aria-label="${heading.text}">
                                 ${heading.text}
                               </a>
                               ${renderList(heading.children)}
