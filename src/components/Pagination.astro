@@ -17,7 +17,9 @@ const { page } = Astro.props
             Previous
           </a>
         ) : (
-          <span class="opacity-25">Previous</span>
+          <span class="opacity-25" aria-disabled="true">
+            Previous
+          </span>
         )}
         {page.currentPage} / {page.lastPage}
         {page.url.next ? (
@@ -28,7 +30,9 @@ const { page } = Astro.props
             Next
           </a>
         ) : (
-          <span class="opacity-25">Next</span>
+          <span class="opacity-25" aria-disabled="true">
+            Next
+          </span>
         )}
       </div>
     </nav>

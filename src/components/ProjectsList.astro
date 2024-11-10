@@ -19,8 +19,10 @@ projects.sort(sortProjects)
       <>
         <li>
           <Project {project} />
+          {index !== projects.length - 1 && (
+            <Separator class="mb-6 ml-2 mt-0" />
+          )}
         </li>
-        {index !== projects.length - 1 && <Separator class="mb-6 ml-2 mt-0" />}
       </>
     ))
   }
