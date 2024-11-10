@@ -34,7 +34,10 @@ const previewImageUrl = data.previewImage
       >
         <span>{data.title}</span>
       </a>
-      <time class="mt-4 text-sm opacity-75 sm:mt-0">
+      <time
+        class="mt-4 text-sm opacity-75 sm:mt-0"
+        datetime={data.publishedDate.toISOString()}
+      >
         {toDateString(data.publishedDate)}
       </time>
     </div>

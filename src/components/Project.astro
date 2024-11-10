@@ -44,7 +44,9 @@ const previewImageUrl = data.previewImage
       }
       {!data.url && <span class="mb-2 text-xl">{data.title}</span>}
       <div class="my-2 text-sm opacity-75 sm:my-0">
-        <time>{toMonthString(data.startDate)}</time> -
+        <time datetime={data.startDate.toISOString()}
+          >{toMonthString(data.startDate)}</time
+        > -
         {data.endDate && <time>{toMonthString(data.endDate)}</time>}
         {!data.endDate && 'Now'}
       </div>

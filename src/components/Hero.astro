@@ -14,7 +14,7 @@ const { gradient, background, logo: showLogo } = Astro.props.frontmatter
 ---
 
 <div class="w-fit">
-  <h1
+  <div
     class:list={[
       'relative mb-1 w-fit pb-2 text-5xl font-bold tracking-tight text-accent sm:mb-2 sm:text-8xl',
       {
@@ -37,9 +37,9 @@ const { gradient, background, logo: showLogo } = Astro.props.frontmatter
           />
         )
       }
-      <div>
+      <h1>
         <slot />
-      </div>
+      </h1>
     </div>
     {
       background && (
@@ -51,5 +51,5 @@ const { gradient, background, logo: showLogo } = Astro.props.frontmatter
         />
       )
     }
-  </h1>
+  </div>
 </div>

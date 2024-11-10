@@ -18,9 +18,9 @@ const { frontmatter } = Astro.props
     <div class="mt-16 px-4 sm:mt-36 sm:px-12">
       <main>
         {frontmatter.title && <Hero {frontmatter}>{frontmatter.title}</Hero>}
-        <section id="animated-links">
+        <div id="animated-links">
           <slot />
-        </section>
+        </div>
       </main>
       <footer class="mt-8">
         <Separator />
