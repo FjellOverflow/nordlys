@@ -1,25 +1,22 @@
 ---
 import TagsBar from '@/components/TagsBar.astro'
-import { resolveImageUrl, toDateString } from '@/util'
+import { toDateString } from '@/util'
 import { resolveTags } from '@/util/tags'
 import type { CollectionEntry } from 'astro:content'
+import PreviewImage from './PreviewImage.astro'
 
 export interface Props {
   post: CollectionEntry<'posts'>
 }
 
 const { slug, data } = Astro.props.post
-
-const previewImageUrl = data.previewImage
-  ? resolveImageUrl(data.previewImage)
-  : undefined
 ---
 
 <div class="mb-8 flex flex-col gap-4 md:mb-4 md:flex-row md:gap-8">
   {
-    previewImageUrl && (
-      <img
-        src={previewImageUrl}
+    data.previewImage && (
+      <PreviewImage
+        src={data.previewImage}
         alt={`${data.title} preview`}
         class="my-0 max-h-52 w-fit rounded object-contain md:h-[100px]"
       />

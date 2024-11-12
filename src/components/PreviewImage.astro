@@ -1,0 +1,21 @@
+---
+import { isLocalAsset } from '@/util'
+import type { ImageMetadata } from 'astro'
+import { Image } from 'astro:assets'
+
+export interface Props {
+  src: string | ImageMetadata
+  alt: string
+  class: string
+}
+
+const { src, alt, class: className, ...rest } = Astro.props
+---
+
+{
+  isLocalAsset(src) ? (
+    <Image {src} class={className} {alt} {...rest} />
+  ) : (
+    <img {src} class={className} {alt} {...rest} />
+  )
+}
