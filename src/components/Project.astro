@@ -1,8 +1,9 @@
 ---
 import TagsBar from '@/components/TagsBar.astro'
-import { isAbsolute, resolveImageUrl, toMonthString } from '@/util'
+import { isAbsolute, toMonthString } from '@/util'
 import { resolveTags } from '@/util/tags'
 import type { CollectionEntry } from 'astro:content'
+import PreviewImage from './PreviewImage.astro'
 
 export interface Props {
   project: CollectionEntry<'projects'>
@@ -10,17 +11,13 @@ export interface Props {
 
 const { data, render } = Astro.props.project
 const { Content } = await render()
-
-const previewImageUrl = data.previewImage
-  ? resolveImageUrl(data.previewImage)
-  : undefined
 ---
 
 <div class="mb-8 flex flex-col gap-4 md:mb-4 md:flex-row md:gap-8">
   {
-    previewImageUrl && (
-      <img
-        src={previewImageUrl}
+    data.previewImage && (
+      <PreviewImage
+        src={data.previewImage}
         alt={`${data.title} preview`}
         class="my-auto max-h-52 w-fit rounded object-contain md:max-h-32"
       />
@@ -44,9 +41,7 @@ const previewImageUrl = data.previewImage
       }
       {!data.url && <span class="mb-2 text-xl">{data.title}</span>}
       <div class="my-2 text-sm opacity-75 sm:my-0">
-        <time datetime={data.startDate.toISOString()}
-          >{toMonthString(data.startDate)}</time
-        > -
+        <time>{toMonthString(data.startDate)}</time> -
         {data.endDate && <time>{toMonthString(data.endDate)}</time>}
         {!data.endDate && 'Now'}
       </div>
