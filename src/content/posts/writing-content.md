@@ -32,7 +32,7 @@ type PageFrontmatter = {
   author?: string // meta
   description?: string // meta
   canonicalURL?: string // meta
-  openGraphImage?: string | HTMLAttributes<'img'> // relative URL to image in public folder or local asset
+  openGraphImage?: string | ImageMetadata // relative URL to image in public folder or local asset
   publishedDate?: Date // meta
   scrollProgress?: boolean // bar indicating scroll location on top of page
   activeHeaderLink?: string // title or href of the active header link
@@ -67,7 +67,7 @@ type PostFrontmatter = {
   publishedDate: Date
   draft?: boolean // defaults to false
   canonicalURL?: string // meta
-  openGraphImage?: string | HTMLAttributes<'img'> // either URL to image in public folder or local asset
+  openGraphImage?: string | ImageMetadata // either URL to image in public folder or local asset
   tags?: string[] // defaults to []
   showToC?: boolean // show a Table of Contents, defaults to true
 }
@@ -100,7 +100,7 @@ type ProjectFrontmatter = {
   startDate: Date
   endDate?: Date // shows "Now" if not set
   tags?: string[] // defaults to []
-  previewImage: string | HTMLAttributes<'img'> // either URL to image in public folder or local asset
+  previewImage: string | ImageMetadata // either URL to image in public folder or local asset
 }
 ```
 
