@@ -1,15 +1,26 @@
-<dark-light-toggle class="flex items-center" title="Dark Light toggle">
-  <span class="clickable iconify tabler--moon dark:tabler--sun"></span>
+<dark-light-toggle>
+  <button title="Toggle dark & light mode" class="flex items-center">
+    <span class="clickable iconify tabler--moon dark:tabler--sun"></span>
+  </button>
 </dark-light-toggle>
 
 <script>
   class DarkLightToggle extends HTMLElement {
     connectedCallback() {
-      this.addEventListener('click', () => {
-        const isLight = window.mode.getMode() === 'light'
+      const button = this.querySelector('button')
 
-        window.mode.setMode(isLight ? 'dark' : 'light')
-      })
+      if (!button) return
+
+      button.setAttribute('aria-label', window.mode.getMode())
+
+      const handleToggle = () => {
+        const newMode = window.mode.getMode() === 'light' ? 'dark' : 'light'
+
+        window.mode.setMode(newMode)
+        button.setAttribute('aria-label', newMode)
+      }
+
+      button.addEventListener('click', handleToggle)
     }
   }
   customElements.define('dark-light-toggle', DarkLightToggle)
