@@ -1,5 +1,3 @@
-import type { HTMLAttributes } from 'astro/types'
-
 export const toDateString = (date: Date): string =>
   date.toLocaleDateString('en-US', {
     year: 'numeric',
@@ -14,11 +12,11 @@ export const toMonthString = (date: Date): string =>
     day: undefined
   })
 
-const isLocalAsset = (
-  image: string | HTMLAttributes<'img'>
-): image is HTMLAttributes<'img'> => typeof image !== 'string'
+export const isLocalAsset = (
+  image: string | ImageMetadata
+): image is ImageMetadata => typeof image !== 'string'
 
-export const resolveImageUrl = (image: string | HTMLAttributes<'img'>) => {
+export const resolveImageUrl = (image: string | ImageMetadata) => {
   return isLocalAsset(image) ? image.src : image
 }
 

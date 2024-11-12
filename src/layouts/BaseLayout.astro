@@ -11,7 +11,7 @@ import CopyCodeButtonsPlugin from '@/plugins/CopyCodeButtonsPlugin.astro'
 import MediumZoomPlugin from '@/plugins/MediumZoomPlugin.astro'
 import config from '@/theme.config'
 import { resolveImageUrl } from '@/util'
-import type { HTMLAttributes } from 'astro/types'
+import type { ImageMetadata } from 'astro'
 import { ViewTransitions } from 'astro:transitions'
 
 const preloadFonts = [
@@ -27,7 +27,7 @@ export interface Props {
     author: string
     description: string
     canonicalURL: string
-    openGraphImage: string | HTMLAttributes<'img'>
+    openGraphImage: string | ImageMetadata
     publishedDate: Date
   }>
 }
@@ -48,10 +48,8 @@ let titleWithSuffix = title
 if (String(title).toLowerCase() !== String(config.title).toLowerCase())
   titleWithSuffix += ` | ${config.title}`
 
-const openGraphImageUrl = new URL(
-  resolveImageUrl(openGraphImage) || '/ogImage.png',
-  Astro.site
-).href
+const openGraphImageUrl = new URL(resolveImageUrl(openGraphImage), Astro.site)
+  .href
 ---
 
 <!doctype html>

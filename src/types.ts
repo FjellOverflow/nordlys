@@ -1,5 +1,4 @@
 import type { ShikiConfig } from 'astro'
-import type { HTMLAttributes } from 'astro/types'
 import type { SetOptional } from 'type-fest'
 
 export type Icon = `tabler--${string}`
@@ -46,7 +45,7 @@ export interface ThemeConfig {
   mode: Mode
   modeToggle: boolean
   colorScheme: ColorScheme
-  openGraphImage: HTMLAttributes<'img'> | string | undefined
+  openGraphImage: ImageMetadata | string | undefined
   postsPerPage: number
   projectsPerPage: number
   scrollProgress: boolean
