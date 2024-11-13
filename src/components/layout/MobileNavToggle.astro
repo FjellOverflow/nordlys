@@ -1,5 +1,11 @@
-<mobile-nav-toggle class="flex items-center" title="Mobile nav toggle">
-  <span class="clickable iconify tabler--menu-2"></span>
+<mobile-nav-toggle>
+  <button
+    class="flex items-center"
+    title="Toggle mobile nav"
+    aria-label="closed"
+  >
+    <span id="mobile-nav-icon" class="clickable iconify tabler--menu-2"></span>
+  </button>
 </mobile-nav-toggle>
 
 <script>
@@ -9,20 +15,31 @@
       const iconClosed = 'tabler--menu-2'
 
       const nav = document.querySelector('#mobile-nav')
-      const icon = this.querySelector(`.${iconClosed}`)
-      if (!nav || !icon) return
+      const icon = this.querySelector('#mobile-nav-icon')
+      const button = this.querySelector('button')
+
+      if (!nav || !icon || !button) return
 
       const navIsOpen = () => !nav.classList.contains('hidden')
 
-      this.addEventListener('click', () => {
-        if (navIsOpen()) {
-          nav.classList.add('hidden')
-          icon.classList.replace(iconOpen, iconClosed)
-        } else {
-          nav.classList.remove('hidden')
-          icon.classList.replace(iconClosed, iconOpen)
-        }
-      })
+      const close = () => {
+        nav.classList.add('hidden')
+        icon.classList.replace(iconOpen, iconClosed)
+        button.setAttribute('aria-label', 'closed')
+      }
+
+      const open = () => {
+        nav.classList.remove('hidden')
+        icon.classList.replace(iconClosed, iconOpen)
+        button.setAttribute('aria-label', 'open')
+      }
+
+      const handleToggle = () => {
+        if (navIsOpen()) close()
+        else open()
+      }
+
+      button.addEventListener('click', handleToggle)
     }
   }
 
