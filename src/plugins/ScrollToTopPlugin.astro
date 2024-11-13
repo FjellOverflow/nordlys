@@ -1,15 +1,22 @@
 <scroll-top-button
-  title="Scroll to top"
   class="!fixed bottom-20 right-2 z-10 hidden sm:bottom-28 lg:bottom-8"
 >
-  <div class="clickable flex items-center gap-2 pr-2">
+  <button
+    class="clickable flex items-center gap-2 pr-2"
+    title="Scroll to top"
+    aria-label="Scroll to top"
+  >
     <span class="iconify text-4xl tabler--arrow-up"></span>
-  </div>
+  </button>
 </scroll-top-button>
 
 <script>
   class ScrollToTopButton extends HTMLElement {
     connectedCallback() {
+      const button = this.querySelector('button')
+
+      if (!button) return
+
       function isBelowViewport() {
         const minHeight = document.documentElement.clientHeight
         const scrollTop =
@@ -18,7 +25,7 @@
         return scrollTop > minHeight
       }
 
-      this.addEventListener('click', () => {
+      button.addEventListener('click', () => {
         document.body.scrollTop = 0
         document.documentElement.scrollTop = 0
       })
