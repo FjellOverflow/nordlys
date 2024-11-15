@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.0.0](https://github.com/FjellOverflow/nordlys/compare/v0.2.5...v1.0.0) (2024-11-15)
+
+
+### Features
+
+* **a11y:** hidden "Skip to main content" button for keyboard-tab navigation ([da1ae0e](https://github.com/FjellOverflow/nordlys/commit/da1ae0e637d28e37436779dc8489c07eeb52bafe))
+* optimized post/project preview images ([aed2619](https://github.com/FjellOverflow/nordlys/commit/aed261917e315128433ee9532b758fca107b1b86))
+
+
+### Bug Fixes
+
+* **a11y:** Make copy code icon a `<button>` ([814b0af](https://github.com/FjellOverflow/nordlys/commit/814b0afea0b2d484265f6e0ed647cc085df3872c))
+* **a11y:** missing `id`s on Dropdown components ([afec7b9](https://github.com/FjellOverflow/nordlys/commit/afec7b9161c8936b1309f980ed96ec15fab2fb3b))
+* **a11y:** missing button `aria-label` ([137419f](https://github.com/FjellOverflow/nordlys/commit/137419f11e7910972150e68c36059e9fb7f03d39))
+* **a11y:** proper `alt` descriptions on images ([7e8290c](https://github.com/FjellOverflow/nordlys/commit/7e8290c610f2fe1a2a050a0db5c856293ef10a9c))
+* small layout adjustments ([23ed198](https://github.com/FjellOverflow/nordlys/commit/23ed1983fb3c10256e8b7f7d067e791ce3f06f38))
+
 ## [0.2.5](https://github.com/FjellOverflow/nordlys/compare/v0.2.4...v0.2.5) (2024-11-14)
 
 ### Features
