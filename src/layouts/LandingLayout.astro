@@ -16,7 +16,7 @@ const { frontmatter } = Astro.props
 <BaseLayout frontmatter={frontmatter}>
   <div id="page-wrapper">
     <div class="mt-16 px-4 sm:mt-36 sm:px-12">
-      <main>
+      <main id="main">
         {frontmatter.title && <Hero {frontmatter}>{frontmatter.title}</Hero>}
         <div id="animated-links">
           <slot />
