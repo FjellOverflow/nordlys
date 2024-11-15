@@ -12,7 +12,9 @@
   A minimal Astro blog theme
 </p>
 
-![Preview](./public/preview.png)
+<p align="center">
+  <img src="./public/preview.png" width="85%"/>
+</p>
 
 <p align="center">
   <img src="https://img.shields.io/github/package-json/v/FjellOverflow/Nordlys?label=Version&color=success"/>
@@ -24,14 +26,31 @@
 
 <p align="center">
   <a href="https://nordlys.fjelloverflow.dev">Preview</a> |
+  <a href="#features">Features</a> |
   <a href="#installation">Installation</a> |
   <a href="#getting-started">Getting started</a> |
   <a href="#documentation">Documentation</a> |
   <a href="#stack">Stack</a>
 </p>
 
-> [!IMPORTANT]  
-> This theme is in early development. If you come across bugs, mistakes or have suggestions on the direction of the project, feel free to [open an issue](https://github.com/FjellOverflow/nordlys/issues/new/choose)!
+## Features
+
+<figure align="center">
+  <img src="https://github.com/user-attachments/assets/ee5ab8ef-8c63-4810-a53f-622643e9e7a8" width="50%"/>
+  <figcaption>Nordlys scores 100% on <a href="https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/">Lighthouse</a></figcaption>
+</figure>
+
+- ⚙️ Easily configurable
+- 🔎 Built-in Search
+- 📱 Resonsive & mobile friendly
+- 🧑‍🦯 Accessible
+- 🎨 Built-in & custom color schemes
+- 🌙 Light & Dark mode
+- 🎁 Image zoom, generated _Table of Contents_, reading time & more ...
+- 👨‍💻 **For developers**:
+  - Best practices
+  - Minimal & up-to-date dependencies
+  - Strongly typed & linted
 
 ## Installation
 
@@ -60,6 +79,7 @@ The theme is self-documenting. Just head over to [nordlys.fjelloverflow.dev](htt
 
 - **Language**: TypeScript
 - **Framework**: [Astro](https://astro.build/)
+- **Search**: [Pagefind](https://pagefind.app/)
 - **Styling**: [TailwindCSS](https://tailwindcss.com/)
 - **Font**: [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Plex+Sans)
 - **Icons**: [Tabler Icons](https://tabler.io/icons)
