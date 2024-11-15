@@ -26,7 +26,7 @@ In all Markdown (`.md`) files, images can be embedded using the usual syntax. As
 ![Nordlys logo](src/assets/logo.svg)
 ```
 
-![Nordlys logo](@/assets/logo.svg)
+![Nordlys logo, a drawing of two gray mountains with green northern lights in the background](@/assets/logo.svg)
 
 ### Images in MDX
 
@@ -40,7 +40,7 @@ import { Image } from 'astro:assets'
 <Image alt="Nordlys logo" src={logo} />
 ```
 
-<Image alt="Nordlys logo" src={logo} loading="lazy"/>
+<Image alt="Nordlys logo, a drawing of two gray mountains with green northern lights in the background" src={logo} loading="lazy"/>
 
 ### Public images
 
@@ -98,11 +98,11 @@ openGraphImage: "https://nordlys.fjelloverflow.dev/favicon.svg"
 Note that supplying `openGraphImage` is entirely optional. If a post (any file in `src/content/posts`) does not have an `openGraphImage` provided, Nordlys will automatically generate and use a basic template, displaying the post `title`, `description`, `author`, and website `title`, which looks like this:
 
 <div align="center">
-<Image alt="Example post OG" src="/posts/using-images.png" loading="lazy" height={252} width={480} data-img-embed/>
+<Image alt="Example post OG image, showing the website name, logo, post title, description and author" src="/posts/using-images.png" loading="lazy" height={252} width={480} data-img-embed/>
 </div>
 
 Similarly, when there is no global `openGraphImage` configured in `theme.config.ts`, Nordlys generates and uses a generic image that displays the site `title` and `description` on every page where none has been defined, looking like this:
 
 <div align="center">
-<Image alt="Example site OG" src="/ogImage.png" loading="lazy" height={252} width={480} data-img-embed/>
+<Image alt="Example site OG image, showing the website name, logo and description" src="/ogImage.png" loading="lazy" height={252} width={480} data-img-embed/>
 </div>
