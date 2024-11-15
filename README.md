@@ -35,10 +35,10 @@
 
 ## Features
 
-<figure align="center">
+<div align="center">
   <img src="https://github.com/user-attachments/assets/ee5ab8ef-8c63-4810-a53f-622643e9e7a8" width="50%"/>
-  <figcaption>Nordlys scores 100% on <a href="https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/">Lighthouse</a></figcaption>
-</figure>
+  <div>Nordlys scores 100% on <a href="https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/">Lighthouse</a></div>
+</div>
 
 - ⚙️ Easily configurable
 - 🔎 Built-in Search
