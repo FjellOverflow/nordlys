@@ -75,7 +75,7 @@ function generateHeader(label?: string, lang?: string) {
             ${getIcon(lang)}
             ${getLabel(label)}
           </div>
-          <button title="Copy code" class="flex items-center">
+          <button title="Copy code" aria-label="Copy code" class="flex items-center">
             <span aria-hidden="true" class="copy-btn"></span>
           </button>`
 }
