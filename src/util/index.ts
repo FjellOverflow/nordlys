@@ -22,3 +22,6 @@ export const resolveImageUrl = (image: string | ImageMetadata) => {
 
 export const isAbsolute = (url: string) =>
   url.indexOf('http://') === 0 || url.indexOf('https://') === 0
+
+export const generateItemId = (base: string) =>
+  (base + Math.random().toString(16).slice(2)).replaceAll(' ', '').toLowerCase()

@@ -1,15 +1,18 @@
 ---
 import type { NavItem } from '@/types'
 import { isAbsolute } from '@/util'
+import type { JSX } from 'astro/jsx-runtime'
 
 export interface Props {
   item: NavItem
   isActive?: boolean
+  role?: JSX.AriaRole
 }
 
 const {
   isActive = false,
-  item: { href, icon, label }
+  item: { href, icon, label },
+  role
 } = Astro.props
 ---
 
@@ -19,6 +22,7 @@ const {
     isActive ? 'text-accent/100' : 'clickable'
   }`}
   target={isAbsolute(href) ? '_blank' : '_self'}
+  {role}
 >
   {icon && <span class={`iconify text-xl ${icon}`} />}
   <span class={isActive ? `underline` : ''}>

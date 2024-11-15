@@ -1,6 +1,7 @@
 ---
 import HeaderItem from '@/components/layout/HeaderItem.astro'
 import type { NavItemParent } from '@/types'
+import { generateItemId } from '@/util'
 
 export interface Props {
   item: NavItemParent
@@ -16,8 +17,8 @@ const isActive = children.some(
   (item) => activeHeaderLink === item.label || activeHeaderLink === item.href
 )
 
-const buttonId = `${label}-button`
-const menuId = `${label}-menu`
+const buttonId = generateItemId(`${label}-button`)
+const menuId = generateItemId(`${label}-menu`)
 ---
 
 <dropdown-parent
@@ -25,6 +26,7 @@ const menuId = `${label}-menu`
   data-is-active={String(isActive)}
 >
   <button
+    id={buttonId}
     aria-haspopup="true"
     aria-controls={menuId}
     aria-expanded="false"
@@ -45,14 +47,16 @@ const menuId = `${label}-menu`
   </button>
 
   <ul
+    id={menuId}
     role="menu"
     aria-labelledby={buttonId}
     class="absolute right-0 z-10 mt-4 hidden origin-top-right flex-col gap-2 rounded border border-accent/25 bg-accent-bg p-4 shadow shadow-black"
   >
     {
       children.map((item) => (
-        <li>
+        <li role="none">
           <HeaderItem
+            role="menuitem"
             {item}
             isActive={
               activeHeaderLink === item.label || activeHeaderLink === item.href
