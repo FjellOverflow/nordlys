@@ -18,6 +18,7 @@ const { slug, data } = Astro.props.post
       <PreviewImage
         src={data.previewImage}
         alt={`${data.title} preview`}
+        height={208}
         class="my-0 max-h-52 w-fit rounded object-contain md:h-[100px]"
       />
     )
