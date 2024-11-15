@@ -6,6 +6,8 @@ import { Image } from 'astro:assets'
 export interface Props {
   src: string | ImageMetadata
   alt: string
+  height?: number
+  width?: number
   class: string
 }
 
@@ -14,8 +16,8 @@ const { src, alt, class: className, ...rest } = Astro.props
 
 {
   isLocalAsset(src) ? (
-    <Image {src} class={className} {alt} {...rest} />
+    <Image {src} class={className} loading="eager" {alt} {...rest} />
   ) : (
-    <img {src} class={className} {alt} {...rest} />
+    <img {src} class={className} {alt} loading="eager" {...rest} />
   )
 }
