@@ -51,7 +51,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",
-    "@typescript-eslint/parser": "^8.14.0",
+    "@typescript-eslint/parser": "^8.15.0",
     "commit-and-tag-version": "^12.5.0",
     "eslint": "^9.15.0",
     "eslint-config-prettier": "^9.1.0",
@@ -62,13 +62,13 @@
     "postcss-html": "^1.7.0",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
-    "prettier-plugin-tailwindcss": "^0.6.8",
+    "prettier-plugin-tailwindcss": "^0.6.9",
     "stylelint": "^16.10.0",
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-recommended": "^14.0.1",
     "type-fest": "^4.27.0",
     "typescript": "^5.6.3",
-    "typescript-eslint": "^8.14.0"
+    "typescript-eslint": "^8.15.0"
   },
   "packageManager": "pnpm@9.12.2+sha512.22721b3a11f81661ae1ec68ce1a7b879425a1ca5b991c975b074ac220b187ce56c708fe5db69f4c962c989452eee76c82877f4ee80f474cebd61ee13461b6228"
 }
