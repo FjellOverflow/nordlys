@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.1.0](https://github.com/FjellOverflow/nordlys/compare/v1.0.0...v1.1.0) (2024-11-19)
+
+
+### Features
+
+* optimize logo/favicon SVG ([912991b](https://github.com/FjellOverflow/nordlys/commit/912991bf123c5fe527d08ac3fa66b9eb1b91a349))
+
+
+### Bug Fixes
+
+* copy-code buttons wouldnt copy ([c5cd0b9](https://github.com/FjellOverflow/nordlys/commit/c5cd0b983a5ce7098c4eeb1e2f559583b7aa5636))
+
 ## [1.0.0](https://github.com/FjellOverflow/nordlys/compare/v0.2.5...v1.0.0) (2024-11-15)
 
 
