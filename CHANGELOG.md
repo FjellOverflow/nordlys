@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.1.1](https://github.com/FjellOverflow/nordlys/compare/v1.1.0...v1.1.1) (2024-11-21)
+
+
+### Bug Fixes
+
+* hero background blur too wide on Opera ([fab74b2](https://github.com/FjellOverflow/nordlys/commit/fab74b26cf0fa594c67d620367c33c18b9a59c3d))
+* project preview images too wide on Safari & Firefox ([bb84b39](https://github.com/FjellOverflow/nordlys/commit/bb84b39775120ef3800448d525b1b2ad36a98aaa))
+
 ## [1.1.0](https://github.com/FjellOverflow/nordlys/compare/v1.0.0...v1.1.0) (2024-11-19)
 
 
