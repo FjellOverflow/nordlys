@@ -13,22 +13,6 @@
       @apply mx-auto flex min-h-[100svh] w-full max-w-[90%] flex-col justify-between md:max-w-3xl;
     }
   }
-
-  ::-webkit-scrollbar {
-    @apply h-2 w-2;
-  }
-
-  ::-webkit-scrollbar-thumb {
-    @apply bg-accent/75;
-  }
-
-  ::-webkit-scrollbar-track {
-    @apply bg-accent/25;
-  }
-
-  ::-webkit-scrollbar-thumb:hover {
-    @apply bg-accent/100;
-  }
 }
 
 @layer utilities {
