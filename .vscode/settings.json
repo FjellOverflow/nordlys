@@ -1,4 +1,11 @@
 {
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "eslint.config.js": ".prettierrc.js, stylelint.config.js, .stylelintignore",
+    "package.json": "pnpm-lock.yaml, .gitignore",
+    "astro.config.ts": "tailwind.config.js, tsconfig.json",
+    "README.md": "README.md, LICENSE.md, CHANGELOG.md"
+  },
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
