@@ -8,3 +8,9 @@ const { class: className, ...rest } = Astro.props
 >
   <slot />
 </div>
+
+<style is:global>
+  .prose code:not(.astro-code code):not(.astro-code-header code) {
+    @apply rounded bg-accent/15 px-1 pt-[2px];
+  }
+</style>
