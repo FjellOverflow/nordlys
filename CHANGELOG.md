@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.1.2](https://github.com/FjellOverflow/nordlys/compare/v1.1.1...v1.1.2) (2024-12-02)
+
+
+### Bug Fixes
+
+* inline cursive text overlaps into following text ([df0d395](https://github.com/FjellOverflow/nordlys/commit/df0d395c6b624a6e81a4858f93fb51e0fa343df0))
+* remove scrollbar styling to restore browser default ([b92d29b](https://github.com/FjellOverflow/nordlys/commit/b92d29b35f98af8befb3ad0f4796d7f2bfa0eeaf)), closes [#5](https://github.com/FjellOverflow/nordlys/issues/5)
+
 ## [1.1.1](https://github.com/FjellOverflow/nordlys/compare/v1.1.0...v1.1.1) (2024-11-21)
 
 
