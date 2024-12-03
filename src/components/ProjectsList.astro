@@ -17,11 +17,9 @@ projects.sort(sortProjects)
   {
     projects.map((project, index) => (
       <>
-        <li>
+        <li class="pl-0">
           <Project {project} />
-          {index !== projects.length - 1 && (
-            <Separator class="mb-6 ml-2 mt-0" />
-          )}
+          {index !== projects.length - 1 && <Separator class="mb-6 mt-0" />}
         </li>
       </>
     ))
