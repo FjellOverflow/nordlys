@@ -12,7 +12,7 @@ import MediumZoomPlugin from '@/plugins/MediumZoomPlugin.astro'
 import config from '@/theme.config'
 import { resolveImageUrl } from '@/util'
 import type { ImageMetadata } from 'astro'
-import { ViewTransitions } from 'astro:transitions'
+import { ClientRouter } from 'astro:transitions'
 
 const preloadFonts = [
   ibmPlexNormal,
@@ -106,7 +106,7 @@ const openGraphImageUrl = new URL(resolveImageUrl(openGraphImage), Astro.site)
       )
     }
     <ModeManager />
-    <ViewTransitions />
+    <ClientRouter />
   </head>
   <body>
     <slot />

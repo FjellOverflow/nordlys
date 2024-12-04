@@ -2,15 +2,16 @@
 import TagsBar from '@/components/TagsBar.astro'
 import { isAbsolute, toMonthString } from '@/util'
 import { resolveTags } from '@/util/tags'
-import type { CollectionEntry } from 'astro:content'
+import { type CollectionEntry, render } from 'astro:content'
 import PreviewImage from './PreviewImage.astro'
 
 export interface Props {
   project: CollectionEntry<'projects'>
 }
 
-const { data, render } = Astro.props.project
-const { Content } = await render()
+const { project } = Astro.props
+const { data } = project
+const { Content } = await render(project)
 ---
 
 <div class="mb-8 flex flex-col gap-4 md:mb-4 md:flex-row md:gap-8">

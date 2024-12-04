@@ -8,7 +8,8 @@ import PageLayout, {
 import HeadingAnchorsPlugin from '@/plugins/HeadingAnchorsPlugin.astro'
 import { toDateString } from '@/util'
 import { resolveTags } from '@/util/tags'
-import type { CollectionEntry } from 'astro:content'
+import { render, type CollectionEntry } from 'astro:content'
+
 export interface Props {
   post: CollectionEntry<'posts'>
 }
@@ -19,11 +20,11 @@ const {
   Content,
   remarkPluginFrontmatter: { readingTime },
   headings
-} = await post.render()
+} = await render(post)
 
 const frontmatter: PageLayoutProps['frontmatter'] = {
   ...post.data,
-  openGraphImage: post.data.openGraphImage || `/posts/${post.slug}.png`,
+  openGraphImage: post.data.openGraphImage || `/posts/${post.id}.png`,
   activeHeaderLink: 'Blog',
   scrollProgress: true,
   searchable: true

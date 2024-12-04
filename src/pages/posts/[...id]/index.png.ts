@@ -7,7 +7,7 @@ export async function getStaticPaths() {
   const posts = (await getPosts()).filter((p) => !p.data.openGraphImage)
 
   return posts.map((post) => ({
-    params: { slug: post.slug },
+    params: { id: post.id },
     props: { post }
   }))
 }
