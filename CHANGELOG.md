@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.2.0](https://github.com/FjellOverflow/nordlys/compare/v1.1.2...v1.2.0) (2024-12-04)
+
+
+### Features
+
+* load og image logo from urlEncoded local SVG ([9021d54](https://github.com/FjellOverflow/nordlys/commit/9021d54331d7d3d7f65a308eef119684c8c7eb46)), closes [#2](https://github.com/FjellOverflow/nordlys/issues/2)
+
 ## [1.1.2](https://github.com/FjellOverflow/nordlys/compare/v1.1.1...v1.1.2) (2024-12-02)
 
 
