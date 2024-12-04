@@ -9,8 +9,8 @@ export async function GET() {
     title: config.title,
     description: config.description,
     site: config.site,
-    items: posts.map(({ data, slug }) => ({
-      link: `posts/${slug}/`,
+    items: posts.map(({ data, id }) => ({
+      link: `posts/${id}/`,
       title: data.title,
       description: data.description,
       pubDate: new Date(data.publishedDate)

@@ -27,7 +27,7 @@ export const getPosts = async (
 
 export const adjacentPosts = async (post: CollectionEntry<'posts'>) => {
   const reversedPosts = (await getPosts()).reverse()
-  const postIndex = reversedPosts.findIndex((p) => p.slug === post.slug)
+  const postIndex = reversedPosts.findIndex((p) => p.id === post.id)
 
   if (postIndex < 0) return {}
 
