@@ -1,4 +1,5 @@
 import config from '@/theme.config'
+import urlEncodedLogo from './urlEncodedLogo'
 
 const { title: siteTitle, description: siteDescription } = config
 
@@ -25,7 +26,7 @@ export default (accent: string, bg: string) => () => ({
                         {
                           type: 'img',
                           props: {
-                            src: 'https://nordlys.fjelloverflow.dev/favicon.svg',
+                            src: urlEncodedLogo,
                             height: 128,
                             width: 128
                           }
