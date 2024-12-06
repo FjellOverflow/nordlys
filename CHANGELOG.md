@@ -2,57 +2,60 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
-## [1.2.0](https://github.com/FjellOverflow/nordlys/compare/v1.1.2...v1.2.0) (2024-12-04)
+## [2.0.0](https://github.com/FjellOverflow/nordlys/compare/v1.2.0...v2.0.0) (2024-12-06)
 
+### ⚠ BREAKING CHANGES
+
+- migrate to Astro 5 ([ffa296b](https://github.com/FjellOverflow/nordlys/commit/ffa296be560e357d763a3546b5b904bfd6d78dc8))
+
+### Bug Fixes
+
+- rewrite codeHeadersPlugin without postProcess shiki hook ([8624fe0](https://github.com/FjellOverflow/nordlys/commit/8624fe0ea24811489fe1249ff1aaa61691c7a020))
+
+## [1.2.0](https://github.com/FjellOverflow/nordlys/compare/v1.1.2...v1.2.0) (2024-12-04)
 
 ### Features
 
-* load og image logo from urlEncoded local SVG ([9021d54](https://github.com/FjellOverflow/nordlys/commit/9021d54331d7d3d7f65a308eef119684c8c7eb46)), closes [#2](https://github.com/FjellOverflow/nordlys/issues/2)
+- load og image logo from urlEncoded local SVG ([9021d54](https://github.com/FjellOverflow/nordlys/commit/9021d54331d7d3d7f65a308eef119684c8c7eb46)), closes [#2](https://github.com/FjellOverflow/nordlys/issues/2)
 
 ## [1.1.2](https://github.com/FjellOverflow/nordlys/compare/v1.1.1...v1.1.2) (2024-12-02)
 
-
 ### Bug Fixes
 
-* inline cursive text overlaps into following text ([df0d395](https://github.com/FjellOverflow/nordlys/commit/df0d395c6b624a6e81a4858f93fb51e0fa343df0))
-* remove scrollbar styling to restore browser default ([b92d29b](https://github.com/FjellOverflow/nordlys/commit/b92d29b35f98af8befb3ad0f4796d7f2bfa0eeaf)), closes [#5](https://github.com/FjellOverflow/nordlys/issues/5)
+- inline cursive text overlaps into following text ([df0d395](https://github.com/FjellOverflow/nordlys/commit/df0d395c6b624a6e81a4858f93fb51e0fa343df0))
+- remove scrollbar styling to restore browser default ([b92d29b](https://github.com/FjellOverflow/nordlys/commit/b92d29b35f98af8befb3ad0f4796d7f2bfa0eeaf)), closes [#5](https://github.com/FjellOverflow/nordlys/issues/5)
 
 ## [1.1.1](https://github.com/FjellOverflow/nordlys/compare/v1.1.0...v1.1.1) (2024-11-21)
 
-
 ### Bug Fixes
 
-* hero background blur too wide on Opera ([fab74b2](https://github.com/FjellOverflow/nordlys/commit/fab74b26cf0fa594c67d620367c33c18b9a59c3d))
-* project preview images too wide on Safari & Firefox ([bb84b39](https://github.com/FjellOverflow/nordlys/commit/bb84b39775120ef3800448d525b1b2ad36a98aaa))
+- hero background blur too wide on Opera ([fab74b2](https://github.com/FjellOverflow/nordlys/commit/fab74b26cf0fa594c67d620367c33c18b9a59c3d))
+- project preview images too wide on Safari & Firefox ([bb84b39](https://github.com/FjellOverflow/nordlys/commit/bb84b39775120ef3800448d525b1b2ad36a98aaa))
 
 ## [1.1.0](https://github.com/FjellOverflow/nordlys/compare/v1.0.0...v1.1.0) (2024-11-19)
 
-
 ### Features
 
-* optimize logo/favicon SVG ([912991b](https://github.com/FjellOverflow/nordlys/commit/912991bf123c5fe527d08ac3fa66b9eb1b91a349))
-
+- optimize logo/favicon SVG ([912991b](https://github.com/FjellOverflow/nordlys/commit/912991bf123c5fe527d08ac3fa66b9eb1b91a349))
 
 ### Bug Fixes
 
-* copy-code buttons wouldnt copy ([c5cd0b9](https://github.com/FjellOverflow/nordlys/commit/c5cd0b983a5ce7098c4eeb1e2f559583b7aa5636))
+- copy-code buttons wouldnt copy ([c5cd0b9](https://github.com/FjellOverflow/nordlys/commit/c5cd0b983a5ce7098c4eeb1e2f559583b7aa5636))
 
 ## [1.0.0](https://github.com/FjellOverflow/nordlys/compare/v0.2.5...v1.0.0) (2024-11-15)
 
-
 ### Features
 
-* **a11y:** hidden "Skip to main content" button for keyboard-tab navigation ([da1ae0e](https://github.com/FjellOverflow/nordlys/commit/da1ae0e637d28e37436779dc8489c07eeb52bafe))
-* optimized post/project preview images ([aed2619](https://github.com/FjellOverflow/nordlys/commit/aed261917e315128433ee9532b758fca107b1b86))
-
+- **a11y:** hidden "Skip to main content" button for keyboard-tab navigation ([da1ae0e](https://github.com/FjellOverflow/nordlys/commit/da1ae0e637d28e37436779dc8489c07eeb52bafe))
+- optimized post/project preview images ([aed2619](https://github.com/FjellOverflow/nordlys/commit/aed261917e315128433ee9532b758fca107b1b86))
 
 ### Bug Fixes
 
-* **a11y:** Make copy code icon a `<button>` ([814b0af](https://github.com/FjellOverflow/nordlys/commit/814b0afea0b2d484265f6e0ed647cc085df3872c))
-* **a11y:** missing `id`s on Dropdown components ([afec7b9](https://github.com/FjellOverflow/nordlys/commit/afec7b9161c8936b1309f980ed96ec15fab2fb3b))
-* **a11y:** missing button `aria-label` ([137419f](https://github.com/FjellOverflow/nordlys/commit/137419f11e7910972150e68c36059e9fb7f03d39))
-* **a11y:** proper `alt` descriptions on images ([7e8290c](https://github.com/FjellOverflow/nordlys/commit/7e8290c610f2fe1a2a050a0db5c856293ef10a9c))
-* small layout adjustments ([23ed198](https://github.com/FjellOverflow/nordlys/commit/23ed1983fb3c10256e8b7f7d067e791ce3f06f38))
+- **a11y:** Make copy code icon a `<button>` ([814b0af](https://github.com/FjellOverflow/nordlys/commit/814b0afea0b2d484265f6e0ed647cc085df3872c))
+- **a11y:** missing `id`s on Dropdown components ([afec7b9](https://github.com/FjellOverflow/nordlys/commit/afec7b9161c8936b1309f980ed96ec15fab2fb3b))
+- **a11y:** missing button `aria-label` ([137419f](https://github.com/FjellOverflow/nordlys/commit/137419f11e7910972150e68c36059e9fb7f03d39))
+- **a11y:** proper `alt` descriptions on images ([7e8290c](https://github.com/FjellOverflow/nordlys/commit/7e8290c610f2fe1a2a050a0db5c856293ef10a9c))
+- small layout adjustments ([23ed198](https://github.com/FjellOverflow/nordlys/commit/23ed1983fb3c10256e8b7f7d067e791ce3f06f38))
 
 ## [0.2.5](https://github.com/FjellOverflow/nordlys/compare/v0.2.4...v0.2.5) (2024-11-14)
 
