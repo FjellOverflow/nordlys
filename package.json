@@ -32,7 +32,7 @@
   "dependencies": {
     "@astrojs/check": "^0.9.4",
     "@astrojs/mdx": "^4.0.1",
-    "@astrojs/rss": "^4.0.9",
+    "@astrojs/rss": "^4.0.10",
     "@astrojs/sitemap": "^3.2.1",
     "@astrojs/tailwind": "^5.1.3",
     "@fontsource/ibm-plex-sans": "^5.1.0",
@@ -40,7 +40,7 @@
     "@iconify/tailwind": "^1.1.3",
     "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/typography": "^0.5.15",
-    "astro": "^5.0.2",
+    "astro": "^5.0.3",
     "mdast-util-to-string": "^4.0.0",
     "medium-zoom": "^1.1.0",
     "pagefind": "^1.2.0",
