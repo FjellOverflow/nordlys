@@ -24,14 +24,14 @@ const projects = defineCollection({
     pattern: '**/[^_]*.{md,mdx}',
     base: './content/projects'
   }),
-  schema: () =>
+  schema: ({ image }) =>
     z.object({
       title: z.string(),
       url: z.string().optional(),
       startDate: z.date(),
       endDate: z.date().optional().nullable(),
       tags: z.array(z.string()).default([]),
-      previewImage: z.string().optional()
+      previewImage: image().or(z.string()).optional()
     })
 })
 
