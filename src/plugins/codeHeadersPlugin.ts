@@ -135,7 +135,7 @@ const preTransformer = (label?: string, lang?: string) => (ast: any) => {
 }
 
 export default {
-  preprocess: (raw: string, options: any) => {
+  preprocess: (_raw: string, options: any) => {
     const pre = preTransformer(options.meta?.__raw, options.lang)
     options.transformers[1].pre = pre
   }
