@@ -1,8 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import type { Icon } from '@/types'
 
-const PLACEHOLDER = '$CODE_HEADER_PLACEHOLDER$'
-
 const iconMap: Record<string, Icon> = {
   plaintext: 'tabler--dots',
 
@@ -57,60 +55,89 @@ const iconMap: Record<string, Icon> = {
   xml: 'tabler--file-type-xml'
 }
 
-function getLabel(label?: string) {
-  if (!label) return ''
-
-  return `<code class="label">${label}</code>`
+function generateHeaderTitle(label: string) {
+  return {
+    type: 'element',
+    tagName: 'code',
+    properties: { className: ['label'] },
+    children: [{ type: 'text', value: label }]
+  }
 }
 
-function getIcon(lang?: string) {
+function generateHeaderIcon(lang: string) {
   const icon = iconMap[lang || 'plaintext'] || iconMap['plaintext']
   const textSize = icon === iconMap['plaintext'] ? 'text-5xl' : 'text-2xl'
 
-  return `<span class="lang-icon iconify ${icon} ${textSize}"></span>`
+  return {
+    type: 'element',
+    tagName: 'span',
+    properties: { className: ['lang-icon', 'iconify', icon, textSize] },
+    children: []
+  }
 }
 
-function generateHeader(label?: string, lang?: string) {
-  return `<div class="flex gap-2">
-            ${getIcon(lang)}
-            ${getLabel(label)}
-          </div>
-          <button title="Copy code" aria-label="Copy code" class="flex items-center">
-            <span aria-hidden="true" class="copy-btn"></span>
-          </button>`
+const copyCodeBtn = {
+  type: 'element',
+  tagName: 'button',
+  properties: {
+    title: 'Copy code',
+    'aria-label': 'Copy code',
+    className: ['flex', 'items-center']
+  },
+  children: [
+    {
+      type: 'element',
+      tagName: 'span',
+      properties: {
+        'aria-hidden': 'true',
+        className: ['copy-btn']
+      }
+    }
+  ]
+}
+
+const preTransformer = (label?: string, lang?: string) => (ast: any) => {
+  const styles = parseStyleProps(ast.properties.style)
+
+  const color = styles['color']
+  const colorDark = styles['--shiki-dark']
+  const bg = styles['background-color']
+  const bgDark = styles['--shiki-dark-bg']
+
+  const codeHeader = {
+    type: 'element',
+    tagName: 'div',
+    properties: { className: ['flex', 'gap-2'] },
+    children: [] as Array<any>
+  }
+
+  if (lang) codeHeader.children.push(generateHeaderIcon(lang))
+  if (label) codeHeader.children.push(generateHeaderTitle(label))
+
+  return {
+    type: 'element',
+    tagName: 'div',
+    properties: {
+      style: `--code-header-color:${color};--code-header-color-dark:${colorDark};--code-header-bg:${bg};--code-header-bg-dark:${bgDark}`
+    },
+    children: [
+      {
+        type: 'element',
+        tagName: 'div',
+        properties: {
+          class: `astro-code-header`
+        },
+        children: [codeHeader, copyCodeBtn]
+      },
+      ast
+    ]
+  }
 }
 
 export default {
-  postprocess: (html: string, options: any) => {
-    const codeHeader = generateHeader(options.meta?.__raw, options.lang)
-    return html.replace(PLACEHOLDER, codeHeader)
-  },
-  pre: (pre: any): any => {
-    const styles = parseStyleProps(pre.properties.style)
-
-    const color = styles['color']
-    const colorDark = styles['--shiki-dark']
-    const bg = styles['background-color']
-    const bgDark = styles['--shiki-dark-bg']
-
-    return {
-      type: 'element',
-      tagName: 'div',
-      properties: {
-        style: `--code-header-color:${color};--code-header-color-dark:${colorDark};--code-header-bg:${bg};--code-header-bg-dark:${bgDark}`
-      },
-      children: [
-        {
-          type: 'element',
-          tagName: 'div',
-          properties: {
-            class: `astro-code-header`
-          },
-          children: [{ type: 'text', value: PLACEHOLDER }]
-        },
-        pre
-      ]
-    }
+  preprocess: (raw: string, options: any) => {
+    const pre = preTransformer(options.meta?.__raw, options.lang)
+    options.transformers[1].pre = pre
   }
 }
 
