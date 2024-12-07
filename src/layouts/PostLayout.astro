@@ -26,8 +26,7 @@ const frontmatter: PageLayoutProps['frontmatter'] = {
   ...post.data,
   openGraphImage: post.data.openGraphImage || `/posts/${post.id}.png`,
   activeHeaderLink: 'Blog',
-  scrollProgress: true,
-  searchable: true
+  scrollProgress: true
 }
 ---
 
@@ -70,7 +69,7 @@ const frontmatter: PageLayoutProps['frontmatter'] = {
     )
   }
 
-  <article>
+  <article data-pagefind-body>
     <Content />
   </article>
 
