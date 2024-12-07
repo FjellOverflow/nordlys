@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.0.1](https://github.com/FjellOverflow/nordlys/compare/v2.0.0...v2.0.1) (2024-12-07)
+
+
+### Bug Fixes
+
+* exclude arbitrary pages from being indexed by pagefind ([9416b5f](https://github.com/FjellOverflow/nordlys/commit/9416b5ff6382ea7c1ff3bc774d72b213abc973b9))
+* readd local image support to Project content schema ([b494298](https://github.com/FjellOverflow/nordlys/commit/b49429852a5fa81b76306798dd2c0b0ef08b4911))
+
 ## [2.0.0](https://github.com/FjellOverflow/nordlys/compare/v1.2.0...v2.0.0) (2024-12-06)
 
 ### ⚠ BREAKING CHANGES
