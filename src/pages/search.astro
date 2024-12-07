@@ -60,7 +60,7 @@ const frontmatter: PageLayoutProps['frontmatter'] = {
         resultsContainer.innerHTML = ''
 
         await Promise.all(
-          results.slice(0, 5).map(async (r) => {
+          results.slice(0, 15).map(async (r) => {
             const li = document.createElement('li')
             li.innerHTML = await renderSearchResult(r as PagefindResult)
             resultsContainer.appendChild(li)
