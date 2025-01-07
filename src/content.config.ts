@@ -12,10 +12,10 @@ const posts = defineCollection({
       publishedDate: z.date(),
       draft: z.boolean().optional().default(false),
       canonicalURL: z.string().optional(),
-      openGraphImage: image().or(z.string()).optional(),
+      openGraphImage: image().optional(),
       tags: z.array(z.string()).default([]),
       showToC: z.boolean().optional().default(true),
-      previewImage: image().or(z.string()).optional()
+      previewImage: image().optional()
     })
 })
 
@@ -31,7 +31,7 @@ const projects = defineCollection({
       startDate: z.date(),
       endDate: z.date().optional().nullable(),
       tags: z.array(z.string()).default([]),
-      previewImage: image().or(z.string()).optional()
+      previewImage: image().optional()
     })
 })
 

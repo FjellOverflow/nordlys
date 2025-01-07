@@ -2,8 +2,8 @@
 import TagsBar from '@/components/TagsBar.astro'
 import { isAbsolute, toMonthString } from '@/util'
 import { resolveTags } from '@/util/tags'
+import { Image } from 'astro:assets'
 import { type CollectionEntry, render } from 'astro:content'
-import PreviewImage from './PreviewImage.astro'
 
 export interface Props {
   project: CollectionEntry<'projects'>
@@ -17,7 +17,7 @@ const { Content } = await render(project)
 <div class="mb-8 flex flex-col gap-4 md:mb-4 md:flex-row md:gap-8">
   {
     data.previewImage && (
-      <PreviewImage
+      <Image
         src={data.previewImage}
         height={208}
         alt={`${data.title} preview`}
