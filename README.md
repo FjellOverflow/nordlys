@@ -29,8 +29,7 @@
   <a href="#features">Features</a> |
   <a href="#installation">Installation</a> |
   <a href="#getting-started">Getting started</a> |
-  <a href="#documentation">Documentation</a> |
-  <a href="#stack">Stack</a>
+  <a href="#documentation">Documentation</a>
 </p>
 
 ## Features
@@ -74,12 +73,3 @@ All content is written in Markdown or MDX. Adding new pages, blog posts, or proj
 ## Documentation
 
 The theme is self-documenting. Just head over to [nordlys.fjelloverflow.dev](https://nordlys.fjelloverflow.dev/posts/) for examples and tutorials on how to use and customize the theme.
-
-## Stack
-
-- **Language**: TypeScript
-- **Framework**: [Astro](https://astro.build/)
-- **Search**: [Pagefind](https://pagefind.app/)
-- **Styling**: [TailwindCSS](https://tailwindcss.com/)
-- **Font**: [IBM Plex Sans](https://fonts.google.com/specimen/IBM+Plex+Sans)
-- **Icons**: [Tabler Icons](https://tabler.io/icons)
