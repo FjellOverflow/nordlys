@@ -4,28 +4,27 @@ All notable changes to this project will be documented in this file. See [commit
 
 ## [2.0.3](https://github.com/FjellOverflow/nordlys/compare/v2.0.2...v2.0.3) (2025-01-17)
 
-
 ### Bug Fixes
 
-* remove public image referencing from docs post ([53bb078](https://github.com/FjellOverflow/nordlys/commit/53bb078b9b1d431a5258cd754f38a192ba11145e))
+- remove public image referencing from docs post ([53bb078](https://github.com/FjellOverflow/nordlys/commit/53bb078b9b1d431a5258cd754f38a192ba11145e))
 
 ## [2.0.2](https://github.com/FjellOverflow/nordlys/compare/v2.0.1...v2.0.2) (2025-01-07)
 
-
 ### Bug Fixes
 
-* date range entirely right in project preview ([1a5a369](https://github.com/FjellOverflow/nordlys/commit/1a5a3693898dcd93c1f1606b3ab481bd3b747fae))
-* require `previewImage` and `opengraphImage`to always be image in content collections ([39aad53](https://github.com/FjellOverflow/nordlys/commit/39aad537e5e0b68b10bc6fdcac9d50ad09efed02))
+- date range entirely right in project preview ([1a5a369](https://github.com/FjellOverflow/nordlys/commit/1a5a3693898dcd93c1f1606b3ab481bd3b747fae))
+- require `previewImage` and `opengraphImage`to always be image in content collections ([39aad53](https://github.com/FjellOverflow/nordlys/commit/39aad537e5e0b68b10bc6fdcac9d50ad09efed02))
 
 ## [2.0.1](https://github.com/FjellOverflow/nordlys/compare/v2.0.0...v2.0.1) (2024-12-07)
 
-
 ### Bug Fixes
 
-* exclude arbitrary pages from being indexed by pagefind ([9416b5f](https://github.com/FjellOverflow/nordlys/commit/9416b5ff6382ea7c1ff3bc774d72b213abc973b9))
-* readd local image support to Project content schema ([b494298](https://github.com/FjellOverflow/nordlys/commit/b49429852a5fa81b76306798dd2c0b0ef08b4911))
+- exclude arbitrary pages from being indexed by pagefind ([9416b5f](https://github.com/FjellOverflow/nordlys/commit/9416b5ff6382ea7c1ff3bc774d72b213abc973b9))
+- readd local image support to Project content schema ([b494298](https://github.com/FjellOverflow/nordlys/commit/b49429852a5fa81b76306798dd2c0b0ef08b4911))
 
 ## [2.0.0](https://github.com/FjellOverflow/nordlys/compare/v1.2.0...v2.0.0) (2024-12-06)
+
+Although this is a new major release, there is no "actual" changes in terms of new features or looks, but only the migration to newly released Astro 5. This entails some smaller changes under the hood, mainly due to the new [Content Layer API](https://docs.astro.build/en/guides/upgrade-to/v5/#updating-existing-collections). For anyone migrating manually, notice that the `src/content` directory moved to `content` and the new/updated `content.config.ts`.
 
 ### ⚠ BREAKING CHANGES
 
@@ -66,6 +65,8 @@ All notable changes to this project will be documented in this file. See [commit
 - copy-code buttons wouldnt copy ([c5cd0b9](https://github.com/FjellOverflow/nordlys/commit/c5cd0b983a5ce7098c4eeb1e2f559583b7aa5636))
 
 ## [1.0.0](https://github.com/FjellOverflow/nordlys/compare/v0.2.5...v1.0.0) (2024-11-15)
+
+The last couple of weeks I have been tweaking and improving this theme, dealt with accessibility and optimization with only few new features and changes to the outside appearance. For now I am satisfied and am both comfortable and excited to release **Nordlys 1.0.0**! As before, I am still happy and grateful for bug reports, feature requests or other contributions!
 
 ### Features
 
@@ -146,7 +147,7 @@ All notable changes to this project will be documented in this file. See [commit
 - inconsistent borders ([53c8b8f](https://github.com/FjellOverflow/nordlys/commit/53c8b8f0cb24779aabccffa1bcdfa87c63f07c39))
 - readd heading anchors when navigating between different posts ([a9dd54e](https://github.com/FjellOverflow/nordlys/commit/a9dd54e2b3aca12e554baff1be8dd15bbb9731e7))
 - ToC border color ([9e64326](https://github.com/FjellOverflow/nordlys/commit/9e643265741a6dcab0e2572c0ee31b19b0d8b936))
-- ToC headings are <li>s, decreased spacing, removed bulletpoints ([0f21229](https://github.com/FjellOverflow/nordlys/commit/0f21229d077a1f40a3a4aeb6dcdcf3ae75c887d6))
+- ToC headings are `<li>`s, decreased spacing, removed bulletpoints ([0f21229](https://github.com/FjellOverflow/nordlys/commit/0f21229d077a1f40a3a4aeb6dcdcf3ae75c887d6))
 
 ## [0.1.1](https://github.com/FjellOverflow/nordlys/compare/v0.1.0...v0.1.1) (2024-10-23)
 
