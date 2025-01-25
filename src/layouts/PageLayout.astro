@@ -33,7 +33,9 @@ const {
     <Header activeHeaderLink={activeHeaderLink} />
     <slot name="top" />
 
-    <aside class="fixed w-fit max-w-sm -translate-x-full pr-8">
+    <aside
+      class="fixed h-screen w-fit max-w-sm -translate-x-full overflow-y-auto overscroll-y-none pr-8 scrollbar-hide"
+    >
       <slot name="aside" />
     </aside>
 

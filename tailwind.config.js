@@ -24,6 +24,10 @@ export default {
       }
     }
   },
-  plugins: [require('@tailwindcss/typography'), addIconSelectors(['tabler'])],
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('tailwind-scrollbar-hide'),
+    addIconSelectors(['tabler'])
+  ],
   darkMode: ['selector', '[data-mode="dark"]']
 }
