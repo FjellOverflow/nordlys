@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.1.0](https://github.com/FjellOverflow/nordlys/compare/v2.0.3...v2.1.0) (2025-01-25)
+
+
+### Features
+
+* scrollable ToC ([7ea348d](https://github.com/FjellOverflow/nordlys/commit/7ea348d004900ae03f0a3199d69381330837d0c5))
+
+
+### Bug Fixes
+
+* add stylelint exception for tailwinds `[@apply](https://github.com/apply)` ([cd95918](https://github.com/FjellOverflow/nordlys/commit/cd9591846a90c9b9aaf7252b454864b42c36d4c0))
+* post og-image generation ([11df323](https://github.com/FjellOverflow/nordlys/commit/11df323c7418ceb5937b0d63ad5a68398c384788))
+
 ## [2.0.3](https://github.com/FjellOverflow/nordlys/compare/v2.0.2...v2.0.3) (2025-01-17)
 
 ### Bug Fixes
