@@ -7,6 +7,7 @@ export default {
       {
         ignoreAtRules: ['tailwind']
       }
-    ]
+    ],
+    'at-rule-no-deprecated': null
   }
 }
