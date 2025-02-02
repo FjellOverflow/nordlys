@@ -32,10 +32,13 @@ const frontmatter: PageLayoutProps['frontmatter'] = {
 
 <PageLayout {frontmatter}>
   <div slot="top" class="mt-4">
-    <a href="/posts" class="clickable flex w-fit items-center gap-1">
+    <button
+      onclick="history.back()"
+      class="clickable flex w-fit items-center gap-1"
+    >
       <span class="iconify text-xl tabler--arrow-left"></span>
-      Back to all posts
-    </a>
+      Back to the previous page
+    </button>
   </div>
 
   <h1 class="my-2 sm:my-4">{frontmatter.title}</h1>
