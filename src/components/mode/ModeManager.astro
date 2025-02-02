@@ -1,7 +1,6 @@
 ---
 import config from '@/theme.config'
-
-const defaultMode = config.mode
+const defaultMode = 'auto' // 设置默认为自动模式
 ---
 
 <script is:inline data-default-mode={defaultMode}>
@@ -13,15 +12,26 @@ const defaultMode = config.mode
         ? localStorage
         : { getItem: () => null, setItem: () => {} }
 
-    const mediaMatcher = window.matchMedia('(prefers-color-scheme: light)')
-
-    mediaMatcher.addEventListener('change', () => {
-      applyMode(mode.getMode())
-    })
+    const mediaMatcher = window.matchMedia('(prefers-color-scheme: dark)')
 
     function applyMode(mode) {
-      document.documentElement.dataset.mode = mode
-      document.documentElement.style.colorScheme = mode
+      const isDark =
+        mode === 'dark' || (mode === 'auto' && mediaMatcher.matches)
+
+      document.documentElement.dataset.mode = isDark ? 'dark' : 'light'
+      document.documentElement.style.colorScheme = isDark ? 'dark' : 'light'
+
+      // 更新图标
+      const span = document.querySelector('dark-light-toggle span')
+      if (span) {
+        span.className = `clickable iconify ${
+          mode === 'auto' 
+            ? 'tabler--sun-moon'
+            : isDark 
+              ? 'tabler--moon' 
+              : 'tabler--sun'
+        }`
+      }
     }
 
     function setMode(mode = defaultMode) {
@@ -33,13 +43,15 @@ const defaultMode = config.mode
       return store.getItem(storageKey) || defaultMode
     }
 
+    // 监听系统主题变化
+    mediaMatcher.addEventListener('change', (e) => {
+      if (getMode() === 'auto') {
+        applyMode('auto')
+      }
+    })
+
     return { setMode, getMode }
   })()
 
   mode.setMode(mode.getMode())
-</script>
-<script>
-  document.addEventListener('astro:after-swap', () =>
-    window.mode.setMode(window.mode.getMode())
-  )
 </script>
