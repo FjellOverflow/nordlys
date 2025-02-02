@@ -1,8 +1,9 @@
 <dark-light-toggle>
-  <button title="Toggle dark & light mode" class="flex items-center">
+  <button title="Toggle color mode" class="flex items-center">
     <span
       aria-hidden="true"
-      class="clickable iconify tabler--moon dark:tabler--sun"></span>
+      class="clickable iconify tabler--sun-moon"
+    ></span>
   </button>
 </dark-light-toggle>
 
@@ -10,13 +11,32 @@
   class DarkLightToggle extends HTMLElement {
     connectedCallback() {
       const button = this.querySelector('button')
-
       if (!button) return
+
+      const span = button.querySelector('span')
+      if (!span) return
 
       button.setAttribute('aria-label', window.mode.getMode())
 
       const handleToggle = () => {
-        const newMode = window.mode.getMode() === 'light' ? 'dark' : 'light'
+        const currentMode = window.mode.getMode()
+        let newMode = 'auto'
+
+        // 循环切换: auto -> light -> dark -> auto
+        switch (currentMode) {
+          case 'auto':
+            newMode = 'light'
+            span.className = 'clickable iconify tabler--sun'
+            break
+          case 'light':
+            newMode = 'dark'
+            span.className = 'clickable iconify tabler--moon'
+            break
+          case 'dark':
+            newMode = 'auto'
+            span.className = 'clickable iconify tabler--sun-moon'
+            break
+        }
 
         window.mode.setMode(newMode)
         button.setAttribute('aria-label', newMode)
