@@ -114,3 +114,11 @@ const openGraphImageUrl = new URL(resolveImageUrl(openGraphImage), Astro.site)
     <MediumZoomPlugin />
   </body>
 </html>
+<script>
+  // 添加页面切换事件监听
+  document.addEventListener('astro:after-swap', () => {
+    // 重新应用当前模式
+    const currentMode = window.mode.getMode()
+    window.mode.setMode(currentMode)
+  })
+</script>
