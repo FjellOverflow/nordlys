@@ -69,9 +69,21 @@ const frontmatter: PageLayoutProps['frontmatter'] = {
 
         if (results.length > 5) {
           const remainingLi = document.createElement('li')
+          remainingLi.className =
+            'cursor-pointer text-accent hover:underline mt-4'
           remainingLi.innerHTML = `... and ${results.length - 5} more`
-          resultsContainer.appendChild(remainingLi)
-        }
+
+          remainingLi.addEventListener('click', async () => {
+            remainingLi.remove()
+
+            await Promise.all(
+              results.slice(5).map(async (r) => {
+                const li = document.createElement('li')
+                li.innerHTML = await renderSearchResult(r as PagefindResult)
+                resultsContainer.appendChild(li)
+              })
+            )
+          })
       }
 
       const renderSearchResult = async (result: PagefindResult) => {
