@@ -40,7 +40,7 @@
     "@iconify/tailwind": "^1.2.0",
     "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/typography": "^0.5.16",
-    "astro": "^5.2.6",
+    "astro": "^5.3.0",
     "mdast-util-to-string": "^4.0.0",
     "medium-zoom": "^1.1.0",
     "pagefind": "^1.3.0",
@@ -52,7 +52,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.20.0",
-    "@typescript-eslint/parser": "^8.24.0",
+    "@typescript-eslint/parser": "^8.24.1",
     "commit-and-tag-version": "^12.5.0",
     "eslint": "^9.20.1",
     "eslint-config-prettier": "^10.0.1",
@@ -61,15 +61,15 @@
     "eslint-plugin-prettier": "^5.2.3",
     "globals": "^15.15.0",
     "postcss-html": "^1.8.0",
-    "prettier": "^3.5.0",
+    "prettier": "^3.5.1",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "stylelint": "^16.14.1",
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-recommended": "^15.0.0",
-    "type-fest": "^4.34.1",
+    "type-fest": "^4.35.0",
     "typescript": "^5.7.3",
-    "typescript-eslint": "^8.24.0"
+    "typescript-eslint": "^8.24.1"
   },
-  "packageManager": "pnpm@10.3.0"
+  "packageManager": "pnpm@10.4.1"
 }
