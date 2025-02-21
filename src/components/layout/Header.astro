@@ -56,7 +56,7 @@ export const isNavItem = (item: HeaderItemType): item is NavItemType =>
           ))
         }
         <li class="text-2xl">
-          <a href="/search" class="flex items-center" aria-label="Search">
+          <a href="/search/" class="flex items-center" aria-label="Search">
             <span class="clickable iconify tabler--search"></span>
           </a>
         </li>
@@ -67,7 +67,7 @@ export const isNavItem = (item: HeaderItemType): item is NavItemType =>
     </nav>
     <div class="flex items-center justify-center gap-4 text-2xl sm:hidden">
       {config.modeToggle && <ModeToggle />}
-      <a href="/search" aria-label="Search">
+      <a href="/search/" aria-label="Search">
         <span class="clickable iconify text-xl tabler--search"></span>
       </a>
       <MobileNavToggle />

@@ -6,17 +6,17 @@ export default defineThemeConfig({
   description: 'A minimal Astro blog theme',
   author: 'FjellOverflow',
   navbarItems: [
-    { label: 'Blog', href: '/posts' },
-    { label: 'Projects', href: '/projects' },
-    { label: 'Tags', href: '/tags' },
-    { label: 'About', href: '/about' },
+    { label: 'Blog', href: '/posts/' },
+    { label: 'Projects', href: '/projects/' },
+    { label: 'Tags', href: '/tags/' },
+    { label: 'About', href: '/about/' },
     {
       label: 'Other pages',
       children: [
         { label: 'Landing page', href: '/' },
         { label: '404 page', href: '/404' },
-        { label: 'Author: FjellOverflow', href: '/authors/FjellOverflow' },
-        { label: 'Tag: documentation', href: '/tags/documentation' }
+        { label: 'Author: FjellOverflow', href: '/authors/FjellOverflow/' },
+        { label: 'Tag: documentation', href: '/tags/documentation/' }
       ]
     }
   ],
