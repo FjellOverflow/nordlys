@@ -11,6 +11,9 @@ const { class: className, ...rest } = Astro.props
 
 <style is:global>
   .prose code:not(.astro-code code):not(.astro-code-header code) {
-    @apply rounded bg-accent/15 px-1 pt-[2px];
+    background-color: color-mix(in oklab, rgb(var(--accent)) 15%, transparent);
+    border-radius: 0.25rem;
+    padding-inline: 4px;
+    padding-top: 2px;
   }
 </style>

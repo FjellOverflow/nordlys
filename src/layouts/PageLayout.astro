@@ -29,12 +29,14 @@ const {
 ---
 
 <BaseLayout frontmatter={frontmatter}>
-  <div id="page-wrapper">
+  <div
+    class="mx-auto flex min-h-[100svh] w-full max-w-[90%] flex-col justify-between md:max-w-3xl"
+  >
     <Header activeHeaderLink={activeHeaderLink} />
     <slot name="top" />
 
     <aside
-      class="fixed h-screen w-fit max-w-sm -translate-x-full overflow-y-auto overscroll-y-none pr-8 scrollbar-hide"
+      class="scrollbar-hide fixed h-screen w-fit max-w-sm -translate-x-full overflow-y-auto overscroll-y-none pr-8"
     >
       <slot name="aside" />
     </aside>

@@ -1,27 +1,24 @@
-@import 'color-schemes.css';
-@import 'astro-code.css';
+@import 'tailwindcss';
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import './color-schemes.css' layer(base);
+@import './astro-code.css';
+@reference './theme.css';
+
+@custom-variant dark (&:where([data-mode=dark], [data-mode=dark] *));
 
 @layer base {
   :root {
-    @apply overflow-y-scroll scroll-smooth bg-accent-bg underline-offset-4 selection:bg-accent/75 selection:text-white selection:dark:text-black;
+    @apply bg-accent-bg selection:bg-accent/75 overflow-y-scroll scroll-smooth underline-offset-4 selection:text-white dark:selection:text-black;
 
-    #page-wrapper {
-      @apply mx-auto flex min-h-[100svh] w-full max-w-[90%] flex-col justify-between md:max-w-3xl;
+    img[data-img-embed=''],
+    img[data-img-embed='true'] {
+      border-color: rgb(var(--accent));
+      border-radius: var(--radius-sm);
+      border-width: 1px;
     }
   }
 }
 
-@layer utilities {
-  .clickable {
-    @apply cursor-pointer opacity-75 transition duration-500 ease-in-out hover:text-accent hover:opacity-100;
-  }
-
-  img[data-img-embed=''],
-  img[data-img-embed='true'] {
-    @apply rounded border border-accent;
-  }
+@utility clickable {
+  @apply hover:text-accent cursor-pointer opacity-75 transition duration-500 ease-in-out hover:opacity-100;
 }

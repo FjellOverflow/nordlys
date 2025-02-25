@@ -1,0 +1,14 @@
+@theme inline {
+  --font-sans: 'IBM Plex Sans', ui-sans-serif;
+
+  --color-accent: rgb(var(--accent));
+  --color-accent-bg: rgb(var(--accent-bg));
+}
+
+@plugin '@tailwindcss/typography';
+
+@plugin 'tailwind-scrollbar-hide';
+
+@plugin '@iconify/tailwind4' {
+  prefixes: tabler;
+}
