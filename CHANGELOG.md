@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.1.1](https://github.com/FjellOverflow/nordlys/compare/v2.1.0...v2.1.1) (2025-02-25)
+
+
+### Bug Fixes
+
+* **seo:** link to canonical URLs with trailing slash ([2dbb430](https://github.com/FjellOverflow/nordlys/commit/2dbb4300d750e0aa49e04ed010e573146b18cc8e))
+
 ## [2.1.0](https://github.com/FjellOverflow/nordlys/compare/v2.0.3...v2.1.0) (2025-01-25)
 
 
