@@ -18,7 +18,7 @@ posts.sort(sortPosts)
     posts.map((post, index) => (
       <li class="pl-0">
         <PostPreview {post} />
-        {index !== posts.length - 1 && <Separator class="my-6" />}
+        {index !== posts.length - 1 && <Separator class="mt-6 mb-6" />}
       </li>
     ))
   }

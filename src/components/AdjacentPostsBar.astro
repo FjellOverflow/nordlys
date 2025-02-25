@@ -17,7 +17,7 @@ const { previous, next } = await adjacentPosts(post)
         !!next && (
           <a href={`/posts/${next.id}`} class="clickable">
             <div class="flex items-center justify-start gap-1">
-              <span class="iconify text-xl tabler--arrow-left" />
+              <span class="iconify tabler--arrow-left text-xl" />
               <span>Next post</span>
             </div>
             <span class="mt-2 text-lg sm:text-xl">{next.data.title}</span>
@@ -31,7 +31,7 @@ const { previous, next } = await adjacentPosts(post)
           <a href={`/posts/${previous.id}`} class="clickable">
             <div class="flex items-center justify-end gap-1">
               <span>Previous post</span>
-              <span class="iconify text-xl tabler--arrow-right" />
+              <span class="iconify tabler--arrow-right text-xl" />
             </div>
             <span class="mt-2 text-lg sm:text-xl">{previous.data.title}</span>
           </a>

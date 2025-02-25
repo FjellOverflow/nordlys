@@ -7,7 +7,7 @@ import satori, { type SatoriOptions } from 'satori'
 const fetchFont = async (weight: string) =>
   (
     await fetch(
-      `https://cdn.jsdelivr.net/fontsource/fonts/ibm-plex-sans@latest/latin-${weight}-normal.ttf`
+      `https://cdn.jsdelivr.net/fontsource/fonts/ibm-plex-sans@latest/latin-${weight}-normal.woff`
     )
   ).arrayBuffer()
 

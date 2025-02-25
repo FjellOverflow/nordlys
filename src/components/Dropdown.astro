@@ -42,7 +42,7 @@ const menuId = generateItemId(`${label}-menu`)
     </span>
     <span
       aria-hidden="true"
-      class="iconify text-xl transition-transform duration-500 tabler--chevron-down"
+      class="iconify tabler--chevron-down text-xl transition-transform duration-500"
     ></span>
   </button>
 
@@ -50,7 +50,7 @@ const menuId = generateItemId(`${label}-menu`)
     id={menuId}
     role="menu"
     aria-labelledby={buttonId}
-    class="absolute right-0 z-10 mt-4 hidden origin-top-right flex-col gap-2 rounded border border-accent/25 bg-accent-bg p-4 shadow shadow-black"
+    class="border-accent/25 bg-accent-bg absolute right-0 z-10 mt-4 hidden origin-top-right flex-col gap-2 rounded-sm border p-4 shadow-sm shadow-black"
   >
     {
       children.map((item) => (

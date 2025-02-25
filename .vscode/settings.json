@@ -3,7 +3,7 @@
   "explorer.fileNesting.patterns": {
     "eslint.config.js": ".prettierrc.js, stylelint.config.js, .stylelintignore",
     "package.json": "pnpm-lock.yaml, .gitignore",
-    "astro.config.ts": "tailwind.config.js, tsconfig.json",
+    "astro.config.ts": "tsconfig.json",
     "README.md": "README.md, LICENSE.md, CHANGELOG.md"
   },
   "editor.formatOnSave": true,

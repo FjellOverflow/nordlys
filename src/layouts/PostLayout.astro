@@ -33,12 +33,12 @@ const frontmatter: PageLayoutProps['frontmatter'] = {
 <PageLayout {frontmatter}>
   <div slot="top" class="mt-4">
     <a href="/posts" class="clickable flex w-fit items-center gap-1">
-      <span class="iconify text-xl tabler--arrow-left"></span>
+      <span class="iconify tabler--arrow-left text-xl"></span>
       Back to all posts
     </a>
   </div>
 
-  <h1 class="my-2 sm:my-4">{frontmatter.title}</h1>
+  <h1 class="mt-2 mb-2 sm:my-4">{frontmatter.title}</h1>
   <TagsBar tags={resolveTags(post.data.tags)} />
 
   <div class="mt-4">
@@ -56,14 +56,14 @@ const frontmatter: PageLayoutProps['frontmatter'] = {
     !!post.data.showToC && (
       <div
         slot="aside"
-        class="mt-24 hidden border-r border-accent pr-4 opacity-75 transition duration-500 ease-in-out hover:opacity-100 2xl:block"
+        class="border-accent mt-24 hidden border-r pr-4 opacity-75 transition duration-500 ease-in-out hover:opacity-100 2xl:block"
       >
         <ToC {headings} open />
       </div>
     )
   }{
     !!post.data.showToC && (
-      <div class="mt-8 w-fit rounded border 2xl:hidden">
+      <div class="mt-8 w-fit rounded-sm border 2xl:hidden">
         <ToC {headings} />
       </div>
     )

@@ -27,7 +27,7 @@ export const isNavItem = (item: HeaderItemType): item is NavItemType =>
     >Skip to main content</a
   >
   <div class="flex justify-between py-4 sm:py-8">
-    <a href="/" class="flex gap-2 text-2xl font-semibold text-accent">
+    <a href="/" class="text-accent flex gap-2 text-2xl font-semibold">
       <Image
         alt="Nordlys logo, a drawing of two gray mountains with green northern lights in the background"
         src={logo}
@@ -68,7 +68,7 @@ export const isNavItem = (item: HeaderItemType): item is NavItemType =>
     <div class="flex items-center justify-center gap-4 text-2xl sm:hidden">
       {config.modeToggle && <ModeToggle />}
       <a href="/search/" aria-label="Search">
-        <span class="clickable iconify text-xl tabler--search"></span>
+        <span class="clickable iconify tabler--search text-xl"></span>
       </a>
       <MobileNavToggle />
     </div>

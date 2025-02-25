@@ -33,10 +33,10 @@ headings.forEach((heading) => {
 function renderList(headings: ProcessedHeading[]): string {
   if (!headings.length) return ''
 
-  return `<ul class="my-1 list-none">
+  return `<ul class="mt-1 mb-1 list-none">
           ${headings
             .map(
-              (heading) => `<li class="my-1">
+              (heading) => `<li class="mt-1 mb-1">
                               <a href="#${heading.slug}" class="no-underline hover:underline" aria-label="${heading.text}">
                                 ${heading.text}
                               </a>

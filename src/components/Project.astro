@@ -21,7 +21,7 @@ const { Content } = await render(project)
         src={data.previewImage}
         height={208}
         alt={`${data.title} preview`}
-        class="my-auto max-h-52 w-fit rounded object-contain md:max-h-32 md:w-auto"
+        class="mt-auto mb-auto max-h-52 w-fit rounded-sm object-contain md:max-h-32 md:w-auto"
       />
     )
   }
@@ -36,7 +36,7 @@ const { Content } = await render(project)
           >
             <span class="underline">{data.title}</span>
             {data.url && isAbsolute(data.url) && (
-              <span class="iconify align-middle tabler--external-link" />
+              <span class="iconify tabler--external-link align-middle" />
             )}
           </a>
         )
