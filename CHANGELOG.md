@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.1.2](https://github.com/FjellOverflow/nordlys/compare/v2.1.1...v2.1.2) (2025-02-26)
+
+
+### Bug Fixes
+
+* add missing trailing slashes to internal links ([8c189bd](https://github.com/FjellOverflow/nordlys/commit/8c189bd975fbbd5b3981dd5e0552497fcfccd3df))
+* post preview image margins ([07d2ec8](https://github.com/FjellOverflow/nordlys/commit/07d2ec83d254a86618d566d6ec00948c37022d2b))
+* prevent duplicate registration of already registered custom elements ([bf390c8](https://github.com/FjellOverflow/nordlys/commit/bf390c87ea9ad6dcefa2a35c0e637ef9530d008c))
+
 ## [2.1.1](https://github.com/FjellOverflow/nordlys/compare/v2.1.0...v2.1.1) (2025-02-25)
 
 
