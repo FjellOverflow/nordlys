@@ -25,7 +25,7 @@ const { id, data } = Astro.props.post
   }
   <div class="flex w-full flex-col gap-2">
     <div class="flex flex-col justify-between sm:flex-row sm:items-center">
-      <a class="text-xl font-normal" href={`/posts/${id}`} data-astro-prefetch>
+      <a class="text-xl font-normal" href={`/posts/${id}/`} data-astro-prefetch>
         <span>{data.title}</span>
       </a>
       <time

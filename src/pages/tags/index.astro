@@ -19,7 +19,7 @@ const frontmatter: PageLayoutProps['frontmatter'] = {
       tags.map(({ tag, icon }) => (
         <a
           class="clickable flex flex-col items-center gap-1 no-underline"
-          href={`/tags/${tag}`}
+          href={`/tags/${tag}/`}
           data-astro-prefetch
         >
           <span class={`iconify text-4xl sm:text-5xl ${icon}`} />

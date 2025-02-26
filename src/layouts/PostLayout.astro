@@ -32,7 +32,7 @@ const frontmatter: PageLayoutProps['frontmatter'] = {
 
 <PageLayout {frontmatter}>
   <div slot="top" class="mt-4">
-    <a href="/posts" class="clickable flex w-fit items-center gap-1">
+    <a href="/posts/" class="clickable flex w-fit items-center gap-1">
       <span class="iconify tabler--arrow-left text-xl"></span>
       Back to all posts
     </a>
@@ -47,7 +47,7 @@ const frontmatter: PageLayoutProps['frontmatter'] = {
         >{toDateString(post.data.publishedDate)}</time
       > by</span
     >
-    <a class="clickable" href={`/authors/${post.data.author}`}
+    <a class="clickable" href={`/authors/${post.data.author}/`}
       >{post.data.author}</a
     > · <span class="whitespace-nowrap opacity-75">{readingTime} </span>
   </div>
