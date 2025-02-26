@@ -37,5 +37,6 @@
     }
   }
 
-  customElements.define('scroll-top-button', ScrollToTopButton)
+  if (!customElements.get('scroll-top-button'))
+    customElements.define('scroll-top-button', ScrollToTopButton)
 </script>

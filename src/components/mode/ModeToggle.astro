@@ -25,5 +25,7 @@
       button.addEventListener('click', handleToggle)
     }
   }
-  customElements.define('dark-light-toggle', DarkLightToggle)
+
+  if (!customElements.get('dark-light-toggle'))
+    customElements.define('dark-light-toggle', DarkLightToggle)
 </script>

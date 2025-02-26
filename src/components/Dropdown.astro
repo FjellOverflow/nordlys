@@ -120,5 +120,6 @@ const menuId = generateItemId(`${label}-menu`)
     }
   }
 
-  customElements.define('dropdown-parent', Dropdown)
+  if (!customElements.get('dropdown-parent'))
+    customElements.define('dropdown-parent', Dropdown)
 </script>

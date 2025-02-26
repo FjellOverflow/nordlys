@@ -94,5 +94,6 @@ const frontmatter: PageLayoutProps['frontmatter'] = {
     }
   }
 
-  customElements.define('search-input', SearchInput)
+  if (!customElements.get('search-input'))
+    customElements.define('search-input', SearchInput)
 </script>

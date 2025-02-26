@@ -46,5 +46,6 @@
     }
   }
 
-  customElements.define('mobile-nav-toggle', MobileNavToggle)
+  if (!customElements.get('mobile-nav-toggle'))
+    customElements.define('mobile-nav-toggle', MobileNavToggle)
 </script>

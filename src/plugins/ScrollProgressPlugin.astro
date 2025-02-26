@@ -25,5 +25,6 @@
     }
   }
 
-  customElements.define('scroll-progress-bar', ScrollProgressbar)
+  if (!customElements.get('scroll-progress-bar'))
+    customElements.define('scroll-progress-bar', ScrollProgressbar)
 </script>
