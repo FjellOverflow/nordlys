@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.1.3](https://github.com/FjellOverflow/nordlys/compare/v2.1.2...v2.1.3) (2025-02-27)
+
+
+### Bug Fixes
+
+* load fonts from local files during OG image generation ([1874e64](https://github.com/FjellOverflow/nordlys/commit/1874e64564923761fa0aa8f1abf30dfad284659b))
+
 ## [2.1.2](https://github.com/FjellOverflow/nordlys/compare/v2.1.1...v2.1.2) (2025-02-26)
 
 
