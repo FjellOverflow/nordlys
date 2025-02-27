@@ -26,9 +26,6 @@ importers:
       '@iconify-json/tabler':
         specifier: ^1.2.16
         version: 1.2.16
-      '@iconify/tailwind':
-        specifier: ^1.2.0
-        version: 1.2.0
       '@resvg/resvg-js':
         specifier: ^2.6.2
         version: 2.6.2
@@ -492,9 +489,6 @@ packages:
     resolution: {integrity: sha512-qhgEBFwbhoWWGo3X27KInvNQOjt7UwmZTuLpjYQlYMTkcXzwPnomqmxzsBUC2L0ySA105BFDppYBv4CuWBQKwA==}
     peerDependencies:
       tailwindcss: '>= 4'
-
-  '@iconify/tailwind@1.2.0':
-    resolution: {integrity: sha512-KgpIHWOTcRYw1XcoUqyNSrmYyfLLqZYu3AmP8zdfLk0F5TqRO8YerhlvlQmGfn7rJXgPeZN569xPAJnJ53zZxA==}
 
   '@iconify/types@2.0.0':
     resolution: {integrity: sha512-+wluvCrRhXrhyOmRDJ3q8mux9JkKy5SJ/v8ol2tu4FVjyYvtEzkc/3pK15ET6RKg4b4w4BmTk1+gsCUhf21Ykg==}
@@ -4669,10 +4663,6 @@ snapshots:
       tailwindcss: 4.0.9
     transitivePeerDependencies:
       - supports-color
-
-  '@iconify/tailwind@1.2.0':
-    dependencies:
-      '@iconify/types': 2.0.0
 
   '@iconify/types@2.0.0': {}
 

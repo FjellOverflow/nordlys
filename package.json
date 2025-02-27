@@ -36,7 +36,6 @@
     "@astrojs/sitemap": "^3.2.1",
     "@fontsource/ibm-plex-sans": "^5.1.1",
     "@iconify-json/tabler": "^1.2.16",
-    "@iconify/tailwind": "^1.2.0",
     "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/typography": "^0.5.16",
     "@tailwindcss/vite": "^4.0.8",
