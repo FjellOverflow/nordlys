@@ -8,7 +8,7 @@
 
 @layer base {
   :root {
-    @apply bg-accent-bg selection:bg-accent/75 overflow-y-scroll scroll-smooth underline-offset-4 selection:text-white dark:selection:text-black;
+    @apply bg-accent-bg selection:bg-accent/75 overflow-y-scroll scroll-smooth font-sans underline-offset-4 selection:text-white dark:selection:text-black;
 
     img[data-img-embed=''],
     img[data-img-embed='true'] {

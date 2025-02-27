@@ -38,7 +38,7 @@
     "@iconify-json/tabler": "^1.2.16",
     "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/typography": "^0.5.16",
-    "@tailwindcss/vite": "^4.0.8",
+    "@tailwindcss/vite": "^4.0.9",
     "astro": "^5.4.0",
     "mdast-util-to-string": "^4.0.0",
     "medium-zoom": "^1.1.0",
