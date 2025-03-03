@@ -5,9 +5,11 @@
 <script>
   import mediumZoom from 'medium-zoom/dist/pure'
 
+  const margin = Math.round(window.screen.width / 680) * 8
+
   document.addEventListener('astro:page-load', () => {
     mediumZoom('[data-img-embed]', {
-      margin: 48,
+      margin,
       background: '#000000BF'
     })
   })
