@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.2.0](https://github.com/FjellOverflow/nordlys/compare/v2.1.3...v2.2.0) (2025-03-07)
+
+
+### Features
+
+* responsive margins for zoomed images ([9662d15](https://github.com/FjellOverflow/nordlys/commit/9662d159c2802cda74ab40bbdc15550b4034dd8a))
+
+
+### Bug Fixes
+
+* bump @tailwindcss/vite and load missing font ([9880b84](https://github.com/FjellOverflow/nordlys/commit/9880b84683c0955567229451e2bc57de04bf9570))
+* remove unnecessary 404 link ([2a762b2](https://github.com/FjellOverflow/nordlys/commit/2a762b25cd7eae3c8fe1a6f9401fddef6f24ae05))
+
 ## [2.1.3](https://github.com/FjellOverflow/nordlys/compare/v2.1.2...v2.1.3) (2025-02-27)
 
 
