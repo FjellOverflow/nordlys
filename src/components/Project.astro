@@ -42,11 +42,15 @@ const { Content } = await render(project)
         )
       }
       {!data.url && <span class="mb-2 text-xl">{data.title}</span>}
-      <div class="my-2 text-sm opacity-75 sm:my-0">
-        <time>{toMonthString(data.startDate)}</time> -
-        {data.endDate && <time>{toMonthString(data.endDate)}</time>}
-        {!data.endDate && 'Now'}
-      </div>
+      {
+        data.startDate && (
+          <div class="my-2 text-sm opacity-75 sm:my-0">
+            <time>{toMonthString(data.startDate)}</time> -
+            {data.endDate && <time>{toMonthString(data.endDate)}</time>}
+            {!data.endDate && 'Now'}
+          </div>
+        )
+      }
     </div>
     <TagsBar tags={resolveTags(data.tags)} />
     <div class="opacity-75">

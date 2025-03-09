@@ -97,7 +97,7 @@ Take a look at `localhost:4321/projects`, and your new project should be listed 
 type ProjectFrontmatter = {
   title: string
   url?: string // can be relative or absolute
-  startDate: Date
+  startDate?: Date // if omitted, endDate will be ignored, even if set, and project will get sorted to bottom of list
   endDate?: Date // shows "Now" if not set
   tags?: string[] // defaults to []
   previewImage: ImageMetadata // local asset
