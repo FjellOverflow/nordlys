@@ -5,6 +5,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin-top: 0.08rem;
     font-size: var(--text-sm);
     color: var(--code-header-color);
 
@@ -22,15 +23,18 @@
   }
 }
 
-@utility astro-code {
+.astro-code {
   margin-top: 0;
   border-color: rgb(var(--accent));
   border-top-left-radius: 0;
   border-top-right-radius: 0;
   border-width: 1px;
   border-top-width: 0;
+}
 
-  html[data-mode='dark'] & {
+html[data-mode='dark'] {
+  .astro-code,
+  .astro-code span {
     color: var(--shiki-dark) !important;
     background-color: var(--shiki-dark-bg) !important;
     font-style: var(--shiki-dark-font-style) !important;
