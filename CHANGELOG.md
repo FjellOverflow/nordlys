@@ -4,65 +4,61 @@ All notable changes to this project will be documented in this file. See [commit
 
 ## [2.3.0](https://github.com/FjellOverflow/nordlys/compare/v2.2.0...v2.3.0) (2025-03-22)
 
+### ⚠ BREAKING CHANGES
+
+For medium-zoom on images, a new `data-action="zoom"` attribute has been introduced. That means images with the `data-img-embed` attributes will no longer be zoomable; to fix this you need to add the addtional attribute `data-action="zoom"` to your images.
 
 ### Features
 
-* make project startDate optional, sort projects without to list bottom ([54fe562](https://github.com/FjellOverflow/nordlys/commit/54fe562662ba14753185c5dedd109c817f8c8da6))
-
+- make project startDate optional, sort projects without to list bottom ([54fe562](https://github.com/FjellOverflow/nordlys/commit/54fe562662ba14753185c5dedd109c817f8c8da6))
 
 ### Bug Fixes
 
-* add missing trailing slash to canonicalURL ([acedf7e](https://github.com/FjellOverflow/nordlys/commit/acedf7e03707e382a5a9478c8c8ab2dcc1351e27))
-* correct dark mode colors for syntax highlighted blox ([c720e71](https://github.com/FjellOverflow/nordlys/commit/c720e717031d3edeadf07fc8d0b3e147ace9dbba))
-* switch medium-zoom lib for better Safari browser support ([d3cc91b](https://github.com/FjellOverflow/nordlys/commit/d3cc91b551fffd4fafd9eeb0d321191a7ea5dd6d))
+- add missing trailing slash to canonicalURL ([acedf7e](https://github.com/FjellOverflow/nordlys/commit/acedf7e03707e382a5a9478c8c8ab2dcc1351e27))
+- correct dark mode colors for syntax highlighted blox ([c720e71](https://github.com/FjellOverflow/nordlys/commit/c720e717031d3edeadf07fc8d0b3e147ace9dbba))
+- switch medium-zoom lib for better Safari browser support ([d3cc91b](https://github.com/FjellOverflow/nordlys/commit/d3cc91b551fffd4fafd9eeb0d321191a7ea5dd6d))
 
 ## [2.2.0](https://github.com/FjellOverflow/nordlys/compare/v2.1.3...v2.2.0) (2025-03-07)
 
-
 ### Features
 
-* responsive margins for zoomed images ([9662d15](https://github.com/FjellOverflow/nordlys/commit/9662d159c2802cda74ab40bbdc15550b4034dd8a))
-
+- responsive margins for zoomed images ([9662d15](https://github.com/FjellOverflow/nordlys/commit/9662d159c2802cda74ab40bbdc15550b4034dd8a))
 
 ### Bug Fixes
 
-* bump @tailwindcss/vite and load missing font ([9880b84](https://github.com/FjellOverflow/nordlys/commit/9880b84683c0955567229451e2bc57de04bf9570))
-* remove unnecessary 404 link ([2a762b2](https://github.com/FjellOverflow/nordlys/commit/2a762b25cd7eae3c8fe1a6f9401fddef6f24ae05))
+- bump @tailwindcss/vite and load missing font ([9880b84](https://github.com/FjellOverflow/nordlys/commit/9880b84683c0955567229451e2bc57de04bf9570))
+- remove unnecessary 404 link ([2a762b2](https://github.com/FjellOverflow/nordlys/commit/2a762b25cd7eae3c8fe1a6f9401fddef6f24ae05))
 
 ## [2.1.3](https://github.com/FjellOverflow/nordlys/compare/v2.1.2...v2.1.3) (2025-02-27)
 
-
 ### Bug Fixes
 
-* load fonts from local files during OG image generation ([1874e64](https://github.com/FjellOverflow/nordlys/commit/1874e64564923761fa0aa8f1abf30dfad284659b))
+- load fonts from local files during OG image generation ([1874e64](https://github.com/FjellOverflow/nordlys/commit/1874e64564923761fa0aa8f1abf30dfad284659b))
 
 ## [2.1.2](https://github.com/FjellOverflow/nordlys/compare/v2.1.1...v2.1.2) (2025-02-26)
 
-
 ### Bug Fixes
 
-* add missing trailing slashes to internal links ([8c189bd](https://github.com/FjellOverflow/nordlys/commit/8c189bd975fbbd5b3981dd5e0552497fcfccd3df))
-* post preview image margins ([07d2ec8](https://github.com/FjellOverflow/nordlys/commit/07d2ec83d254a86618d566d6ec00948c37022d2b))
-* prevent duplicate registration of already registered custom elements ([bf390c8](https://github.com/FjellOverflow/nordlys/commit/bf390c87ea9ad6dcefa2a35c0e637ef9530d008c))
+- add missing trailing slashes to internal links ([8c189bd](https://github.com/FjellOverflow/nordlys/commit/8c189bd975fbbd5b3981dd5e0552497fcfccd3df))
+- post preview image margins ([07d2ec8](https://github.com/FjellOverflow/nordlys/commit/07d2ec83d254a86618d566d6ec00948c37022d2b))
+- prevent duplicate registration of already registered custom elements ([bf390c8](https://github.com/FjellOverflow/nordlys/commit/bf390c87ea9ad6dcefa2a35c0e637ef9530d008c))
 
 ## [2.1.1](https://github.com/FjellOverflow/nordlys/compare/v2.1.0...v2.1.1) (2025-02-25)
 
-
 ### Bug Fixes
 
-* **seo:** link to canonical URLs with trailing slash ([2dbb430](https://github.com/FjellOverflow/nordlys/commit/2dbb4300d750e0aa49e04ed010e573146b18cc8e))
+- **seo:** link to canonical URLs with trailing slash ([2dbb430](https://github.com/FjellOverflow/nordlys/commit/2dbb4300d750e0aa49e04ed010e573146b18cc8e))
 
 ## [2.1.0](https://github.com/FjellOverflow/nordlys/compare/v2.0.3...v2.1.0) (2025-01-25)
 
-
 ### Features
 
-* scrollable ToC ([7ea348d](https://github.com/FjellOverflow/nordlys/commit/7ea348d004900ae03f0a3199d69381330837d0c5)) by @patrickpiedad
+- scrollable ToC ([7ea348d](https://github.com/FjellOverflow/nordlys/commit/7ea348d004900ae03f0a3199d69381330837d0c5)) by @patrickpiedad
 
 ### Bug Fixes
 
-* add stylelint exception for tailwinds `@apply` ([cd95918](https://github.com/FjellOverflow/nordlys/commit/cd9591846a90c9b9aaf7252b454864b42c36d4c0))
-* post og-image generation ([11df323](https://github.com/FjellOverflow/nordlys/commit/11df323c7418ceb5937b0d63ad5a68398c384788))
+- add stylelint exception for tailwinds `@apply` ([cd95918](https://github.com/FjellOverflow/nordlys/commit/cd9591846a90c9b9aaf7252b454864b42c36d4c0))
+- post og-image generation ([11df323](https://github.com/FjellOverflow/nordlys/commit/11df323c7418ceb5937b0d63ad5a68398c384788))
 
 Big thanks to @patrickpiedad his much appreciated contribution to the project 🥳!
 
