@@ -54,7 +54,7 @@ In addition to local assets, we can also use images from the web.
 
 ## data-img-embed
 
-For a nice embedding of images into the content, you can use the `data-img-embed` attribute. This will give the image a bordered, rounded appearance and users can zoom it on click.
+For a nice embedding of images into the content, you can use the `data-img-embed` attribute, this will give the image a bordered, rounded appearance.
 
 ```markdown src/pages/my-page.md
 // embedded image
@@ -69,6 +69,18 @@ For a nice embedding of images into the content, you can use the `data-img-embed
 
 <div align="center">
 <Image alt="Nordlys preview" src="https://nordlys.fjelloverflow.dev/preview.png" loading="lazy" height={252} width={480} data-img-embed/>
+</div>
+
+## Zoomable images
+
+Starting from Nordlys version **2.3.0**, the `data-action="zoom"` attribute makes images zoomable on click, displaying them almost fullscreen with a blurred background.
+
+```markdown src/pages/my-page.md
+<img src="https://nordlys.fjelloverflow.dev/preview.png" data-img-embed data-action="zoom"/>
+```
+
+<div align="center">
+<Image alt="Nordlys preview" src="https://nordlys.fjelloverflow.dev/preview.png" loading="lazy" height={252} width={480} data-img-embed data-action="zoom"/>
 </div>
 
 ## Open Graph Images
@@ -92,11 +104,11 @@ openGraphImage: "https://nordlys.fjelloverflow.dev/favicon.svg"
 Note that supplying `openGraphImage` is entirely optional. If a post (any file in `src/content/posts`) does not have an `openGraphImage` provided, Nordlys will automatically generate and use a basic template, displaying the post `title`, `description`, `author`, and website `title`, which looks like this:
 
 <div align="center">
-<Image alt="Example post OG image, showing the website name, logo, post title, description and author" src="https://nordlys.fjelloverflow.dev/posts/using-images.png" loading="lazy" height={252} width={480} data-img-embed/>
+<Image alt="Example post OG image, showing the website name, logo, post title, description and author" src="https://nordlys.fjelloverflow.dev/posts/using-images.png" loading="lazy" height={252} width={480} data-img-embed data-action="zoom"/>
 </div>
 
 Similarly, when there is no global `openGraphImage` configured in `theme.config.ts`, Nordlys generates and uses a generic image that displays the site `title` and `description` on every page where none has been defined, looking like this:
 
 <div align="center">
-<Image alt="Example site OG image, showing the website name, logo and description" src="https://nordlys.fjelloverflow.dev/ogImage.png" loading="lazy" height={252} width={480} data-img-embed/>
+<Image alt="Example site OG image, showing the website name, logo and description" src="https://nordlys.fjelloverflow.dev/ogImage.png" loading="lazy" height={252} width={480} data-img-embed data-action="zoom"/>
 </div>

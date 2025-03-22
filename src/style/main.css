@@ -16,6 +16,10 @@
       border-radius: var(--radius-sm);
       border-width: 1px;
     }
+
+    .zoom-overlay {
+      background-color: #000000bf !important;
+    }
   }
 }
 
