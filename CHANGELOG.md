@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.3.1](https://github.com/FjellOverflow/nordlys/compare/v2.3.0...v2.3.1) (2025-05-04)
+
+
+### Bug Fixes
+
+* **seo:** redirect /posts & /projects to /posts/1 & /projects/1 for SEO optimization ([0c942ad](https://github.com/FjellOverflow/nordlys/commit/0c942ade3f1dbb445a13946a77d6bf8ec2cfe22b))
+
 ## [2.3.0](https://github.com/FjellOverflow/nordlys/compare/v2.2.0...v2.3.0) (2025-03-22)
 
 ### ⚠ BREAKING CHANGES
