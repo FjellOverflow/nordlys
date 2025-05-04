@@ -27,7 +27,7 @@ const frontmatter: PageLayoutProps['frontmatter'] = {
 <PageLayout {frontmatter}>
   <h1>
     {frontmatter.title}
-    <span>{` (page ${page.currentPage})`}</span>
+    {page.currentPage > 1 && <span>{` (page ${page.currentPage})`}</span>}
   </h1>
   <ProjectsList projects={page.data} />
 
