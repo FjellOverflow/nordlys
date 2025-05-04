@@ -9,12 +9,6 @@ import config from './src/theme.config'
 
 export default defineConfig({
   site: config.site,
-
-  redirects: {
-    '/posts': '/posts/1',
-    '/projects': '/projects/1'
-  },
-
   integrations: [mdx(), sitemap()],
 
   markdown: {
