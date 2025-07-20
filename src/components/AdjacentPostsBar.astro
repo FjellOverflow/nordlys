@@ -10,9 +10,9 @@ const { post } = Astro.props
 const { previous, next } = await adjacentPosts(post)
 ---
 
-<div class="flex grow flex-col justify-end">
-  <div class="my-4 grid grid-cols-3">
-    <div class="flex flex-col items-start">
+<div class="mb-2 flex grow flex-col justify-end">
+  <div class="my-4 grid grid-cols-5">
+    <div class="col-span-5 flex flex-col items-start sm:col-span-2">
       {
         !!next && (
           <a href={`/posts/${next.id}/`} class="clickable">
@@ -20,12 +20,16 @@ const { previous, next } = await adjacentPosts(post)
               <span class="iconify tabler--arrow-left text-xl" />
               <span>Next post</span>
             </div>
-            <span class="mt-2 text-lg sm:text-xl">{next.data.title}</span>
+            <span class="mt-2 text-lg underline sm:text-xl">
+              {next.data.title}
+            </span>
           </a>
         )
       }
     </div>
-    <div class="col-start-3 flex flex-col items-end">
+    <div
+      class="col-span-5 mt-8 flex flex-col items-end sm:col-span-2 sm:col-start-4 sm:mt-0"
+    >
       {
         !!previous && (
           <a href={`/posts/${previous.id}/`} class="clickable">
@@ -33,7 +37,9 @@ const { previous, next } = await adjacentPosts(post)
               <span>Previous post</span>
               <span class="iconify tabler--arrow-right text-xl" />
             </div>
-            <span class="mt-2 text-lg sm:text-xl">{previous.data.title}</span>
+            <span class="mt-2 text-lg underline sm:text-xl">
+              {previous.data.title}
+            </span>
           </a>
         )
       }
