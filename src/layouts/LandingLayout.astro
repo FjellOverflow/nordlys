@@ -7,10 +7,16 @@ import BaseLayout, {
   type Props as BaseLayoutProps
 } from '@/layouts/BaseLayout.astro'
 import config from '@/theme.config'
+import { getPosts } from '@/util/posts'
 
-export type Props = BaseLayoutProps & HeroProps
+export type Props = BaseLayoutProps &
+  HeroProps & {
+    frontmatter: { showLatestPost?: boolean }
+  }
 
 const { frontmatter } = Astro.props
+
+const latestPost = (await getPosts())[0]
 ---
 
 <BaseLayout frontmatter={frontmatter}>
@@ -25,6 +31,18 @@ const { frontmatter } = Astro.props
           class="text-3xl font-semibold tracking-tight text-gray-700/50 sm:text-4xl sm:leading-[46px] dark:text-gray-300/50"
         >
           <slot />
+          {
+            latestPost && frontmatter.showLatestPost && (
+              <div class="mt-8">
+                <span class="text-2xl sm:text-3xl">
+                  Read my latest post{' '}
+                  <a href={`/posts/${latestPost.id}/`}>
+                    {latestPost.data.title}
+                  </a>
+                </span>
+              </div>
+            )
+          }
         </div>
       </main>
       <footer class="mt-8">
