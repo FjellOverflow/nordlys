@@ -37,7 +37,7 @@ function renderList(headings: ProcessedHeading[]): string {
           ${headings
             .map(
               (heading) => `<li class="mt-1 mb-1">
-                              <a href="#${heading.slug}" class="no-underline hover:underline" aria-label="${heading.text}">
+                              <a href="#${heading.slug}" class="no-underline hover:underline toc-el" aria-label="${heading.text}">
                                 ${heading.text}
                               </a>
                               ${renderList(heading.children)}
@@ -58,3 +58,45 @@ function renderList(headings: ProcessedHeading[]): string {
     </details>
   </Prose>
 </div>
+
+<script>
+  function attachTocObserver() {
+    const intersectionRatios: Record<string, number> = {}
+
+    const tocObserver = new IntersectionObserver(
+      (articleSections) => {
+        for (const section of articleSections) {
+          const sectionId = section.target.querySelector('h2,h3,h4,h5')?.id
+
+          if (sectionId)
+            intersectionRatios[sectionId] = section.intersectionRatio
+        }
+
+        document
+          .querySelectorAll('.toc-el')
+          .forEach((e) => e.classList.remove('underline'))
+
+        const maxVisibility = Math.max(...Object.values(intersectionRatios))
+        const [sectionId] =
+          Object.entries(intersectionRatios).find(
+            ([_id, visibility]) => visibility == maxVisibility
+          ) || []
+
+        document
+          .querySelectorAll(`[href="#${sectionId}"]`)
+          .forEach((el) => el.classList.add('underline'))
+      },
+      {
+        threshold: [0.33, 0.66, 1]
+      }
+    )
+
+    document
+      .querySelectorAll('article section')
+      .forEach((articleSection) => tocObserver.observe(articleSection))
+  }
+
+  document.addEventListener('astro:page-load', () => {
+    attachTocObserver()
+  })
+</script>

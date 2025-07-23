@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import tailwindcss from '@tailwindcss/vite'
+import sectionizePlugin from 'remark-sectionize'
 import codeHeadersPlugin from './src/plugins/codeHeadersPlugin'
 import readingTimePlugin from './src/plugins/readingTimePlugin'
 import config from './src/theme.config'
@@ -17,7 +18,7 @@ export default defineConfig({
       wrap: true,
       transformers: [codeHeadersPlugin]
     },
-    remarkPlugins: [readingTimePlugin]
+    remarkPlugins: [readingTimePlugin, sectionizePlugin]
   },
 
   vite: {

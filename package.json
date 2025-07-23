@@ -43,6 +43,7 @@
     "mdast-util-to-string": "^4.0.0",
     "pagefind": "^1.3.0",
     "reading-time": "^1.5.0",
+    "remark-sectionize": "^2.1.0",
     "satori": "^0.15.2",
     "sharp": "^0.34.3",
     "tailwind-scrollbar-hide": "^4.0.0",
