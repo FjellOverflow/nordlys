@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [2.5.0](https://github.com/FjellOverflow/nordlys/compare/v2.4.0...v2.5.0) (2025-07-23)
+
+
+### Features
+
+* highlight active header in TOC ([5ad84e5](https://github.com/FjellOverflow/nordlys/commit/5ad84e532367335b5a7ba70b2209eb03415dc1c4))
+
 ## [2.4.0](https://github.com/FjellOverflow/nordlys/compare/v2.3.2...v2.4.0) (2025-07-20)
 
 
