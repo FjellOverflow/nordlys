@@ -33,5 +33,15 @@ export default [
   },
   {
     ignores: ['dist', 'node_modules', '.astro', 'public']
+  },
+  {
+    rules: {
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_'
+        }
+      ]
+    }
   }
 ]
