@@ -9,7 +9,7 @@ export const GET: APIRoute = async () => {
   const svg = await ogImages.site()
   const png = new Resvg(svg).render().asPng()
 
-  return new Response(png, {
+  return new Response(new Uint8Array(png), {
     headers: { 'Content-Type': 'image/png' }
   })
 }
