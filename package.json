@@ -31,7 +31,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.4",
-    "@astrojs/mdx": "^4.3.4",
+    "@astrojs/mdx": "^4.3.5",
     "@astrojs/rss": "^4.0.12",
     "@astrojs/sitemap": "^3.5.1",
     "@fontsource/ibm-plex-sans": "^5.2.6",
@@ -39,7 +39,7 @@
     "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/typography": "^0.5.16",
     "@tailwindcss/vite": "^4.1.13",
-    "astro": "^5.13.5",
+    "astro": "^5.13.6",
     "mdast-util-to-string": "^4.0.0",
     "pagefind": "^1.4.0",
     "reading-time": "^1.5.0",
@@ -52,7 +52,7 @@
   "devDependencies": {
     "@eslint/js": "^9.35.0",
     "@iconify/tailwind4": "^1.0.6",
-    "@typescript-eslint/parser": "^8.42.0",
+    "@typescript-eslint/parser": "^8.43.0",
     "commit-and-tag-version": "^12.6.0",
     "eslint": "^9.35.0",
     "eslint-config-prettier": "^10.1.8",
@@ -68,7 +68,7 @@
     "stylelint-config-recommended": "^17.0.0",
     "type-fest": "^4.41.0",
     "typescript": "^5.9.2",
-    "typescript-eslint": "^8.42.0"
+    "typescript-eslint": "^8.43.0"
   },
   "packageManager": "pnpm@10.15.1",
   "pnpm": {
