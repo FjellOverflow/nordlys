@@ -1,4 +1,4 @@
-import type { ShikiConfig } from 'astro'
+import type { AstroExpressiveCodeOptions } from 'astro-expressive-code'
 import type { SetOptional } from 'type-fest'
 
 export type Icon = `tabler--${string}`
@@ -51,7 +51,7 @@ export interface ThemeConfig {
   scrollProgress: boolean
   scrollToTop: boolean
   tagIcons: Record<string, Icon>
-  shikiThemes: ShikiConfig['themes']
+  expressiveCodeThemes: AstroExpressiveCodeOptions['themes']
 }
 
 const defaults = {
@@ -65,10 +65,10 @@ const defaults = {
   scrollProgress: false,
   scrollToTop: true,
   tagIcons: {},
-  shikiThemes: {
-    light: 'vitesse-light',
-    dark: 'vitesse-black'
-  } as ShikiConfig['themes']
+  expressiveCodeThemes: [
+    'vitesse-light',
+    'vitesse-black'
+  ] as AstroExpressiveCodeOptions['themes']
 }
 
 type PartialThemeConfig = SetOptional<ThemeConfig, keyof typeof defaults>

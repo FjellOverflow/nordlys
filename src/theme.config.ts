@@ -48,8 +48,5 @@ export default defineThemeConfig({
     astro: 'tabler--brand-astro',
     documentation: 'tabler--book'
   },
-  shikiThemes: {
-    light: 'vitesse-light',
-    dark: 'vitesse-black'
-  }
+  expressiveCodeThemes: ['vitesse-light', 'vitesse-black']
 })

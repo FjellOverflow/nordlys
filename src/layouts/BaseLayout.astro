@@ -7,7 +7,6 @@ import ibmPlexBold from '@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-700
 import '@fontsource/ibm-plex-sans/latin.css'
 
 import ModeManager from '@/components/mode/ModeManager.astro'
-import CopyCodeButtonsPlugin from '@/plugins/CopyCodeButtonsPlugin.astro'
 import config from '@/theme.config'
 import { resolveImageUrl } from '@/util'
 import type { ImageMetadata } from 'astro'
@@ -110,7 +109,6 @@ const openGraphImageUrl = new URL(resolveImageUrl(openGraphImage), Astro.site)
   </head>
   <body>
     <slot />
-    <CopyCodeButtonsPlugin />
     <script
       is:inline
       data-astro-rerun

@@ -1,7 +1,6 @@
 @import 'tailwindcss';
 
 @import './color-schemes.css' layer(base);
-@import './astro-code.css';
 @reference './theme.css';
 
 @custom-variant dark (&:where([data-mode=dark], [data-mode=dark] *));

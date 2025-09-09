@@ -12,7 +12,7 @@ Nordlys, out of the box, offers well-styled code blocks with customization featu
 
 As always, we can embed code into `.md` and `.mdx` files by using code fences (```).
 
-````md pages/example.md
+````md title="pages/example.md"
 ```
 sudo apt update
 ```
@@ -30,7 +30,7 @@ Notice that, thanks to some post-processing and styling by Nordlys, the code blo
 
 Nordlys can also render an icon that matches the code-language in the header. When adding `javascript` as the code language after the first backticks(```), the code block will have _JavaScript_ syntax highlighting and display a small <span class="iconify tabler--brand-javascript"></span> icon in the header.
 
-````md pages/example.md
+````md title="pages/example.md"
 ```javascript
 const sortedArray = [3, 1, 2].toSorted()
 ```
@@ -48,15 +48,15 @@ If the code language is not specified or if a language that is not yet supported
 
 We can also display a custom label in the code header, such as the name of a file containing our embedded code. To achieve this, we add a label **after** the code language, following the backticks. This means we need to specify the language to render a label.
 
-````md pages/example.md
-```python scripts/sorting.py
+````md title="pages/example.md"
+```python title="scripts/sorting.py"
 sortedList = sorted([3, 1, 2])
 ```
 ````
 
 The code above renders to:
 
-```python scripts/sorting.py
+```python title="scripts/sorting.py"
 sortedList = sorted([3, 1, 2])
 ```
 
@@ -64,7 +64,7 @@ sortedList = sorted([3, 1, 2])
 
 It is also possible to change the colors of the code blocks, by changing the `shikiThemes` in `theme.config.ts`. For a list of avaible themes, refer to the [Shiki documentation](https://shiki.style/themes).
 
-```typescript theme.config.ts
+```typescript title="theme.config.ts"
 export default defineThemeConfig({
   shikiThemes: {
     light: 'vitesse-light',

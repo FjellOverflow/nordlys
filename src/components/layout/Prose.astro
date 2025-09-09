@@ -10,7 +10,7 @@ const { class: className, ...rest } = Astro.props
 </div>
 
 <style is:global>
-  .prose code:not(.astro-code code):not(.astro-code-header code) {
+  .prose code:not(.expressive-code code) {
     background-color: color-mix(in oklab, rgb(var(--accent)) 15%, transparent);
     border-radius: var(--radius-sm);
     padding-inline: calc(var(--spacing) * 1);
