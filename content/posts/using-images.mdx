@@ -18,7 +18,7 @@ Astro, and by extension Nordlys, offers various ways to use images in your conte
 
 In all Markdown (`.md`) files, images can be embedded using the usual syntax. Astro will resolve local assets as the image source.
 
-```markdown src/content/posts/my-post.md
+```markdown title="src/content/posts/my-post.md"
 ![Nordlys logo](@/assets/logo.svg)
   or
 ![Nordlys logo](../../assets/logo.svg)
@@ -32,7 +32,7 @@ In all Markdown (`.md`) files, images can be embedded using the usual syntax. As
 
 In Astro (`.astro`) or  MDX (`.mdx`) files, you can also use Astro's built-in `<Image>` component.
 
-```astro src/pages/my-page.astro
+```astro title="src/pages/my-page.astro"
 ---
 import logo from '@/assets/logo.svg'
 import { Image } from 'astro:assets'
@@ -46,7 +46,7 @@ import { Image } from 'astro:assets'
 
 In addition to local assets, we can also use images from the web.
 
-```markdown src/pages/my-page.md
+```markdown title="src/pages/my-page.md"
 ![Nordlys favicon](https://nordlys.fjelloverflow.dev/favicon.svg)
 ```
 
@@ -56,12 +56,12 @@ In addition to local assets, we can also use images from the web.
 
 For a nice embedding of images into the content, you can use the `data-img-embed` attribute, this will give the image a bordered, rounded appearance.
 
-```markdown src/pages/my-page.md
+```markdown title="src/pages/my-page.md"
 // embedded image
 <img src="https://nordlys.fjelloverflow.dev/preview.png" data-img-embed/>
 <img src="https://nordlys.fjelloverflow.dev/preview.png" data-img-embed="true"/>
 
-// normal apperance
+// normal appearance
 <img src="https://nordlys.fjelloverflow.dev/preview.png"/>
 <img src="https://nordlys.fjelloverflow.dev/preview.png" data-img-embed="false"/>
 
@@ -75,7 +75,7 @@ For a nice embedding of images into the content, you can use the `data-img-embed
 
 Starting from Nordlys version **2.3.0**, the `data-action="zoom"` attribute makes images zoomable on click, displaying them almost fullscreen with a blurred background.
 
-```markdown src/pages/my-page.md
+```markdown title="src/pages/my-page.md"
 <img src="https://nordlys.fjelloverflow.dev/preview.png" data-img-embed data-action="zoom"/>
 ```
 
@@ -87,7 +87,7 @@ Starting from Nordlys version **2.3.0**, the `data-action="zoom"` attribute make
 
 Images and image URLs can be used in frontmatter, for instance as `openGraphImage`. To use a local asset, use:
 
-```md src/content/posts/my-post.md
+```md title="src/content/posts/my-post.md"
 openGraphImage: "@/assets/logo.svg"
   or
 openGraphImage: "../../assets/logo.svg"
@@ -97,7 +97,7 @@ openGraphImage: "src/assets/logo.svg"
 
 To use a public image, use:
 
-```md src/content/posts/my-post.md
+```md title="src/content/posts/my-post.md"
 openGraphImage: "https://nordlys.fjelloverflow.dev/favicon.svg"
 ```
 

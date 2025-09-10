@@ -12,7 +12,7 @@ Adding content in Nordlys is as easy as creating a new Markdown (or [MDX](https:
 
 To add a new page to Nordlys, navigate to the `src/pages` and create a new Markdown file. Most likely you'll want the page to use the default layout, so set that in the frontmatter. After that, you can start writing your content.
 
-```markdown src/pages/faq.md
+```markdown title="src/pages/faq.md"
 ---
 layout: '@/layouts/PageLayout.astro'
 title: FAQ
@@ -44,7 +44,7 @@ type PageFrontmatter = {
 
 Writing a blog post is essentially the same as adding a new page, with slightly different frontmatter. You can follow the same procedure, except you'll create the file in the `src/content/posts` directory.
 
-```markdown src/content/posts/i-learned-today.md
+```markdown title="src/content/posts/i-learned-today.md"
 ---
 title: I learned something
 description: A quick update on the new things I learned
@@ -77,7 +77,7 @@ type PostFrontmatter = {
 
 To add a new project in Nordlys, simply create a file in the `src/content/projects` directory. Set the project properties, write a short description, and you're done!
 
-```markdown src/content/projects/awesome-app.md
+```markdown title="src/content/projects/awesome-app.md"
 ---
 title: Awesome App
 startDate: 2023-10-06

@@ -14,7 +14,7 @@ Checking for a newer version and updating to it is simple.
 
 1. Check the Nordlys version you are using by opening the `package.json` and noting the version listed there.
 
-```json package.json
+```json title="package.json"
 {
   "name": "nordlys",
   "version": "2.1.3"

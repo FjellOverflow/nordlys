@@ -14,7 +14,7 @@ For most common customizations, you will only need to modify the `theme.config.t
 
 The following options must always be set:
 
-```ts src/theme.config.ts
+```ts title="src/theme.config.ts"
 export default defineThemeConfig({
   site: 'https://my-awesome-site.com',
   title: 'My awesome site',
@@ -71,7 +71,7 @@ The `description` is a meta tag that provides a brief summary of your website's 
 
 The following settings are optional and will default to preset values (as shown here) if not configured:
 
-```ts src/theme.config.ts
+```ts title="src/theme.config.ts"
 export default defineThemeConfig({
   locale: 'en',
   mode: 'dark',
