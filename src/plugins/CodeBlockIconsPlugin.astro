@@ -1,0 +1,94 @@
+---
+
+---
+
+<script is:inline data-astro-rerun>
+  function setupCodeBlockIcons() {
+    const iconMap = {
+      'angular-html': 'tabler--brand-angular',
+      'angular-ts': 'tabler--brand-angular',
+      astro: 'tabler--brand-astro',
+      cpp: 'tabler--brand-cpp',
+      csharp: 'tabler--brand-c-sharp',
+      cs: 'tabler--brand-c-sharp',
+      css: 'tabler--brand-css3',
+      csv: 'tabler--csv',
+      diff: 'tabler--file-diff',
+      docker: 'tabler--brand-docker',
+      dockerfile: 'tabler--brand-docker',
+      go: 'tabler--brand-golang',
+      graphql: 'tabler--brand-graphql',
+      gql: 'tabler--brand-graphql',
+      html: 'tabler--brand-html5',
+      javascript: 'tabler--brand-javascript',
+      js: 'tabler--brand-javascript',
+      json: 'tabler--json',
+      jsonc: 'tabler--json',
+      jsx: 'tabler--brand-react',
+      kotlin: 'tabler--brand-kotlin',
+      kt: 'tabler--brand-kotlin',
+      kts: 'tabler--brand-kotlin',
+      markdown: 'tabler--markdown',
+      md: 'tabler--markdown',
+      mdx: 'tabler--markdown',
+      php: 'tabler--brand-php',
+      powershell: 'tabler--brand-powershell',
+      ps: 'tabler--brand-powershell',
+      ps1: 'tabler--brand-powershell',
+      python: 'tabler--brand-python',
+      py: 'tabler--brand-python',
+      rust: 'tabler--brand-rust',
+      rs: 'tabler--brand-rust',
+      sass: 'tabler--brand-sass',
+      shellscript: 'tabler--terminal',
+      bash: 'tabler--terminal',
+      sh: 'tabler--terminal',
+      shell: 'tabler--terminal',
+      zsh: 'tabler--terminal',
+      sql: 'tabler--sql',
+      svelte: 'tabler--brand-svelte',
+      swift: 'tabler--brand-swift',
+      tsx: 'tabler--brand-typescript',
+      typescript: 'tabler--brand-typescript',
+      ts: 'tabler--brand-typescript',
+      vue: 'tabler--brand-vue',
+      'vue-html': 'tabler--brand-vue',
+      xml: 'tabler--file-type-xml'
+    }
+
+    document
+      .querySelectorAll('.expressive-code')
+      .forEach((expressiveCodeBlock) => {
+        expressiveCodeBlock
+          .querySelectorAll('figure.has-title > pre[data-language]')
+          .forEach((codeBlock) => {
+            const language = codeBlock.getAttribute('data-language') || ''
+
+            if (!Object.prototype.hasOwnProperty.call(iconMap, language)) return
+
+            const languageIcon = iconMap[language]
+
+            const wrapperDiv = document.createElement('div')
+            wrapperDiv.classList.add('relative')
+            const iconSpan = document.createElement('span')
+            iconSpan.classList.add(
+              'iconify',
+              languageIcon,
+              'text-2xl',
+              'absolute',
+              'top-[6px]',
+              'right-[6px]',
+              'z-1',
+              'opacity-75'
+            )
+
+            expressiveCodeBlock.replaceWith(wrapperDiv)
+
+            wrapperDiv.appendChild(expressiveCodeBlock)
+            wrapperDiv.appendChild(iconSpan)
+          })
+      })
+  }
+
+  setupCodeBlockIcons()
+</script>
