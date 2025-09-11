@@ -6,11 +6,13 @@ tags:
   - documentation
 ---
 
-Nordlys, out of the box, offers well-styled code blocks with customization features, in addition to the basic syntax highlighting [by Astro](https://docs.astro.build/en/guides/markdown-content/#syntax-highlighting). This post showcases and explains the various customization options available.
+Nordlys, out of the box, offers well-styled code blocks, powered by [Expressive Code](https://expressive-code.com/), with some addtional tweaks. This post outlines the basics of syntax highlighting; for more detailed information, customization options and examples, consult the [Expressive Code docs](https://expressive-code.com/key-features/syntax-highlighting/).
 
-## Basic Example
+## Basics
 
-As always, we can embed code into `.md` and `.mdx` files by using code fences (```).
+### Code fences
+
+Code can embedded into Markdown (`.md` and `.mdx`) files by using code fences (```).
 
 ````md title="pages/example.md"
 ```
@@ -24,11 +26,9 @@ The code above renders to:
 sudo apt update
 ```
 
-Notice that, thanks to some post-processing and styling by Nordlys, the code block also has a header. Clicking on the <span class="iconify tabler--copy"></span> icon in the header copies the embedded code to the clipboard.
+### Setting the Code Language
 
-## Setting the Code Language
-
-Nordlys can also render an icon that matches the code-language in the header. When adding `javascript` as the code language after the first backticks(```), the code block will have _JavaScript_ syntax highlighting and display a small <span class="iconify tabler--brand-javascript"></span> icon in the header.
+By setting a language for the code block, the code will have appropriate syntax highlighting.
 
 ````md title="pages/example.md"
 ```javascript
@@ -42,11 +42,9 @@ The code above renders to:
 const sortedArray = [3, 1, 2].toSorted()
 ```
 
-If the code language is not specified or if a language that is not yet supported is used, the <span class="iconify text-4xl tabler--dots"></span> icon will be displayed, as seen in the [basic example](#basic-example).
+### Editor & Terminal frames
 
-## Adding a Label
-
-We can also display a custom label in the code header, such as the name of a file containing our embedded code. To achieve this, we add a label **after** the code language, following the backticks. This means we need to specify the language to render a label.
+To render an editor-like filename label, supply a title to the codeblock. If available for the selected language, Nordlys will also display an appropriate language icon in the code block header.
 
 ````md title="pages/example.md"
 ```python title="scripts/sorting.py"
@@ -58,18 +56,140 @@ The code above renders to:
 
 ```python title="scripts/sorting.py"
 sortedList = sorted([3, 1, 2])
+```
+
+When a shell language is used, the code block will instead be rendered as a terminal frame.
+
+````md title="pages/example.md"
+```bash title="Update Debian packages"
+sudo apt update
+```
+````
+
+The code above renders to:
+
+```bash title="Update Debian packages"
+sudo apt update
+```
+
+## Advanced Examples
+
+The following showcases more advanced usage of syntax highlighting.
+
+### Marking lines
+
+Mark lines and ranges of lines with `{1, 4, 7-8}`.
+
+```js {1, 4, 7-8}
+// Line 1 - targeted by line number
+// Line 2
+// Line 3
+// Line 4 - targeted by line number
+// Line 5
+// Line 6
+// Line 7 - targeted by range "7-8"
+// Line 8 - targeted by range "7-8"
+```
+
+Marked as deleted, inserted or neutral with `del={2} ins={3-4} {6}`.
+
+```js title="line-markers.js" del={2} ins={3-4} {6}
+function demo() {
+  console.log('this line is marked as deleted')
+  // This line and the next one are marked as inserted
+  console.log('this is the second inserted line')
+
+  return 'this line uses the neutral default marker type'
+}
+```
+
+Label markers with `{"1":5} del={"2":7-8} ins={"3":10-12}`.
+
+```jsx {"1":5} del={"2":7-8} ins={"3":10-12}
+// labeled-line-markers.jsx
+<button
+  role="button"
+  {...props}
+  value={value}
+  className={buttonClassName}
+  disabled={disabled}
+  active={active}
+>
+  {children &&
+    !active &&
+    (typeof children === 'string' ? <span>{children}</span> : children)}
+</button>
+```
+
+### Marking individual text
+
+Mark individual strings with `"given text"`.
+
+```js "given text"
+function demo() {
+  // Mark any given text inside lines
+  return 'Multiple matches of the given text are supported'
+}
+```
+
+Mark with RegEx with `/ye[sp]/`.
+
+```ts /ye[sp]/
+console.log('The words yes and yep will be marked.')
+```
+
+Mark inserted or deleted with `"return true" ins="inserted" del="deleted"`.
+
+```js "return true" ins="inserted" del="deleted"
+function demo() {
+  console.log('These are inserted and deleted marker types')
+  // The return statement uses the default marker type
+  return true
+}
+```
+
+### Diff
+
+Use `diff` to highlight changes.
+
+```diff
++ this line will be marked as inserted
+- this line will be marked as deleted
+  this is a regular line
+```
+
+Use `diff lang="javascript"` to highlight changes while keeping proper syntax highlighting.
+
+```diff lang="js"
+  function thisIsJavaScript() {
+    // This entire block gets highlighted as JavaScript,
+    // and we can still add diff markers to it!
+-   console.log('Old code to be removed')
++   console.log('New and shiny code!')
+  }
+```
+
+`diff` can also be used on actual diff files.
+
+```diff
+--- a/README.md
++++ b/README.md
+@@ -1,3 +1,4 @@
++this is an actual diff file
+-all contents will remain unmodified
+ no whitespace will be removed either
 ```
 
 ## Changing Color Scheme
 
-It is also possible to change the colors of the code blocks, by changing the `shikiThemes` in `theme.config.ts`. For a list of avaible themes, refer to the [Shiki documentation](https://shiki.style/themes).
+It is also possible to change the colors of the code blocks, by changing the `expressiveCodeThemes` in `theme.config.ts`. For a list of avaible themes, refer to the [Expressive Code documentation](https://expressive-code.com/guides/themes/).
 
 ```typescript title="theme.config.ts"
 export default defineThemeConfig({
-  shikiThemes: {
-    light: 'vitesse-light',
-    dark: 'vitesse-black'
-  }
-  // ... other settings
+  expressiveCodeThemes: [
+    'vitesse-light', // first is light theme
+    'vitesse-black' // second is dark theme
+  ]
+  // ...
 })
 ```
