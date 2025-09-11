@@ -180,6 +180,54 @@ Use `diff lang="javascript"` to highlight changes while keeping proper syntax hi
  no whitespace will be removed either
 ```
 
+### Collapse lines
+
+Collapse lines with `collapse={1-5, 12-14, 21-24}`.
+
+```js collapse={1-5, 12-14, 21-24}
+// All this boilerplate setup code will be collapsed
+import { someBoilerplateEngine } from '@example/some-boilerplate'
+import { evenMoreBoilerplate } from '@example/even-more-boilerplate'
+
+const engine = someBoilerplateEngine(evenMoreBoilerplate())
+
+// This part of the code will be visible by default
+engine.doSomething(1, 2, 3, calcFn)
+
+function calcFn() {
+  // You can have multiple collapsed sections
+  const a = 1
+  const b = 2
+  const c = a + b
+
+  // This will remain visible
+  console.log(`Calculation result: ${a} + ${b} = ${c}`)
+  return c
+}
+
+// All this code until the end of the block will be collapsed again
+engine.closeConnection()
+engine.freeMemory()
+engine.shutdown({ reason: 'End of example boilerplate code' })
+```
+
+### Line Numbers
+
+Show line numbers with `showLineNumbers`.
+
+```js showLineNumbers
+// This code block will show line numbers
+console.log('Greetings from line 2!')
+console.log('I am on line 3')
+```
+
+Change starting line number with `showLineNumbers startLineNumber=5`.
+
+```js showLineNumbers startLineNumber=5
+console.log('Greetings from line 5!')
+console.log('I am on line 6')
+```
+
 ## Changing Color Scheme
 
 It is also possible to change the colors of the code blocks, by changing the `expressiveCodeThemes` in `theme.config.ts`. For a list of avaible themes, refer to the [Expressive Code documentation](https://expressive-code.com/guides/themes/).

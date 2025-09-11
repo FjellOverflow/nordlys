@@ -34,6 +34,8 @@
     "@astrojs/mdx": "^4.3.5",
     "@astrojs/rss": "^4.0.12",
     "@astrojs/sitemap": "^3.5.1",
+    "@expressive-code/plugin-collapsible-sections": "^0.41.3",
+    "@expressive-code/plugin-line-numbers": "^0.41.3",
     "@fontsource/ibm-plex-sans": "^5.2.6",
     "@iconify-json/tabler": "^1.2.22",
     "@resvg/resvg-js": "^2.6.2",
