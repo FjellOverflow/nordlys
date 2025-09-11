@@ -7,7 +7,21 @@ All notable changes to this project will be documented in this file. See [commit
 
 ### ⚠ BREAKING CHANGES
 
-* add expresive-code
+From this version on, Nordlys uses [Expressive Code](https://expressive-code.com/) for syntax highlighting. While most changes are under the hood, you may need to adjust your code blocks, most notably, the code block header/title:
+
+````md
+// old syntax (Nordlys < v3.0.0)
+```javascript myScript.js
+const sortedArray = [3, 1, 2].toSorted()
+```
+
+// new syntax (Nordlys >= v3.0.0)
+```javascript title="myScript.js"
+const sortedArray = [3, 1, 2].toSorted()
+```
+````
+
+Furthermore, this change adds many powerful new features to syntax highlighting that you may want to adopt. For examples, see this [Nordlys blost post](https://nordlys.fjelloverflow.dev/posts/syntax-highlighting/) or consult the [Expressive Code docs](https://expressive-code.com/key-features/syntax-highlighting/).
 
 ### Features
 
