@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.0.0](https://github.com/FjellOverflow/nordlys/compare/v2.5.0...v3.0.0) (2025-09-11)
+
+
+### ⚠ BREAKING CHANGES
+
+* add expresive-code
+
+### Features
+
+* add collapsibleSection and lineNumbers plugin for expressive-code ([de65075](https://github.com/FjellOverflow/nordlys/commit/de65075dc1824041abf6fe15a1b48370120ce540))
+* add expresive-code ([bfff9c1](https://github.com/FjellOverflow/nordlys/commit/bfff9c17fb7af7f015d3f9bff2254a00732d80a1))
+* codeBlock icons plugin for expressive-code blocks ([95b3700](https://github.com/FjellOverflow/nordlys/commit/95b370005397e9c424ae44cf98efd7ed86805bdd))
+
 ## [2.5.0](https://github.com/FjellOverflow/nordlys/compare/v2.4.0...v2.5.0) (2025-07-23)
 
 
