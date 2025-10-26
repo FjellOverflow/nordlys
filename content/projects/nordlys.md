@@ -5,7 +5,7 @@ startDate: 2024-09-30
 tags:
   - astro
   - tailwindcss
-previewImage: 'public/preview.png'
+previewImage: '../../public/preview.png'
 ---
 
 A minimal Astro blog theme.
