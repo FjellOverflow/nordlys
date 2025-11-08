@@ -17,9 +17,9 @@
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/github/package-json/v/FjellOverflow/Nordlys?label=Version&color=success"/>
+  <img src="https://img.shields.io/github/package-json/v/FjellOverflow/Nordlys?label=Version"/>
   &ensp;
-  <img src="https://img.shields.io/github/license/FjellOverflow/Nordlys?label=License&color=success"/>
+  <img src="https://img.shields.io/github/license/FjellOverflow/Nordlys?label=License"/>
   &ensp;
   <img src="https://img.shields.io/github/actions/workflow/status/FjellOverflow/Nordlys/cd.yaml?branch=main&label=Build"/>
 </p>
