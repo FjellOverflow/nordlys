@@ -14,7 +14,7 @@ const frontmatter: PageLayoutProps['frontmatter'] = {
 
 <PageLayout {frontmatter}>
   <h1>Tags</h1>
-  <div class="flex flex-wrap gap-4 sm:gap-8">
+  <div class="flex flex-wrap justify-between gap-4 sm:gap-8">
     {
       tags.map(({ tag, icon }) => (
         <a
@@ -30,5 +30,6 @@ const frontmatter: PageLayoutProps['frontmatter'] = {
         </a>
       ))
     }
+    <div class="mr-auto"></div>
   </div>
 </PageLayout>
