@@ -2,7 +2,7 @@
 import Separator from '@/components/layout/Separator.astro'
 import { sortProjects } from '@/util/projects'
 import type { CollectionEntry } from 'astro:content'
-import Project from './Project.astro'
+import ProjectListItem from './ProjectsListItem.astro'
 
 export interface Props {
   projects: CollectionEntry<'projects'>[]
@@ -18,7 +18,7 @@ projects.sort(sortProjects)
     projects.map((project, index) => (
       <>
         <li class="pl-0">
-          <Project {project} />
+          <ProjectListItem {project} />
           {index !== projects.length - 1 && <Separator class="mt-0 mb-6" />}
         </li>
       </>
