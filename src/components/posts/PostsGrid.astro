@@ -16,7 +16,7 @@ posts.sort(sortPosts)
   {
     posts.map((post, index) => (
       <div
-        class={`border-accent/75 border-b pb-4 not-first:pt-4 last:border-b-0 nth-2:border-t-0 md:odd:border-r ${index % 2 === 0 && index === posts.length - 2 ? 'md:border-b-0' : ''} ${posts.length === 1 ? 'md:odd:border-r-0' : ''}`}
+        class={`border-accent/75 border-b pb-4 not-first:pt-4 last:border-b-0 nth-2:border-t-0 md:not-first:pt-0 md:odd:border-r ${index % 2 === 0 && index === posts.length - 2 ? 'md:border-b-0' : ''} ${posts.length === 1 ? 'md:odd:border-r-0' : ''}`}
       >
         <PostsGridItem post={post} />
       </div>
