@@ -8,7 +8,7 @@ export interface Props {
 const { tags } = Astro.props
 ---
 
-<div class="flex gap-6 text-base">
+<div class="flex flex-wrap gap-x-6 gap-y-3 text-base">
   {
     tags.map(({ tag, icon }) => (
       <a class="clickable no-underline" href={`/tags/${tag}/`}>
