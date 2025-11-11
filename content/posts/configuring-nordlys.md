@@ -14,7 +14,7 @@ For most common customizations, you will only need to modify the `theme.config.t
 
 The following options must always be set:
 
-```ts title="src/theme.config.ts" collapse={28-46} "site:" "title:" "description:" "author:" "navbarItems:" "footerItems:"
+```ts title="src/theme.config.ts" collapse={28-48} "site:" "title:" "description:" "author:" "navbarItems:" "footerItems:"
 export default defineThemeConfig({
   site: 'https://my-awesome-site.com',
   title: 'My awesome site',
@@ -49,7 +49,9 @@ export default defineThemeConfig({
   colorScheme: 'scheme-mono',
   openGraphImage: undefined,
   postsPerPage: 4,
+  postsView: 'list'
   projectsPerPage: 3,
+  projectsView: 'list'
   scrollProgress: false,
   scrollToTop: true,
   tagIcons: {
@@ -88,7 +90,7 @@ The `description` is a meta tag that provides a brief summary of your website's 
 
 The following settings are optional and will default to preset values (as shown here) if not configured:
 
-```ts title="src/theme.config.ts" collapse={2-28} "locale:" "mode:" "modeToggle:" "colorScheme:" "openGraphImage:" "postsPerPage:" "projectsPerPage:" "scrollProgress:" "scrollToTop:" "tagIcons:" "expressiveCodeThemes:"
+```ts title="src/theme.config.ts" collapse={2-28} "locale:" "mode:" "modeToggle:" "colorScheme:" "openGraphImage:" "postsPerPage:" "postsView:" "projectsPerPage:" "projectsView:" "scrollProgress:" "scrollToTop:" "tagIcons:" "expressiveCodeThemes:"
 export default defineThemeConfig({
   // these are mandatory
   site: 'https://my-awesome-site.com',
@@ -124,7 +126,9 @@ export default defineThemeConfig({
   colorScheme: 'scheme-mono',
   openGraphImage: undefined,
   postsPerPage: 4,
+  postsView: 'list'
   projectsPerPage: 3,
+  projectsView: 'list'
   scrollProgress: false,
   scrollToTop: true,
   tagIcons: {
@@ -162,6 +166,10 @@ Defining [Open Graph](https://ogp.me/) attributes ensures your website has visua
 ### Posts/Projects per Page
 
 `postPerPage` and `projectsPerPage` control the number of posts and projects displayed per page.
+
+### Posts/Projects view
+
+With `postsView` and `projectsView` you can set if the items should be displayed as a simple `list` or as a `grid`.
 
 ### Scroll Progress
 
