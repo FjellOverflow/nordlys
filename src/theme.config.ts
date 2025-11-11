@@ -40,7 +40,9 @@ export default defineThemeConfig({
   colorScheme: 'scheme-mono',
   openGraphImage: undefined,
   postsPerPage: 4,
+  postsView: 'list',
   projectsPerPage: 3,
+  projectsView: 'list',
   scrollProgress: false,
   scrollToTop: true,
   tagIcons: {

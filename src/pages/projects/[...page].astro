@@ -1,5 +1,6 @@
 ---
 import Pagination from '@/components/Pagination.astro'
+import ProjectsGrid from '@/components/projects/ProjectsGrid.astro'
 import ProjectsList from '@/components/projects/ProjectsList.astro'
 import PageLayout, {
   type Props as PageLayoutProps
@@ -29,7 +30,9 @@ const frontmatter: PageLayoutProps['frontmatter'] = {
   <h1>
     {frontmatter.title}
   </h1>
-  <ProjectsList projects={page.data} />
+
+  {config.projectsView === 'list' && <ProjectsList projects={page.data} />}
+  {config.projectsView === 'grid' && <ProjectsGrid projects={page.data} />}
 
   <Pagination slot="bottom" page={page} />
 </PageLayout>

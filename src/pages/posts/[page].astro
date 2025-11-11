@@ -1,5 +1,6 @@
 ---
 import Pagination from '@/components/Pagination.astro'
+import PostsGrid from '@/components/posts/PostsGrid.astro'
 import PostsList from '@/components/posts/PostsList.astro'
 import PageLayout, {
   type Props as PageLayoutProps
@@ -29,7 +30,9 @@ const frontmatter: PageLayoutProps['frontmatter'] = {
     {frontmatter.title}
     {page.currentPage > 1 && <span>{` (page ${page.currentPage})`}</span>}
   </h1>
-  <PostsList posts={page.data} />
+
+  {config.postsView === 'list' && <PostsList posts={page.data} />}
+  {config.postsView === 'grid' && <PostsGrid posts={page.data} />}
 
   <Pagination slot="bottom" page={page} />
 </PageLayout>

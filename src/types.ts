@@ -30,8 +30,11 @@ export const ColorSchemes = [
   'scheme-aurora'
 ] as const
 
+export const ViewOptions = ['list', 'grid'] as const
+
 export type Mode = (typeof Modes)[number]
 export type ColorScheme = (typeof ColorSchemes)[number]
+export type ViewOption = (typeof ViewOptions)[number]
 
 export interface ThemeConfig {
   site: string
@@ -47,7 +50,9 @@ export interface ThemeConfig {
   colorScheme: ColorScheme
   openGraphImage: ImageMetadata | string | undefined
   postsPerPage: number
+  postsView: ViewOption
   projectsPerPage: number
+  projectsView: ViewOption
   scrollProgress: boolean
   scrollToTop: boolean
   tagIcons: Record<string, Icon>
@@ -61,7 +66,9 @@ const defaults = {
   colorScheme: ColorSchemes[0],
   openGraphImage: undefined,
   postsPerPage: 4,
+  postsView: 'list' as ViewOption,
   projectsPerPage: 3,
+  projectsView: 'list' as ViewOption,
   scrollProgress: false,
   scrollToTop: true,
   tagIcons: {},
