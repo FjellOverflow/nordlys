@@ -1,0 +1,25 @@
+---
+import { sortProjects } from '@/util/projects'
+import type { CollectionEntry } from 'astro:content'
+import ProjectsGridItem from './ProjectsGridItem.astro'
+
+export interface Props {
+  projects: CollectionEntry<'projects'>[]
+}
+
+const { projects } = Astro.props
+
+projects.sort(sortProjects)
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2">
+  {
+    projects.map((project, index) => (
+      <div
+        class={`border-accent/75 border-b pb-8 last:border-b-0 nth-2:border-t-0 md:pb-0 md:odd:border-r ${index % 2 === 0 && index === projects.length - 2 ? 'md:border-b-0' : ''} ${projects.length === 1 ? 'md:odd:border-r-0' : ''} `}
+      >
+        <ProjectsGridItem project={project} />
+      </div>
+    ))
+  }
+</div>
