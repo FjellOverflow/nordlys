@@ -1,0 +1,56 @@
+---
+import TagsBar from '@/components/TagsBar.astro'
+import { toDateString } from '@/util'
+import { resolveTags } from '@/util/tags'
+import { Image } from 'astro:assets'
+import { type CollectionEntry } from 'astro:content'
+
+export interface Props {
+  post: CollectionEntry<'posts'>
+}
+
+const { id, data } = Astro.props.post
+---
+
+<div class="relative flex h-full flex-col gap-2 md:gap-4 md:p-4">
+  <div class="hidden justify-end md:flex">
+    <time
+      class="mt-4 text-sm opacity-75 sm:mt-0"
+      datetime={data.publishedDate.toISOString()}
+    >
+      {toDateString(data.publishedDate)}
+    </time>
+  </div>
+
+  <div class="flex justify-start md:justify-center">
+    {
+      data.previewImage && (
+        <Image
+          src={data.previewImage}
+          height={208}
+          alt={`${data.title} preview`}
+          class="mt-0 mb-0 max-h-52 w-fit rounded-sm object-contain md:h-[128px]"
+        />
+      )
+    }
+  </div>
+
+  <a class="text-xl font-normal" href={`/posts/${id}/`} data-astro-prefetch>
+    <span>{data.title}</span>
+  </a>
+
+  <div class="flex justify-start md:hidden">
+    <time
+      class="mt-4 text-sm opacity-75 sm:mt-0"
+      datetime={data.publishedDate.toISOString()}
+    >
+      {toDateString(data.publishedDate)}
+    </time>
+  </div>
+
+  <div class="flex w-full justify-start">
+    <TagsBar tags={resolveTags(data.tags)} />
+  </div>
+
+  <div class="opacity-75">{data.description}</div>
+</div>

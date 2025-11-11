@@ -1,0 +1,25 @@
+---
+import { sortPosts } from '@/util/posts'
+import type { CollectionEntry } from 'astro:content'
+import PostsGridItem from './PostsGridItem.astro'
+
+export interface Props {
+  posts: CollectionEntry<'posts'>[]
+}
+
+const { posts } = Astro.props
+
+posts.sort(sortPosts)
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2">
+  {
+    posts.map((post, index) => (
+      <div
+        class={`border-accent/75 border-b pb-4 not-first:pt-4 last:border-b-0 nth-2:border-t-0 md:odd:border-r ${index % 2 === 0 && index === posts.length - 2 ? 'md:border-b-0' : ''} ${posts.length === 1 ? 'md:odd:border-r-0' : ''}`}
+      >
+        <PostsGridItem post={post} />
+      </div>
+    ))
+  }
+</div>
