@@ -6,7 +6,7 @@ import PageLayout, {
   type Props as PageLayoutProps
 } from '@/layouts/PageLayout.astro'
 import config from '@/theme.config'
-import { getPosts } from '@/util/posts'
+import { getPosts, getPostsPageDescription } from '@/util/posts'
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro'
 
 export const getStaticPaths = (async ({ paginate }) => {
@@ -24,12 +24,16 @@ const frontmatter: PageLayoutProps['frontmatter'] = {
   activeHeaderLink: 'Blog',
   canonicalURL: new URL('/posts/1/', Astro.site).toString()
 }
+
+const PageDescription = getPostsPageDescription()
 ---
 
 <PageLayout {frontmatter}>
   <h1>
     {frontmatter.title}
   </h1>
+
+  {PageDescription && <PageDescription />}
 
   {config.postsView === 'list' && <PostsList posts={page.data} />}
   {config.postsView === 'grid' && <PostsGrid posts={page.data} />}

@@ -1,3 +1,4 @@
+import type { MarkdownInstance } from 'astro'
 import { getCollection, type CollectionEntry } from 'astro:content'
 
 export const sortPosts = (
@@ -41,4 +42,14 @@ export const generateAuthors = async () => {
   const posts = await getPosts()
 
   return [...new Set(posts.map((p) => p.data.author))]
+}
+
+export function getPostsPageDescription() {
+  const globMatches = Object.values(
+    import.meta.glob('../../content/posts.md', {
+      eager: true
+    })
+  ) as MarkdownInstance<object>[]
+
+  if (globMatches.length > 0) return globMatches[0].Content
 }
