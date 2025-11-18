@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.2.0](https://github.com/FjellOverflow/nordlys/compare/v3.1.0...v3.2.0) (2025-11-18)
+
+
+### Features
+
+* add animated light/dark mode switching ([cbc3086](https://github.com/FjellOverflow/nordlys/commit/cbc3086ba69374b285b57d07523158526a818528))
+* animate site branding ([ff95310](https://github.com/FjellOverflow/nordlys/commit/ff95310e387f9134480ec513a080ad5e6cf751d2))
+* external markdown pageDescriptions for posts & projects pages ([f915d08](https://github.com/FjellOverflow/nordlys/commit/f915d087bcaf742aec77b8db4aa5ccbffaa46f6d))
+
 ## [3.1.0](https://github.com/FjellOverflow/nordlys/compare/v3.0.1...v3.1.0) (2025-11-11)
 
 
