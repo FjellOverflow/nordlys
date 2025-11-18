@@ -27,7 +27,11 @@ export const isNavItem = (item: HeaderItemType): item is NavItemType =>
     >Skip to main content</a
   >
   <div class="flex justify-between py-4 sm:py-8">
-    <a href="/" class="text-accent flex gap-2 text-2xl font-semibold">
+    <a
+      href="/"
+      class="text-accent flex gap-2 text-2xl font-semibold"
+      transition:name="branding"
+    >
       <Image
         alt="Nordlys logo, a drawing of two gray mountains with green northern lights in the background"
         src={logo}
