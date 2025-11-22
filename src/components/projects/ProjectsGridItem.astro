@@ -18,7 +18,7 @@ const { Content } = await render(project)
 <FlipCard class="h-full md:p-4">
   <div
     slot="front"
-    class="flex flex-col items-start justify-center md:items-center md:gap-4"
+    class="flex flex-col items-start justify-center pt-14 md:items-center md:gap-4 md:pt-0"
   >
     {
       data.previewImage && (
@@ -51,8 +51,10 @@ const { Content } = await render(project)
     <TagsBar tags={resolveTags(data.tags)} />
   </div>
 
-  <div slot="back" class="flex h-full flex-col justify-between">
-    <Content />
+  <div slot="back" class="flex h-full flex-col pt-4 md:pt-0">
+    <div class="mt-4 flex grow flex-col justify-center">
+      <Content />
+    </div>
     <div class="flex justify-end">
       {
         data.startDate && (
