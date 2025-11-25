@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.3.0](https://github.com/FjellOverflow/nordlys/compare/v3.2.0...v3.3.0) (2025-11-25)
+
+
+### Features
+
+* add new logo ([c6045d5](https://github.com/FjellOverflow/nordlys/commit/c6045d5e48769bdeb723ecfab40b4900b957c8bc))
+
+
+### Bug Fixes
+
+* small layout adjustment ([0b80db6](https://github.com/FjellOverflow/nordlys/commit/0b80db6d49807cdd1454e4832fadd706ae952096))
+
 ## [3.2.0](https://github.com/FjellOverflow/nordlys/compare/v3.1.0...v3.2.0) (2025-11-18)
 
 
