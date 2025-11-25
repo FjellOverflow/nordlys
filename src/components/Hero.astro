@@ -44,10 +44,7 @@ const { gradient, background, logo: showLogo } = Astro.props.frontmatter
     {
       background && (
         <span
-          class:list={[
-            'bg-accent/75 absolute inset-0 h-full w-full blur-3xl',
-            { 'ml-12 sm:ml-20': showLogo }
-          ]}
+          class:list={['bg-accent/75 absolute inset-0 h-full w-full blur-3xl']}
         />
       )
     }
