@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 210">
+    <g transform="translate(20 20)">
+        <circle cx="100" cy="60" r="56" fill="#0cce6b" stroke="#0cce6b" stroke-width="8" opacity=".1" />
+        <circle cx="100" cy="60" r="56" fill="none" stroke="#0cce6b" stroke-dasharray="351.858 351.858"
+            stroke-linecap="round" stroke-width="8" transform="rotate(-90 100 60)" /><text x="100" y="60" fill="#0cce6b"
+            dominant-baseline="central" font-family="monospace" font-size="40" text-anchor="middle">100</text><text
+            x="100" y="160" class="label" dominant-baseline="central" font-family="Roboto,Helvetica,Arial,sans-serif"
+            font-size="26" text-anchor="middle">
+            Performance
+        </text>
+    </g>
+    <g transform="translate(220 20)">
+        <circle cx="100" cy="60" r="56" fill="#0cce6b" stroke="#0cce6b" stroke-width="8" opacity=".1" />
+        <circle cx="100" cy="60" r="56" fill="none" stroke="#0cce6b" stroke-dasharray="351.858 351.858"
+            stroke-linecap="round" stroke-width="8" transform="rotate(-90 100 60)" /><text x="100" y="60" fill="#0cce6b"
+            dominant-baseline="central" font-family="monospace" font-size="40" text-anchor="middle">100</text><text
+            x="100" y="160" class="label" dominant-baseline="central" font-family="Roboto,Helvetica,Arial,sans-serif"
+            font-size="26" text-anchor="middle">
+            Accessibility
+        </text>
+    </g>
+    <g transform="translate(420 20)">
+        <circle cx="100" cy="60" r="56" fill="#0cce6b" stroke="#0cce6b" stroke-width="8" opacity=".1" />
+        <circle cx="100" cy="60" r="56" fill="none" stroke="#0cce6b" stroke-dasharray="351.858 351.858"
+            stroke-linecap="round" stroke-width="8" transform="rotate(-90 100 60)" /><text x="100" y="60" fill="#0cce6b"
+            dominant-baseline="central" font-family="monospace" font-size="40" text-anchor="middle">100</text><text
+            x="100" y="160" class="label" dominant-baseline="central" font-family="Roboto,Helvetica,Arial,sans-serif"
+            font-size="26" text-anchor="middle">
+            Best Practices
+        </text>
+    </g>
+    <g transform="translate(620 20)">
+        <circle cx="100" cy="60" r="56" fill="#0cce6b" stroke="#0cce6b" stroke-width="8" opacity=".1" />
+        <circle cx="100" cy="60" r="56" fill="none" stroke="#0cce6b" stroke-dasharray="351.858 351.858"
+            stroke-linecap="round" stroke-width="8" transform="rotate(-90 100 60)" /><text x="100" y="60" fill="#0cce6b"
+            dominant-baseline="central" font-family="monospace" font-size="40" text-anchor="middle">100</text><text
+            x="100" y="160" class="label" dominant-baseline="central" font-family="Roboto,Helvetica,Arial,sans-serif"
+            font-size="26" text-anchor="middle">
+            SEO
+        </text>
+    </g>
+    <style>
+        <![CDATA[
+        @keyframes load {
+            0% {
+                stroke-dasharray: 0 352.858
+            }
+        }
+
+        text.label {
+            fill: #fff
+        }
+
+        @media (prefers-color-scheme:light) {
+            text.label {
+                fill: #000
+            }
+        }
+
+        g>:nth-child(2) {
+            fill: none;
+            animation-delay: 250ms;
+            stroke-linecap: round;
+            transform: rotate(-90deg);
+            transform-origin: 100px 60px;
+            animation: load 1s ease forwards
+        }
+        ]]>
+    </style>
+</svg>

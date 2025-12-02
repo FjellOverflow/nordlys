@@ -31,7 +31,7 @@
 ## Features
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/ee5ab8ef-8c63-4810-a53f-622643e9e7a8" width="50%"/>
+  <img src="./public/lighthouse-score.svg" width="50%"/>
   <div>Nordlys scores 100% on <a href="https://developer.chrome.com/docs/lighthouse/performance/performance-scoring/">Lighthouse</a></div>
 </div>
 
