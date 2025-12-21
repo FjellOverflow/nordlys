@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.4.0](https://github.com/FjellOverflow/nordlys/compare/v3.3.0...v3.4.0) (2025-12-21)
+
+
+### Features
+
+* add background blur to about page logo ([9db92de](https://github.com/FjellOverflow/nordlys/commit/9db92de0df38c6db2578ba141364735e9fc0947c))
+* remove `gradient` hero option for landing page ([05ce62b](https://github.com/FjellOverflow/nordlys/commit/05ce62bea5f08e64671b8b4645baeb483b89626c))
+
+
+### Bug Fixes
+
+* adjust background blur on index page ([830d72f](https://github.com/FjellOverflow/nordlys/commit/830d72f76df21b777fa937a0a5b4a09e4ff4cdc4))
+
 ## [3.3.0](https://github.com/FjellOverflow/nordlys/compare/v3.2.0...v3.3.0) (2025-11-25)
 
 
