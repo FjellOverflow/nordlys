@@ -1,17 +1,21 @@
 ---
-title: Writing content
+title: Adding content
 description: Adding new pages, blog posts & projects to Nordlys
-publishedDate: 2024-10-06
+publishedDate: 2025-12-22
 tags:
   - documentation
 previewImage: '../assets/posts/thumbnail.png'
 ---
 
-Adding content in Nordlys is as easy as creating a new Markdown (or [MDX](https://docs.astro.build/en/guides/integrations-guide/mdx/)) file and starting to write. For projects and blog posts, `src/content/config.ts` contains the schema definitions, thus defines what properties need to and can be set in the frontmatter.
+Adding content to Nordlys is as easy as editing or creating Markdown (or [MDX](https://docs.astro.build/en/guides/integrations-guide/mdx/)) files and starting to write. While the main views of the website live in the `src/pages` directory, you can find all custom content in the `content` directory.
 
-## Adding a New Page
+The `src/content.config.ts` defines the schemata for blog posts and projects, so what properties need to and can be set in the frontmatter of the files. To learn more about Astro's content collections, see the [docs](https://docs.astro.build/en/guides/content-collections/).
 
-To add a new page to Nordlys, navigate to the `src/pages` and create a new Markdown file. Most likely you'll want the page to use the default layout, so set that in the frontmatter. After that, you can start writing your content.
+Otherwise, for help on how to use images or syntax highlighting within your custom content, the next posts [Image Usage](/posts/using-images) and [Syntax Highlighting](/posts/syntax-highlighting) offer guidance!
+
+## Creating a new page
+
+To add a new page to Nordlys, navigate to `src/pages` and create a new Markdown file. Most likely you'll want the page to use the default layout, so set that in the frontmatter. After that, you can start writing your content in Markdown.
 
 ```markdown title="src/pages/faq.md"
 ---
@@ -38,12 +42,13 @@ type PageFrontmatter = {
   scrollProgress?: boolean // bar indicating scroll location on top of page
   activeHeaderLink?: string // title or href of the active header link
   scrollToTop?: boolean // "Back to top" button when having scrolled far down
+  searchable?: boolean // page can be found using the built-in search engine
 }
 ```
 
-## Writing a Blog Post
+## Writing a blog post
 
-Writing a blog post is essentially the same as adding a new page, with slightly different frontmatter. You can follow the same procedure, except you'll create the file in the `src/content/posts` directory.
+Writing a blog post is essentially the same as adding a new page, with slightly different frontmatter. You can follow the same procedure, except you'll create the file in the `content/posts` directory.
 
 ```markdown title="src/content/posts/i-learned-today.md"
 ---
@@ -53,6 +58,7 @@ publishedDate: 2024-10-06
 tags:
   - programming
   - TIL
+previewImage: '../assets/posts/i-learned-today-preview.png'
 ---
 
 So today, I started learning a new programming language. It is really cool because ...
@@ -66,6 +72,7 @@ type PostFrontmatter = {
   author?: string // defaults author set in theme config
   description: string
   publishedDate: Date
+  previewImage?: ImageMetadata // local asset
   draft?: boolean // defaults to false
   canonicalURL?: string // meta
   openGraphImage?: string | ImageMetadata // either URL to image in public folder or local asset
@@ -74,9 +81,9 @@ type PostFrontmatter = {
 }
 ```
 
-## Adding a New Project
+## Adding a new project
 
-To add a new project in Nordlys, simply create a file in the `src/content/projects` directory. Set the project properties, write a short description, and you're done!
+To add a new project in Nordlys, simply create a file in the `src/projects` directory. Set the project properties, write a short description, and you're done!
 
 ```markdown title="src/content/projects/awesome-app.md"
 ---
@@ -87,6 +94,7 @@ tags:
   - HTML
   - CSS
   - TypeScript
+previewImage: '../assets/projects/awesome-app-preview.png'
 ---
 
 I developed an awesome app, using `HTML`, `CSS` and `TypeScript`! The app can ...
@@ -101,8 +109,14 @@ type ProjectFrontmatter = {
   startDate?: Date // if omitted, endDate will be ignored, even if set, and project will get sorted to bottom of list
   endDate?: Date // shows "Now" if not set
   tags?: string[] // defaults to []
-  previewImage: ImageMetadata // local asset
+  previewImage?: ImageMetadata // local asset
 }
 ```
 
 Note that projects don't generate a dedicated page, but are just listed on the `/projects` page.
+
+## The `/blog` and `/projects` pages
+
+The `/blog` and `/projects` pages, listing blog posts and defined projects, respectively, are hard-coded into the template. Most likely you don't want to remove or edit them, but maybe you'd like them to display a custom description above the list of posts or projects.
+
+Specifically for that purpose, you can create the file `content/posts.md` (or `content/projects.md`). These special files, containing only Markdown, will be rendered as text on the `/posts` or `/projects/` page!

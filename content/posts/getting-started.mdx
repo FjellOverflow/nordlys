@@ -1,0 +1,134 @@
+---
+title: Getting started with Nordlys
+description: Quick-start to installing, editing, and updating the Nordlys template.
+publishedDate: 2025-12-21
+tags:
+  - documentation
+previewImage: '../assets/posts/thumbnail.png'
+---
+
+*Nordlys* is a personal blog template built with [Astro](https://astro.build/), a static site generator (SSG). To get more familiar with SSG and Astro, make sure to take a look at the [documentation](https://docs.astro.build/en/getting-started/) first.
+To learn about how to use this template for your own website, read this and the [other posts](/posts) that serve as both guide and examples!
+
+## Installation and first run
+
+Prerequisite to running this project locally on your machine is having [Node.js](https://nodejs.org/en) and the [pnpm](https://pnpm.io/) package manager installed on your system.
+
+1. To create your own project you can either clone the Nordlys repository from GitHub or generate a new project with Nordlys as the template.
+
+```sh
+# clone directly
+git clone https://github.com/FjellOverflow/nordlys.git
+
+# or create from template
+pnpm dlx create-astro --template FjellOverflow/nordlys
+```
+
+2. Within your project folder you will then need to install the project's dependencies.
+
+```sh
+pnpm install --frozen-lockfile
+```
+
+3. Having done that, you can start the local development server.
+
+```sh
+pnpm dev
+```
+
+Once that's running, you should be able to access a live-rendered version of the website in the browser at [localhost:4321](http://localhost:4321/).
+
+## Editing the new project
+
+To create our own content for the website, you will need to create and edit files in the project. The recommended way of doing that, is using [Visual Studio Code](https://code.visualstudio.com/) (or one of its derivatives). To use some recommended extensions that play well with the template, open the *Extensions* tab in VS Code and type `@recommended`; VS Code will display those extensions and you can install them from there.
+
+All set to writing your own content you can start editing and creating files as you wish. Again, the Astro documentation offers extensive help to get started with the details; generally speaking you will want to work mainly in the `/content` directory of the project, where you can create [Markdown](https://www.markdownguide.org/) files, representing blog posts or projects listed in the projects view. Notice that after you edit files, the website in the browser will refresh itself automatically!
+
+The next post [Adding content](/posts/adding-content) focuses more on the specifics of creating content in Nordlys.
+
+## Updating the template
+
+The Nordlys template is actively maintained and regularly receives new features or fixes. To make sure you don't miss out useful or important updates, it's recommended you update periodically!
+
+Firstly, check if a newer version is available.
+
+1. Open the `package.json` and note the version listed there.
+
+```json title="package.json"
+{
+  "name": "nordlys",
+  "version": "2.1.3"
+  //...
+}
+```
+
+2. Go to the [GitHub releases](https://github.com/FjellOverflow/nordlys/releases) and check for the latest version. There, as well as in the [Changelog](https://github.com/FjellOverflow/nordlys/blob/main/CHANGELOG.md), you can see a list of all changes made.
+
+If you decide to update, you can do so either with a `git merge` or manually. Both options are explained below.
+
+### Updating with `git`
+
+If you are versed with git, this is the quicker method (and my preferred method). However, if you are new to git, the manual update might be a better option.
+
+1. Add the Nordlys repository as `upstream`. You only need to do this the first time you update.
+
+```bash
+git remote add upstream https://github.com/FjellOverflow/nordlys.git
+```
+
+2. Fetch the latest change from `upstream`
+
+```bash
+git fetch upstream
+```
+
+3. Merge the new changes
+
+```bash
+git merge --squash --allow-unrelated-histories upstream/main
+```
+
+4. Most likely, merge conflicts will arise. Resolve them using your preferred method (e.g., VS Code), then add and commit the resolved files. Be wary of files that you had deleted previously being recreated.
+
+```bash
+git commit -m "Update to latest Nordlys version"
+```
+
+### Manual updating
+
+Depending on how much you have modified the template, this method can be quicker or more tedious.
+
+1. Identify the files and directories you have modified. These will most likely include:
+
+- `src/theme.config.ts`
+- the `content` directory
+
+and perhaps others.
+
+2. Clone or download a fresh version of the template
+
+3. From the fresh template, copy the new versions of the files one by one into your old project, while keeping or adjusting all files you modified yourself.
+
+### After updating
+
+After updating, especially if the `package.json` or `pnpm-lock.yaml` files have been modified, you should run `pnpm install` to get the newer versions of the dependencies.
+
+Make sure to run `pnpm dev` and inspect the new version of the website. It might be helpful to compare it with a deployed version on the web to ensure that nothing has broken due to the update.
+
+Lastly, if you notice any new (or old) bugs, make sure to [report them](https://github.com/FjellOverflow/nordlys/issues)!
+
+## Building and deployment
+
+Most likely you will want to publish your newly created project as a website at some point. As SSG, Astro offers different ways of achieving that, depending on your preferences. Find your preferred option in Astro's [Deployment Guides](https://docs.astro.build/en/guides/deploy/).
+
+In any case, the website will need to be built with from the project. Locally, you can also preview how the built version of the site will look.
+
+```sh
+# just building
+pnpm build
+
+# build & preview
+pnpm preview
+```
+
+In case you want to see how this live preview version of Nordlys is built and deployed on GitHub pages, you may want to take a look at the `.github/worfklows/cd.yaml` workflow, which automatically runs on every push to Github.

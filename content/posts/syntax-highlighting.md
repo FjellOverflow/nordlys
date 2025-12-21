@@ -1,7 +1,7 @@
 ---
-title: Syntax highlighting
+title: Syntax Highlighting
 description: Code blocks and syntax highlighting in Nordlys
-publishedDate: 2024-09-28
+publishedDate: 2025-12-24
 tags:
   - documentation
 previewImage: '../assets/posts/thumbnail.png'
@@ -13,7 +13,7 @@ Nordlys, out of the box, offers well-styled code blocks, powered by [Expressive 
 
 ### Code fences
 
-Code can embedded into Markdown (`.md` and `.mdx`) files by using code fences (```).
+Code can be embedded into Markdown (`.md` and `.mdx`) files by using code fences (```).
 
 ````md title="pages/example.md"
 ```
@@ -45,7 +45,7 @@ const sortedArray = [3, 1, 2].toSorted()
 
 ### Editor & Terminal frames
 
-To render an editor-like filename label, supply a title to the codeblock. If available for the selected language, Nordlys will also display an appropriate language icon in the code block header.
+To render an editor-like filename label, supply a title to the code block. If available for the selected language, Nordlys will also display an appropriate language icon in the code block header.
 
 ````md title="pages/example.md"
 ```python title="scripts/sorting.py"
@@ -92,7 +92,7 @@ Mark lines and ranges of lines with `{1, 4, 7-8}`.
 // Line 8 - targeted by range "7-8"
 ```
 
-Marked as deleted, inserted or neutral with `del={2} ins={3-4} {6}`.
+Marked as deleted, inserted or neutral, with `del={2} ins={3-4} {6}`.
 
 ```js title="line-markers.js" del={2} ins={3-4} {6}
 function demo() {
@@ -231,7 +231,7 @@ console.log('I am on line 6')
 
 ## Changing Color Scheme
 
-It is also possible to change the colors of the code blocks, by changing the `expressiveCodeThemes` in `theme.config.ts`. For a list of avaible themes, refer to the [Expressive Code documentation](https://expressive-code.com/guides/themes/).
+It is also possible to change the colors of the code blocks, by changing the `expressiveCodeThemes` in `theme.config.ts`. For a list of available themes, refer to the [Expressive Code documentation](https://expressive-code.com/guides/themes/).
 
 ```typescript title="theme.config.ts"
 export default defineThemeConfig({
