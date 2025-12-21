@@ -4,6 +4,7 @@ description: How to configure the theme with the theme.config.ts
 publishedDate: 2024-10-07
 tags:
   - documentation
+previewImage: '../assets/posts/thumbnail.png'
 ---
 
 The Nordlys theme offers a variety of configurable options, outlined here. To learn about using highlighted code blocks, refer to [Syntax Highlighting](/posts/syntax-highlighting). You can explore color customizations in [Color Schemes](/posts/color-schemes). For details on adding new content to the site, check out [Writing Content](/posts/writing-content).

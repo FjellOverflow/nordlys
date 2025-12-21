@@ -4,6 +4,7 @@ description: Code blocks and syntax highlighting in Nordlys
 publishedDate: 2024-09-28
 tags:
   - documentation
+previewImage: '../assets/posts/thumbnail.png'
 ---
 
 Nordlys, out of the box, offers well-styled code blocks, powered by [Expressive Code](https://expressive-code.com/), with some addtional tweaks. This post outlines the basics of syntax highlighting; for more detailed information, customization options and examples, consult the [Expressive Code docs](https://expressive-code.com/key-features/syntax-highlighting/).

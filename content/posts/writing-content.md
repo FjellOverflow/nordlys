@@ -4,6 +4,7 @@ description: Adding new pages, blog posts & projects to Nordlys
 publishedDate: 2024-10-06
 tags:
   - documentation
+previewImage: '../assets/posts/thumbnail.png'
 ---
 
 Adding content in Nordlys is as easy as creating a new Markdown (or [MDX](https://docs.astro.build/en/guides/integrations-guide/mdx/)) file and starting to write. For projects and blog posts, `src/content/config.ts` contains the schema definitions, thus defines what properties need to and can be set in the frontmatter.

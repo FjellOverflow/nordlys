@@ -4,6 +4,7 @@ description: How to keep your version of Nordlys up-to-date with the latest chan
 publishedDate: 2025-03-07
 tags:
   - documentation
+previewImage: '../assets/posts/thumbnail.png'
 ---
 
 When you fork this template to create your own blog, you are free to make any adjustments and modifications you like, independent of the original project. To ensure you don't miss out on new features and fixes that Nordlys receives, simply update your base template periodically. This post will walk you through the process.
