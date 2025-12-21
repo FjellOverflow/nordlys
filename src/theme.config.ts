@@ -39,7 +39,7 @@ export default defineThemeConfig({
   modeToggle: true,
   colorScheme: 'scheme-mono',
   openGraphImage: undefined,
-  postsPerPage: 4,
+  postsPerPage: 5,
   postsView: 'list',
   projectsPerPage: 3,
   projectsView: 'list',
