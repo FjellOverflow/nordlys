@@ -1,6 +1,7 @@
 import config from '@/theme.config'
 import { glob } from 'astro/loaders'
-import { defineCollection, z } from 'astro:content'
+import { z } from 'astro/zod'
+import { defineCollection } from 'astro:content'
 
 const posts = defineCollection({
   loader: glob({ pattern: '**/[^_]*.{md,mdx}', base: './content/posts' }),
