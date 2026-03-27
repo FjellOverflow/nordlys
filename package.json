@@ -31,9 +31,9 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.8",
-    "@astrojs/mdx": "^5.0.2",
-    "@astrojs/rss": "^4.0.17",
-    "@astrojs/sitemap": "^3.7.1",
+    "@astrojs/mdx": "^5.0.3",
+    "@astrojs/rss": "^4.0.18",
+    "@astrojs/sitemap": "^3.7.2",
     "@expressive-code/plugin-collapsible-sections": "^0.41.7",
     "@expressive-code/plugin-line-numbers": "^0.41.7",
     "@fontsource/ibm-plex-sans": "^5.2.8",
@@ -41,7 +41,7 @@
     "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.2.2",
-    "astro": "^6.0.8",
+    "astro": "^6.1.1",
     "astro-expressive-code": "^0.41.7",
     "mdast-util-to-string": "^4.0.0",
     "pagefind": "^1.4.0",
@@ -66,14 +66,14 @@
     "prettier": "^3.8.1",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
-    "stylelint": "^17.5.0",
+    "stylelint": "^17.6.0",
     "stylelint-config-html": "^1.1.0",
     "stylelint-config-recommended": "^18.0.0",
     "type-fest": "^5.5.0",
     "typescript": "^6.0.2",
     "typescript-eslint": "^8.57.2"
   },
-  "packageManager": "pnpm@10.32.1",
+  "packageManager": "pnpm@10.33.0",
   "pnpm": {
     "onlyBuiltDependencies": [
       "@tailwindcss/oxide",
