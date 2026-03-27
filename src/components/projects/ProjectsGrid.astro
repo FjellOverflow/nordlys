@@ -1,5 +1,4 @@
 ---
-import { sortProjects } from '@/util/projects'
 import type { CollectionEntry } from 'astro:content'
 import ProjectsGridItem from './ProjectsGridItem.astro'
 
@@ -8,8 +7,6 @@ export interface Props {
 }
 
 const { projects } = Astro.props
-
-projects.sort(sortProjects)
 ---
 
 <div class="grid grid-cols-1 md:grid-cols-2">

@@ -1,6 +1,5 @@
 ---
 import Separator from '@/components/layout/Separator.astro'
-import { sortProjects } from '@/util/projects'
 import type { CollectionEntry } from 'astro:content'
 import ProjectListItem from './ProjectsListItem.astro'
 
@@ -9,8 +8,6 @@ export interface Props {
 }
 
 const { projects } = Astro.props
-
-projects.sort(sortProjects)
 ---
 
 <ul class="list-none p-0">
