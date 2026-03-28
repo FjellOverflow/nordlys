@@ -22,7 +22,7 @@ const { page } = Astro.props
 const frontmatter: PageLayoutProps['frontmatter'] = {
   title: 'Projects',
   activeHeaderLink: 'Projects',
-  canonicalURL: new URL('/projects/1', Astro.site).toString()
+  canonicalURL: new URL('/projects/1/', Astro.site).toString()
 }
 
 const PageDescription = getProjectsPageDescription()
