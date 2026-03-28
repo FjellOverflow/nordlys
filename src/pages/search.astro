@@ -62,7 +62,25 @@ const frontmatter: PageLayoutProps['frontmatter'] = {
         await Promise.all(
           results.slice(0, 15).map(async (r) => {
             const li = document.createElement('li')
-            li.innerHTML = await renderSearchResult(r as PagefindResult)
+            const data = await (r as PagefindResult).data()
+
+            const a = document.createElement('a')
+            a.className = 'text-xl font-normal'
+            a.href = data.url
+            a.textContent = data.meta.title
+
+            const div = document.createElement('div')
+            div.className = 'opacity-75 mt-4'
+            const escapedExcerpt = document.createElement('div')
+            escapedExcerpt.textContent = data.excerpt
+            div.innerHTML = escapedExcerpt.innerHTML.replace(
+              /&lt;mark&gt;(.*?)&lt;\/mark&gt;/g,
+              '<mark>$1</mark>'
+            )
+
+            li.appendChild(a)
+            li.appendChild(div)
+
             resultsContainer.appendChild(li)
           })
         )
@@ -72,17 +90,6 @@ const frontmatter: PageLayoutProps['frontmatter'] = {
           remainingLi.innerHTML = `... and ${results.length - 5} more`
           resultsContainer.appendChild(remainingLi)
         }
-      }
-
-      const renderSearchResult = async (result: PagefindResult) => {
-        const data = await result.data()
-
-        return `<a class="text-xl font-normal" href="${data.url}">
-                        ${data.meta.title}
-                </a>
-                <div class="opacity-75 mt-4">
-                    ${data.excerpt}
-                </div>`
       }
 
       searchInput.addEventListener('input', onInput)
