@@ -27,6 +27,7 @@ export interface Props {
     description: string
     canonicalURL: string
     openGraphImage: string | ImageMetadata
+    openGraphContent?: string
     publishedDate: Date
   }>
 }
@@ -38,6 +39,7 @@ const {
     description = config.description,
     canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
     openGraphImage = config.openGraphImage || '/ogImage.png',
+    openGraphContent = 'website',
     publishedDate
   }
 } = Astro.props
@@ -77,6 +79,7 @@ const openGraphImageUrl = new URL(resolveImageUrl(openGraphImage), Astro.site)
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:image" content={openGraphImageUrl} />
+    <meta property="og:type" content={openGraphContent} />
 
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={canonicalURL} />
