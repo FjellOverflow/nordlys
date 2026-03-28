@@ -5,10 +5,18 @@ import config from '@/theme.config'
 import fs from 'fs'
 import satori, { type SatoriOptions } from 'satori'
 
-const loadFont = async (weight: string) =>
-  fs.readFileSync(
-    `node_modules/@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-${weight}-normal.woff`
-  )
+const loadFont = async (weight: string) => {
+  try {
+    return fs.readFileSync(
+      `node_modules/@fontsource/ibm-plex-sans/files/ibm-plex-sans-latin-${weight}-normal.woff`
+    )
+  } catch (cause) {
+    throw new Error(
+      'Failed to load font from node_modules. Have you run `pnpm install` to install the required fonts?',
+      { cause }
+    )
+  }
+}
 
 const satoriOptions: SatoriOptions = {
   width: 1200,
