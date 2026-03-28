@@ -13,7 +13,9 @@ export async function GET() {
       link: `posts/${id}/`,
       title: data.title,
       description: data.description,
-      pubDate: new Date(data.publishedDate)
+      pubDate: data.updatedDate
+        ? new Date(data.updatedDate)
+        : new Date(data.publishedDate)
     })),
     customData: `<language>${config.locale}</language>`
   })

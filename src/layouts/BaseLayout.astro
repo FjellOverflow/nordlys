@@ -29,6 +29,7 @@ export interface Props {
     openGraphImage: string | ImageMetadata
     openGraphContent?: string
     publishedDate: Date
+    updatedDate?: Date
   }>
 }
 
@@ -40,7 +41,8 @@ const {
     canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
     openGraphImage = config.openGraphImage || '/ogImage.png',
     openGraphContent = 'website',
-    publishedDate
+    publishedDate,
+    updatedDate
   }
 } = Astro.props
 
@@ -104,6 +106,15 @@ const openGraphImageUrl = new URL(resolveImageUrl(openGraphImage), Astro.site)
         <meta
           property="article:published_time"
           content={publishedDate.toISOString()}
+        />
+      )
+    }
+
+    {
+      updatedDate && (
+        <meta
+          property="article:modified_time"
+          content={updatedDate.toISOString()}
         />
       )
     }

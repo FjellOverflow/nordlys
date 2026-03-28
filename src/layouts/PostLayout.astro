@@ -29,6 +29,8 @@ const frontmatter: PageLayoutProps['frontmatter'] = {
   activeHeaderLink: 'Blog',
   scrollProgress: true
 }
+
+const postDateLabel = post.data.updatedDate ? 'Updated on' : 'Published on'
 ---
 
 <PageLayout {frontmatter}>
@@ -44,7 +46,8 @@ const frontmatter: PageLayoutProps['frontmatter'] = {
 
   <div class="mt-4">
     <span class="opacity-75"
-      >Published on <time datetime={post.data.publishedDate.toISOString()}
+      >{postDateLabel}
+      <time datetime={post.data.publishedDate.toISOString()}
         >{toDateString(post.data.publishedDate)}</time
       > by</span
     >
