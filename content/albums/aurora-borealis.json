@@ -1,0 +1,45 @@
+{
+    "title": "Aurora Borealis",
+    "description": "<p>A collection of stock photos from <a href=\"https://www.pexels.com/collections/aurora-skies-xfllmkz/\" target=\"_blank\">Pexels</a>.</p>",
+    "previewImage": {
+        "src": "../assets/albums/aurora-borealis/aurora-borealis-1.jpeg"
+    },
+    "photos": [
+        {
+            "src": "../assets/albums/aurora-borealis/aurora-borealis-1.jpeg",
+            "description": "Stein Egil Liland via Pexels"
+        },
+        {
+            "src": "../assets/albums/aurora-borealis/aurora-borealis-2.jpeg",
+            "description": "Tobias Bjørkli via Pexels"
+        },
+        {
+            "src": "../assets/albums/aurora-borealis/aurora-borealis-3.jpeg",
+            "description": "Erik Schereder via Pexels"
+        },
+        {
+            "src": "../assets/albums/aurora-borealis/aurora-borealis-4.jpeg",
+            "description": "Stein Egil Liland via Pexels"
+        },
+        {
+            "src": "../assets/albums/aurora-borealis/aurora-borealis-5.jpeg",
+            "description": "Mike Klokov via Pexels"
+        },
+        {
+            "src": "../assets/albums/aurora-borealis/aurora-borealis-6.jpeg",
+            "description": "Hensan Aranha via Pexels"
+        },
+        {
+            "src": "../assets/albums/aurora-borealis/aurora-borealis-7.jpeg",
+            "description": "Trang Pham via Pexels"
+        },
+        {
+            "src": "../assets/albums/aurora-borealis/aurora-borealis-8.jpeg",
+            "description": "Tobias Bjørkli via Pexels"
+        },
+        {
+            "src": "../assets/albums/aurora-borealis/aurora-borealis-9.jpeg",
+            "description": "Christophe Guillemeau via Pexels"
+        }
+    ]
+}
