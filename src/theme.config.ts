@@ -9,6 +9,7 @@ export default defineThemeConfig({
     { label: 'Blog', href: '/posts/' },
     { label: 'Projects', href: '/projects/' },
     { label: 'Tags', href: '/tags/' },
+    { label: 'Photos', href: '/photos/' },
     { label: 'About', href: '/about/' },
     {
       label: 'Other pages',

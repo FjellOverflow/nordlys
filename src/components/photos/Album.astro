@@ -1,0 +1,30 @@
+---
+import { Image } from 'astro:assets'
+import type { InferEntrySchema } from 'astro:content'
+
+export type Props = Omit<InferEntrySchema<'albums'>, 'photos'> & {
+  url: string
+}
+
+const { title, previewImage, url } = Astro.props
+---
+
+<a href={url}>
+  <div class="relative aspect-square w-40 overflow-hidden rounded-md md:w-61">
+    <Image
+      src={previewImage.src}
+      alt={previewImage.description ?? `Preview image of album ${title}`}
+      class="absolute inset-0 mt-0 mb-0 h-full w-full object-cover"
+      inferSize
+    />
+    <div
+      class="pointer-events-none absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent"
+    >
+    </div>
+    <div
+      class="absolute right-2 bottom-2 rounded px-2 py-1 font-medium text-white drop-shadow-sm"
+    >
+      {title}
+    </div>
+  </div>
+</a>
