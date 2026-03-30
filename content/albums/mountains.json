@@ -1,0 +1,49 @@
+{
+    "title": "Mountains",
+    "description": "<p>A collection of stock photos from <a href=\"https://www.pexels.com/\" target=\"_blank\">Pexels</a>.</p>",
+    "previewImage": {
+        "src": "https://images.pexels.com/photos/12118380/pexels-photo-12118380.jpeg"
+    },
+    "photos": [
+        {
+            "src": "https://images.pexels.com/photos/12118380/pexels-photo-12118380.jpeg",
+            "description": "op23 Liland via Pexels"
+        },
+        {
+            "src": "https://images.pexels.com/photos/28688573/pexels-photo-28688573.jpeg",
+            "description": "Juan Trevilla Martínez via Pexels"
+        },
+        {
+            "src": "https://images.pexels.com/photos/35106809/pexels-photo-35106809.jpeg",
+            "description": "Nguyen Ngoc Tien via Pexels"
+        },
+        {
+            "src": "https://images.pexels.com/photos/34617471/pexels-photo-34617471.jpeg",
+            "description": "Rino Adamo via Pexels"
+        },
+        {
+            "src": "https://images.pexels.com/photos/16269797/pexels-photo-16269797.jpeg",
+            "description": "Stein Egil Liland via Pexels"
+        },
+        {
+            "src": "https://images.pexels.com/photos/36425323/pexels-photo-36425323.jpeg",
+            "description": "Audrey B via Pexels"
+        },
+        {
+            "src": "https://images.pexels.com/photos/6552139/pexels-photo-6552139.jpeg",
+            "description": "Finn Pietsch via Pexels"
+        },
+        {
+            "src": "https://images.pexels.com/photos/35918799/pexels-photo-35918799.jpeg",
+            "description": "Stefan de Vries via Pexels"
+        },
+        {
+            "src": "https://images.pexels.com/photos/31306311/pexels-photo-31306311.jpeg",
+            "description": "Efrem Efre via Pexels"
+        },
+        {
+            "src": "https://images.pexels.com/photos/7988559/pexels-photo-7988559.jpeg",
+            "description": "Robert Pügner via Pexels"
+        }
+    ]
+}
