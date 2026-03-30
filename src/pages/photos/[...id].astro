@@ -1,0 +1,41 @@
+---
+import PhotoSwipeGallery from '@/components/photos/PhotoSwipeGallery.astro'
+import PageLayout, {
+  type Props as PageLayoutProps
+} from '@/layouts/PageLayout.astro'
+import { getAlbums } from '@/util/photos'
+import type { InferGetStaticPropsType } from 'astro'
+
+const { album } = Astro.props
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>
+
+export async function getStaticPaths() {
+  const albums = await getAlbums()
+
+  return albums.map((album) => ({
+    params: { id: album.id },
+    props: { album }
+  }))
+}
+
+const frontmatter: PageLayoutProps['frontmatter'] = {
+  title: album.data.title,
+  activeHeaderLink: 'Photos'
+}
+---
+
+<PageLayout {frontmatter}
+  ><div slot="top" class="mt-4">
+    <a href="/photos/" class="clickable flex w-fit items-center gap-1">
+      <span class="iconify tabler--arrow-left text-xl"></span>
+      Back to all albums
+    </a>
+  </div>
+
+  <h1>{frontmatter.title}</h1>
+
+  {album.data.description && <Fragment set:html={album.data.description} />}
+
+  <PhotoSwipeGallery photos={album.data.photos} />
+</PageLayout>

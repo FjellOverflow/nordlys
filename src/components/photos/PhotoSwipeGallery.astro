@@ -1,0 +1,87 @@
+---
+import type { InferEntrySchema } from 'astro:content'
+import { getImage, Image } from 'astro:assets'
+
+export interface Props {
+  photos: InferEntrySchema<'albums'>['photos']
+}
+
+const { photos } = Astro.props
+
+const optimizedPhotos = await Promise.all(
+  photos.map(async (photo) => {
+    const optimizedImage = await getImage({ src: photo.src, inferSize: true })
+
+    return {
+      localSrc: photo.src,
+      description: photo.description,
+      optimizedSrc: optimizedImage.src,
+      width: optimizedImage.attributes.width as number,
+      height: optimizedImage.attributes.height as number
+    }
+  })
+)
+
+const galleryId = 'photoswipe-gallery-' + crypto.randomUUID()
+---
+
+<photoswipe-gallery data-gallery-id={galleryId}>
+  <div id={galleryId} class="columns-1 gap-2 sm:columns-2 md:columns-3">
+    {
+      optimizedPhotos.map((photo, index) => (
+        <a
+          href={photo.optimizedSrc}
+          data-pswp-width={photo.width}
+          data-pswp-height={photo.height}
+        >
+          <Image
+            src={photo.localSrc}
+            class="mt-0 mr-0 mb-2 ml-0 block w-full break-inside-avoid"
+            alt={photo.description ?? `Photo #${index + 1}`}
+            width={photo.width}
+            height={photo.height}
+          />
+        </a>
+      ))
+    }
+  </div>
+</photoswipe-gallery>
+
+<script>
+  import PhotoSwipe from 'photoswipe'
+  import PhotoSwipeThumbs from 'photoswipe-thumbs-plugin'
+  import PhotoSwipeLightbox from 'photoswipe/lightbox'
+
+  import 'photoswipe-thumbs-plugin/style.css'
+  import 'photoswipe/style.css'
+
+  class PhotoSwipeGallery extends HTMLElement {
+    photoSwipeInstance: PhotoSwipeLightbox | undefined
+    photoSwipeThumbnailsInstance: PhotoSwipeThumbs | undefined
+
+    connectedCallback() {
+      const galleryId = this.dataset.galleryId!
+
+      this.photoSwipeInstance = new PhotoSwipeLightbox({
+        padding: { top: 20, bottom: 92, left: 20, right: 20 },
+        bgOpacity: 0.8,
+        gallery: `#${galleryId}`,
+        children: 'a',
+        pswpModule: PhotoSwipe
+      })
+
+      this.photoSwipeThumbnailsInstance = new PhotoSwipeThumbs(
+        this.photoSwipeInstance
+      )
+      this.photoSwipeInstance.init()
+    }
+
+    disconnectedCallback() {
+      this.photoSwipeThumbnailsInstance?.destroy()
+      this.photoSwipeInstance?.destroy()
+    }
+  }
+
+  if (!customElements.get('photoswipe-gallery'))
+    customElements.define('photoswipe-gallery', PhotoSwipeGallery)
+</script>
