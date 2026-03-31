@@ -11,7 +11,7 @@
     if (!mainElement) return
 
     mainElement
-      .querySelectorAll<HTMLImageElement>('img[data-action="zoom"')
+      .querySelectorAll<HTMLImageElement>('img[data-action="zoom"]')
       .forEach((image) => createZoomableImage(image))
   })
 </script>

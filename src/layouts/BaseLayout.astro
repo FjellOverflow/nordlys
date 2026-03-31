@@ -8,6 +8,7 @@ import '@fontsource/ibm-plex-sans/latin.css'
 
 import ModeManager from '@/components/mode/ModeManager.astro'
 import CodeBlockIconsPlugin from '@/plugins/CodeBlockIconsPlugin.astro'
+import ZoomableImagesPlugin from '@/plugins/ZoomableImagesPlugin.astro'
 import config from '@/theme.config'
 import { resolveImageUrl } from '@/util'
 import type { ImageMetadata } from 'astro'
@@ -120,14 +121,10 @@ const openGraphImageUrl = new URL(resolveImageUrl(openGraphImage), Astro.site)
     }
     <ModeManager />
     <ClientRouter />
-    <link href="/zoom-vanilla.js/zoom.css" rel="stylesheet" />
   </head>
   <body>
     <slot />
     <CodeBlockIconsPlugin />
-    <script
-      is:inline
-      data-astro-rerun
-      src="/zoom-vanilla.js/zoom-vanilla.min.js"></script>
+    <ZoomableImagesPlugin />
   </body>
 </html>

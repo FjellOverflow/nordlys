@@ -34,6 +34,10 @@ export async function createPhotoSwipeGallery(element: HTMLElement) {
 export async function createZoomableImage(image: HTMLImageElement) {
   if (!image) throw new Error('No image provided.')
 
+  if (image.dataset.zoomInitialized !== undefined) return
+
+  image.dataset.zoomInitialized = ''
+
   image.addEventListener('click', () => {
     const lightbox = new Lightbox({
       pswpModule: PhotoSwipe,
