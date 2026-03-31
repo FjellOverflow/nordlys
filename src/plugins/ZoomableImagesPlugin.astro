@@ -1,0 +1,17 @@
+---
+
+---
+
+<script>
+  import { createZoomableImage } from './photoSwipePlugin'
+
+  document.addEventListener('astro:page-load', () => {
+    const mainElement = document.querySelector('main#main')
+
+    if (!mainElement) return
+
+    mainElement
+      .querySelectorAll<HTMLImageElement>('img[data-action="zoom"')
+      .forEach((image) => createZoomableImage(image))
+  })
+</script>

@@ -9,3 +9,7 @@ photoswipe-gallery > div > a {
 .pswp--click-to-zoom.pswp--zoomed-in .pswp__img {
   cursor: zoom-out;
 }
+
+img[data-action='zoom'] {
+  cursor: zoom-in;
+}

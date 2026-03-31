@@ -30,3 +30,33 @@ export async function createPhotoSwipeGallery(element: HTMLElement) {
     lightbox.destroy()
   }
 }
+
+export async function createZoomableImage(image: HTMLImageElement) {
+  if (!image) throw new Error('No image provided.')
+
+  image.addEventListener('click', () => {
+    const lightbox = new Lightbox({
+      pswpModule: PhotoSwipe,
+      dataSource: [
+        {
+          src: image.currentSrc || image.src,
+          msrc: image.currentSrc || image.src,
+          width: image.naturalWidth || image.width,
+          height: image.naturalHeight || image.height,
+          alt: image.alt,
+          element: image.parentElement ?? image
+        }
+      ],
+      padding: { top: 15, bottom: 15, left: 15, right: 15 },
+      bgOpacity: 0.8,
+      zoom: false
+    })
+
+    new DynamicCaptionPlugin(lightbox, {
+      type: 'below'
+    })
+
+    lightbox.init()
+    lightbox.loadAndOpen(0)
+  })
+}
