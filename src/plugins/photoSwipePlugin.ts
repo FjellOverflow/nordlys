@@ -20,7 +20,8 @@ export async function createPhotoSwipeGallery(element: HTMLElement) {
   const thumbnailsPlugin = new ThumbnailsPlugin(lightbox)
 
   new DynamicCaptionPlugin(lightbox, {
-    type: 'below'
+    type: 'below',
+    mobileLayoutBreakpoint: false
   })
 
   lightbox.init()
@@ -57,7 +58,8 @@ export async function createZoomableImage(image: HTMLImageElement) {
     })
 
     new DynamicCaptionPlugin(lightbox, {
-      type: 'below'
+      type: 'below',
+      mobileLayoutBreakpoint: false
     })
 
     lightbox.init()
