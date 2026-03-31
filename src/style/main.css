@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 
+@import './photoswipe.css';
 @import './color-schemes.css' layer(base);
 @reference './theme.css';
 

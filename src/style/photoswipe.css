@@ -1,0 +1,11 @@
+@import 'photoswipe-dynamic-caption-plugin/photoswipe-dynamic-caption-plugin.css';
+@import 'photoswipe-thumbs-plugin/style.css';
+@import 'photoswipe/style.css';
+
+photoswipe-gallery > div > a {
+  cursor: zoom-in;
+}
+
+.pswp--click-to-zoom.pswp--zoomed-in .pswp__img {
+  cursor: zoom-out;
+}
