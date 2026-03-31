@@ -21,12 +21,10 @@ const optimizedPhotos = await Promise.all(
     }
   })
 )
-
-const galleryId = 'photoswipe-gallery-' + crypto.randomUUID()
 ---
 
-<photoswipe-gallery data-gallery-id={galleryId}>
-  <div id={galleryId} class="columns-1 gap-2 sm:columns-2 md:columns-3">
+<photoswipe-gallery>
+  <div class="columns-1 gap-2 sm:columns-2 md:columns-3">
     {
       optimizedPhotos.map((photo, index) => (
         <a
@@ -48,48 +46,19 @@ const galleryId = 'photoswipe-gallery-' + crypto.randomUUID()
 </photoswipe-gallery>
 
 <script>
-  import PhotoSwipe from 'photoswipe'
-  import PhotoDynamicCaptionPlugin from 'photoswipe-dynamic-caption-plugin'
-  import PhotoSwipeThumbsPlugin from 'photoswipe-thumbs-plugin'
-  import PhotoSwipeLightbox from 'photoswipe/lightbox'
-
-  import 'photoswipe-dynamic-caption-plugin/photoswipe-dynamic-caption-plugin.css'
-  import 'photoswipe-thumbs-plugin/style.css'
-  import 'photoswipe/style.css'
+  import { createPhotoSwipeGallery } from '@/plugins/photoSwipePlugin'
 
   class PhotoSwipeGallery extends HTMLElement {
-    lightboxInstance?: PhotoSwipeLightbox
-    thumbnailsPluginInstance?: PhotoSwipeThumbsPlugin
-    dynamicCaptionPluginInstance?: PhotoDynamicCaptionPlugin
+    onDestroy?: () => void
 
-    connectedCallback() {
-      const galleryId = this.dataset.galleryId!
+    async connectedCallback() {
+      const galleryElement = this.children[0] as HTMLDivElement
 
-      this.lightboxInstance = new PhotoSwipeLightbox({
-        padding: { top: 15, bottom: 95, left: 15, right: 15 },
-        bgOpacity: 0.8,
-        gallery: `#${galleryId}`,
-        children: 'a',
-        zoom: false,
-        pswpModule: PhotoSwipe
-      })
-
-      this.thumbnailsPluginInstance = new PhotoSwipeThumbsPlugin(
-        this.lightboxInstance
-      )
-      this.dynamicCaptionPluginInstance = new PhotoDynamicCaptionPlugin(
-        this.lightboxInstance,
-        {
-          type: 'below'
-        }
-      )
-
-      this.lightboxInstance.init()
+      this.onDestroy = await createPhotoSwipeGallery(galleryElement)
     }
 
     disconnectedCallback() {
-      this.thumbnailsPluginInstance?.destroy()
-      this.lightboxInstance?.destroy()
+      this.onDestroy?.()
     }
   }
 
