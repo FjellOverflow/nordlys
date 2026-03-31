@@ -49,36 +49,47 @@ const galleryId = 'photoswipe-gallery-' + crypto.randomUUID()
 
 <script>
   import PhotoSwipe from 'photoswipe'
-  import PhotoSwipeThumbs from 'photoswipe-thumbs-plugin'
+  import PhotoDynamicCaptionPlugin from 'photoswipe-dynamic-caption-plugin'
+  import PhotoSwipeThumbsPlugin from 'photoswipe-thumbs-plugin'
   import PhotoSwipeLightbox from 'photoswipe/lightbox'
 
+  import 'photoswipe-dynamic-caption-plugin/photoswipe-dynamic-caption-plugin.css'
   import 'photoswipe-thumbs-plugin/style.css'
   import 'photoswipe/style.css'
 
   class PhotoSwipeGallery extends HTMLElement {
-    photoSwipeInstance: PhotoSwipeLightbox | undefined
-    photoSwipeThumbnailsInstance: PhotoSwipeThumbs | undefined
+    lightboxInstance?: PhotoSwipeLightbox
+    thumbnailsPluginInstance?: PhotoSwipeThumbsPlugin
+    dynamicCaptionPluginInstance?: PhotoDynamicCaptionPlugin
 
     connectedCallback() {
       const galleryId = this.dataset.galleryId!
 
-      this.photoSwipeInstance = new PhotoSwipeLightbox({
-        padding: { top: 20, bottom: 92, left: 20, right: 20 },
+      this.lightboxInstance = new PhotoSwipeLightbox({
+        padding: { top: 15, bottom: 95, left: 15, right: 15 },
         bgOpacity: 0.8,
         gallery: `#${galleryId}`,
         children: 'a',
+        zoom: false,
         pswpModule: PhotoSwipe
       })
 
-      this.photoSwipeThumbnailsInstance = new PhotoSwipeThumbs(
-        this.photoSwipeInstance
+      this.thumbnailsPluginInstance = new PhotoSwipeThumbsPlugin(
+        this.lightboxInstance
       )
-      this.photoSwipeInstance.init()
+      this.dynamicCaptionPluginInstance = new PhotoDynamicCaptionPlugin(
+        this.lightboxInstance,
+        {
+          type: 'below'
+        }
+      )
+
+      this.lightboxInstance.init()
     }
 
     disconnectedCallback() {
-      this.photoSwipeThumbnailsInstance?.destroy()
-      this.photoSwipeInstance?.destroy()
+      this.thumbnailsPluginInstance?.destroy()
+      this.lightboxInstance?.destroy()
     }
   }
 
