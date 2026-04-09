@@ -1,11 +1,20 @@
 import type { MarkdownInstance } from 'astro'
 import { getCollection } from 'astro:content'
 
+export const isLocalAsset = (
+  image: string | ImageMetadata
+): image is ImageMetadata => typeof image !== 'string'
+
+export const resolveImageUrl = (image: string | ImageMetadata) => {
+  return isLocalAsset(image) ? image.src : image
+}
+
 export const getAlbums = async () => {
   const albums = await getCollection('albums')
 
   return albums
 }
+
 export function getPhotosPageDescription() {
   const globMatches = Object.values(
     import.meta.glob('../../content/photos.md', {

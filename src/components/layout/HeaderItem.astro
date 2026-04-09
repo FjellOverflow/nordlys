@@ -1,6 +1,6 @@
 ---
 import type { NavItem } from '@/types'
-import { isAbsolute } from '@/util'
+import { isAbsoluteUrl } from '@/util'
 import type { JSX } from 'astro/jsx-runtime'
 
 export interface Props {
@@ -21,7 +21,7 @@ const {
   class={`flex items-center gap-1 whitespace-nowrap ${
     isActive ? 'text-accent' : 'clickable'
   }`}
-  target={isAbsolute(href) ? '_blank' : '_self'}
+  target={isAbsoluteUrl(href) ? '_blank' : '_self'}
   {role}
 >
   {icon && <span class={`iconify text-xl ${icon}`} />}

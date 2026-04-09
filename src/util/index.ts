@@ -12,16 +12,8 @@ export const toMonthString = (date: Date): string =>
     day: undefined
   })
 
-export const isLocalAsset = (
-  image: string | ImageMetadata
-): image is ImageMetadata => typeof image !== 'string'
-
-export const resolveImageUrl = (image: string | ImageMetadata) => {
-  return isLocalAsset(image) ? image.src : image
-}
-
-export const isAbsolute = (url: string) =>
+export const isAbsoluteUrl = (url: string) =>
   url.indexOf('http://') === 0 || url.indexOf('https://') === 0
 
-export const generateItemId = (base: string) =>
-  (base + Math.random().toString(16).slice(2)).replaceAll(' ', '').toLowerCase()
+export const generateElementId = (base: string) =>
+  `${base}-${crypto.randomUUID()}`

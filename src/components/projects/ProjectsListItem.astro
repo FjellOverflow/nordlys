@@ -1,6 +1,6 @@
 ---
 import TagsBar from '@/components/TagsBar.astro'
-import { isAbsolute, toMonthString } from '@/util'
+import { isAbsoluteUrl, toMonthString } from '@/util'
 import { resolveTags } from '@/util/tags'
 import { Image } from 'astro:assets'
 import { type CollectionEntry, render } from 'astro:content'
@@ -32,10 +32,10 @@ const { Content } = await render(project)
           <a
             class="mb-2 text-xl font-normal no-underline"
             href={data.url}
-            target={isAbsolute(data.url) ? '_blank' : '_self'}
+            target={isAbsoluteUrl(data.url) ? '_blank' : '_self'}
           >
             <span class="underline">{data.title}</span>
-            {data.url && isAbsolute(data.url) && (
+            {data.url && isAbsoluteUrl(data.url) && (
               <span class="iconify tabler--external-link align-middle" />
             )}
           </a>

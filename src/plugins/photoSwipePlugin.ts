@@ -1,3 +1,4 @@
+import { generateElementId } from '@/util'
 import PhotoSwipe from 'photoswipe'
 import DynamicCaptionPlugin from 'photoswipe-dynamic-caption-plugin'
 import Lightbox from 'photoswipe/lightbox'
@@ -5,7 +6,7 @@ import Lightbox from 'photoswipe/lightbox'
 export async function createPhotoSwipeGallery(element: HTMLElement) {
   if (!element) throw new Error('No element provided.')
 
-  element.id = 'photoswipe-' + crypto.randomUUID()
+  element.id = generateElementId('photoswipe')
 
   const lightbox = new Lightbox({
     pswpModule: PhotoSwipe,

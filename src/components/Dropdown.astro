@@ -1,7 +1,7 @@
 ---
 import HeaderItem from '@/components/layout/HeaderItem.astro'
 import type { NavItemParent } from '@/types'
-import { generateItemId } from '@/util'
+import { generateElementId } from '@/util'
 
 export interface Props {
   item: NavItemParent
@@ -17,8 +17,8 @@ const isActive = children.some(
   (item) => activeHeaderLink === item.label || activeHeaderLink === item.href
 )
 
-const buttonId = generateItemId(`${label}-button`)
-const menuId = generateItemId(`${label}-menu`)
+const buttonId = generateElementId(`${label}-button`)
+const menuId = generateElementId(`${label}-menu`)
 ---
 
 <dropdown-parent

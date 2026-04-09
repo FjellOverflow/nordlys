@@ -1,6 +1,6 @@
 ---
 import type { NavItem } from '@/types'
-import { isAbsolute } from '@/util'
+import { isAbsoluteUrl } from '@/util'
 
 export interface Props {
   item: NavItem
@@ -14,7 +14,7 @@ const {
 <a
   class="flex flex-col justify-center"
   href={href}
-  target={isAbsolute(href) ? '_blank' : '_self'}
+  target={isAbsoluteUrl(href) ? '_blank' : '_self'}
   aria-label={label}
   rel="noopener noreferrer"
 >
