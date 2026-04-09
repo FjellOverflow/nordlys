@@ -1,4 +1,5 @@
 ---
+import { downscaleImage } from '@/util/images'
 import { Image } from 'astro:assets'
 import type { InferEntrySchema } from 'astro:content'
 
@@ -7,15 +8,22 @@ export type Props = Omit<InferEntrySchema<'albums'>, 'photos'> & {
 }
 
 const { title, previewImage, url } = Astro.props
+
+const optimizedPreviewImage = (
+  await downscaleImage(previewImage.src, {
+    width: 720
+  })
+).downscaledImage
 ---
 
 <a href={url}>
   <div class="relative aspect-square w-40 overflow-hidden rounded-md md:w-61">
     <Image
-      src={previewImage.src}
+      src={optimizedPreviewImage.src}
       alt={previewImage.description ?? `Preview image of album ${title}`}
       class="absolute inset-0 mt-0 mb-0 h-full w-full object-cover"
-      inferSize
+      height={optimizedPreviewImage.height}
+      width={optimizedPreviewImage.width}
     />
     <div
       class="pointer-events-none absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent"

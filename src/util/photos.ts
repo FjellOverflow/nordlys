@@ -1,15 +1,6 @@
 import type { MarkdownInstance } from 'astro'
 import { getCollection } from 'astro:content'
-
-export const isLocalAsset = (
-  image: string | ImageMetadata
-): image is ImageMetadata => typeof image !== 'string'
-
-export const resolveImageUrl = (image: string | ImageMetadata) => {
-  return isLocalAsset(image) ? image.src : image
-}
-
-export const getAlbums = async () => {
+export async function getAlbums() {
   const albums = await getCollection('albums')
 
   return albums

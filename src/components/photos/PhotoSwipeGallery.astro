@@ -1,6 +1,7 @@
 ---
 import type { InferEntrySchema } from 'astro:content'
-import { getImage, Image } from 'astro:assets'
+import { Image } from 'astro:assets'
+import { downscaleImage } from '@/util/images'
 
 export interface Props {
   photos: InferEntrySchema<'albums'>['photos']
@@ -10,14 +11,17 @@ const { photos } = Astro.props
 
 const optimizedPhotos = await Promise.all(
   photos.map(async (photo) => {
-    const optimizedImage = await getImage({ src: photo.src, inferSize: true })
+    const { optimizedImage, downscaledImage } = await downscaleImage(
+      photo.src,
+      {
+        width: 800
+      }
+    )
 
     return {
-      localSrc: photo.src,
       description: photo.description,
-      optimizedSrc: optimizedImage.src,
-      width: optimizedImage.attributes.width as number,
-      height: optimizedImage.attributes.height as number
+      optimizedImage,
+      downscaledImage
     }
   })
 )
@@ -26,21 +30,25 @@ const optimizedPhotos = await Promise.all(
 <photoswipe-gallery>
   <div class="columns-1 gap-2 sm:columns-2 md:columns-3">
     {
-      optimizedPhotos.map((photo, index) => (
-        <a
-          href={photo.optimizedSrc}
-          data-pswp-width={photo.width}
-          data-pswp-height={photo.height}
-        >
-          <Image
-            src={photo.localSrc}
-            class="mt-0 mr-0 mb-2 ml-0 block w-full break-inside-avoid"
-            alt={photo.description ?? `Photo #${index + 1}`}
-            width={photo.width}
-            height={photo.height}
-          />
-        </a>
-      ))
+      optimizedPhotos.map(
+        ({ optimizedImage, downscaledImage, description }, index) => (
+          <a
+            href={optimizedImage.src}
+            data-pswp-height={optimizedImage.height}
+            data-pswp-width={optimizedImage.width}
+            data-pswp-thumb={downscaledImage.src}
+          >
+            <Image
+              src={downscaledImage.src}
+              class="mt-0 mr-0 mb-2 ml-0 block w-full break-inside-avoid"
+              alt={description ?? `Photo #${index + 1}`}
+              height={downscaledImage.height}
+              width={downscaledImage.width}
+              decoding="async"
+            />
+          </a>
+        )
+      )
     }
   </div>
 </photoswipe-gallery>

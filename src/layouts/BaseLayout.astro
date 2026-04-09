@@ -10,7 +10,7 @@ import ModeManager from '@/components/mode/ModeManager.astro'
 import CodeBlockIconsPlugin from '@/plugins/CodeBlockIconsPlugin.astro'
 import ZoomableImagesPlugin from '@/plugins/ZoomableImagesPlugin.astro'
 import config from '@/theme.config'
-import { resolveImageUrl } from '@/util/photos'
+import { downscaleImage, isLocalImage } from '@/util/images'
 import type { ImageMetadata } from 'astro'
 import { ClientRouter } from 'astro:transitions'
 
@@ -52,8 +52,11 @@ let titleWithSuffix = title
 if (String(title).toLowerCase() !== String(config.title).toLowerCase())
   titleWithSuffix += ` | ${config.title}`
 
-const openGraphImageUrl = new URL(resolveImageUrl(openGraphImage), Astro.site)
-  .href
+const resolvedOgImage = isLocalImage(openGraphImage)
+  ? (await downscaleImage(openGraphImage, { width: 1200 })).downscaledImage.src
+  : openGraphImage
+
+const openGraphImageUrl = new URL(resolvedOgImage, Astro.site).href
 ---
 
 <!doctype html>
