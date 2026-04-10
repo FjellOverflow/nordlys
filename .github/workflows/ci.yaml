@@ -1,5 +1,5 @@
 ---
-name: Run checks
+name: Check and test
 
 on:
   push:
@@ -7,10 +7,19 @@ on:
 
 jobs:
   check:
-    uses: ./.github/workflows/setup-and-run-script.yaml
-    with:
-      script: 'check'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/actions/setup.yaml
+
+      - name: Run checks
+        run: pnpm check
   test:
-    uses: ./.github/workflows/setup-and-run-script.yaml
-    with:
-      script: 'test'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: ./.github/actions/setup.yaml
+
+      - name: Install chromium
+        run: pnpm playwright install chromium
+
+      - name: Run tests
+        run: pnpm test
