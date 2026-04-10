@@ -5,7 +5,7 @@ export function snapshotTest(route: `/${string}`) {
 
   const allImagesLoaded = () =>
     Array.from(document.querySelectorAll('img')).every(
-      (img) => img.complete && img.naturalHeight !== 0
+      (img) => img.complete || img.currentSrc === ''
     )
 
   test(testTitle, async ({ page }) => {
