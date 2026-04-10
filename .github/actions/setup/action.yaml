@@ -4,9 +4,6 @@ description: Sets up environment for project
 runs:
   using: composite
   steps:
-    - name: Checkout repository
-      uses: actions/checkout@v6
-
     - name: Setup node
       uses: actions/setup-node@v6
       with:

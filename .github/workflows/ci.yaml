@@ -9,14 +9,22 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/actions/setup
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up environment
+        uses: ./.github/actions/setup
 
       - name: Run checks
         run: pnpm check
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/actions/setup
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up environment
+        uses: ./.github/actions/setup
 
       - name: Install chromium
         run: pnpm playwright install chromium
