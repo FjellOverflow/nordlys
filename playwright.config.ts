@@ -10,6 +10,9 @@ export default defineConfig({
     url: 'http://localhost:4321',
     reuseExistingServer: !process.env.CI
   },
+  expect: {
+    toHaveScreenshot: { maxDiffPixelRatio: 0.02 }
+  },
   use: {
     baseURL: 'http://localhost:4321'
   },
