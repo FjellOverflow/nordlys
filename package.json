@@ -27,7 +27,9 @@
     "build": "astro build",
     "preview": "pnpm build && astro preview",
     "release": "pnpm check && commit-and-tag-version --sign",
-    "postbuild": "pagefind --site dist"
+    "postbuild": "pagefind --site dist",
+    "test": "playwright test",
+    "test:regenerate": "playwright test --update-snapshots"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.8",
@@ -58,6 +60,7 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@iconify/tailwind4": "^1.2.3",
+    "@playwright/test": "^1.59.1",
     "@typescript-eslint/parser": "^8.57.2",
     "commit-and-tag-version": "^12.7.1",
     "eslint": "^10.1.0",
