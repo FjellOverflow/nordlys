@@ -9,14 +9,14 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/actions/setup.yaml
+      - uses: ./.github/actions/setup
 
       - name: Run checks
         run: pnpm check
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: ./.github/actions/setup.yaml
+      - uses: ./.github/actions/setup
 
       - name: Install chromium
         run: pnpm playwright install chromium
