@@ -1,0 +1,30 @@
+---
+name: setup and run script
+
+on:
+  workflow_call:
+    inputs:
+      script:
+        required: true
+        type: string
+
+jobs:
+  setup-and-run-script:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+
+      - name: Install dependencies
+        run: pnpm i --frozen-lockfile
+
+      - name: Run script
+        run: pnpm ${{ inputs.script }}

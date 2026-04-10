@@ -22,7 +22,6 @@ jobs:
         uses: withastro/action@v3
         with:
           node-version: 24
-
   deploy:
     needs: build
     runs-on: ubuntu-latest
