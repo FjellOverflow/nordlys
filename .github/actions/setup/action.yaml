@@ -1,5 +1,6 @@
 ---
 name: setup
+description: Sets up environment for project
 runs:
   using: composite
   steps:
@@ -15,4 +16,5 @@ runs:
       uses: pnpm/action-setup@v4
 
     - name: Install dependencies
+      shell: bash
       run: pnpm i --frozen-lockfile
