@@ -10,7 +10,7 @@ runs:
         node-version: 24
 
     - name: Setup pnpm
-      uses: pnpm/action-setup@v4
+      uses: pnpm/action-setup@v5
 
     - name: Install dependencies
       shell: bash
