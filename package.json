@@ -29,7 +29,7 @@
     "release": "pnpm check && commit-and-tag-version --sign",
     "postbuild": "pagefind --site dist",
     "test": "playwright test",
-    "test:regenerate": "playwright test --update-snapshots"
+    "test:regenerate": "rm -rf test/snapshots && playwright test --update-snapshots"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.8",

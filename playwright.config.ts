@@ -2,7 +2,7 @@ import { defineConfig } from '@playwright/test'
 
 export default defineConfig({
   testDir: 'test',
-  snapshotDir: 'test/screenshots',
+  snapshotDir: 'test/snapshots',
   updateSnapshots: 'none',
   outputDir: 'test/.results',
   webServer: {
