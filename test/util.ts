@@ -1,25 +1,22 @@
 import test, { expect } from '@playwright/test'
 
 export function snapshotTest(route: `/${string}`) {
-  const testTitle = generateTestTitle(route)
+  testInMode(route, 'light')
+  testInMode(route, 'dark')
+}
+
+async function testInMode(route: `/${string}`, mode: 'light' | 'dark') {
+  const testTitle = `${generateTestTitle(route)}_${mode}`
 
   const allImagesLoaded = () =>
-    Array.from(document.querySelectorAll('img')).every(
-      (img) => img.complete || img.currentSrc === ''
-    )
+    Array.from(document.querySelectorAll('img')).every((img) => img.complete)
 
   test(testTitle, async ({ page }) => {
-    await page.addInitScript(() => localStorage.setItem('mode', 'dark'))
+    await page.addInitScript(() => localStorage.setItem('mode', mode))
     await page.goto(route)
+    await page.locator('footer').scrollIntoViewIfNeeded()
     await page.waitForFunction(allImagesLoaded)
-    await expect(page).toHaveScreenshot(`${testTitle}_dark.png`, {
-      fullPage: true
-    })
-
-    await page.addInitScript(() => localStorage.setItem('mode', 'light'))
-    await page.goto(route)
-    await page.waitForFunction(allImagesLoaded)
-    await expect(page).toHaveScreenshot(`${testTitle}_light.png`, {
+    await expect(page).toHaveScreenshot(`${testTitle}.png`, {
       fullPage: true
     })
   })
