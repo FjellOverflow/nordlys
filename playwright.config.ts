@@ -1,6 +1,7 @@
 import { defineConfig } from '@playwright/test'
 
 export default defineConfig({
+  workers: process.env.CI ? undefined : 4,
   testDir: 'test',
   snapshotDir: 'test/snapshots',
   updateSnapshots: 'none',

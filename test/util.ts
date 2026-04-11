@@ -17,13 +17,10 @@ async function testInMode(route: `/${string}`, mode: 'light' | 'dark') {
     await page.addInitScript((m) => localStorage.setItem('mode', m), mode)
     await page.goto(route)
 
-    const lazyImages = await page.locator('img[loading="lazy"]:visible').all()
-    await Promise.all(
-      lazyImages.map(async (img) => {
-        await img.scrollIntoViewIfNeeded()
-        await expect(img).not.toHaveJSProperty('naturalWidth', 0)
-      })
-    )
+    const lazyImages = await page.locator('img[loading="lazy"]').all()
+    for (const lazyImage of lazyImages) {
+      await lazyImage.scrollIntoViewIfNeeded()
+    }
 
     await page.waitForFunction(allImagesLoaded)
     await expect(page).toHaveScreenshot(`${testTitle}.png`, {
