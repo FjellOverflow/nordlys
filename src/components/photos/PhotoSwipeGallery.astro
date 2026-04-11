@@ -44,7 +44,6 @@ const optimizedPhotos = await Promise.all(
               alt={description ?? `Photo #${index + 1}`}
               height={downscaledImage.height}
               width={downscaledImage.width}
-              decoding="async"
             />
           </a>
         )
