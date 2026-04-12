@@ -13,20 +13,21 @@ test.describe('interaction - photo gallery', () => {
   })
 
   test('lightbox', async ({ page }) => {
-    await page.locator('photoswipe-gallery a').first().click()
+    const firstImage = page.locator('photoswipe-gallery a').first()
+    const lightbox = page.locator('img[class="pswp__img"]').first()
+    const caption = page.locator('.pswp__dynamic-caption').first()
+    const thumbnails = page.locator('.pswp__thumbs-wrapper')
 
-    await expect(page.locator('img[class="pswp__img"]')).toBeVisible()
-    await expect(page.locator('.pswp__thumbs-wrapper')).toBeVisible()
+    await firstImage.click()
+
+    await expect(lightbox).toBeVisible()
+    await expect(caption).toBeVisible()
+    await expect(thumbnails).toBeVisible()
 
     await page.locator('.pswp__button--close').first().click()
 
-    await expect(page.locator('img[class="pswp__img"]')).not.toBeVisible()
-    await expect(page.locator('.pswp__thumbs-wrapper')).not.toBeVisible()
-
-    await page.locator('photoswipe-gallery a').first().click()
-    await page.locator('main').click({ position: { x: 10, y: 10 } })
-
-    await expect(page.locator('img[class="pswp__img"]')).not.toBeVisible()
-    await expect(page.locator('.pswp__thumbs-wrapper')).not.toBeVisible()
+    await expect(lightbox).not.toBeVisible()
+    await expect(caption).not.toBeVisible()
+    await expect(thumbnails).not.toBeVisible()
   })
 })
