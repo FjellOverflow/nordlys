@@ -43,6 +43,7 @@
 - 🧑‍🦯 Accessible
 - 🎨 Built-in & custom color schemes
 - 🌙 Light & Dark mode
+- 🖼️ Photo galleries
 - 🎁 Image zoom, generated _Table of Contents_, reading time & more ...
 - 👨‍💻 **For developers**:
   - Best practices
