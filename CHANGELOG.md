@@ -2,6 +2,33 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.5.0](https://github.com/FjellOverflow/nordlys/compare/v3.4.3...v3.5.0) (2026-04-13)
+
+
+### Features
+
+* add `og:type` to pages ([afc5fb2](https://github.com/FjellOverflow/nordlys/commit/afc5fb201065388de6ca08d7611650102374643e))
+* add `updatedOn` prop to post frontmatter ([1ee60eb](https://github.com/FjellOverflow/nordlys/commit/1ee60eb9074cd2c05ebd0b2db875f81f45841b0f))
+* add captions to photoswipe ([b69aa3e](https://github.com/FjellOverflow/nordlys/commit/b69aa3ebef0775bee853172c630ebeadf9b689a8))
+* add example descriptions to content pages ([208c0b0](https://github.com/FjellOverflow/nordlys/commit/208c0b093b3a8e550d4ad445863e4ec2761098dc))
+* add new stock photo album ([6678961](https://github.com/FjellOverflow/nordlys/commit/667896158bf548af5f40e44e1e91f0ae0f1b007b))
+* albums page for photo gallery ([9d22181](https://github.com/FjellOverflow/nordlys/commit/9d22181b6e395fbc7264ec0341e08769591f5a0f))
+* image optimization & downscaling on generation ([947600f](https://github.com/FjellOverflow/nordlys/commit/947600f0164b40425676d09b46a85221084c91c4))
+* implement gallery feature with `photoswipe` ([9310e73](https://github.com/FjellOverflow/nordlys/commit/9310e73972267c4d3425a8fafe8c73d2bfa8cc55))
+* replace vanilla-zoom with photoswipe ([b34d158](https://github.com/FjellOverflow/nordlys/commit/b34d1585a8e2ec16182b713dee1c76ff2d91bd70))
+* start implementing photo gallery page ([d7d76b5](https://github.com/FjellOverflow/nordlys/commit/d7d76b54a32d339df94f42091a2cddc347830585))
+* start replacing vanilla-zoom with PhotoSwipe ([249e8e6](https://github.com/FjellOverflow/nordlys/commit/249e8e6afaf27198d3ece92b70db4a9b1476807d))
+
+
+### Bug Fixes
+
+* dont mutate `posts` prop in place ([da913c4](https://github.com/FjellOverflow/nordlys/commit/da913c45d6bc2e4dd7570a48af349590255e308f))
+* dont mutate `projects` prop in place ([1e17a88](https://github.com/FjellOverflow/nordlys/commit/1e17a8820a6f5feb89234e0cc16d9dc414fd700d))
+* lightbox captions on mobile ([081c178](https://github.com/FjellOverflow/nordlys/commit/081c178cea345f6ad17004411dd96b514424c712))
+* missing trailings slash at `canonicalUrl` ([740546a](https://github.com/FjellOverflow/nordlys/commit/740546ad3b7caab8d8bad02c66d9d05224bafa59))
+* properly handle font loading errors ([62dd7a6](https://github.com/FjellOverflow/nordlys/commit/62dd7a6a1132877ae8617a47c2affb3e6d8c1c09))
+* XSS vulnerability in pagefind search result rendering ([bb1bfc9](https://github.com/FjellOverflow/nordlys/commit/bb1bfc95e5e95a96380249ac360e4b12e063607a))
+
 ## [3.4.3](https://github.com/FjellOverflow/nordlys/compare/v3.4.2...v3.4.3) (2026-03-10)
 
 ## [3.4.2](https://github.com/FjellOverflow/nordlys/compare/v3.4.1...v3.4.2) (2026-03-10)
