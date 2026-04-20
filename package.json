@@ -23,10 +23,10 @@
   "scripts": {
     "dev": "astro dev",
     "lint": "eslint . && stylelint src",
-    "check": "pnpm lint && astro check",
+    "check": "astro check",
     "build": "astro build",
-    "preview": "pnpm build && astro preview",
-    "release": "pnpm check && pnpm test && commit-and-tag-version --sign",
+    "preview": "astro preview",
+    "release": "commit-and-tag-version --sign",
     "postbuild": "pagefind --site dist",
     "test": "playwright test",
     "test:regenerate": "rm -rf test/snapshots && playwright test --update-snapshots"

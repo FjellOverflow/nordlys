@@ -1,0 +1,39 @@
+[tools]
+node = "24"
+pnpm = "10.33"
+
+[tasks.setup]
+run = "pnpm i --frozen-lockfile"
+
+[tasks.dev]
+depends = ["setup"]
+run = "pnpm dev --host"
+
+[tasks.build]
+depends = ["setup"]
+run = "pnpm build"
+
+[tasks.preview]
+depends = ["build"]
+run = "pnpm preview"
+
+[tasks.lint]
+depends = ["setup"]
+run = "pnpm lint"
+
+[tasks.check]
+depends = ["setup"]
+run = "pnpm check"
+
+[tasks.test]
+depends = ["setup"]
+run = "pnpm test"
+
+[tasks."test:regenerate"]
+depends = ["setup"]
+run = "pnpm test:regenerate"
+
+[tasks.release]
+depends = ["setup", "lint", "check", "test"]
+confirm = { message = "Are you sure you want to release?", default = "no" }
+run = "pnpm release && git push --follow-tags"
