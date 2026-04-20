@@ -25,12 +25,19 @@ run = "pnpm lint"
 depends = ["setup"]
 run = "pnpm check"
 
-[tasks.test]
+[tasks.ci]
+depends = ["setup", "lint", "check"]
+
+[tasks."test:setup"]
 depends = ["setup"]
+run = "pnpm playwright install chromium"
+
+[tasks.test]
+depends = ["setup", "build", "test:setup"]
 run = "pnpm test"
 
 [tasks."test:regenerate"]
-depends = ["setup"]
+depends = ["setup", "test:setup"]
 run = "pnpm test:regenerate"
 
 [tasks.release]

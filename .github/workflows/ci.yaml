@@ -12,25 +12,22 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - name: Set up environment
-        uses: ./.github/actions/setup
+      - name: Setup mise
+        uses: jdx/mise-action@v4
 
-      - name: Run checks
-        run: pnpm check
+      - name: Run ci checks
+        run: mise ci
   test:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
 
-      - name: Set up environment
-        uses: ./.github/actions/setup
-
-      - name: Install chromium
-        run: pnpm playwright install chromium
+      - name: Setup mise
+        uses: jdx/mise-action@v4
 
       - name: Run tests
-        run: pnpm test
+        run: mise test
 
       - name: Upload artifacts
         if: failure()
