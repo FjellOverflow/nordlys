@@ -17,7 +17,9 @@ const optimizedPreviewImage = (
 ---
 
 <a href={url}>
-  <div class="relative aspect-square w-40 overflow-hidden rounded-md md:w-61">
+  <div
+    class="relative aspect-3/2 w-70 overflow-hidden rounded-md sm:aspect-square sm:w-61"
+  >
     <Image
       src={optimizedPreviewImage.src}
       alt={previewImage.description ?? `Preview image of album ${title}`}

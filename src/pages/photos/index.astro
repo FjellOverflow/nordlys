@@ -20,7 +20,7 @@ const PageDescription = getPhotosPageDescription()
 
   {PageDescription && <PageDescription />}
 
-  <div class="flex flex-wrap gap-4">
+  <div class="flex flex-col flex-wrap items-center gap-4 sm:flex-row">
     {
       albums.map(({ id, data: { title, description, previewImage } }) => (
         <Album
