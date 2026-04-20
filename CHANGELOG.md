@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.6.0](https://github.com/FjellOverflow/nordlys/compare/v3.5.0...v3.6.0) (2026-04-20)
+
+
+### Features
+
+* optimize albums display for mobile ([9bf19f2](https://github.com/FjellOverflow/nordlys/commit/9bf19f29a7e5e292ee5410afd13b98c7b9e9a1a4))
+
 ## [3.5.0](https://github.com/FjellOverflow/nordlys/compare/v3.4.3...v3.5.0) (2026-04-13)
 
 
