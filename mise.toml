@@ -1,9 +1,9 @@
 [tools]
 node = "24"
-pnpm = "11.0"
+pnpm = "10.33"
 
 [tasks.setup]
-run = "pnpm i --frozen-lockfile && pnpm approve-builds"
+run = "pnpm i --frozen-lockfile"
 
 [tasks.dev]
 depends = ["setup"]
