@@ -3,7 +3,7 @@ node = "24"
 pnpm = "11.0"
 
 [tasks.setup]
-run = "pnpm i --frozen-lockfile"
+run = "pnpm i --frozen-lockfile && pnpm approve-builds"
 
 [tasks.dev]
 depends = ["setup"]
