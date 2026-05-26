@@ -24,3 +24,5 @@ pnpm-debug.log*
 .idea/
 
 test/.results
+
+.envrc
