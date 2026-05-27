@@ -1,0 +1,42 @@
+{
+    "title": "Backend",
+    "icon": "tabler--server",
+    "items": [
+        {
+            "title": "Django",
+            "icon": "simple-icons--django",
+            "highlightColor": "#092E20",
+            "description": "Django is a free and open-source, Python-based web framework that runs on a web server."
+        },
+        {
+            "title": "ASP.NET",
+            "icon": "simple-icons--dotnet",
+            "highlightColor": "#512BD4",
+            "description": "ASP.NET is a server-side web-application framework designed for web development to produce dynamic web pages. It was developed by Microsoft to allow programmers to build dynamic web sites, applications and services."
+        },
+        {
+            "title": "Spring",
+            "icon": "simple-icons--spring",
+            "highlightColor": "#6DB33F",
+            "description": "Spring Framework is a comprehensive programming and configuration model for modern Java-based enterprise applications."
+        },
+        {
+            "title": "Express",
+            "icon": "simple-icons--express",
+            "highlightColor": "#F7DF1E",
+            "description": "Express.js, or simply Express, is a back end web application framework for Node.js, released as free and open-source software under the MIT License."
+        },
+        {
+            "title": "Laravel",
+            "icon": "simple-icons--laravel",
+            "highlightColor": "#FF2D20",
+            "description": "Laravel is a free and open-source PHP-based web framework for building web applications."
+        },
+        {
+            "title": "Next.js",
+            "icon": "simple-icons--nextdotjs",
+            "highlightColor": "#1A1A1A",
+            "description": "Next.js is an open-source full-stack web development framework created by the private company Vercel providing React-based web applications with server-side rendering and static rendering."
+        }
+    ]
+}

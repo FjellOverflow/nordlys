@@ -1,0 +1,42 @@
+{
+    "title": "Frontend",
+    "icon": "tabler--layout-dashboard",
+    "items": [
+        {
+            "title": "React",
+            "icon": "simple-icons--react",
+            "highlightColor": "#61DAFB",
+            "description": "React is a free and open-source front-end JavaScript library that aims to make building user interfaces based on components more \"seamless\"."
+        },
+        {
+            "title": "Vue",
+            "icon": "simple-icons--vuedotjs",
+            "highlightColor": "#4FC08D",
+            "description": "Vue.js is an open-source model-view-viewmodel front end JavaScript framework for building user interfaces and single-page applications."
+        },
+        {
+            "title": "Svelte",
+            "icon": "simple-icons--svelte",
+            "highlightColor": "#FF3E00",
+            "description": "Svelte is a free and open-source component-based front-end software framework and language created by Rich Harris and maintained by the Svelte core team."
+        },
+        {
+            "title": "Astro",
+            "icon": "simple-icons--astro",
+            "highlightColor": "#BC52EE",
+            "description": "Astro is a JavaScript web framework that renders components on the server and sends lightweight HTML to the browser."
+        },
+        {
+            "title": "Tailwind",
+            "icon": "simple-icons--tailwindcss",
+            "highlightColor": "#06B6D4",
+            "description": "Tailwind CSS is an open-source CSS framework."
+        },
+        {
+            "title": "Angular",
+            "icon": "simple-icons--angular",
+            "highlightColor": "#fe31d8",
+            "description": "Angular is a TypeScript-based free and open-source single-page web application framework."
+        }
+    ]
+}

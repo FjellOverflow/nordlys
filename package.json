@@ -39,6 +39,7 @@
     "@expressive-code/plugin-collapsible-sections": "^0.41.7",
     "@expressive-code/plugin-line-numbers": "^0.41.7",
     "@fontsource/ibm-plex-sans": "^5.2.8",
+    "@iconify-json/simple-icons": "^1.2.83",
     "@iconify-json/tabler": "^1.2.35",
     "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/typography": "^0.5.19",

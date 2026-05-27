@@ -60,4 +60,24 @@ const albums = defineCollection({
     })
 })
 
-export const collections = { posts, projects, albums }
+const tools = defineCollection({
+  loader: glob({
+    pattern: '**/[^_]*.json',
+    base: './content/tools'
+  }),
+  schema: () =>
+    z.object({
+      title: z.string(),
+      icon: z.string().startsWith('tabler--'),
+      items: z.array(
+        z.object({
+          title: z.string(),
+          description: z.string(),
+          icon: z.string().startsWith('simple-icons--'),
+          highlightColor: z.string().startsWith('#')
+        })
+      )
+    })
+})
+
+export const collections = { posts, projects, albums, tools }

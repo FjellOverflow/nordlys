@@ -1,0 +1,36 @@
+{
+    "title": "Databases",
+    "icon": "tabler--database",
+    "items": [
+        {
+            "title": "MySQL",
+            "icon": "simple-icons--mysql",
+            "highlightColor": "#4479A1",
+            "description": "MySQL is a free and open-source relational database management system. Its name is a combination of \"My\", the name of co-founder Michael Widenius' daughter My, and \"SQL\", the acronym for Structured Query Language. "
+        },
+        {
+            "title": "PostgreSQL",
+            "icon": "simple-icons--postgresql",
+            "highlightColor": "#4169E1",
+            "description": "PostgreSQL, also known as Postgres, is a free and open-source relational database management system emphasizing extensibility and SQL compliance."
+        },
+        {
+            "title": "MongoDB",
+            "icon": "simple-icons--mongodb",
+            "highlightColor": "#47A248",
+            "description": "MongoDB is a source-available, cross-platform, document-oriented database program."
+        },
+        {
+            "title": "Redis",
+            "icon": "simple-icons--redis",
+            "highlightColor": "#FF4438",
+            "description": "Redis is an in-memory key–value database, used as a distributed cache and message broker, with optional durability."
+        },
+        {
+            "title": "SQLite",
+            "icon": "simple-icons--sqlite",
+            "highlightColor": "#003B57",
+            "description": "SQLite is a free and open-source relational database engine written in the C programming language."
+        }
+    ]
+}

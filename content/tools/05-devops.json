@@ -1,0 +1,42 @@
+{
+    "title": "Tools & DevOps",
+    "icon": "tabler--tool",
+    "items": [
+        {
+            "title": "Docker",
+            "icon": "simple-icons--docker",
+            "highlightColor": "#2496ED",
+            "description": "Docker is a set of products that uses operating system-level virtualization to deliver software in packages called containers."
+        },
+        {
+            "title": "Git",
+            "icon": "simple-icons--git",
+            "highlightColor": "#F03C2E",
+            "description": "Git is a distributed version control software system that is capable of managing versions of source code or data."
+        },
+        {
+            "title": "Jenkins",
+            "icon": "simple-icons--jenkins",
+            "highlightColor": "#D24939",
+            "description": "Jenkins is an open source automation server."
+        },
+        {
+            "title": "Ansible",
+            "icon": "simple-icons--ansible",
+            "highlightColor": "#EE0000",
+            "description": "Ansible is a suite of software tools that enables infrastructure as code."
+        },
+        {
+            "title": "Grafana",
+            "icon": "simple-icons--grafana",
+            "highlightColor": "#F46800",
+            "description": "Grafana is an open-source analytics and visualization web application."
+        },
+        {
+            "title": "Kubernetes",
+            "icon": "simple-icons--kubernetes",
+            "highlightColor": "#326CE5",
+            "description": "Kubernetes, also known as K8s, is an open-source container orchestration system for automating software deployment, scaling, and management."
+        }
+    ]
+}

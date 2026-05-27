@@ -1,15 +1,15 @@
 import type { MarkdownInstance } from 'astro'
 import { getCollection } from 'astro:content'
 
-export async function getAlbums() {
-  const albums = await getCollection('albums')
+export async function getTools() {
+  const tools = await getCollection('tools')
 
-  return albums
+  return tools
 }
 
-export function getPhotosPageDescription() {
+export function getToolsPageDescription() {
   const globMatches = Object.values(
-    import.meta.glob('../../content/photos.md', {
+    import.meta.glob('../../content/tools.md', {
       eager: true
     })
   ) as MarkdownInstance<object>[]
