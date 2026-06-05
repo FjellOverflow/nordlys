@@ -27,7 +27,7 @@ test.describe('interaction - components', () => {
     await button.click()
     await expect(menu).toBeVisible()
     await expect(button).toHaveAttribute('aria-expanded', 'true')
-    await expect(menu.locator('a[href="/"]')).toHaveText('Landing page')
+    await expect(menu.locator('a[href="/tools/"]')).toHaveText('Tools')
 
     await button.click()
 
