@@ -80,12 +80,5 @@
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.60.1"
   },
-  "packageManager": "pnpm@10.33.0",
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@tailwindcss/oxide",
-      "esbuild",
-      "sharp"
-    ]
-  }
+  "packageManager": "pnpm@11.5.1"
 }

@@ -3,7 +3,7 @@ all_compile = false
 
 [tools]
 node = "24"
-pnpm = "10.33"
+pnpm = "11.5"
 
 [tasks.setup]
 run = "pnpm i --frozen-lockfile"
