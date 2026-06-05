@@ -50,7 +50,7 @@ export async function createZoomableImage(image: HTMLImageElement) {
           width: image.naturalWidth || image.width,
           height: image.naturalHeight || image.height,
           alt: image.alt,
-          element: image.parentElement ?? image
+          element: image
         }
       ],
       padding: { top: 15, bottom: 15, left: 15, right: 15 },
