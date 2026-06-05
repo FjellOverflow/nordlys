@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.7.0](https://github.com/FjellOverflow/nordlys/compare/v3.6.0...v3.7.0) (2026-06-05)
+
+
+### Features
+
+* new interactive `tools` page ([d27f8ef](https://github.com/FjellOverflow/nordlys/commit/d27f8efe367924a000188e2d0f88044732ba20cf))
+
+
+### Bug Fixes
+
+* lightbox source from image itself instead of parent ([68d3e12](https://github.com/FjellOverflow/nordlys/commit/68d3e122b34d172ec04fe8701b36b4a687a44a43))
+
 ## [3.6.0](https://github.com/FjellOverflow/nordlys/compare/v3.5.0...v3.6.0) (2026-04-20)
 
 
