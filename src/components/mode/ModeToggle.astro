@@ -35,8 +35,14 @@
           Math.max(y, window.innerHeight - y)
         )
 
+        document.documentElement.classList.add('theme-switching')
+
         const transition = document.startViewTransition(() => {
           switchMode()
+        })
+
+        transition.finished.finally(() => {
+          document.documentElement.classList.remove('theme-switching')
         })
 
         transition.ready.then(() => {
@@ -66,6 +72,10 @@
 </script>
 
 <style is:global>
+  html.theme-switching [data-astro-transition-scope] {
+    view-transition-name: none !important;
+  }
+
   ::view-transition-old(root),
   ::view-transition-new(root) {
     animation: none;
