@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.8.0](https://github.com/FjellOverflow/nordlys/compare/v3.7.0...v3.8.0) (2026-06-10)
+
+
+### Features
+
+* animate flip on project card ([6181fcf](https://github.com/FjellOverflow/nordlys/commit/6181fcf613fc14247bea655c2510ede8be3159aa))
+* animate open/close dropdown ([9f58b37](https://github.com/FjellOverflow/nordlys/commit/9f58b37ac647568c11f680fd09aa4c5cae07af4d))
+* animate open/close mobile header ([ce6e488](https://github.com/FjellOverflow/nordlys/commit/ce6e4887c139175e25316db101ec222b2d26a06a))
+
+
+### Bug Fixes
+
+* override custom transitions with global dark/light switch animation ([375233d](https://github.com/FjellOverflow/nordlys/commit/375233d63e6904bff02a8ef1a5efa32f2608be87))
+
 ## [3.7.0](https://github.com/FjellOverflow/nordlys/compare/v3.6.0...v3.7.0) (2026-06-05)
 
 
