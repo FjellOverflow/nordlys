@@ -50,7 +50,7 @@ const menuId = generateElementId(`${label}-menu`)
     id={menuId}
     role="menu"
     aria-labelledby={buttonId}
-    class="border-accent/25 bg-accent-bg absolute right-0 z-10 mt-4 hidden origin-top-right flex-col gap-2 rounded-sm border p-4 shadow-sm shadow-black"
+    class="border-accent/25 bg-accent-bg invisible absolute right-0 z-10 mt-4 flex origin-top-right scale-y-0 flex-col gap-2 rounded-sm border p-4 opacity-0 shadow-sm shadow-black transition-[scale,opacity,visibility] duration-500 motion-reduce:transition-none"
   >
     {
       children.map((item) => (
@@ -84,7 +84,7 @@ const menuId = generateElementId(`${label}-menu`)
         if (!isActive) button.classList.replace('clickable', 'text-accent/100')
         button.setAttribute('aria-expanded', 'true')
 
-        menu.classList.replace('hidden', 'flex')
+        menu.classList.remove('invisible', 'scale-y-0', 'opacity-0')
 
         this.querySelector('.tabler--chevron-down')?.classList.add(
           '-rotate-180'
@@ -96,7 +96,7 @@ const menuId = generateElementId(`${label}-menu`)
         if (!isActive) button.classList.replace('text-accent/100', 'clickable')
         button.setAttribute('aria-expanded', 'false')
 
-        menu.classList.replace('flex', 'hidden')
+        menu.classList.add('invisible', 'scale-y-0', 'opacity-0')
 
         this.querySelector('.tabler--chevron-down')?.classList.remove(
           '-rotate-180'
@@ -104,10 +104,10 @@ const menuId = generateElementId(`${label}-menu`)
       }
 
       button.addEventListener('click', () => {
-        if (menu.className.includes('hidden')) {
-          showMenu()
-        } else {
+        if (button.getAttribute('aria-expanded') === 'true') {
           hideMenu()
+        } else {
+          showMenu()
         }
       })
 
