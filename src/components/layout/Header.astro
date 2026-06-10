@@ -78,28 +78,33 @@ export const isNavItem = (item: HeaderItemType): item is NavItemType =>
     </div>
   </div>
   <Separator />
-  <div id="mobile-nav" class="hidden">
-    <nav class="flex-col justify-end py-6">
-      <ul class="flex flex-col items-center gap-2">
-        {
-          config.navbarItems.map((item) => (
-            <li class="flex flex-col justify-center">
-              {isNavItem(item) ? (
-                <HeaderItem
-                  {item}
-                  isActive={
-                    activeHeaderLink === item.label ||
-                    activeHeaderLink === item.href
-                  }
-                />
-              ) : (
-                <Dropdown {item} {activeHeaderLink} />
-              )}
-            </li>
-          ))
-        }
-      </ul>
-    </nav>
-    <Separator />
+  <div
+    id="mobile-nav"
+    class="invisible grid grid-rows-[0fr] transition-[grid-template-rows,visibility] duration-300 sm:hidden"
+  >
+    <div class="min-h-0 overflow-hidden">
+      <nav class="flex-col justify-end py-6">
+        <ul class="flex flex-col items-center gap-2">
+          {
+            config.navbarItems.map((item) => (
+              <li class="flex flex-col justify-center">
+                {isNavItem(item) ? (
+                  <HeaderItem
+                    {item}
+                    isActive={
+                      activeHeaderLink === item.label ||
+                      activeHeaderLink === item.href
+                    }
+                  />
+                ) : (
+                  <Dropdown {item} {activeHeaderLink} />
+                )}
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+      <Separator />
+    </div>
   </div>
 </header>

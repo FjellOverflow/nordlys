@@ -17,22 +17,32 @@
       const iconOpen = 'tabler--x'
       const iconClosed = 'tabler--menu-2'
 
-      const nav = document.querySelector('#mobile-nav')
+      const nav = document.querySelector<HTMLElement>('#mobile-nav')
       const icon = this.querySelector('#mobile-nav-icon')
       const button = this.querySelector('button')
 
       if (!nav || !icon || !button) return
 
-      const navIsOpen = () => !nav.classList.contains('hidden')
+      const inner = nav.firstElementChild
+
+      const navIsOpen = () => !nav.classList.contains('invisible')
+
+      nav.addEventListener('transitionend', (event) => {
+        if (event.propertyName === 'grid-template-rows' && navIsOpen())
+          inner?.classList.replace('overflow-hidden', 'overflow-visible')
+      })
 
       const close = () => {
-        nav.classList.add('hidden')
+        inner?.classList.replace('overflow-visible', 'overflow-hidden')
+        nav.classList.add('invisible')
+        nav.classList.replace('grid-rows-[1fr]', 'grid-rows-[0fr]')
         icon.classList.replace(iconOpen, iconClosed)
         button.setAttribute('aria-label', 'closed')
       }
 
       const open = () => {
-        nav.classList.remove('hidden')
+        nav.classList.remove('invisible')
+        nav.classList.replace('grid-rows-[0fr]', 'grid-rows-[1fr]')
         icon.classList.replace(iconClosed, iconOpen)
         button.setAttribute('aria-label', 'open')
       }
