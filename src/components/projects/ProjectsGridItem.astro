@@ -18,34 +18,38 @@ const { Content } = await render(project)
 <FlipCard class="h-full md:p-4">
   <div
     slot="front"
-    class="flex flex-col items-start justify-center pt-14 md:items-center md:gap-4 md:pt-0"
+    class="flex h-full flex-col items-start pt-14 md:items-center md:gap-4 md:pt-0"
   >
-    {
-      data.previewImage && (
-        <Image
-          src={data.previewImage}
-          height={208}
-          alt={`${data.title} preview`}
-          class="mt-0 mb-4 max-h-52 w-fit rounded-sm object-contain md:mb-0 md:h-32"
-        />
-      )
-    }
-    <div class="flex flex-col justify-between sm:flex-row sm:items-center">
+    <div
+      class="flex grow flex-col items-start justify-center md:items-center md:gap-4"
+    >
       {
-        data.url && (
-          <a
-            class="mb-2 text-xl font-normal no-underline"
-            href={data.url}
-            target={isAbsoluteUrl(data.url) ? '_blank' : '_self'}
-          >
-            <span class="underline">{data.title}</span>
-            {data.url && isAbsoluteUrl(data.url) && (
-              <span class="iconify tabler--external-link align-middle" />
-            )}
-          </a>
+        data.previewImage && (
+          <Image
+            src={data.previewImage}
+            height={208}
+            alt={`${data.title} preview`}
+            class="mt-0 mb-4 max-h-52 w-fit rounded-sm object-contain md:mb-0 md:h-32"
+          />
         )
       }
-      {!data.url && <span class="mb-2 text-xl">{data.title}</span>}
+      <div class="flex flex-col justify-between sm:flex-row sm:items-center">
+        {
+          data.url && (
+            <a
+              class="mb-2 text-xl font-normal no-underline"
+              href={data.url}
+              target={isAbsoluteUrl(data.url) ? '_blank' : '_self'}
+            >
+              <span class="underline">{data.title}</span>
+              {data.url && isAbsoluteUrl(data.url) && (
+                <span class="iconify tabler--external-link align-middle" />
+              )}
+            </a>
+          )
+        }
+        {!data.url && <span class="mb-2 text-xl">{data.title}</span>}
+      </div>
     </div>
 
     <TagsBar tags={resolveTags(data.tags)} />

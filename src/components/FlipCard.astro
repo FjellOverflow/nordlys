@@ -3,11 +3,17 @@ const { class: className = '', ...rest } = Astro.props
 ---
 
 <flip-card>
-  <div class={`relative ${className}`} {...rest}>
-    <div id="front" class="h-full">
+  <div class={`relative grid ${className}`} {...rest}>
+    <div
+      id="front"
+      class="col-start-1 row-start-1 h-full transition-[opacity,visibility] duration-500 ease-in-out motion-reduce:transition-none"
+    >
       <slot name="front" />
     </div>
-    <div id="back" class="hidden h-full">
+    <div
+      id="back"
+      class="invisible col-start-1 row-start-1 h-full opacity-0 transition-[opacity,visibility] duration-500 ease-in-out motion-reduce:transition-none"
+    >
       <slot name="back" />
     </div>
     <button
@@ -34,8 +40,8 @@ const { class: className = '', ...rest } = Astro.props
 
     if (!front || !back || !icon || !button) return
 
-    front.classList.remove('hidden')
-    back.classList.add('hidden')
+    front.classList.remove('invisible', 'opacity-0')
+    back.classList.add('invisible', 'opacity-0')
     icon.classList.remove('rotate-45')
     button.setAttribute('aria-label', 'closed')
   }
@@ -52,14 +58,14 @@ const { class: className = '', ...rest } = Astro.props
       const open = () => {
         document.querySelectorAll('flip-card').forEach(closeCard)
 
-        front.classList.add('hidden')
-        back.classList.remove('hidden')
+        front.classList.add('invisible', 'opacity-0')
+        back.classList.remove('invisible', 'opacity-0')
         icon.classList.add('rotate-45')
         button.setAttribute('aria-label', 'open')
       }
 
       button.addEventListener('click', () => {
-        if (!front.classList.contains('hidden')) open()
+        if (!front.classList.contains('invisible')) open()
         else closeCard(this)
       })
     }
