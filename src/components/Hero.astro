@@ -28,7 +28,10 @@ const { background, logo: showLogo } = Astro.props.frontmatter
         />
       )
     }
-    <div class="flex items-center gap-4 sm:gap-8" transition:name="branding">
+    <div
+      class="relative flex items-center gap-4 sm:gap-8"
+      transition:name="branding"
+    >
       {
         showLogo && (
           <Image
