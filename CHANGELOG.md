@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.9.0](https://github.com/FjellOverflow/nordlys/compare/v3.8.0...v3.9.0) (2026-06-12)
+
+
+### Features
+
+* allow linking tools to tags ([e0699f5](https://github.com/FjellOverflow/nordlys/commit/e0699f553d091a3c88af5c9483e6c82a6fafbe05))
+
+
+### Bug Fixes
+
+* branding background gradient positioning ([4e2f48b](https://github.com/FjellOverflow/nordlys/commit/4e2f48b44e180495cb31b3629ecd69c2b04fcb68))
+* tools base color ([85335e1](https://github.com/FjellOverflow/nordlys/commit/85335e146a893addf18bc0d6f9f8798b9a19cd4d))
+
 ## [3.8.0](https://github.com/FjellOverflow/nordlys/compare/v3.7.0...v3.8.0) (2026-06-10)
 
 
