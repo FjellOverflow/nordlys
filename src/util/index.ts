@@ -12,6 +12,20 @@ export const toMonthString = (date: Date): string =>
     day: undefined
   })
 
+export const toUsageString = ({
+  posts,
+  projects
+}: {
+  posts: number
+  projects: number
+}): string =>
+  [
+    posts && `${posts} ${posts === 1 ? 'post' : 'posts'}`,
+    projects && `${projects} ${projects === 1 ? 'project' : 'projects'}`
+  ]
+    .filter(Boolean)
+    .join(' · ')
+
 export const isAbsoluteUrl = (url: string) =>
   url.indexOf('http://') === 0 || url.indexOf('https://') === 0
 

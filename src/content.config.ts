@@ -74,7 +74,8 @@ const tools = defineCollection({
           title: z.string(),
           description: z.string(),
           icon: z.string().startsWith('simple-icons--'),
-          highlightColor: z.string().startsWith('#')
+          highlightColor: z.string().startsWith('#'),
+          tag: z.string().optional()
         })
       )
     })

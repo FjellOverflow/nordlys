@@ -5,6 +5,8 @@ import PageLayout, {
   type Props as PageLayoutProps
 } from '@/layouts/PageLayout.astro'
 
+import { toUsageString } from '@/util'
+import { resolveTagLink } from '@/util/tags'
 import { getTools, getToolsPageDescription } from '@/util/tools'
 
 const tools = await getTools()
@@ -36,25 +38,35 @@ const PageDescription = getToolsPageDescription()
           <Separator class="mt-0 mb-2" />
 
           <div class="flex flex-row flex-wrap gap-4 sm:gap-12">
-            {items.map((item) => (
-              <button
-                style={`--highlight-color: ${item.highlightColor}`}
-                class="group/item flex cursor-pointer flex-col items-center gap-2"
-                data-active="false"
-                data-title={item.title}
-                data-icon={item.icon}
-                data-highlight-color={item.highlightColor}
-                data-description={item.description}
-              >
-                <span
-                  class={`iconify text-3xl sm:text-5xl ${item.icon} transition-colors duration-500 ease-in-out group-hover/item:text-(--highlight-color) group-data-[active=true]/item:text-(--highlight-color)`}
-                />
+            {items.map(async (item) => {
+              const tagLink = item.tag
+                ? await resolveTagLink(item.tag)
+                : undefined
 
-                <span class="text-xs opacity-75 transition-opacity duration-500 ease-in-out group-hover/item:opacity-100 group-data-[active=true]/item:opacity-100 sm:text-base">
-                  {item.title}
-                </span>
-              </button>
-            ))}
+              const tagLabel = tagLink && toUsageString(tagLink.usage)
+
+              return (
+                <button
+                  style={`--highlight-color: ${item.highlightColor}`}
+                  class="group/item flex cursor-pointer flex-col items-center gap-2"
+                  data-active="false"
+                  data-title={item.title}
+                  data-icon={item.icon}
+                  data-highlight-color={item.highlightColor}
+                  data-description={item.description}
+                  data-tag={tagLabel ? tagLink.tag : undefined}
+                  data-tag-label={tagLabel || undefined}
+                >
+                  <span
+                    class={`iconify text-3xl sm:text-5xl ${item.icon} transition-colors duration-500 ease-in-out group-hover/item:text-(--highlight-color) group-data-[active=true]/item:text-(--highlight-color)`}
+                  />
+
+                  <span class="text-xs opacity-75 transition-opacity duration-500 ease-in-out group-hover/item:opacity-100 group-data-[active=true]/item:opacity-100 sm:text-base">
+                    {item.title}
+                  </span>
+                </button>
+              )
+            })}
           </div>
 
           <div class="grid grid-rows-[0fr] opacity-0 transition-[grid-template-rows,opacity] duration-300 ease-in-out group-has-data-[active=true]:grid-rows-[1fr] group-has-data-[active=true]:opacity-100">
@@ -66,6 +78,16 @@ const PageDescription = getToolsPageDescription()
                 <div class="flex flex-col gap-1 sm:gap-2">
                   <tool-details-title class="text-base sm:text-xl" />
                   <tool-details-description class="text-xs sm:text-base" />
+                  <tool-details-tag class="hidden">
+                    <a
+                      href="/tags/"
+                      class="clickable flex w-fit items-center gap-1 text-xs sm:text-base"
+                      data-astro-prefetch
+                    >
+                      <span class="iconify tabler--tag" />
+                      <span />
+                    </a>
+                  </tool-details-tag>
                 </div>
               </div>
             </div>
@@ -87,10 +109,11 @@ const PageDescription = getToolsPageDescription()
       const description = this.querySelector<HTMLElement>(
         'tool-details-description'
       )
+      const tag = this.querySelector<HTMLElement>('tool-details-tag')
 
-      if (!title || !icon || !description) return
+      if (!title || !icon || !description || !tag) return
 
-      return { title, icon, description }
+      return { title, icon, description, tag }
     }
 
     connectedCallback() {
@@ -123,7 +146,7 @@ const PageDescription = getToolsPageDescription()
           )
             return
 
-          const { title, description, icon } = details
+          const { title, description, icon, tag } = details
 
           title.innerText = itemTitle
 
@@ -132,6 +155,20 @@ const PageDescription = getToolsPageDescription()
           icon.style = `--highlight-color: ${itemHighlightColor}`
 
           icon.className = `text-3xl sm:text-5xl iconify ${itemIcon} text-(--highlight-color)`
+
+          const itemTag = button.dataset.tag
+          const itemTagLabel = button.dataset.tagLabel
+
+          const tagAnchor = tag.querySelector<HTMLAnchorElement>('a')
+          const tagLabel = tag.querySelector<HTMLElement>('a span:last-child')
+
+          if (itemTag && itemTagLabel && tagAnchor && tagLabel) {
+            tagAnchor.href = `/tags/${itemTag}/`
+            tagLabel.innerText = itemTagLabel
+            tag.classList.remove('hidden')
+          } else {
+            tag.classList.add('hidden')
+          }
         })
       })
     }

@@ -29,5 +29,17 @@ export const generateTags = async (): Promise<ResolvedTag[]> => {
   return resolveTags([...new Set(allTags)])
 }
 
-export const getTagUsage = async (tag: string): Promise<number> =>
-  (await getPosts(tag)).length + (await getProjects(tag)).length
+export const getTagUsage = async (tag: string) => {
+  const posts = (await getPosts(tag)).length
+  const projects = (await getProjects(tag)).length
+
+  return { posts, projects }
+}
+
+export const resolveTagLink = async (rawTag: string) => {
+  const [{ tag, icon }] = resolveTags([rawTag])
+
+  const usage = await getTagUsage(tag)
+
+  return { tag, icon, usage }
+}

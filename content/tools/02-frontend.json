@@ -24,13 +24,15 @@
             "title": "Astro",
             "icon": "simple-icons--astro",
             "highlightColor": "#BC52EE",
-            "description": "Astro is a JavaScript web framework that renders components on the server and sends lightweight HTML to the browser."
+            "description": "Astro is a JavaScript web framework that renders components on the server and sends lightweight HTML to the browser.",
+            "tag": "astro"
         },
         {
             "title": "Tailwind",
             "icon": "simple-icons--tailwindcss",
             "highlightColor": "#06B6D4",
-            "description": "Tailwind CSS is an open-source CSS framework."
+            "description": "Tailwind CSS is an open-source CSS framework.",
+            "tag": "tailwindcss"
         },
         {
             "title": "Angular",
