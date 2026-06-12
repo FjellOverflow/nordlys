@@ -31,12 +31,6 @@
             "icon": "simple-icons--grafana",
             "highlightColor": "#F46800",
             "description": "Grafana is an open-source analytics and visualization web application."
-        },
-        {
-            "title": "Kubernetes",
-            "icon": "simple-icons--kubernetes",
-            "highlightColor": "#326CE5",
-            "description": "Kubernetes, also known as K8s, is an open-source container orchestration system for automating software deployment, scaling, and management."
         }
     ]
 }
