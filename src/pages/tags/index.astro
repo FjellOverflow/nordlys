@@ -25,8 +25,9 @@ const frontmatter: PageLayoutProps['frontmatter'] = {
           <span class={`iconify text-4xl sm:text-5xl ${icon}`} />
 
           <span class="text-base font-normal sm:text-lg">
-            {tag} (
-            {getTagUsage(tag).then(({ posts, projects }) => posts + projects)})
+            {getTagUsage(tag).then(
+              ({ posts, projects }) => `${tag} (${posts + projects})`
+            )}
           </span>
         </a>
       ))
