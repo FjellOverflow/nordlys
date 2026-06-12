@@ -40,7 +40,7 @@ depends = ["setup", "build", "test:setup"]
 run = "pnpm test"
 
 [tasks."test:regenerate"]
-depends = ["setup", "test:setup"]
+depends = ["build", "test:setup"]
 run = "pnpm test:regenerate"
 
 [tasks.release]
