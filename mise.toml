@@ -16,20 +16,9 @@ run = "pnpm dev --host"
 depends = ["setup"]
 run = "pnpm build"
 
-[tasks.preview]
-depends = ["build"]
-run = "pnpm preview"
-
-[tasks.lint]
-depends = ["setup"]
-run = "pnpm lint"
-
-[tasks.check]
-depends = ["setup"]
-run = "pnpm check"
-
 [tasks.ci]
-depends = ["setup", "lint", "check"]
+depends = ["setup"]
+run = ["pnpm lint", "pnpm check"]
 
 [tasks."test:setup"]
 depends = ["setup"]
@@ -40,10 +29,10 @@ depends = ["setup", "build", "test:setup"]
 run = "pnpm test"
 
 [tasks."test:regenerate"]
-depends = ["build", "test:setup"]
+depends = ["setup", "build", "test:setup"]
 run = "pnpm test:regenerate"
 
 [tasks.release]
-depends = ["setup", "lint", "check", "test"]
-confirm = "Are you sure you want to release?"
+depends = ["setup", "ci", "test"]
+confirm = { message = "Are you sure you want to release?", default = "no" }
 run = "pnpm release && git push --follow-tags"
