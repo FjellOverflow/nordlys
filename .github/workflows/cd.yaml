@@ -18,10 +18,23 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Install, build, and upload site
-        uses: withastro/action@v3
+
+      - name: Setup mise
+        uses: jdx/mise-action@v4
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: Build with Astro
+        run: |
+          mise build
+          touch dist/.nojekyll
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          node-version: 24
+          path: ./dist
+
   deploy:
     needs: build
     runs-on: ubuntu-latest
@@ -30,4 +43,5 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
