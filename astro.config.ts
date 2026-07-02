@@ -1,5 +1,6 @@
 import { defineConfig } from 'astro/config'
 
+import { unified } from '@astrojs/markdown-remark'
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
 import { pluginCollapsibleSections } from '@expressive-code/plugin-collapsible-sections'
@@ -28,7 +29,9 @@ export default defineConfig({
   ],
 
   markdown: {
-    remarkPlugins: [readingTimePlugin, sectionizePlugin]
+    processor: unified({
+      remarkPlugins: [readingTimePlugin, sectionizePlugin]
+    })
   },
 
   vite: {
