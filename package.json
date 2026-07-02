@@ -54,7 +54,7 @@
     "reading-time": "^1.5.0",
     "remark-sectionize": "^2.1.0",
     "satori": "^0.26.0",
-    "sharp": "^0.35.2",
+    "sharp": "^0.35.3",
     "tailwind-scrollbar-hide": "^4.0.0",
     "tailwindcss": "^4.3.2"
   },
