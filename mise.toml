@@ -2,8 +2,8 @@
 all_compile = false
 
 [tools]
-node = "24"
-pnpm = "11.5"
+node = "24.18.0"
+pnpm = "11.9.0"
 
 [tasks.setup]
 run = "pnpm i --frozen-lockfile"
