@@ -33,18 +33,18 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.9",
-    "@astrojs/mdx": "^7.0.2",
+    "@astrojs/mdx": "^7.0.3",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
     "@expressive-code/plugin-collapsible-sections": "^0.44.0",
     "@expressive-code/plugin-line-numbers": "^0.44.0",
     "@fontsource/ibm-plex-sans": "^5.2.8",
-    "@iconify-json/simple-icons": "^1.2.89",
+    "@iconify-json/simple-icons": "^1.2.90",
     "@iconify-json/tabler": "^1.2.35",
     "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/typography": "^0.5.20",
     "@tailwindcss/vite": "^4.3.2",
-    "astro": "^7.0.7",
+    "astro": "^7.0.9",
     "astro-expressive-code": "^0.44.0",
     "mdast-util-to-string": "^4.0.0",
     "pagefind": "^1.5.2",
@@ -63,9 +63,9 @@
     "@eslint/js": "^10.0.1",
     "@iconify/tailwind4": "^1.2.3",
     "@playwright/test": "^1.61.1",
-    "@typescript-eslint/parser": "^8.63.0",
+    "@typescript-eslint/parser": "^8.64.0",
     "commit-and-tag-version": "^12.7.3",
-    "eslint": "^10.6.0",
+    "eslint": "^10.7.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-astro": "^3.0.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
@@ -79,7 +79,7 @@
     "stylelint-config-recommended": "^18.0.0",
     "type-fest": "^5.8.0",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.63.0"
+    "typescript-eslint": "^8.64.0"
   },
-  "packageManager": "pnpm@11.11.0"
+  "packageManager": "pnpm@11.13.0"
 }
