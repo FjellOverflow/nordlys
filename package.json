@@ -75,7 +75,7 @@
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.8.0",
     "stylelint": "^17.14.0",
-    "stylelint-config-html": "^1.1.0",
+    "stylelint-config-html": "^2.0.0",
     "stylelint-config-recommended": "^18.0.0",
     "type-fest": "^5.8.0",
     "typescript": "^6.0.3",
