@@ -64,7 +64,7 @@
     "@iconify/tailwind4": "^1.2.3",
     "@playwright/test": "^1.61.1",
     "@typescript-eslint/parser": "^8.64.0",
-    "commit-and-tag-version": "^12.7.3",
+    "commit-and-tag-version": "^13.1.2",
     "eslint": "^10.7.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-astro": "^3.0.0",
