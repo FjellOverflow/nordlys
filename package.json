@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.10",
-    "@astrojs/mdx": "^7.0.5",
+    "@astrojs/mdx": "^7.0.6",
     "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
     "@expressive-code/plugin-collapsible-sections": "^0.44.1",
@@ -44,7 +44,7 @@
     "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/typography": "^0.5.20",
     "@tailwindcss/vite": "^4.3.3",
-    "astro": "^7.2.2",
+    "astro": "^7.2.3",
     "astro-expressive-code": "^0.44.1",
     "mdast-util-to-string": "^4.0.0",
     "pagefind": "^1.5.2",
@@ -59,7 +59,7 @@
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {
-    "@astrojs/markdown-remark": "^7.2.2",
+    "@astrojs/markdown-remark": "^7.2.3",
     "@eslint/js": "^10.0.1",
     "@iconify/tailwind4": "^1.2.3",
     "@playwright/test": "^1.62.1",
@@ -81,5 +81,5 @@
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.67.0"
   },
-  "packageManager": "pnpm@11.21.0"
+  "packageManager": "pnpm@11.22.0"
 }
