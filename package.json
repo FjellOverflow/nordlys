@@ -47,7 +47,6 @@
     "@tailwindcss/vite": "^4.3.3",
     "astro": "^7.2.9",
     "astro-expressive-code": "^0.44.1",
-    "mdast-util-to-string": "^4.0.0",
     "pagefind": "^1.5.2",
     "photoswipe": "^5.4.4",
     "photoswipe-dynamic-caption-plugin": "^1.2.7",
