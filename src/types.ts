@@ -1,5 +1,15 @@
 import type { AstroExpressiveCodeOptions } from 'astro-expressive-code'
-import type { SetOptional } from 'type-fest'
+
+type Simplify<T> = { [K in keyof T]: T[K] } & {}
+
+type SetOptional<T, K extends keyof T> = Simplify<
+  Omit<T, K> & Partial<Pick<T, K>>
+>
+
+export type RequireAtLeastOne<T, K extends keyof T = keyof T> = Omit<T, K> &
+  {
+    [Key in K]-?: Required<Pick<T, Key>> & Partial<Pick<T, Exclude<K, Key>>>
+  }[K]
 
 export type Icon = `tabler--${string}`
 

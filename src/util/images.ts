@@ -1,5 +1,5 @@
 import { getImage } from 'astro:assets'
-import type { RequireAtLeastOne } from 'type-fest'
+import type { RequireAtLeastOne } from '@/types'
 
 export const isLocalImage = (
   image: string | ImageMetadata
