@@ -10,18 +10,6 @@ export default [
   ...astroEslint.configs.recommended,
   ...astroEslint.configs['jsx-a11y-recommended'],
   {
-    files: ['tailwind.config.js'],
-    rules: {
-      '@typescript-eslint/no-require-imports': 'off'
-    }
-  },
-  {
-    files: ['**/*.d.ts'],
-    rules: {
-      '@typescript-eslint/triple-slash-reference': 'off'
-    }
-  },
-  {
     ignores: ['dist', 'node_modules', '.astro', 'public']
   },
   {
