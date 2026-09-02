@@ -7,8 +7,6 @@
 
 @plugin '@tailwindcss/typography';
 
-@plugin 'tailwind-scrollbar-hide';
-
 @plugin '@iconify/tailwind4' {
   prefixes: tabler, simple-icons;
 }

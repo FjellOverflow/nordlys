@@ -55,7 +55,6 @@
     "remark-sectionize": "^2.1.0",
     "satori": "^0.33.4",
     "sharp": "^0.35.4",
-    "tailwind-scrollbar-hide": "^4.0.0",
     "tailwindcss": "^4.3.3"
   },
   "devDependencies": {

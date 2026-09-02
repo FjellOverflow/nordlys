@@ -26,3 +26,23 @@
 @utility clickable {
   @apply hover:text-accent cursor-pointer opacity-75 transition duration-500 ease-in-out hover:opacity-100;
 }
+
+@utility scrollbar-hide {
+  scrollbar-width: none;
+
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@utility scrollbar-default {
+  scrollbar-width: auto;
+
+  -ms-overflow-style: auto;
+
+  &::-webkit-scrollbar {
+    display: block;
+  }
+}
