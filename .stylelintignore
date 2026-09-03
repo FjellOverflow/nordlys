@@ -6,3 +6,5 @@
 **/*.jpg
 **/*.jpeg
 **/*.webp
+**/*.woff
+**/*.woff2
