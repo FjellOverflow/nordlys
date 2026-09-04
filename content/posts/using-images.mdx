@@ -6,6 +6,7 @@ tags:
   - documentation
 previewImage: '../assets/posts/thumbnail.png'
 ---
+
 This post provides a quick overview of image and Open Graph image usage in Nordlys. For more detailed information on how Astro handles images, please [consult the documentation](https://docs.astro.build/en/guides/images/).
 
 import logo from '@/assets/logo.svg'
@@ -24,13 +25,18 @@ In all Markdown (`.md`) files, images can be embedded using the usual syntax. As
 
 ```markdown title="content/posts/my-post.md"
 ![Nordlys logo](@/assets/logo.svg)
-  or
+or
 ![Nordlys logo](../../src/assets/logo.svg)
-  or
+or
 ![Nordlys logo](src/assets/logo.svg)
 ```
 
-<Image alt="Nordlys logo, simplified northern lights aurora visualization" src={logo} loading="lazy" class="w-1/3 md:w-1/6 mx-auto"/>
+<Image
+  alt="Nordlys logo, simplified northern lights aurora visualization"
+  src={logo}
+  loading="lazy"
+  class="mx-auto w-1/3 md:w-1/6"
+/>
 
 ### Images in MDX
 
@@ -41,10 +47,16 @@ In Astro (`.astro`) or MDX (`.mdx`) files, you can also use Astro's built-in `<I
 import logo from '@/assets/logo.svg'
 import { Image } from 'astro:assets'
 ---
+
 <Image alt="Nordlys logo" src={logo} />
 ```
 
-<Image alt="Nordlys logo, simplified northern lights aurora visualization" src={logo} loading="lazy" class="w-1/3 md:w-1/6 mx-auto"/>
+<Image
+  alt="Nordlys logo, simplified northern lights aurora visualization"
+  src={logo}
+  loading="lazy"
+  class="mx-auto w-1/3 md:w-1/6"
+/>
 
 ### Public images
 
@@ -54,7 +66,14 @@ In addition to local assets, we can also use images from the web.
 ![Nordlys favicon](https://nordlys.fjelloverflow.dev/favicon.svg)
 ```
 
-<Image alt="Nordlys favicon" src="/favicon.svg" loading="lazy" width={128} height={128} class="mx-auto"/>
+<Image
+  alt="Nordlys favicon"
+  src="/favicon.svg"
+  loading="lazy"
+  width={128}
+  height={128}
+  class="mx-auto"
+/>
 
 ## data-img-embed
 
@@ -68,11 +87,17 @@ For a nice embedding of images into the content, you can use the `data-img-embed
 // normal appearance
 <img src="https://nordlys.fjelloverflow.dev/preview.png"/>
 <img src="https://nordlys.fjelloverflow.dev/preview.png" data-img-embed="false"/>
-
 ```
 
 <div align="center">
-<Image alt="Nordlys preview" src={preview} loading="lazy" height={252} width={480} data-img-embed/>
+  <Image
+    alt="Nordlys preview"
+    src={preview}
+    loading="lazy"
+    height={252}
+    width={480}
+    data-img-embed
+  />
 </div>
 
 ## Zoomable images
@@ -84,7 +109,15 @@ Starting from Nordlys version **2.3.0**, the `data-action="zoom"` attribute make
 ```
 
 <div align="center">
-<Image alt="Nordlys preview" src={preview} loading="lazy" height={252} width={480} data-img-embed data-action="zoom"/>
+  <Image
+    alt="Nordlys preview"
+    src={preview}
+    loading="lazy"
+    height={252}
+    width={480}
+    data-img-embed
+    data-action="zoom"
+  />
 </div>
 
 ## Open Graph Images
@@ -93,11 +126,11 @@ Images and image URLs can be used in frontmatter, for instance as `openGraphImag
 
 ```md title="content/posts/my-post.md"
 ---
-openGraphImage: "@/assets/logo.svg"
+openGraphImage: '@/assets/logo.svg'
 # or
-openGraphImage: "../../assets/logo.svg"
+openGraphImage: '../../assets/logo.svg'
 # or
-openGraphImage: "src/assets/logo.svg"
+openGraphImage: 'src/assets/logo.svg'
 ---
 ```
 
@@ -105,18 +138,34 @@ To use a public image, use:
 
 ```md title="content/posts/my-post.md"
 ---
-openGraphImage: "https://nordlys.fjelloverflow.dev/favicon.svg"
+openGraphImage: 'https://nordlys.fjelloverflow.dev/favicon.svg'
 ---
 ```
 
 Note that supplying `openGraphImage` is entirely optional. If a post (any file in `content/posts`) does not have an `openGraphImage` provided, Nordlys will automatically generate and use a basic template, displaying the post `title`, `description`, `author`, and website `title`, which looks like this:
 
 <div align="center">
-<Image alt="Example post OG image, showing the website name, logo, post title, description and author" src={ogImageUsingImages} loading="lazy" height={252} width={480} data-img-embed data-action="zoom"/>
+  <Image
+    alt="Example post OG image, showing the website name, logo, post title, description and author"
+    src={ogImageUsingImages}
+    loading="lazy"
+    height={252}
+    width={480}
+    data-img-embed
+    data-action="zoom"
+  />
 </div>
 
 Similarly, when there is no global `openGraphImage` configured in `theme.config.ts`, Nordlys generates and uses a generic image that displays the site `title` and `description` on every page where none has been defined, looking like this:
 
 <div align="center">
-<Image alt="Example site OG image, showing the website name, logo and description" src={ogImage} loading="lazy" height={252} width={480} data-img-embed data-action="zoom"/>
+  <Image
+    alt="Example site OG image, showing the website name, logo and description"
+    src={ogImage}
+    loading="lazy"
+    height={252}
+    width={480}
+    data-img-embed
+    data-action="zoom"
+  />
 </div>
