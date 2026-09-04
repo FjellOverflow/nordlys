@@ -16,6 +16,10 @@ run = "pnpm dev --host"
 depends = ["setup"]
 run = "pnpm build"
 
+[tasks.format]
+depends = ["setup"]
+run = "pnpm format"
+
 [tasks.ci]
 depends = ["setup"]
 run = ["pnpm lint", "pnpm check"]

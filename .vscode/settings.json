@@ -19,12 +19,11 @@
     "editor.defaultFormatter": "vscode.json-language-features"
   },
   // ESLint
-  "eslint.format.enable": true,
   "[javascript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[typescript]": {
-    "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.autoClosingBrackets": "always"
   },
   "[markdown]": {
@@ -38,8 +37,6 @@
     "javascriptreact",
     "typescript",
     "typescriptreact",
-    "html",
-    "markdown",
     "astro"
   ],
   // Stylelint
@@ -49,8 +46,5 @@
   "[css]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "stylelint.validate": [
-    "html",
-    "css",
-  ],
+  "stylelint.validate": ["html", "css"]
 }

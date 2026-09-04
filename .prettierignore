@@ -1,0 +1,11 @@
+dist
+node_modules
+.astro
+public
+src/assets/fonts
+test/snapshots
+CHANGELOG.md
+pnpm-lock.yaml
+LICENSE.md
+.github/CODE_OF_CONDUCT.md
+content
