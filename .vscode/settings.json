@@ -7,18 +7,19 @@
     "README.md": "README.md, LICENSE.md, CHANGELOG.md"
   },
   "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": "explicit",
     "source.fixAll.stylelint": "explicit",
     "source.organizeImports": "explicit"
   },
+  // Prettier
   "[json]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "vscode.json-language-features"
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  // ESLint
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
