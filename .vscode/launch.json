@@ -6,6 +6,6 @@
       "name": "Development server",
       "request": "launch",
       "type": "node-terminal"
-    },
+    }
   ]
 }
