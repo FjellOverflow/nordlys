@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.9.3](https://github.com/FjellOverflow/nordlys/compare/v3.9.2...v3.9.3) (2026-09-04)
+
+### Bug Fixes
+
+* re-add sharp to deps ([67d4762](https://github.com/FjellOverflow/nordlys/commit/67d4762047a13d908402777ceb22769216485190))
 ## [3.9.2](https://github.com/FjellOverflow/nordlys/compare/v3.9.1...v3.9.2) (2026-09-04)
 ## [3.9.1](https://github.com/FjellOverflow/nordlys/compare/v3.9.0...v3.9.1) (2026-07-15)
 

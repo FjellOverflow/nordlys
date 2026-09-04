@@ -1,7 +1,7 @@
 {
   "name": "nordlys",
   "type": "module",
-  "version": "3.9.2",
+  "version": "3.9.3",
   "description": "A minimal Astro blog theme",
   "author": "FjellOverflow",
   "license": "GPL-3.0-only",
