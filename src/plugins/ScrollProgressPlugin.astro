@@ -4,6 +4,9 @@
 
 <script>
   class ScrollProgressbar extends HTMLElement {
+    onScroll?: () => void
+    frame = 0
+
     connectedCallback() {
       const bar = this.children[0] as HTMLElement
 
@@ -17,11 +20,21 @@
         return (scrollTop / totalHeight) * 100
       }
 
-      document.addEventListener('scroll', () => {
-        const scrollPercentage = calculateScrollPercentage()
+      this.onScroll = () => {
+        if (this.frame) return
 
-        bar.style.width = `${scrollPercentage}%`
-      })
+        this.frame = requestAnimationFrame(() => {
+          this.frame = 0
+          bar.style.width = `${calculateScrollPercentage()}%`
+        })
+      }
+
+      document.addEventListener('scroll', this.onScroll, { passive: true })
+    }
+
+    disconnectedCallback() {
+      if (this.onScroll) document.removeEventListener('scroll', this.onScroll)
+      if (this.frame) cancelAnimationFrame(this.frame)
     }
   }
 

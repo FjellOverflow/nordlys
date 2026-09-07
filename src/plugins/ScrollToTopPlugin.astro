@@ -12,6 +12,9 @@
 
 <script>
   class ScrollToTopButton extends HTMLElement {
+    onScroll?: () => void
+    frame = 0
+
     connectedCallback() {
       const button = this.querySelector('button')
 
@@ -30,10 +33,22 @@
         document.documentElement.scrollTop = 0
       })
 
-      document.addEventListener('scroll', () => {
-        if (isBelowViewport()) this.classList.remove('hidden')
-        else this.classList.add('hidden')
-      })
+      this.onScroll = () => {
+        if (this.frame) return
+
+        this.frame = requestAnimationFrame(() => {
+          this.frame = 0
+          if (isBelowViewport()) this.classList.remove('hidden')
+          else this.classList.add('hidden')
+        })
+      }
+
+      document.addEventListener('scroll', this.onScroll, { passive: true })
+    }
+
+    disconnectedCallback() {
+      if (this.onScroll) document.removeEventListener('scroll', this.onScroll)
+      if (this.frame) cancelAnimationFrame(this.frame)
     }
   }
 
