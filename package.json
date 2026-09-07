@@ -33,20 +33,20 @@
     "test:regenerate": "rm -rf test/snapshots && playwright test --update-snapshots"
   },
   "dependencies": {
-    "@astrojs/markdown-remark": "^7.2.4",
+    "@astrojs/markdown-remark": "^7.3.0",
     "@astrojs/mdx": "^7.0.8",
     "@astrojs/rss": "^4.0.19",
-    "@astrojs/sitemap": "^3.7.3",
-    "@expressive-code/plugin-collapsible-sections": "^0.44.1",
-    "@expressive-code/plugin-line-numbers": "^0.44.1",
+    "@astrojs/sitemap": "^3.7.4",
+    "@expressive-code/plugin-collapsible-sections": "^0.44.2",
+    "@expressive-code/plugin-line-numbers": "^0.44.2",
     "@iconify-json/simple-icons": "^1.2.94",
     "@iconify-json/tabler": "^1.2.38",
     "@iconify/tailwind4": "^1.2.3",
     "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/typography": "^0.5.20",
     "@tailwindcss/vite": "^4.3.3",
-    "astro": "^7.2.9",
-    "astro-expressive-code": "^0.44.1",
+    "astro": "^7.3.1",
+    "astro-expressive-code": "^0.44.2",
     "pagefind": "^1.5.2",
     "photoswipe": "^5.4.4",
     "photoswipe-dynamic-caption-plugin": "^1.2.7",
@@ -72,7 +72,7 @@
     "stylelint-config-html": "^2.0.0",
     "stylelint-config-recommended": "^18.0.0",
     "typescript": "^6.0.3",
-    "typescript-eslint": "^8.68.0"
+    "typescript-eslint": "^8.69.0"
   },
-  "packageManager": "pnpm@11.24.0"
+  "packageManager": "pnpm@11.25.0"
 }
