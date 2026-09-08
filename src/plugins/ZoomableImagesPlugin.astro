@@ -3,15 +3,15 @@
 ---
 
 <script>
-  import { createZoomableImage } from './photoSwipePlugin'
+  document.addEventListener('astro:page-load', async () => {
+    const images = document.querySelectorAll<HTMLImageElement>(
+      'main#main img[data-action="zoom"]'
+    )
 
-  document.addEventListener('astro:page-load', () => {
-    const mainElement = document.querySelector('main#main')
+    if (!images.length) return
 
-    if (!mainElement) return
+    const { createZoomableImage } = await import('./photoSwipePlugin')
 
-    mainElement
-      .querySelectorAll<HTMLImageElement>('img[data-action="zoom"]')
-      .forEach((image) => createZoomableImage(image))
+    images.forEach((image) => createZoomableImage(image))
   })
 </script>

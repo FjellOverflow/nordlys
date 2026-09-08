@@ -1,7 +1,10 @@
 import { generateElementId } from '@/util'
-import PhotoSwipe from 'photoswipe'
-import DynamicCaptionPlugin from 'photoswipe-dynamic-caption-plugin'
 import Lightbox from 'photoswipe/lightbox'
+
+const pswpModule = () => import('photoswipe')
+
+const loadCaptionPlugin = async () =>
+  (await import('photoswipe-dynamic-caption-plugin')).default
 
 export async function createPhotoSwipeGallery(element: HTMLElement) {
   if (!element) throw new Error('No element provided.')
@@ -9,7 +12,7 @@ export async function createPhotoSwipeGallery(element: HTMLElement) {
   element.id = generateElementId('photoswipe')
 
   const lightbox = new Lightbox({
-    pswpModule: PhotoSwipe,
+    pswpModule,
     gallery: `#${element.id}`,
     children: 'a',
     padding: { top: 15, bottom: 95, left: 15, right: 15 },
@@ -20,6 +23,7 @@ export async function createPhotoSwipeGallery(element: HTMLElement) {
   const ThumbnailsPlugin = (await import('photoswipe-thumbs-plugin')).default
   const thumbnailsPlugin = new ThumbnailsPlugin(lightbox)
 
+  const DynamicCaptionPlugin = await loadCaptionPlugin()
   new DynamicCaptionPlugin(lightbox, {
     type: 'below',
     mobileLayoutBreakpoint: false
@@ -40,9 +44,9 @@ export async function createZoomableImage(image: HTMLImageElement) {
 
   image.dataset.zoomInitialized = ''
 
-  image.addEventListener('click', () => {
+  image.addEventListener('click', async () => {
     const lightbox = new Lightbox({
-      pswpModule: PhotoSwipe,
+      pswpModule,
       dataSource: [
         {
           src: image.currentSrc || image.src,
@@ -57,6 +61,8 @@ export async function createZoomableImage(image: HTMLImageElement) {
       bgOpacity: 0.8,
       zoom: false
     })
+
+    const DynamicCaptionPlugin = await loadCaptionPlugin()
 
     new DynamicCaptionPlugin(lightbox, {
       type: 'below',
