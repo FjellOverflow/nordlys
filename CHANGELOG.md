@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.10.0](https://github.com/FjellOverflow/nordlys/compare/v3.9.3...v3.10.0) (2026-09-08)
+
+### Features
+
+* downscale huge images ([06b93f7](https://github.com/FjellOverflow/nordlys/commit/06b93f7fdc0845dc816f74616efbb1c143780979))
+
+### Bug Fixes
+
+* proper scrolling plugins lifecycles ([450168c](https://github.com/FjellOverflow/nordlys/commit/450168c81df36133fde7db67b27eacf5f7f9a112))
+* re-add missing whitespaces ([70bfe05](https://github.com/FjellOverflow/nordlys/commit/70bfe05992da6858c21fb3015871d5dbc01c66e5))
 ## [3.9.3](https://github.com/FjellOverflow/nordlys/compare/v3.9.2...v3.9.3) (2026-09-04)
 
 ### Bug Fixes
