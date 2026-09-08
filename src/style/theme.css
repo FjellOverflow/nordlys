@@ -8,5 +8,5 @@
 @plugin '@tailwindcss/typography';
 
 @plugin '@iconify/tailwind4' {
-  prefixes: tabler, simple-icons;
+  prefixes: tabler;
 }

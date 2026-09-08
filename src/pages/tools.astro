@@ -21,6 +21,8 @@ const PageDescription = getToolsPageDescription()
 ---
 
 <PageLayout {frontmatter}>
+  <link rel="stylesheet" href="/tools.css" />
+
   <h1>{frontmatter.title}</h1>
 
   {PageDescription && <PageDescription />}
