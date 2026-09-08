@@ -1,9 +1,11 @@
-import { getImage } from 'astro:assets'
 import type { RequireAtLeastOne } from '@/types'
+import { getImage } from 'astro:assets'
 
 export const isLocalImage = (
   image: string | ImageMetadata
 ): image is ImageMetadata => typeof image !== 'string'
+
+const maxImageWidth = 2000
 
 export async function optimizeImage(
   src: Parameters<typeof getImage>[0]['src']
@@ -12,10 +14,26 @@ export async function optimizeImage(
   const originalHeight = original.attributes.height as number
   const originalWidth = original.attributes.width as number
 
+  if (originalWidth <= maxImageWidth)
+    return {
+      src: original.src,
+      height: originalHeight,
+      width: originalWidth,
+      originalHeight,
+      originalWidth
+    }
+
+  const width = maxImageWidth
+  const height = Math.round((width / originalWidth) * originalHeight)
+
+  const capped = await getImage({ src, width, height, format: 'webp' })
+
   return {
-    src: original.src,
-    height: originalHeight,
-    width: originalWidth
+    src: capped.src,
+    height,
+    width,
+    originalHeight,
+    originalWidth
   }
 }
 
@@ -31,13 +49,15 @@ export async function downscaleImage(
   const downscaledHeight = height
     ? height
     : Math.round(
-        ((width as number) / optimizedImage.width) * optimizedImage.height
+        ((width as number) / optimizedImage.originalWidth) *
+          optimizedImage.originalHeight
       )
 
   const downscaledWidth = width
     ? width
     : Math.round(
-        ((height as number) / optimizedImage.height) * optimizedImage.width
+        ((height as number) / optimizedImage.originalHeight) *
+          optimizedImage.originalWidth
       )
 
   const downscaledImage = await getImage({
