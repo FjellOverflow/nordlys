@@ -17,9 +17,7 @@ const optimizedPreviewImage = (
 ---
 
 <a href={url}>
-  <div
-    class="relative aspect-3/2 w-70 overflow-hidden rounded-md sm:aspect-square sm:w-61"
-  >
+  <div class="relative aspect-3/2 w-70 overflow-hidden rounded-md sm:aspect-square sm:w-61">
     <Image
       src={optimizedPreviewImage.src}
       alt={previewImage.description ?? `Preview image of album ${title}`}
@@ -27,13 +25,8 @@ const optimizedPreviewImage = (
       height={optimizedPreviewImage.height}
       width={optimizedPreviewImage.width}
     />
-    <div
-      class="pointer-events-none absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent"
-    >
-    </div>
-    <div
-      class="absolute right-2 bottom-2 rounded px-2 py-1 font-medium text-white drop-shadow-sm"
-    >
+    <div class="pointer-events-none absolute inset-0 bg-linear-to-t from-black/80 via-transparent to-transparent"></div>
+    <div class="absolute right-2 bottom-2 rounded px-2 py-1 font-medium text-white drop-shadow-sm">
       {title}
     </div>
   </div>

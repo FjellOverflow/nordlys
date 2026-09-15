@@ -8,33 +8,31 @@ export interface Props {
 const { page } = Astro.props
 ---
 
-{
-  page.lastPage > 1 && (
-    <nav class="mb-8 flex w-full grow items-end justify-center">
-      <div class="flex gap-4">
-        {page.url.prev ? (
-          <a class="clickable" href={`${page.url.prev}/`}>
-            Previous
-          </a>
-        ) : (
-          <span class="opacity-25" aria-disabled="true">
-            Previous
-          </span>
-        )}
-        {page.currentPage} / {page.lastPage}
-        {page.url.next ? (
-          <a
-            class={!page.url.next ? 'no-underline opacity-25' : 'clickable'}
-            href={`${page.url.next}/`}
-          >
-            Next
-          </a>
-        ) : (
-          <span class="opacity-25" aria-disabled="true">
-            Next
-          </span>
-        )}
-      </div>
-    </nav>
-  )
-}
+{page.lastPage > 1 && (
+  <nav class="mb-8 flex w-full grow items-end justify-center">
+    <div class="flex gap-4">
+      {page.url.prev ? (
+        <a class="clickable" href={`${page.url.prev}/`}>
+          Previous
+        </a>
+      ) : (
+        <span class="opacity-25" aria-disabled="true">
+          Previous
+        </span>
+      )}
+      {page.currentPage} / {page.lastPage}
+      {page.url.next ? (
+        <a
+          class={!page.url.next ? 'no-underline opacity-25' : 'clickable'}
+          href={`${page.url.next}/`}
+        >
+          Next
+        </a>
+      ) : (
+        <span class="opacity-25" aria-disabled="true">
+          Next
+        </span>
+      )}
+    </div>
+  </nav>
+)}

@@ -23,9 +23,9 @@ const isNavItem = (item: HeaderItemType): item is NavItemType =>
 ---
 
 <header>
-  <a href="#main" class="absolute -top-full left-8 px-2 py-2 focus:top-8"
-    >Skip to main content</a
-  >
+  <a href="#main" class="absolute -top-full left-8 px-2 py-2 focus:top-8">
+    Skip to main content
+  </a>
   <div class="flex justify-between py-4 sm:py-8">
     <a
       href="/"
@@ -42,31 +42,27 @@ const isNavItem = (item: HeaderItemType): item is NavItemType =>
     </a>
     <nav class="hidden flex-col justify-end sm:flex">
       <ul class="flex gap-6">
-        {
-          config.navbarItems.map((item) => (
-            <li class="flex flex-col justify-center">
-              {isNavItem(item) ? (
-                <HeaderItem
-                  {item}
-                  isActive={
-                    activeHeaderLink === item.label ||
-                    activeHeaderLink === item.href
-                  }
-                />
-              ) : (
-                <Dropdown {item} {activeHeaderLink} />
-              )}
-            </li>
-          ))
-        }
+        {config.navbarItems.map((item) => (
+          <li class="flex flex-col justify-center">
+            {isNavItem(item) ? (
+              <HeaderItem
+                {item}
+                isActive={
+                  activeHeaderLink === item.label ||
+                  activeHeaderLink === item.href
+                }
+              />
+            ) : (
+              <Dropdown {item} {activeHeaderLink} />
+            )}
+          </li>
+        ))}
         <li class="text-2xl">
           <a href="/search/" class="flex items-center" aria-label="Search">
             <span class="clickable iconify tabler--search"></span>
           </a>
         </li>
-        <li class="text-2xl">
-          {config.modeToggle && <ModeToggle />}
-        </li>
+        <li class="text-2xl">{config.modeToggle && <ModeToggle />}</li>
       </ul>
     </nav>
     <div class="flex items-center justify-center gap-4 text-2xl sm:hidden">
@@ -85,23 +81,21 @@ const isNavItem = (item: HeaderItemType): item is NavItemType =>
     <div class="min-h-0 overflow-hidden">
       <nav class="flex-col justify-end py-6">
         <ul class="flex flex-col items-center gap-2">
-          {
-            config.navbarItems.map((item) => (
-              <li class="flex flex-col justify-center">
-                {isNavItem(item) ? (
-                  <HeaderItem
-                    {item}
-                    isActive={
-                      activeHeaderLink === item.label ||
-                      activeHeaderLink === item.href
-                    }
-                  />
-                ) : (
-                  <Dropdown {item} {activeHeaderLink} />
-                )}
-              </li>
-            ))
-          }
+          {config.navbarItems.map((item) => (
+            <li class="flex flex-col justify-center">
+              {isNavItem(item) ? (
+                <HeaderItem
+                  {item}
+                  isActive={
+                    activeHeaderLink === item.label ||
+                    activeHeaderLink === item.href
+                  }
+                />
+              ) : (
+                <Dropdown {item} {activeHeaderLink} />
+              )}
+            </li>
+          ))}
         </ul>
       </nav>
       <Separator />

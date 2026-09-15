@@ -15,23 +15,21 @@ const frontmatter: PageLayoutProps['frontmatter'] = {
 <PageLayout {frontmatter}>
   <h1>Tags</h1>
   <div class="flex flex-wrap justify-between gap-4 sm:gap-8">
-    {
-      tags.map(({ tag, icon }) => (
-        <a
-          class="clickable flex flex-col items-center gap-1 no-underline"
-          href={`/tags/${tag}/`}
-          data-astro-prefetch
-        >
-          <span class={`iconify text-4xl sm:text-5xl ${icon}`} />
+    {tags.map(({ tag, icon }) => (
+      <a
+        class="clickable flex flex-col items-center gap-1 no-underline"
+        href={`/tags/${tag}/`}
+        data-astro-prefetch
+      >
+        <span class={`iconify text-4xl sm:text-5xl ${icon}`} />
 
-          <span class="text-base font-normal sm:text-lg">
-            {getTagUsage(tag).then(
-              ({ posts, projects }) => `${tag} (${posts + projects})`
-            )}
-          </span>
-        </a>
-      ))
-    }
+        <span class="text-base font-normal sm:text-lg">
+          {getTagUsage(tag).then(
+            ({ posts, projects }) => `${tag} (${posts + projects})`
+          )}
+        </span>
+      </a>
+    ))}
     <div class="mr-auto"></div>
   </div>
 </PageLayout>
