@@ -29,9 +29,7 @@ const PageDescription = getPostsPageDescription()
 ---
 
 <PageLayout {frontmatter}>
-  <h1>
-    {frontmatter.title}
-  </h1>
+  <h1>{frontmatter.title}</h1>
 
   {PageDescription && <PageDescription />}
 

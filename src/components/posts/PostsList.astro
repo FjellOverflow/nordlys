@@ -11,12 +11,10 @@ const { posts } = Astro.props
 ---
 
 <ul class="list-none p-0">
-  {
-    posts.map((post, index) => (
-      <li class="pl-0">
-        <PostsListItem {post} />
-        {index !== posts.length - 1 && <Separator class="mt-6 mb-6" />}
-      </li>
-    ))
-  }
+  {posts.map((post, index) => (
+    <li class="pl-0">
+      <PostsListItem {post} />
+      {index !== posts.length - 1 && <Separator class="mt-6 mb-6" />}
+    </li>
+  ))}
 </ul>

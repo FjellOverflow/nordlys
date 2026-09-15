@@ -37,9 +37,7 @@ const menuId = generateElementId(`${label}-menu`)
     ]}
   >
     {icon && <span class={`iconify text-xl ${icon}`} />}
-    <span class:list={[{ underline: isActive }]}>
-      {label}
-    </span>
+    <span class:list={[{ underline: isActive }]}>{label}</span>
     <span
       aria-hidden="true"
       class="iconify tabler--chevron-down text-xl transition-transform duration-500"
@@ -52,19 +50,17 @@ const menuId = generateElementId(`${label}-menu`)
     aria-labelledby={buttonId}
     class="border-accent/25 bg-accent-bg invisible absolute right-0 z-10 mt-4 flex origin-top-right scale-y-0 flex-col gap-2 rounded-sm border p-4 opacity-0 shadow-sm shadow-black transition-[scale,opacity,visibility] duration-500 motion-reduce:transition-none"
   >
-    {
-      children.map((item) => (
-        <li role="none">
-          <HeaderItem
-            role="menuitem"
-            {item}
-            isActive={
-              activeHeaderLink === item.label || activeHeaderLink === item.href
-            }
-          />
-        </li>
-      ))
-    }
+    {children.map((item) => (
+      <li role="none">
+        <HeaderItem
+          role="menuitem"
+          {item}
+          isActive={
+            activeHeaderLink === item.label || activeHeaderLink === item.href
+          }
+        />
+      </li>
+    ))}
   </ul>
 </dropdown-parent>
 

@@ -15,42 +15,36 @@ const { Content } = await render(project)
 ---
 
 <div class="mb-8 flex flex-col gap-4 md:mb-4 md:flex-row md:gap-8">
-  {
-    data.previewImage && (
-      <Image
-        src={data.previewImage}
-        height={208}
-        alt={`${data.title} preview`}
-        class="mt-auto mb-auto max-h-52 w-fit rounded-sm object-contain md:max-h-32 md:w-auto"
-      />
-    )
-  }
+  {data.previewImage && (
+    <Image
+      src={data.previewImage}
+      height={208}
+      alt={`${data.title} preview`}
+      class="mt-auto mb-auto max-h-52 w-fit rounded-sm object-contain md:max-h-32 md:w-auto"
+    />
+  )}
   <div class="flex h-fit w-full flex-col">
     <div class="flex flex-col justify-between sm:flex-row sm:items-center">
-      {
-        data.url && (
-          <a
-            class="mb-2 text-xl font-normal no-underline"
-            href={data.url}
-            target={isAbsoluteUrl(data.url) ? '_blank' : '_self'}
-          >
-            <span class="underline">{data.title}</span>
-            {data.url && isAbsoluteUrl(data.url) && (
-              <span class="iconify tabler--external-link align-middle" />
-            )}
-          </a>
-        )
-      }
+      {data.url && (
+        <a
+          class="mb-2 text-xl font-normal no-underline"
+          href={data.url}
+          target={isAbsoluteUrl(data.url) ? '_blank' : '_self'}
+        >
+          <span class="underline">{data.title}</span>
+          {data.url && isAbsoluteUrl(data.url) && (
+            <span class="iconify tabler--external-link align-middle" />
+          )}
+        </a>
+      )}
       {!data.url && <span class="mb-2 text-xl">{data.title}</span>}
-      {
-        data.startDate && (
-          <div class="my-2 text-sm opacity-75 sm:my-0">
-            <time>{toMonthString(data.startDate)}</time> -
-            {data.endDate && <time>{toMonthString(data.endDate)}</time>}
-            {!data.endDate && 'Now'}
-          </div>
-        )
-      }
+      {data.startDate && (
+        <div class="my-2 text-sm opacity-75 sm:my-0">
+          <time>{toMonthString(data.startDate)}</time> -
+          {data.endDate && <time>{toMonthString(data.endDate)}</time>}
+          {!data.endDate && 'Now'}
+        </div>
+      )}
     </div>
     <TagsBar tags={resolveTags(data.tags)} />
     <div class="opacity-75">

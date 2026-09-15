@@ -21,15 +21,13 @@ const PageDescription = getPhotosPageDescription()
   {PageDescription && <PageDescription />}
 
   <div class="flex flex-col flex-wrap items-center gap-4 sm:flex-row">
-    {
-      albums.map(({ id, data: { title, description, previewImage } }) => (
-        <Album
-          title={title}
-          description={description}
-          previewImage={previewImage}
-          url={`/photos/${id}/`}
-        />
-      ))
-    }
+    {albums.map(({ id, data: { title, description, previewImage } }) => (
+      <Album
+        title={title}
+        description={description}
+        previewImage={previewImage}
+        url={`/photos/${id}/`}
+      />
+    ))}
   </div>
 </PageLayout>

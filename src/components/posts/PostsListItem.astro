@@ -13,16 +13,14 @@ const { id, data } = Astro.props.post
 ---
 
 <div class="mb-8 flex flex-col gap-4 md:mb-4 md:flex-row md:gap-8">
-  {
-    data.previewImage && (
-      <Image
-        src={data.previewImage}
-        alt={`${data.title} preview`}
-        height={208}
-        class="mt-0 mb-0 max-h-52 w-fit rounded-sm object-contain md:h-[100px]"
-      />
-    )
-  }
+  {data.previewImage && (
+    <Image
+      src={data.previewImage}
+      alt={`${data.title} preview`}
+      height={208}
+      class="mt-0 mb-0 max-h-52 w-fit rounded-sm object-contain md:h-[100px]"
+    />
+  )}
   <div class="flex w-full flex-col gap-2">
     <div class="flex flex-col justify-between sm:flex-row sm:items-center">
       <a class="text-xl font-normal" href={`/posts/${id}/`} data-astro-prefetch>

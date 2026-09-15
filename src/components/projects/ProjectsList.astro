@@ -11,14 +11,12 @@ const { projects } = Astro.props
 ---
 
 <ul class="list-none p-0">
-  {
-    projects.map((project, index) => (
-      <>
-        <li class="pl-0">
-          <ProjectListItem {project} />
-          {index !== projects.length - 1 && <Separator class="mt-0 mb-6" />}
-        </li>
-      </>
-    ))
-  }
+  {projects.map((project, index) => (
+    <>
+      <li class="pl-0">
+        <ProjectListItem {project} />
+        {index !== projects.length - 1 && <Separator class="mt-0 mb-6" />}
+      </li>
+    </>
+  ))}
 </ul>
