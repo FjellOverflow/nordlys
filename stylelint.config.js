@@ -4,6 +4,7 @@ export default {
   rules: {
     'at-rule-no-unknown': null,
     'at-rule-no-deprecated': null,
-    'nesting-selector-no-missing-scoping-root': null
+    'nesting-selector-no-missing-scoping-root': null,
+    'at-rule-prelude-no-invalid': [true, { ignoreAtRules: ['apply'] }]
   }
 }
