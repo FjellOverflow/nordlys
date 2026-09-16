@@ -62,7 +62,7 @@
     "@astrojs/check": "^0.9.10",
     "@eslint/js": "^10.0.1",
     "@playwright/test": "^1.63.0",
-    "commit-and-tag-version": "^13.2.0",
+    "commit-and-tag-version": "^13.2.1",
     "eslint": "^10.10.0",
     "eslint-plugin-astro": "^3.1.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
@@ -75,5 +75,5 @@
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.70.0"
   },
-  "packageManager": "pnpm@12.4.1"
+  "packageManager": "pnpm@12.4.2"
 }
