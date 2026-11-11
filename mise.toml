@@ -39,4 +39,4 @@ run = "pnpm test:regenerate"
 [tasks.release]
 depends = ["setup", "ci", "test"]
 confirm = { message = "Are you sure you want to release?", default = "no" }
-run = "pnpm release && git push --follow-tags"
+run = "pnpm release"
