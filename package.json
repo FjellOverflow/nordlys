@@ -46,7 +46,7 @@
     "@resvg/resvg-js": "^2.6.2",
     "@tailwindcss/typography": "^0.5.20",
     "@tailwindcss/vite": "^4.3.5",
-    "astro": "^7.3.2",
+    "astro": "^7.4.10",
     "astro-expressive-code": "^0.44.3",
     "pagefind": "^1.6.0",
     "photoswipe": "^5.4.4",
