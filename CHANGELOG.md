@@ -2,6 +2,8 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [3.10.1](https://github.com/FjellOverflow/nordlys/compare/v3.10.0...v3.10.1) (2026-11-11)
+
 ## [3.10.0](https://github.com/FjellOverflow/nordlys/compare/v3.9.3...v3.10.0) (2026-09-08)
 
 ### Features
