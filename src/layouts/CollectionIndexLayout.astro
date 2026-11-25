@@ -15,23 +15,18 @@ export type Props =
   | { collection: 'projects'; page: Page<CollectionEntry<'projects'>> }
 
 const collectionIndexes = {
-  posts: { title: 'Posts', activeHeaderLink: 'Blog', view: config.postsView },
-  projects: {
-    title: 'Projects',
-    activeHeaderLink: 'Projects',
-    view: config.projectsView
-  }
+  posts: { title: 'Posts', view: config.postsView },
+  projects: { title: 'Projects', view: config.projectsView }
 }
 
 const { collection, page } = Astro.props
 
-const { title, activeHeaderLink, view } = collectionIndexes[collection]
+const { title, view } = collectionIndexes[collection]
 
 const canonicalPath = `/${collection}/${page.currentPage}/`
 
 const frontmatter = {
   title,
-  activeHeaderLink,
   canonicalURL: new URL(canonicalPath, Astro.site).toString(),
   searchable: collection === 'projects' && Astro.url.pathname === canonicalPath
 }

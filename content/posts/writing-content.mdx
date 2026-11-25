@@ -40,7 +40,7 @@ type PageFrontmatter = {
   openGraphImage?: string | ImageMetadata // relative URL to image in public folder or local asset
   publishedDate?: Date // meta
   scrollProgress?: boolean // bar indicating scroll location on top of page
-  activeHeaderLink?: string // title or href of the active header link
+  activeHeaderLink?: string // header link title or href; overrides the URL match
   scrollToTop?: boolean // "Back to top" button when having scrolled far down
   searchable?: boolean // page can be found using the built-in search engine
 }

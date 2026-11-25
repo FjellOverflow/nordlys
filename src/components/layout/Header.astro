@@ -10,6 +10,7 @@ import type {
   HeaderItem as HeaderItemType,
   NavItem as NavItemType
 } from '@/types'
+import { isActiveNavItem } from '@/util/navigation'
 import { Image } from 'astro:assets'
 
 export interface Props {
@@ -47,10 +48,11 @@ const isNavItem = (item: HeaderItemType): item is NavItemType =>
             {isNavItem(item) ? (
               <HeaderItem
                 {item}
-                isActive={
-                  activeHeaderLink === item.label ||
-                  activeHeaderLink === item.href
-                }
+                isActive={isActiveNavItem(
+                  item,
+                  Astro.url.pathname,
+                  activeHeaderLink
+                )}
               />
             ) : (
               <Dropdown {item} {activeHeaderLink} />
@@ -86,10 +88,11 @@ const isNavItem = (item: HeaderItemType): item is NavItemType =>
               {isNavItem(item) ? (
                 <HeaderItem
                   {item}
-                  isActive={
-                    activeHeaderLink === item.label ||
-                    activeHeaderLink === item.href
-                  }
+                  isActive={isActiveNavItem(
+                    item,
+                    Astro.url.pathname,
+                    activeHeaderLink
+                  )}
                 />
               ) : (
                 <Dropdown {item} {activeHeaderLink} />

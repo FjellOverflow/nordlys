@@ -2,6 +2,7 @@
 import HeaderItem from '@/components/layout/HeaderItem.astro'
 import type { NavItemParent } from '@/types'
 import { generateElementId } from '@/util'
+import { isActiveNavItem } from '@/util/navigation'
 
 export interface Props {
   item: NavItemParent
@@ -13,8 +14,8 @@ const {
   activeHeaderLink
 } = Astro.props
 
-const isActive = children.some(
-  (item) => activeHeaderLink === item.label || activeHeaderLink === item.href
+const isActive = children.some((item) =>
+  isActiveNavItem(item, Astro.url.pathname, activeHeaderLink)
 )
 
 const buttonId = generateElementId(`${label}-button`)
@@ -55,9 +56,7 @@ const menuId = generateElementId(`${label}-menu`)
         <HeaderItem
           role="menuitem"
           {item}
-          isActive={
-            activeHeaderLink === item.label || activeHeaderLink === item.href
-          }
+          isActive={isActiveNavItem(item, Astro.url.pathname, activeHeaderLink)}
         />
       </li>
     ))}
