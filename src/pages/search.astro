@@ -37,6 +37,8 @@ const frontmatter: PageLayoutProps['frontmatter'] = {
     }>
   }
 
+  const maxShownResults = 15
+
   class SearchInput extends HTMLElement {
     async connectedCallback() {
       const searchInput = this.querySelector('input')
@@ -62,7 +64,7 @@ const frontmatter: PageLayoutProps['frontmatter'] = {
         resultsContainer.innerHTML = ''
 
         await Promise.all(
-          results.slice(0, 15).map(async (r) => {
+          results.slice(0, maxShownResults).map(async (r) => {
             const li = document.createElement('li')
             const data = await (r as PagefindResult).data()
 
@@ -87,9 +89,9 @@ const frontmatter: PageLayoutProps['frontmatter'] = {
           })
         )
 
-        if (results.length > 5) {
+        if (results.length > maxShownResults) {
           const remainingLi = document.createElement('li')
-          remainingLi.innerHTML = `... and ${results.length - 5} more`
+          remainingLi.innerHTML = `... and ${results.length - maxShownResults} more`
           resultsContainer.appendChild(remainingLi)
         }
       }
