@@ -60,10 +60,14 @@ function renderList(headings: ProcessedHeading[]): string {
 </div>
 
 <script>
+  let tocObserver: IntersectionObserver | undefined
+
   function attachTocObserver() {
+    tocObserver?.disconnect()
+
     const intersectionRatios: Record<string, number> = {}
 
-    const tocObserver = new IntersectionObserver(
+    const observer = new IntersectionObserver(
       (articleSections) => {
         for (const section of articleSections) {
           const sectionId = section.target.querySelector('h2,h3,h4,h5')?.id
@@ -93,7 +97,9 @@ function renderList(headings: ProcessedHeading[]): string {
 
     document
       .querySelectorAll('article section')
-      .forEach((articleSection) => tocObserver.observe(articleSection))
+      .forEach((articleSection) => observer.observe(articleSection))
+
+    tocObserver = observer
   }
 
   document.addEventListener('astro:page-load', () => {
