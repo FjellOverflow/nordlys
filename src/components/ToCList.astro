@@ -1,0 +1,32 @@
+---
+export interface Heading {
+  depth: number
+  slug: string
+  text: string
+}
+
+export type ProcessedHeading = Heading & { children: ProcessedHeading[] }
+
+export interface Props {
+  headings: ProcessedHeading[]
+}
+
+const { headings } = Astro.props
+---
+
+{headings.length > 0 && (
+  <ul class="mt-1 mb-1 list-none">
+    {headings.map((heading) => (
+      <li class="mt-1 mb-1">
+        <a
+          href={`#${heading.slug}`}
+          class="toc-el no-underline hover:underline"
+          aria-label={heading.text}
+        >
+          {heading.text}
+        </a>
+        <Astro.self headings={heading.children} />
+      </li>
+    ))}
+  </ul>
+)}
