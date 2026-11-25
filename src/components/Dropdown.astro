@@ -66,6 +66,8 @@ const menuId = generateElementId(`${label}-menu`)
 
 <script>
   class Dropdown extends HTMLElement {
+    onDocumentClick?: (event: MouseEvent) => void
+
     connectedCallback() {
       const isActive = this.dataset.isActive == 'true'
 
@@ -107,12 +109,19 @@ const menuId = generateElementId(`${label}-menu`)
         }
       })
 
-      document.addEventListener('click', function (event) {
+      this.onDocumentClick = (event) => {
         const target = event.target as Node | null
         if (!button.contains(target) && !menu.contains(target)) {
           hideMenu()
         }
-      })
+      }
+
+      document.addEventListener('click', this.onDocumentClick)
+    }
+
+    disconnectedCallback() {
+      if (this.onDocumentClick)
+        document.removeEventListener('click', this.onDocumentClick)
     }
   }
 
