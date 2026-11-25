@@ -1,24 +1,23 @@
 ---
+import PageDescription from '@/components/PageDescription.astro'
 import Album from '@/components/photos/Album.astro'
 import PageLayout, {
   type Props as PageLayoutProps
 } from '@/layouts/PageLayout.astro'
-import { getAlbums, getPhotosPageDescription } from '@/util/photos'
+import { getCollection } from 'astro:content'
 
-const albums = await getAlbums()
+const albums = await getCollection('albums')
 
 const frontmatter: PageLayoutProps['frontmatter'] = {
   title: 'Photos',
   activeHeaderLink: 'Photos'
 }
-
-const PageDescription = getPhotosPageDescription()
 ---
 
 <PageLayout {frontmatter}>
   <h1>{frontmatter.title}</h1>
 
-  {PageDescription && <PageDescription />}
+  <PageDescription name="photos" />
 
   <div class="flex flex-col flex-wrap items-center gap-4 sm:flex-row">
     {albums.map(({ id, data: { title, description, previewImage } }) => (

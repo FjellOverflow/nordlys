@@ -3,15 +3,15 @@ import PhotoSwipeGallery from '@/components/photos/PhotoSwipeGallery.astro'
 import PageLayout, {
   type Props as PageLayoutProps
 } from '@/layouts/PageLayout.astro'
-import { getAlbums } from '@/util/photos'
 import type { InferGetStaticPropsType } from 'astro'
+import { getCollection } from 'astro:content'
 
 const { album } = Astro.props
 
 type Props = InferGetStaticPropsType<typeof getStaticPaths>
 
 export async function getStaticPaths() {
-  const albums = await getAlbums()
+  const albums = await getCollection('albums')
 
   return albums.map((album) => ({
     params: { id: album.id },

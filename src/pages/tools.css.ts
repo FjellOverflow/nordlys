@@ -1,12 +1,12 @@
-import { getTools } from '@/util/tools'
 import { icons } from '@iconify-json/simple-icons'
 import { getIconsCSS } from '@iconify/utils'
 import type { APIRoute } from 'astro'
+import { getCollection } from 'astro:content'
 
 const prefix = `${icons.prefix}--`
 
 export const GET: APIRoute = async () => {
-  const tools = await getTools()
+  const tools = await getCollection('tools')
 
   const names = [
     ...new Set(

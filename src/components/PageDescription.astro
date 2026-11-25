@@ -1,0 +1,18 @@
+---
+import type { MarkdownInstance } from 'astro'
+
+export interface Props {
+  name: 'posts' | 'projects' | 'photos' | 'tools'
+}
+
+const { name } = Astro.props
+
+const pageDescriptions = import.meta.glob<MarkdownInstance<object>>(
+  '../../content/{posts,projects,photos,tools}.md',
+  { eager: true }
+)
+
+const pageDescription = pageDescriptions[`../../content/${name}.md`]
+---
+
+{pageDescription && <pageDescription.Content />}

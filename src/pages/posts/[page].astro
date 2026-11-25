@@ -1,4 +1,5 @@
 ---
+import PageDescription from '@/components/PageDescription.astro'
 import Pagination from '@/components/Pagination.astro'
 import PostsGrid from '@/components/posts/PostsGrid.astro'
 import PostsList from '@/components/posts/PostsList.astro'
@@ -6,7 +7,7 @@ import PageLayout, {
   type Props as PageLayoutProps
 } from '@/layouts/PageLayout.astro'
 import config from '@/theme.config'
-import { getPosts, getPostsPageDescription } from '@/util/posts'
+import { getPosts } from '@/util/posts'
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro'
 
 export const getStaticPaths = (async ({ paginate }) => {
@@ -23,8 +24,6 @@ const frontmatter: PageLayoutProps['frontmatter'] = {
   title: 'Posts',
   activeHeaderLink: 'Blog'
 }
-
-const PageDescription = getPostsPageDescription()
 ---
 
 <PageLayout {frontmatter}>
@@ -33,7 +32,7 @@ const PageDescription = getPostsPageDescription()
     {page.currentPage > 1 && <span>{` (page ${page.currentPage})`}</span>}
   </h1>
 
-  {PageDescription && <PageDescription />}
+  <PageDescription name="posts" />
 
   {config.postsView === 'list' && <PostsList posts={page.data} />}
   {config.postsView === 'grid' && <PostsGrid posts={page.data} />}
