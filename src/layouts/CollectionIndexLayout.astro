@@ -1,0 +1,61 @@
+---
+import PageDescription from '@/components/PageDescription.astro'
+import Pagination from '@/components/Pagination.astro'
+import PostsGrid from '@/components/posts/PostsGrid.astro'
+import PostsList from '@/components/posts/PostsList.astro'
+import ProjectsGrid from '@/components/projects/ProjectsGrid.astro'
+import ProjectsList from '@/components/projects/ProjectsList.astro'
+import PageLayout from '@/layouts/PageLayout.astro'
+import config from '@/theme.config'
+import type { Page } from 'astro'
+import type { CollectionEntry } from 'astro:content'
+
+export type Props =
+  | { collection: 'posts'; page: Page<CollectionEntry<'posts'>> }
+  | { collection: 'projects'; page: Page<CollectionEntry<'projects'>> }
+
+const collectionIndexes = {
+  posts: { title: 'Posts', activeHeaderLink: 'Blog', view: config.postsView },
+  projects: {
+    title: 'Projects',
+    activeHeaderLink: 'Projects',
+    view: config.projectsView
+  }
+}
+
+const { collection, page } = Astro.props
+
+const { title, activeHeaderLink, view } = collectionIndexes[collection]
+
+const canonicalPath = `/${collection}/${page.currentPage}/`
+
+const frontmatter = {
+  title,
+  activeHeaderLink,
+  canonicalURL: new URL(canonicalPath, Astro.site).toString()
+}
+---
+
+<PageLayout {frontmatter}>
+  <h1>
+    {title}
+    {page.currentPage > 1 && <span>{` (page ${page.currentPage})`}</span>}
+  </h1>
+
+  <PageDescription name={collection} />
+
+  {collection === 'posts' &&
+    (view === 'list' ? (
+      <PostsList posts={page.data} />
+    ) : (
+      <PostsGrid posts={page.data} />
+    ))}
+  {collection === 'projects' &&
+    (view === 'list' ? (
+      <ProjectsList projects={page.data} />
+    ) : (
+      <ProjectsGrid projects={page.data} />
+    ))}
+
+  <Pagination slot="bottom" page={page} />
+</PageLayout>

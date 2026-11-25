@@ -1,11 +1,5 @@
 ---
-import PageDescription from '@/components/PageDescription.astro'
-import Pagination from '@/components/Pagination.astro'
-import PostsGrid from '@/components/posts/PostsGrid.astro'
-import PostsList from '@/components/posts/PostsList.astro'
-import PageLayout, {
-  type Props as PageLayoutProps
-} from '@/layouts/PageLayout.astro'
+import CollectionIndexLayout from '@/layouts/CollectionIndexLayout.astro'
 import config from '@/theme.config'
 import { getPosts } from '@/util/posts'
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro'
@@ -19,23 +13,6 @@ export const getStaticPaths = (async ({ paginate }) => {
 type Props = InferGetStaticPropsType<typeof getStaticPaths>
 
 const { page } = Astro.props
-
-const frontmatter: PageLayoutProps['frontmatter'] = {
-  title: 'Posts',
-  activeHeaderLink: 'Blog'
-}
 ---
 
-<PageLayout {frontmatter}>
-  <h1>
-    {frontmatter.title}
-    {page.currentPage > 1 && <span>{` (page ${page.currentPage})`}</span>}
-  </h1>
-
-  <PageDescription name="posts" />
-
-  {config.postsView === 'list' && <PostsList posts={page.data} />}
-  {config.postsView === 'grid' && <PostsGrid posts={page.data} />}
-
-  <Pagination slot="bottom" page={page} />
-</PageLayout>
+<CollectionIndexLayout collection="posts" {page} />

@@ -1,11 +1,5 @@
 ---
-import PageDescription from '@/components/PageDescription.astro'
-import Pagination from '@/components/Pagination.astro'
-import ProjectsGrid from '@/components/projects/ProjectsGrid.astro'
-import ProjectsList from '@/components/projects/ProjectsList.astro'
-import PageLayout, {
-  type Props as PageLayoutProps
-} from '@/layouts/PageLayout.astro'
+import CollectionIndexLayout from '@/layouts/CollectionIndexLayout.astro'
 import config from '@/theme.config'
 import { getProjects } from '@/util/projects'
 import type { GetStaticPaths, InferGetStaticPropsType } from 'astro'
@@ -19,21 +13,6 @@ export const getStaticPaths = (async ({ paginate }) => {
 type Props = InferGetStaticPropsType<typeof getStaticPaths>
 
 const { page } = Astro.props
-
-const frontmatter: PageLayoutProps['frontmatter'] = {
-  title: 'Projects',
-  activeHeaderLink: 'Projects',
-  canonicalURL: new URL('/projects/1/', Astro.site).toString()
-}
 ---
 
-<PageLayout {frontmatter}>
-  <h1>{frontmatter.title}</h1>
-
-  <PageDescription name="projects" />
-
-  {config.projectsView === 'list' && <ProjectsList projects={page.data} />}
-  {config.projectsView === 'grid' && <ProjectsGrid projects={page.data} />}
-
-  <Pagination slot="bottom" page={page} />
-</PageLayout>
+<CollectionIndexLayout collection="projects" {page} />
