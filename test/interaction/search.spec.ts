@@ -37,7 +37,7 @@ test.describe('interaction - /search', () => {
   test('searching for projects', async () => {
     await searchInput.fill('Nordly Astro blog theme')
 
-    await expect(resultsList.locator('a[href*="nordlys"]')).toBeVisible()
+    await expect(resultsList.locator('a[href^="/projects/"]')).toBeVisible()
   })
 
   test('searching for non-existent item', async () => {

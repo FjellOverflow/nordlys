@@ -32,7 +32,8 @@ const canonicalPath = `/${collection}/${page.currentPage}/`
 const frontmatter = {
   title,
   activeHeaderLink,
-  canonicalURL: new URL(canonicalPath, Astro.site).toString()
+  canonicalURL: new URL(canonicalPath, Astro.site).toString(),
+  searchable: collection === 'projects' && Astro.url.pathname === canonicalPath
 }
 ---
 
