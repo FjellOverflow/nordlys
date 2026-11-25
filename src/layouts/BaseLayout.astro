@@ -5,6 +5,7 @@ import ibmPlexMedium from '@/assets/fonts/ibm-plex-sans-latin-500-normal.woff2?u
 import ibmPlexSemiBold from '@/assets/fonts/ibm-plex-sans-latin-600-normal.woff2?url'
 import ibmPlexBold from '@/assets/fonts/ibm-plex-sans-latin-700-normal.woff2?url'
 
+import { resolveColorScheme, toColorSchemeCss } from '@/colorSchemes'
 import ModeManager from '@/components/mode/ModeManager.astro'
 import CodeBlockIconsPlugin from '@/plugins/CodeBlockIconsPlugin.astro'
 import ZoomableImagesPlugin from '@/plugins/ZoomableImagesPlugin.astro'
@@ -56,12 +57,15 @@ const resolvedOgImage = isLocalImage(openGraphImage)
   : openGraphImage
 
 const openGraphImageUrl = new URL(resolvedOgImage, Astro.site).href
+
+const colorSchemeCss = toColorSchemeCss(resolveColorScheme(config.colorScheme))
 ---
 
 <!doctype html>
-<html lang={config.locale} class={config.colorScheme || 'scheme-mono'}>
+<html lang={config.locale}>
   <head>
     <meta charset="utf-8" />
+    <Fragment set:html={`<style>${colorSchemeCss}</style>`} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 
     <meta name="viewport" content="width=device-width" />

@@ -25,7 +25,7 @@ Nordlys not only features a dark and light mode, but also predefined color schem
 
 ### Existing scheme
 
-Simply set `colorScheme` in the theme configuration (`theme.config.ts`) to one of the predefined schemes `mono`, `aurora` or `nord`, which have both a dark and light variant.
+Simply set `colorScheme` in the theme configuration (`theme.config.ts`) to one of the predefined schemes `scheme-mono`, `scheme-aurora` or `scheme-nord`, which have both a dark and light variant.
 
 import { Image } from 'astro:assets'
 import darkPreview from 'content/assets/posts/color-schemes-dark.png'
@@ -51,114 +51,29 @@ import lightPreview from 'content/assets/posts/color-schemes-light.png'
 
 ### Custom scheme
 
-In addition to the predefined color schemes, it's very simple to add a custom scheme. Just choose a primary (accent) color and a background color, and add them to `color-schemes.css`. Make sure to use the RGB values of the colors in the same format as shown.
+In addition to the predefined color schemes, you can define a custom scheme directly in `theme.config.ts`. Choose an accent color and a background color for the light and the dark mode, and write each color as an RGB tuple.
 
-```css title="src/style/color-schemes.css" ins={32-40} collapse={2-30}
-@layer base {
-  .scheme-mono {
-    --accent: 0, 0, 0;
-    --accent-bg: 255, 255, 255;
-
-    &[data-mode='dark'] {
-      --accent: 255, 255, 255;
-      --accent-bg: 0, 0, 0;
-    }
-  }
-
-  .scheme-nord {
-    --accent: 0, 0, 0;
-    --accent-bg: 255, 255, 255;
-
-    &[data-mode='dark'] {
-      --accent: 255, 255, 255;
-      --accent-bg: 0, 0, 0;
-    }
-  }
-
-  .scheme-aurora {
-    --accent: 0, 183, 86;
-    --accent-bg: 242, 244, 248;
-
-    &[data-mode='dark'] {
-      --accent: 0, 253, 119;
-      --accent-bg: 35, 39, 48;
-    }
-  }
-
-  .scheme-custom {
-    --accent: 0, 0, 0;
-    --accent-bg: 255, 255, 255;
-
-    &[data-mode='dark'] {
-      --accent: 255, 255, 255;
-      --accent-bg: 0, 0, 0;
-    }
-  }
-}
-```
-
-If you want to use the newly defined scheme, set it in the `theme.config.ts`.
-
-```ts title="src/theme.config.ts" collapse={2-35, 41-49} ins={38}
+```ts title="src/theme.config.ts" ins={3-6}
 export default defineThemeConfig({
-  site: 'https://nordlys.fjelloverflow.dev',
-  title: 'Nordlys',
-  description: 'A minimal Astro blog theme',
-  author: 'FjellOverflow',
-  navbarItems: [
-    { label: 'Blog', href: '/posts/' },
-    { label: 'Projects', href: '/projects/' },
-    { label: 'Tags', href: '/tags/' },
-    { label: 'About', href: '/about/' },
-    {
-      label: 'Other pages',
-      children: [
-        { label: 'Landing page', href: '/' },
-        { label: '404 page', href: '/404' },
-        { label: 'Author: FjellOverflow', href: '/authors/FjellOverflow/' },
-        { label: 'Tag: documentation', href: '/tags/documentation/' }
-      ]
-    }
-  ],
-  footerItems: [
-    {
-      icon: 'tabler--brand-github',
-      href: 'https://github.com/FjellOverflow/nordlys',
-      label: 'Github'
-    },
-    {
-      icon: 'tabler--rss',
-      href: '/feed.xml',
-      label: 'RSS feed'
-    }
-  ],
-
-  // optional settings
-  locale: 'en',
-  mode: 'dark',
-  modeToggle: true,
-  colorScheme: 'scheme-custom',
-  openGraphImage: undefined,
-  postsPerPage: 4,
-  projectsPerPage: 3,
-  scrollProgress: false,
-  scrollToTop: true,
-  tagIcons: {
-    tailwindcss: 'tabler--brand-tailwind',
-    astro: 'tabler--brand-astro',
-    documentation: 'tabler--book'
-  },
-  expressiveCodeThemes: ['vitesse-light', 'vitesse-black']
+  // ...
+  colorScheme: {
+    light: { accent: [136, 57, 239], accentBg: [239, 241, 245] },
+    dark: { accent: [203, 166, 247], accentBg: [30, 30, 46] }
+  }
 })
 ```
 
-Most likely, your IDE or editor will display a TypeError indicating that the scheme is not a valid choice. While this is not a critical error, you can fix it by adding `scheme-custom` as a valid option to the `ColorSchemes` array in the type definition.
+The predefined schemes use the same format. You can find them in `src/colorSchemes.ts`.
 
-```ts title="src/types.ts" ins={5}
-export const ColorSchemes = [
-  'scheme-mono',
-  'scheme-nord',
-  'scheme-aurora',
-  'scheme-custom'
-] as const
-```
+#### Migrating a scheme from `color-schemes.css`
+
+Before version 4, custom schemes were CSS blocks in `src/style/color-schemes.css`. That file no longer exists. To migrate, copy the three numbers of each CSS variable into the matching tuple in `colorScheme`:
+
+| CSS variable in `.scheme-custom`       | Tuple in `colorScheme` |
+| -------------------------------------- | ---------------------- |
+| `--accent`                             | `light.accent`         |
+| `--accent-bg`                          | `light.accentBg`       |
+| `--accent` in `&[data-mode='dark']`    | `dark.accent`          |
+| `--accent-bg` in `&[data-mode='dark']` | `dark.accentBg`        |
+
+Then delete your `color-schemes.css` and take the new `src/types.ts` from Nordlys, which no longer has a `ColorSchemes` array. The `<html>` element no longer carries a `scheme-*` class. If your own CSS selects that class, select `:root` instead.

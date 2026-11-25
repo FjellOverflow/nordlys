@@ -1,4 +1,5 @@
 import type { AstroExpressiveCodeOptions } from 'astro-expressive-code'
+import type { colorSchemes } from '@/colorSchemes'
 
 type Simplify<T> = { [K in keyof T]: T[K] } & {}
 
@@ -34,16 +35,22 @@ export type HeaderItem = NavItem | NavItemParent
 
 const Modes = ['dark', 'light'] as const
 
-export const ColorSchemes = [
-  'scheme-mono',
-  'scheme-nord',
-  'scheme-aurora'
-] as const
-
 export const ViewOptions = ['list', 'grid'] as const
 
 export type Mode = (typeof Modes)[number]
-export type ColorScheme = (typeof ColorSchemes)[number]
+export type ColorScheme = keyof typeof colorSchemes
+export type RgbColor = readonly [number, number, number]
+
+export interface ColorSchemeColors {
+  accent: RgbColor
+  accentBg: RgbColor
+}
+
+export interface ColorSchemeDefinition {
+  light: ColorSchemeColors
+  dark: ColorSchemeColors
+}
+
 export type ViewOption = (typeof ViewOptions)[number]
 
 export interface ThemeConfig {
@@ -57,7 +64,7 @@ export interface ThemeConfig {
   locale: string
   mode: Mode
   modeToggle: boolean
-  colorScheme: ColorScheme
+  colorScheme: ColorScheme | ColorSchemeDefinition
   openGraphImage: ImageMetadata | string | undefined
   postsPerPage: number
   postsView: ViewOption
@@ -73,7 +80,7 @@ const defaults = {
   locale: 'en',
   mode: Modes[0],
   modeToggle: true,
-  colorScheme: ColorSchemes[0],
+  colorScheme: 'scheme-mono' as ColorScheme,
   openGraphImage: undefined,
   postsPerPage: 4,
   postsView: 'list' as ViewOption,

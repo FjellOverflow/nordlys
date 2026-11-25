@@ -1,7 +1,8 @@
-import extractColorScheme from '@/ogImages/extractColorScheme'
+import { resolveColorScheme } from '@/colorSchemes'
 import post from '@/ogImages/post'
 import site from '@/ogImages/site'
 import config from '@/theme.config'
+import type { RgbColor } from '@/types'
 import fs from 'fs'
 import satori, { type SatoriOptions } from 'satori'
 
@@ -46,10 +47,12 @@ const satoriOptions: SatoriOptions = {
 
 const { mode, colorScheme } = config
 
-const { accent, bg } = extractColorScheme(colorScheme)[mode]
+const { accent, accentBg } = resolveColorScheme(colorScheme)[mode]
 
-const siteTemplate = site(accent, bg)
-const postTemplate = post(accent, bg)
+const toTailwindColor = (color: RgbColor) => `[rgb(${color.join(',')})]`
+
+const siteTemplate = site(toTailwindColor(accent), toTailwindColor(accentBg))
+const postTemplate = post(toTailwindColor(accent), toTailwindColor(accentBg))
 
 export default {
   site: (...args: Parameters<typeof siteTemplate>) =>
