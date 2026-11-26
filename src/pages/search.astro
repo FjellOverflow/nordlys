@@ -28,15 +28,40 @@ const frontmatter: PageLayoutProps['frontmatter'] = {
 </PageLayout>
 
 <script>
+  interface PagefindResultData {
+    url: string
+    meta: { title: string }
+    excerpt: string
+  }
+
   interface PagefindResult {
-    data: () => Promise<{
-      url: string
-      meta: { title: string }
-      excerpt: string
-    }>
+    data: () => Promise<PagefindResultData>
   }
 
   const maxShownResults = 15
+
+  const renderResult = ({ url, meta, excerpt }: PagefindResultData) => {
+    const li = document.createElement('li')
+
+    const a = document.createElement('a')
+    a.className = 'text-xl font-normal'
+    a.href = url
+    a.textContent = meta.title
+
+    const div = document.createElement('div')
+    div.className = 'opacity-75 mt-4'
+    const escapedExcerpt = document.createElement('div')
+    escapedExcerpt.textContent = excerpt
+    div.innerHTML = escapedExcerpt.innerHTML.replace(
+      /&lt;mark&gt;(.*?)&lt;\/mark&gt;/g,
+      '<mark>$1</mark>'
+    )
+
+    li.appendChild(a)
+    li.appendChild(div)
+
+    return li
+  }
 
   class SearchInput extends HTMLElement {
     async connectedCallback() {
@@ -49,44 +74,29 @@ const frontmatter: PageLayoutProps['frontmatter'] = {
       if (!searchInput || !clearBtn || !resultsHeading || !resultsContainer)
         return
 
+      let latestSearchId = 0
+
       const onInput = async () => {
         const searchQuery = searchInput.value
+        const searchId = ++latestSearchId
 
         if (searchQuery === '') clearBtn.classList.add('invisible')
         else clearBtn.classList.remove('invisible')
 
         const { results } = await window.pagefind.search(searchQuery)
 
+        const shownResults = await Promise.all(
+          results
+            .slice(0, maxShownResults)
+            .map((r) => (r as PagefindResult).data())
+        )
+
+        if (searchId !== latestSearchId) return
+
         resultsHeading.innerHTML =
           results.length > 0 ? `Results (${results.length})` : 'No Results'
 
-        resultsContainer.innerHTML = ''
-
-        await Promise.all(
-          results.slice(0, maxShownResults).map(async (r) => {
-            const li = document.createElement('li')
-            const data = await (r as PagefindResult).data()
-
-            const a = document.createElement('a')
-            a.className = 'text-xl font-normal'
-            a.href = data.url
-            a.textContent = data.meta.title
-
-            const div = document.createElement('div')
-            div.className = 'opacity-75 mt-4'
-            const escapedExcerpt = document.createElement('div')
-            escapedExcerpt.textContent = data.excerpt
-            div.innerHTML = escapedExcerpt.innerHTML.replace(
-              /&lt;mark&gt;(.*?)&lt;\/mark&gt;/g,
-              '<mark>$1</mark>'
-            )
-
-            li.appendChild(a)
-            li.appendChild(div)
-
-            resultsContainer.appendChild(li)
-          })
-        )
+        resultsContainer.replaceChildren(...shownResults.map(renderResult))
 
         if (results.length > maxShownResults) {
           const remainingLi = document.createElement('li')
