@@ -22,6 +22,7 @@ const {
     isActive ? 'text-accent' : 'clickable'
   }`}
   target={isAbsoluteUrl(href) ? '_blank' : '_self'}
+  aria-current={isActive ? 'page' : undefined}
   {role}
 >
   {icon && <span class={`iconify text-xl ${icon}`} />}
