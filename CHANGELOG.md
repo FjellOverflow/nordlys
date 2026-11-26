@@ -2,6 +2,28 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [4.0.0](https://github.com/FjellOverflow/nordlys/compare/v3.10.1...v4.0.0) (2026-11-26)
+
+### ⚠ BREAKING CHANGES
+
+* define color schemes in the theme config
+
+### Features
+
+* define color schemes in the theme config ([27566c8](https://github.com/FjellOverflow/nordlys/commit/27566c8dc4e986936597e979a56fc1b68c523492))
+* make projects findable in search ([edc3d34](https://github.com/FjellOverflow/nordlys/commit/edc3d34561c84dfe99189f78788ad7ea2b47b782))
+
+### Bug Fixes
+
+* disconnect the previous table of contents observer on navigation ([be218f5](https://github.com/FjellOverflow/nordlys/commit/be218f57716a9e077b023c1b04afd1f47a5f976f))
+* escape heading text in the table of contents ([148a8e9](https://github.com/FjellOverflow/nordlys/commit/148a8e9d3be34bc435c3a709f1997fd412ffe127))
+* highlight the active nav item from the URL path ([37a75f0](https://github.com/FjellOverflow/nordlys/commit/37a75f039d7137ca7fd53e3e49bc56c9dbe326f5))
+* mark the active nav link and drop redundant toc link labels ([d4c17b0](https://github.com/FjellOverflow/nordlys/commit/d4c17b05b33c98e4a89f13803816f81401798803))
+* match the active header link override regardless of trailing slash ([6afb398](https://github.com/FjellOverflow/nordlys/commit/6afb3988920cada448c19d7d97bc2bff6f25fde3))
+* remove the dropdown document click listener on disconnect ([97118eb](https://github.com/FjellOverflow/nordlys/commit/97118eb39b36dcb7173d3a6f120451dbd946d720))
+* render search results in rank order and drop stale queries ([c59d39c](https://github.com/FjellOverflow/nordlys/commit/c59d39c7c247592c6f4cc1c7ebf437b88f40b8fe))
+* show the correct remaining result count on the search page ([3b93ba0](https://github.com/FjellOverflow/nordlys/commit/3b93ba0daf92aa0d0995aedb7b6991366d1962fe))
+
 ## [3.10.1](https://github.com/FjellOverflow/nordlys/compare/v3.10.0...v3.10.1) (2026-11-11)
 
 ## [3.10.0](https://github.com/FjellOverflow/nordlys/compare/v3.9.3...v3.10.0) (2026-09-08)
