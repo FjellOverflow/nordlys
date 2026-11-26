@@ -64,16 +64,3 @@ export default defineThemeConfig({
 ```
 
 The predefined schemes use the same format. You can find them in `src/colorSchemes.ts`.
-
-#### Migrating a scheme from `color-schemes.css`
-
-Before version 4, custom schemes were CSS blocks in `src/style/color-schemes.css`. That file no longer exists. To migrate, copy the three numbers of each CSS variable into the matching tuple in `colorScheme`:
-
-| CSS variable in `.scheme-custom`       | Tuple in `colorScheme` |
-| -------------------------------------- | ---------------------- |
-| `--accent`                             | `light.accent`         |
-| `--accent-bg`                          | `light.accentBg`       |
-| `--accent` in `&[data-mode='dark']`    | `dark.accent`          |
-| `--accent-bg` in `&[data-mode='dark']` | `dark.accentBg`        |
-
-Then delete your `color-schemes.css` and take the new `src/types.ts` from Nordlys, which no longer has a `ColorSchemes` array. The `<html>` element no longer carries a `scheme-*` class. If your own CSS selects that class, select `:root` instead.
