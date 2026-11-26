@@ -21,4 +21,5 @@ export const isActiveNavItem = (
 ) =>
   activeHeaderLink === undefined
     ? isUnderHref(pathname, item.href)
-    : activeHeaderLink === item.label || activeHeaderLink === item.href
+    : activeHeaderLink === item.label ||
+      withoutTrailingSlash(activeHeaderLink) === withoutTrailingSlash(item.href)
